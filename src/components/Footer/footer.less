@@ -1,0 +1,46 @@
+@mobile: ~'only screen and (max-width: 767px)';
+@desktop: ~'only screen and (min-width: 768px)';
+
+footer {
+  margin-top: 4.5rem;
+}
+
+.footer-trademark-link {
+  color: white;
+  margin: 0;
+
+  @media @mobile {
+    display: none;
+  }
+}
+
+.footer-secondary {
+  margin-top: 0rem !important;
+  background-color: #343a40;
+
+  @media @mobile {
+    /*  padding: 2rem 0rem !important; */
+  }
+  @media @desktop {
+    padding: 1rem 0rem !important;
+  }
+}
+
+footer {
+  font-size: 1rem;
+
+  h3 {
+    font-size: 1rem !important;
+  }
+  .footer-main {
+    background: #e9ecef;
+    padding: 6em 0em;
+  }
+}
+
+.footer-nav-header {
+  color: #343a40 !important;
+  font-weight: 700 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.1em;
+}

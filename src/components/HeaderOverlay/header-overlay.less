@@ -1,0 +1,114 @@
+@import '../../semantic/site/globals/site.variables';
+
+.header-overlay {
+  position: relative;
+  height: 900px;
+  width: 100% !important;
+  display: flex;
+  justify-content: center;
+}
+
+.ui.text.container {
+  max-width: 100% !important;
+}
+
+@media only screen and (max-width: 767px) {
+  .header-overlay {
+    /*  height: calc(100vh - 64px); */
+    height: 100vh; /* Fallback for browsers that do not support Custom Properties */
+    height: calc(var(--vh, 1vh) * 100);
+  }
+}
+
+.header-overlay-container {
+  height: 100%;
+  word-break: break-word;
+  display: flex !important;
+  justify-content: center;
+  z-index: 100;
+  div {
+    z-index: 100;
+  }
+}
+
+.header-overlay-center-cropped {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background-repeat: no-repeat;
+  background-position: center center !important;
+  background-size: cover;
+}
+
+.header-overlay-image-wrapper {
+  display: flex;
+  height: 100%;
+  width: 100%;
+}
+
+.header-overlay-container-desktop {
+  display: flex;
+  align-self: center;
+  text-align: left;
+  width: 100%;
+  padding-bottom: 2rem;
+}
+
+.header-overlay-container-desktop-blog {
+  display: flex;
+  align-self: center;
+  text-align: center;
+  width: 100%;
+}
+
+.header-overlay-container-mobile {
+  display: flex;
+  align-self: center;
+  padding-top: 12rem;
+  text-align: left;
+  width: 100%;
+}
+
+.header-overlay-headline {
+  font-size: 4rem;
+  line-height: 4.5rem;
+  font-weight: 700;
+  white-space: pre-line;
+  color: @primaryColor;
+  letter-spacing: -0.2rem;
+}
+.header-overlay-subheadline {
+  margin-top: 0.5rem;
+  font-weight: 400;
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+  margin-bottom: 1rem;
+}
+
+@media only screen and (max-width: 767px) {
+  .header-overlay-headline {
+    font-size: 2.5rem;
+    line-height: 3rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .header-overlay-subheadline {
+    margin-top: 0.5rem;
+    font-weight: 400;
+    font-size: 1.2rem;
+    line-height: 1.5rem;
+  }
+}
+
+.header-overlay-headline-inverted {
+  color: #fff;
+  text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.25);
+  font-weight: 500;
+}
+
+.header-overlay-subheadline-inverted {
+  color: #fff;
+  text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.25);
+}
