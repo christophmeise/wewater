@@ -20,13 +20,13 @@ const Footer = () => {
                                             <Link to={getPathWithLocale('/spenden')}>So kannst du spenden</Link>
                                         </List.Item>
                                         <List.Item>
-                                            <Link to="/blog">So kannst du anderweitig unterstützen</Link>
+                                            <Link to={getPathWithLocale('/unterstuetzen')}>So kannst du anderweitig unterstützen</Link>
                                         </List.Item>
                                         <List.Item>
-                                            <Link to="/shop">Hier kannst du unsere Wasserfilter kaufen</Link>
+                                            <Link to={getPathWithLocale('/shop')}>Hier kannst du unsere Wasserfilter kaufen</Link>
                                         </List.Item>
                                         <List.Item>
-                                            <Link to="/contact">Spendenbescheinigung</Link>
+                                            <Link to={getPathWithLocale('/spenden')}>Spendenbescheinigung</Link>
                                         </List.Item>
                                     </List>
                                 </Grid.Column>
@@ -38,19 +38,16 @@ const Footer = () => {
                                     <Header className="footer-nav-header" as="h3" content="Informationen" />
                                     <List link>
                                         <List.Item>
-                                            <Link to="/impressum">Pressespiegel – WeWater in den Medien</Link>
+                                            <Link to={getPathWithLocale('/presse')}>Pressespiegel – WeWater in den Medien</Link>
                                         </List.Item>
                                         <List.Item>
-                                            <Link to="/dataprotection">Presse</Link>
+                                            <Link to={getPathWithLocale('/partner')}>Partner</Link>
                                         </List.Item>
                                         <List.Item>
-                                            <Link to="/dataprotection">Partner</Link>
+                                            <Link to={getPathWithLocale('/faq')}>FAQ</Link>
                                         </List.Item>
                                         <List.Item>
-                                            <Link to="/dataprotection">FAQ</Link>
-                                        </List.Item>
-                                        <List.Item>
-                                            <Link to="/dataprotection">Fragen? Schreib an hi@wewater.org</Link>
+                                            <Link to="mailto:hi@wewater.org">Fragen? Schreib an hi@wewater.org</Link>
                                         </List.Item>
                                     </List>
                                 </Grid.Column>

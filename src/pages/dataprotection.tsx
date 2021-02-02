@@ -1,7 +1,7 @@
 import { graphql } from 'gatsby';
 import React from 'react';
 import { Container } from 'semantic-ui-react';
-import Layout from '../components/layout';
+import Layout from '../components/Layout';
 import PlainHeader from '../components/PlainOverlay/plain-header';
 import SEO from '../components/seo';
 import withI18next from '../components/withI18next/withI18next';
