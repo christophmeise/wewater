@@ -74,35 +74,41 @@ class Index extends React.Component<Props> {
                 <h2 className="global-headline">Neuigkeiten</h2>
               </Header>
               <Grid style={{ paddingTop: '2em' }} stackable centered columns={3}>
-                <Grid.Column data-sal="slide-up" data-sal-delay="0" data-sal-duration="300" data-sal-easing="ease">
+                <Grid.Column>
                   {posts
                     .filter((post) => post.node.title.length > 0)
                     .map(({ node: post }) => {
                       return (
                         posts.findIndex((entry) => entry.node.id === post.id) % 3 === 0 && (
-                          <BlogPostCard key={post.id} post={post}></BlogPostCard>
+                          <div data-sal="slide-up" data-sal-delay="0" data-sal-duration="300" data-sal-easing="ease">
+                            <BlogPostCard key={post.id} post={post}></BlogPostCard>
+                          </div>
                         )
                       );
                     })}
                 </Grid.Column>
-                <Grid.Column data-sal="slide-up" data-sal-delay="0" data-sal-duration="300" data-sal-easing="ease">
+                <Grid.Column>
                   {posts
                     .filter((post) => post.node.title.length > 0)
                     .map(({ node: post }) => {
                       return (
                         posts.findIndex((entry) => entry.node.id === post.id) % 3 === 1 && (
-                          <BlogPostCard key={post.id} post={post}></BlogPostCard>
+                          <div data-sal="slide-up" data-sal-delay="0" data-sal-duration="300" data-sal-easing="ease">
+                            <BlogPostCard key={post.id} post={post}></BlogPostCard>
+                          </div>
                         )
                       );
                     })}
                 </Grid.Column>
-                <Grid.Column data-sal="slide-up" data-sal-delay="0" data-sal-duration="300" data-sal-easing="ease">
+                <Grid.Column>
                   {posts
                     .filter((post) => post.node.title.length > 0)
                     .map(({ node: post }) => {
                       return (
                         posts.findIndex((entry) => entry.node.id === post.id) % 3 === 2 && (
-                          <BlogPostCard key={post.id} post={post}></BlogPostCard>
+                          <div data-sal="slide-up" data-sal-delay="0" data-sal-duration="300" data-sal-easing="ease">
+                            <BlogPostCard key={post.id} post={post}></BlogPostCard>
+                          </div>
                         )
                       );
                     })}

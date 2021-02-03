@@ -9,12 +9,14 @@ module.exports = {
     {
       resolve: `gatsby-source-wordpress-experimental`,
       options: {
-        url: process.env.WPGRAPHQL_URL || 'https://wewater.org/graphql',
+        url: process.env.WPGRAPHQL_URL || 'http://18.197.107.224/graphql',
         //'https://wewater.org/graphql',
         // allows a fallback url if WPGRAPHQL_URL is not set in the env, this may be a local or remote WP instance.
         schema: {
           //Prefixes all WP Types with "Wp" so "Post and allPost" become "WpPost and allWpPost".
           typePrefix: `Wp`,
+          requestConcurrency: 5, // currently set to undefined
+          previewRequestConcurrency: 2, // currently set to undefined
         },
         develop: {
           //caches media files outside of Gatsby's default cache an thus allows them to persist through a cache reset.

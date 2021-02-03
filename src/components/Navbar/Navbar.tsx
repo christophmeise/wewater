@@ -88,7 +88,7 @@ export default class Navbar extends Component<NavbarProps, NavbarState> {
         {!mobile && (
           <Menu.Menu position="right">
             <Menu.Item>
-              <Link to={getPathWithLocale('/book-call')}>
+              <Link to={getPathWithLocale('/spenden')}>
                 <Button
                   className="shadow hover-animate rounded"
                   primary={!inverted}
@@ -106,7 +106,7 @@ export default class Navbar extends Component<NavbarProps, NavbarState> {
           <React.Fragment>
             <LanguageSwitcher t={t} mobile={mobile}></LanguageSwitcher>
             <Menu.Item>
-              <Link to={getPathWithLocale('/book-call')}>
+              <Link to={getPathWithLocale('/spenden')}>
                 <Button primary={true} inverted={false} size="small">
                   {t('spenden-button-call2action')}
                 </Button>
