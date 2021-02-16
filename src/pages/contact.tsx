@@ -2,7 +2,7 @@ import { graphql } from 'gatsby';
 import React from 'react';
 import { Container, Grid, Icon } from 'semantic-ui-react';
 import ContactForm from '../components/ContactForm/contactForm';
-import Layout from '../components/Layout';
+import Layout from '../components/Layout/Layout';
 import PlainHeader from '../components/PlainOverlay/plain-header';
 import SEO from '../components/seo';
 import withI18next from '../components/withI18next/withI18next';

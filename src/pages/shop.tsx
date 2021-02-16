@@ -2,7 +2,7 @@ import { graphql } from 'gatsby';
 import React from 'react';
 import { Container, Grid, Header } from 'semantic-ui-react';
 import HeaderOverlay from '../components/HeaderOverlay/header-overlay';
-import Layout from '../components/Layout';
+import Layout from '../components/Layout/Layout';
 import SEO from '../components/seo';
 import ShopCard, { ShopItem } from '../components/ShopCard/shop-card';
 import withI18next from '../components/withI18next/withI18next';

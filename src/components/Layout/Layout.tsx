@@ -1,10 +1,11 @@
 import { navigate } from '@reach/router';
 import React, { Component } from 'react';
 import 'semantic-ui-less/semantic.less';
-import { Container, Icon, Menu } from 'semantic-ui-react';
-import Footer from './Footer/Footer';
-import Logo from './Logo/Logo';
-import Navbar from './Navbar/Navbar';
+import { Container, Menu } from 'semantic-ui-react';
+import Footer from '../Footer/Footer';
+import Navbar from '../Navbar/Navbar';
+import './layout.less';
+import MobileMenu from './MobileMenu';
 
 interface Props {
     t: any;
@@ -104,31 +105,14 @@ export default class Layout extends Component<Props, any> {
 
         return (
             <React.Fragment>
-                <Menu
-                    className="responsive-mobile-container global-navbar-mobile"
-                    fixed="top"
-                    inverted
-                    size="large"
-                    borderless
-                >
-                    <Menu.Item
-                        style={{ paddingBottom: '0', paddingTop: '0', alignSelf: 'center' }}
-                        name="/"
-                        link
-                        onClick={this.handleNavigate}
-                    >
-                        <Logo />
-                    </Menu.Item>
-                    <Menu.Item position="right" onClick={this.handleToggle}>
-                        <Icon style={{ margin: '0', color: 'white' }} name="sidebar" />
-                    </Menu.Item>
-                </Menu>
+                <MobileMenu handleToggle={this.handleToggle} handleNavigate={this.handleNavigate}></MobileMenu>
+
                 <div className="flex-container">
                     <Menu
                         className="mobile-menu responsive-mobile-container"
                         style={{
                             minHeight: sidebarOpened ? '100vh' : '0vh',
-                            background: sidebarOpened ? '#000000' : 'rgba(0, 0, 0, 0.5)',
+                            background: sidebarOpened ? '#FFFFFF' : 'rgba(255, 255, 255, 0.5)',
                         }}
                         vertical
                         visible="true"
@@ -177,7 +161,7 @@ export default class Layout extends Component<Props, any> {
                             )}
                         <main role="main">
                             {children}
-                            <Footer />
+                            <Footer t={t} />
                         </main>
                     </div>
                 </div>

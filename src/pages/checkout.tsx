@@ -3,7 +3,7 @@ import React from 'react';
 import { Container } from 'semantic-ui-react';
 import CheckoutForm from '../components/Checkout/CheckoutForm/CheckoutForm';
 import HeaderOverlay from '../components/HeaderOverlay/header-overlay';
-import Layout from '../components/Layout';
+import Layout from '../components/Layout/Layout';
 import SEO from '../components/seo';
 import { ShopItem } from '../components/ShopCard/shop-card';
 import withI18next from '../components/withI18next/withI18next';

@@ -1,3 +1,5 @@
+@import '../../styles/lib.less';
+
 .logo-container {
     display: flex !important;
     flex-direction: row;
@@ -5,6 +7,9 @@
     align-items: center;
     height: 100%;
     width: 100%;
+}
+
+@media @desktop {
 
     img {
         height: 60px;
@@ -15,4 +20,20 @@
         height: 60px;
         width: 80px;
     }
+}
+
+@media @mobile {
+
+    img {
+    height: 48px;
+    width: 64px;
+    }
+
+    svg {
+    height: 48px;
+    width: 64px;
+        margin-bottom: -5px;
+
+    }
+
 }

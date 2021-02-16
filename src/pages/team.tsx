@@ -3,7 +3,7 @@ import Img from 'gatsby-image';
 import React from 'react';
 import { Container, Header } from 'semantic-ui-react';
 import HeaderOverlay from '../components/HeaderOverlay/header-overlay';
-import Layout from '../components/Layout';
+import Layout from '../components/Layout/Layout';
 import SEO from '../components/seo';
 import withI18next from '../components/withI18next/withI18next';
 import './team.less';

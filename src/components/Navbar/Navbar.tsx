@@ -40,7 +40,7 @@ export default class Navbar extends Component<NavbarProps, NavbarState> {
     return (
       <React.Fragment>
         {!mobile && (
-          <Menu.Item className="menu-item-logo" name="/" link onClick={this.handleNavigate}>
+          <Menu.Item className="menu-item-logo" name="/" link onClick={() => this.handleNavigate}>
             <Logo />
           </Menu.Item>
         )}
@@ -49,42 +49,42 @@ export default class Navbar extends Component<NavbarProps, NavbarState> {
           content="Das Filtersystem"
           link
           active={location.pathname === '/filtersystem'}
-          onClick={this.handleNavigate}
+          onClick={() => this.handleNavigate}
         ></Menu.Item>
         <Menu.Item
           name="/spenden"
           content="Spenden"
           link
           active={location.pathname === '/spenden'}
-          onClick={this.handleNavigate}
+          onClick={() => this.handleNavigate}
         ></Menu.Item>
         <Menu.Item
           name="/team"
           content="Team"
           link
           active={location.pathname === '/team'}
-          onClick={this.handleNavigate}
+          onClick={() => this.handleNavigate}
         ></Menu.Item>
         <Menu.Item
           name="/projekte"
           content="Projekte"
           link
           active={location.pathname === '/projekte'}
-          onClick={this.handleNavigate}
+          onClick={() => this.handleNavigate}
         ></Menu.Item>
         <Menu.Item
           name="/blog"
           content="Blog"
           link
           active={location.pathname === '/blog'}
-          onClick={this.handleNavigate}
+          onClick={() => this.handleNavigate}
         ></Menu.Item>
         <Menu.Item
           name="/shop"
           content="Shop"
           link
           active={location.pathname === '/shop'}
-          onClick={this.handleNavigate}
+          onClick={() => this.handleNavigate}
         ></Menu.Item>
         <Menu.Item
           active={false}

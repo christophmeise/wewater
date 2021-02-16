@@ -3,7 +3,7 @@ import Img from 'gatsby-image';
 import React from 'react';
 import { Container, Grid, GridColumn } from 'semantic-ui-react';
 import AddToCartButton from '../components/Cart/AddToCartButton/AddToCartButton';
-import Layout from '../components/Layout';
+import Layout from '../components/Layout/Layout';
 import SEO from '../components/seo';
 import { ShopItem } from '../components/ShopCard/shop-card';
 import withI18next from '../components/withI18next/withI18next';

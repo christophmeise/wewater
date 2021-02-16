@@ -5,7 +5,7 @@ import { getPathWithLocale } from '../navigateWithLocale';
 import Logo from './../Logo/Logo';
 import './footer.less';
 
-const Footer = () => {
+const Footer = (t) => {
     return (
         <footer>
             <div className="footer-main">

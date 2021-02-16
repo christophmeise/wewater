@@ -5,7 +5,7 @@ import React from 'react';
 import { Button, Container, Icon } from 'semantic-ui-react';
 import SectionBlog from '../components/Blog/blog';
 import HeaderOverlay2Col from '../components/HeaderOverlay/header-overlay-2-col';
-import Layout from '../components/Layout';
+import Layout from '../components/Layout/Layout';
 import { getPathWithLocale } from '../components/navigateWithLocale';
 import SEO from '../components/seo';
 import SpendenWidget from '../components/SpendenWidget/spenden-widget';

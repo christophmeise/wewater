@@ -2,7 +2,7 @@ import { graphql } from 'gatsby';
 import React from 'react';
 import { Container } from 'semantic-ui-react';
 import VideoOverlay from '../components/HeaderOverlay/video-overlay';
-import Layout from '../components/Layout';
+import Layout from '../components/Layout/Layout';
 import SEO from '../components/seo';
 import withI18next from '../components/withI18next/withI18next';
 

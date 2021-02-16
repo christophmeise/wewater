@@ -3,7 +3,7 @@ import React from 'react';
 import { Container, Grid, Header } from 'semantic-ui-react';
 import BlogPostCard from '../components/BlogPostCard/blog-post-card';
 import HeaderOverlay from '../components/HeaderOverlay/header-overlay';
-import Layout from '../components/Layout';
+import Layout from '../components/Layout/Layout';
 import SEO from '../components/seo';
 import withI18next from '../components/withI18next/withI18next';
 import './index.less';
