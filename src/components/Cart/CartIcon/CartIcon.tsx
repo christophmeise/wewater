@@ -3,7 +3,7 @@ import { AppContext } from "../../context/AppContext";
 import CartDropdown from "../CartDropdown/CartDropdown";
 import './style.less';
 
-const CartIcon = () => {
+const CartIcon = ({ t }) => {
 
 	const [cart]: any = useContext(AppContext);
 	const [isDropdownOpen, setIsDropdownOpen] = useState(false);
@@ -17,7 +17,7 @@ const CartIcon = () => {
 				<div className="woo-next-cart-wrap">
 					{totalPrice ? <span className="woo-next-cart-price mr-2">{totalPrice}</span> : ''}
 					<span className="woo-next-cart-icon-container">
-						<span role="img" aria-label="cart-icon">🛒</span>
+						<span role="img" aria-label="cart-icon">🛒 {t('Einkaufswagen')}</span>
 						{productsCount ? <span className="woo-next-cart-count">{productsCount}</span> : ''}
 					</span>
 				</div>
