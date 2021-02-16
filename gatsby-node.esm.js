@@ -58,6 +58,10 @@ const localesNSContent = {
             content: fs.readFileSync(`src/locales/en/page_partner.json`, 'utf8'),
             ns: 'page_partner',
         },
+        {
+            content: fs.readFileSync(`src/locales/en/page_versand.json`, 'utf8'),
+            ns: 'page_versand',
+        },
     ],
     de: [
         {
@@ -108,6 +112,10 @@ const localesNSContent = {
             content: fs.readFileSync(`src/locales/de/page_partner.json`, 'utf8'),
             ns: 'page_partner',
         },
+        {
+            content: fs.readFileSync(`src/locales/de/page_versand.json`, 'utf8'),
+            ns: 'page_versand',
+        },
     ],
 };
 
@@ -130,9 +138,10 @@ export function onCreateWebpackConfig({ actions }) {
 export async function createPages ({ graphql, actions }) {
   const { createPage } = actions
   const blogPostTemplate = resolve(`src/templates/blog-post.tsx`);
-  // const shopArticleTemplate = resolve(`src/templates/shop-article.tsx`);
+  const shopArticleTemplate = resolve(`src/templates/shop-article.tsx`);
+  const projektPostTemplate = resolve(`src/templates/projekt-post.tsx`);
 
-   const result = await graphql(`
+   const blogPosts = await graphql(`
         {
           allWpPost(sort: {fields: [date]}) {
             edges {
@@ -148,49 +157,86 @@ export async function createPages ({ graphql, actions }) {
     `);
 
 
-     if (result.errors) {
+     if (blogPosts.errors) {
         reporter.panicOnBuild(`Error while running GraphQL query.`);
         return;
     }
 
-    result.data.allWpPost.edges.forEach(({ node }) => {
-            createPageForEachLanguage(createPage, blogPostTemplate, node.slug);
-/*         else {
-            createPageForEachLanguage(createPage, shopArticleTemplate, node.frontmatter.path);
-        } */
+    blogPosts.data.allWpPost.edges.forEach(({ node }) => {
+        createPageForEachLanguage(createPage, blogPostTemplate, node.slug, 'blog/');
     });
 
-  /*return graphql(`
-     {
-          allWpPost(sort: {fields: [date]}) {
-            edges {
-              node {
-                title
-                excerpt
-                slug
-                date(formatString: "MM-DD-YYYY")
-              }
+   const projektPosts = await graphql(`
+        {
+            allWpDtPortfolio(
+                sort: { fields: date, order: DESC }
+            ) {
+                edges {
+                    node {
+                        id
+                        author {
+                            node {
+                                firstName
+                                lastName
+                            }
+                        }
+                        excerpt
+                        title
+                        date(formatString: "MMMM DD, YYYY", locale: "de")
+                        uri
+                        slug
+                    }
+                }
             }
-          }
+        }
+    `);
+
+
+     if (projektPosts.errors) {
+        reporter.panicOnBuild(`Error while running GraphQL query.`);
+        return;
     }
-  `).then(result => {
-    result.data.allWpPost.edges.forEach(({ node }) => {
-      createPage({
-        // Decide URL structure
-        path: node.slug,
-        // path to template
-        component: path.resolve(`./src/templates/blog-post.tsx`),
-        context: {
-          // This is the $slug variable
-          // passed to blog-post.js
-          slug: node.slug,
-        },
-      })
-    })
-  }) */
+
+    projektPosts.data.allWpDtPortfolio.edges.forEach(({ node }) => {
+        createPageForEachLanguage(createPage, projektPostTemplate, node.slug, 'projekte/');
+    });
+
+
+    const shopItems = await graphql(`
+        {
+            allWpProduct(
+              sort: { fields: date, order: DESC }
+          ) {
+              edges {
+                  node {
+                      id
+                      name
+                      description
+                      shortDescription
+                      date(formatString: "MMMM DD, YYYY", locale: "de")
+                      slug
+                      onSale
+                      status
+                      averageRating
+                      databaseId
+                  }
+              }
+          }
+        }
+    `);
+
+     if (shopItems.errors) {
+        reporter.panicOnBuild(`Error while running GraphQL query.`);
+        return;
+    }
+
+    shopItems.data.allWpProduct.edges.forEach(({ node }) => {
+        createPageForEachLanguage(createPage, shopArticleTemplate, node.slug, 'shop/');
+    });
+
 }
 
-function createPageForEachLanguage(createPage, component, originalPath) {
+function createPageForEachLanguage(createPage, component, originalPath, prefix) {
     availableLocales.map(({ lang }) => {
         let localizedPath = `/${lang}${originalPath}`;
         if (defaultLocales.lang === lang) {
@@ -200,7 +246,7 @@ function createPageForEachLanguage(createPage, component, originalPath) {
         const localePage = {
             component: component,
             originalPath: originalPath,
-            path: localizedPath,
+            path: prefix + localizedPath,
             context: {
                 availableLocales,
                 locale: lang,

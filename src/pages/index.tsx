@@ -1,11 +1,12 @@
 import { faTint } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { graphql } from 'gatsby';
+import { graphql, Link } from 'gatsby';
 import React from 'react';
 import { Button, Container, Icon } from 'semantic-ui-react';
 import SectionBlog from '../components/Blog/blog';
 import HeaderOverlay2Col from '../components/HeaderOverlay/header-overlay-2-col';
 import Layout from '../components/Layout';
+import { getPathWithLocale } from '../components/navigateWithLocale';
 import SEO from '../components/seo';
 import SpendenWidget from '../components/SpendenWidget/spenden-widget';
 import Video from '../components/Video/video';
@@ -50,8 +51,31 @@ class Index extends React.Component<Props> {
             <HeaderImage></HeaderImage>
           </Container>}
         />
-        <div className="global-header-padding">
+        <div>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 160 1440 160" style={{ marginBottom: "-0.5rem" }}>
+            <path fill="#eff9fd" fill-opacity="1" d="M0,288L40,277.3C80,267,160,245,240,245.3C320,245,400,267,480,282.7C560,299,640,309,720,298.7C800,288,880,256,960,245.3C1040,235,1120,245,1200,234.7C1280,224,1360,192,1400,176L1440,160L1440,320L1400,320C1360,320,1280,320,1200,320C1120,320,1040,320,960,320C880,320,800,320,720,320C640,320,560,320,480,320C400,320,320,320,240,320C160,320,80,320,40,320L0,320Z"></path>
+          </svg>
+
           <Video></Video>
+          <div className="background-primary donate-c2a-section">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#eff9fd" fill-opacity="1" d="M0,192L80,181.3C160,171,320,149,480,128C640,107,800,85,960,85.3C1120,85,1280,107,1360,117.3L1440,128L1440,0L1360,0C1280,0,1120,0,960,0C800,0,640,0,480,0C320,0,160,0,80,0L0,0Z"></path>
+            </svg>
+            <Container textAlign="center">
+              <h3>Hilf jetzt mit deiner Spende.</h3>
+              <h4>WeWater arbeitet ehrenamtlich sowie auf Spendenbasis. Daher sind wir auf finanzielle Hilfe angewiesen sind, um Wasserprojekte zu realisieren.</h4>
+              <Link to={getPathWithLocale('/spenden')}>
+                <Button primary inverted className="shadow rounded hover-animate">
+                  <FontAwesomeIcon icon={faTint} style={{ opacity: '1', margin: '0em 0.42857143em 0em -0.21428571em' }} />
+                Ich will helfen!
+              </Button>
+              </Link>
+
+            </Container>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" style={{ marginBottom: "-0.5rem" }}>
+              <path fill="#ffffff" fill-opacity="1" d="M0,192L80,181.3C160,171,320,149,480,144C640,139,800,149,960,144C1120,139,1280,117,1360,106.7L1440,96L1440,320L1360,320C1280,320,1120,320,960,320C800,320,640,320,480,320C320,320,160,320,80,320L0,320Z">
+              </path>
+            </svg>
+          </div>
           <SectionBlog></SectionBlog>
           <SpendenWidget></SpendenWidget>
         </div>

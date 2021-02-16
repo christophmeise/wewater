@@ -48,7 +48,7 @@ class ShopPage extends React.Component<Props, any> {
                 media: `(min-width: 768px)`,
             },
         ];
-        const backgroundColor = '#FFFFFF';
+        const backgroundColor = '#bc9456';
         const shopItems = data.german.edges;
 
         return (
@@ -64,7 +64,7 @@ class ShopPage extends React.Component<Props, any> {
                         textAlign='center'
                         className="global-flex-column global-no-margin"
                     >
-                        <h3 className={`global-subtitle text-primary}`}>News von WeWater</h3>
+                        <h3 className={`global-subtitle text-primary`}>News von WeWater</h3>
                         <h2 className="global-headline">Neuigkeiten</h2>
                     </Header>
                     <Grid style={{ paddingTop: '2em' }} stackable centered columns={3}>
@@ -74,8 +74,8 @@ class ShopPage extends React.Component<Props, any> {
                                 .map(({ node: post }) => {
                                     return (
                                         shopItems.findIndex((entry) => entry.node.id === post.id) % 3 === 0 && (
-                                            <div data-sal="slide-up" data-sal-delay="0" data-sal-duration="300" data-sal-easing="ease">
-                                                <ShopCard key={post.id} shopItem={post} ></ShopCard>
+                                            <div key={post.id} data-sal="slide-up" data-sal-delay="0" data-sal-duration="300" data-sal-easing="ease">
+                                                <ShopCard shopItem={post} ></ShopCard>
                                             </div>
                                         )
                                     );
@@ -87,8 +87,8 @@ class ShopPage extends React.Component<Props, any> {
                                 .map(({ node: post }) => {
                                     return (
                                         shopItems.findIndex((entry) => entry.node.id === post.id) % 3 === 1 && (
-                                            <div data-sal="slide-up" data-sal-delay="0" data-sal-duration="300" data-sal-easing="ease">
-                                                <ShopCard key={post.id} shopItem={post} data-sal="slide-up" data-sal-delay="0" data-sal-duration="300" data-sal-easing="ease"></ShopCard>
+                                            <div key={post.id} data-sal="slide-up" data-sal-delay="0" data-sal-duration="300" data-sal-easing="ease">
+                                                <ShopCard shopItem={post} data-sal="slide-up" data-sal-delay="0" data-sal-duration="300" data-sal-easing="ease"></ShopCard>
                                             </div>
                                         )
                                     );
@@ -100,8 +100,8 @@ class ShopPage extends React.Component<Props, any> {
                                 .map(({ node: post }) => {
                                     return (
                                         shopItems.findIndex((entry) => entry.node.id === post.id) % 3 === 2 && (
-                                            <div data-sal="slide-up" data-sal-delay="0" data-sal-duration="300" data-sal-easing="ease">
-                                                <ShopCard key={post.id} shopItem={post} data-sal="slide-up" data-sal-delay="0" data-sal-duration="300" data-sal-easing="ease"></ShopCard>
+                                            <div key={post.id} data-sal="slide-up" data-sal-delay="0" data-sal-duration="300" data-sal-easing="ease">
+                                                <ShopCard shopItem={post} data-sal="slide-up" data-sal-delay="0" data-sal-duration="300" data-sal-easing="ease"></ShopCard>
                                             </div>
                                         )
                                     );
@@ -132,9 +132,7 @@ class OverlayContent extends React.Component<any, any> {
                 </h1>
                 <h2 className={`header-overlay-subheadline ${inverted ? 'header-overlay-subheadline-inverted' : ''}`}
                     style={{ marginBottom: '1.5rem', marginTop: '0rem' }}>
-                    <p>
-                        {t('page_shop:subheadline')}
-                    </p>
+                    {t('page_shop:subheadline')}
                 </h2>
             </div>
         );
@@ -149,14 +147,14 @@ export const pageQuery = graphql`
                 description
             }
         }
-        desktopImage: file(relativePath: { eq: "images/projekte/banner.jpeg" }) {
+        desktopImage: file(relativePath: { eq: "images/shop/banner__.jpg" }) {
             childImageSharp {
                 fluid(maxWidth: 1600, quality: 100) {
                     ...GatsbyImageSharpFluid_withWebp
                 }
             }
         }
-        mobileImage: file(relativePath: { eq: "images/projekte/banner-mobile.jpeg" }) {
+        mobileImage: file(relativePath: { eq: "images/shop/banner__.jpg" }) {
             childImageSharp {
                 fluid(maxWidth: 1200, quality: 100) {
                     ...GatsbyImageSharpFluid_withWebp
@@ -177,6 +175,7 @@ export const pageQuery = graphql`
                     onSale
                     status
                     averageRating
+                    databaseId
                     image {
                         localFile {
                             childImageSharp {

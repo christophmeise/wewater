@@ -1,5 +1,6 @@
 import React from 'react';
 import { Helmet } from 'react-helmet';
+import { Container } from 'semantic-ui-react';
 import './spenden-widget.less';
 
 class SpendenWidget extends React.Component<any, any> {
@@ -10,7 +11,7 @@ class SpendenWidget extends React.Component<any, any> {
 
     render() {
         return (
-            <React.Fragment>
+            <Container style={{ padding: '3rem 0rem' }}>
                 <Helmet
                     script={
                         [
@@ -41,7 +42,7 @@ class SpendenWidget extends React.Component<any, any> {
                    </a>
                     </strong>
                 </div>
-            </React.Fragment>
+            </Container>
         );
     }
 }

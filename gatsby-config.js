@@ -1,15 +1,16 @@
 module.exports = {
   siteMetadata: {
     title: `WeWater`,
-    author: `Christoph Meise`,
     description: `WeWater`,
     siteUrl: `https://wewater.org/`,
+    author: `Christoph Meise`,
   },
   plugins: [
     {
       resolve: `gatsby-source-wordpress-experimental`,
       options: {
         url: process.env.WPGRAPHQL_URL || 'http://18.197.107.224/graphql',
+        verbose: true,
         //'https://wewater.org/graphql',
         // allows a fallback url if WPGRAPHQL_URL is not set in the env, this may be a local or remote WP instance.
         schema: {
@@ -19,9 +20,23 @@ module.exports = {
           previewRequestConcurrency: 2, // currently set to undefined
         },
         develop: {
-          //caches media files outside of Gatsby's default cache an thus allows them to persist through a cache reset.
+          nodeUpdateInterval: 3000,
           hardCacheMediaFiles: true,
         },
+        production: {
+          hardCacheMediaFiles: false,
+        },
+        debug: {
+          graphql: {
+            showQueryOnError: false,
+            showQueryVarsOnError: true,
+            copyQueryOnError: true,
+            panicOnError: true,
+            // a critical error is a WPGraphQL query that returns an error and no response data. Currently WPGQL will error if we try to access private posts so if this is false it returns a lot of irrelevant errors.
+            onlyReportCriticalErrors: true,
+          },
+        },
+        excludeFieldNames: [`blocksJSON`, `saveContent`],
         type: {
           Post: {
             limit:

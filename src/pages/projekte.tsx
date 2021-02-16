@@ -63,7 +63,7 @@ class ProjektePage extends React.Component<Props, any> {
                         textAlign='center'
                         className="global-flex-column global-no-margin"
                     >
-                        <h3 className={`global-subtitle text-primary}`}>News von WeWater</h3>
+                        <h3 className={`global-subtitle text-primary`}>News von WeWater</h3>
                         <h2 className="global-headline">Neuigkeiten</h2>
                     </Header>
                     <Grid style={{ paddingTop: '2em' }} stackable centered columns={3}>
@@ -118,9 +118,7 @@ class OverlayContent extends React.Component<any, any> {
                 </h1>
                 <h2 className={`header-overlay-subheadline ${inverted ? 'header-overlay-subheadline-inverted' : ''}`}
                     style={{ marginBottom: '1.5rem', marginTop: '0rem' }}>
-                    <p>
-                        {t('page_projekte:subheadline')}
-                    </p>
+                    {t('page_projekte:subheadline')}
                 </h2>
             </div>
         );

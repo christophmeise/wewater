@@ -1,6 +1,7 @@
 import { Link } from 'gatsby'
 import React, { Component } from 'react'
 import { Button, Menu } from 'semantic-ui-react'
+import CartIcon from '../Cart/CartIcon/CartIcon'
 import LanguageSwitcher from '../language-switcher/language-switcher'
 import navigateWithLocale, { getPathWithLocale } from '../navigateWithLocale'
 import Logo from './../Logo/Logo'
@@ -85,6 +86,11 @@ export default class Navbar extends Component<NavbarProps, NavbarState> {
           active={location.pathname === '/shop'}
           onClick={this.handleNavigate}
         ></Menu.Item>
+        <Menu.Item
+          active={false}
+        >
+          <CartIcon></CartIcon>
+        </Menu.Item>
         {!mobile && (
           <Menu.Menu position="right">
             <Menu.Item>

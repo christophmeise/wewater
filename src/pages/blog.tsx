@@ -70,7 +70,7 @@ class Index extends React.Component<Props> {
                 textAlign='center'
                 className="global-flex-column global-no-margin"
               >
-                <h3 className={`global-subtitle text-primary}`}>News von WeWater</h3>
+                <h3 className={`global-subtitle text-primary`}>News von WeWater</h3>
                 <h2 className="global-headline">Neuigkeiten</h2>
               </Header>
               <Grid style={{ paddingTop: '2em' }} stackable centered columns={3}>
@@ -141,12 +141,11 @@ class OverlayContent extends React.Component<any, any> {
         </h1>
         <h2 className={`header-overlay-subheadline ${inverted ? 'header-overlay-subheadline-inverted' : null}`}
           style={{ marginBottom: '1.5rem', marginTop: '0rem' }}>
-          <p>
-            Trinkwasser ist ein Menschenrecht.
-          </p>
-          <p>
-            Dennoch leiden weltweit 844 Millionen Menschen Durst oder erkranken an verschmutztem Wasser. Unsere Mission ist es, diesen Menschen durch sauberes Trinkwasser eine existentielle Lebensgrundlage zu ermöglichen.
-          </p>
+          Trinkwasser ist ein Menschenrecht.
+        </h2>
+        <h2 className={`header-overlay-subheadline ${inverted ? 'header-overlay-subheadline-inverted' : null}`}
+          style={{ marginBottom: '1.5rem', marginTop: '0rem' }}>
+          Dennoch leiden weltweit 844 Millionen Menschen Durst oder erkranken an verschmutztem Wasser. Unsere Mission ist es, diesen Menschen durch sauberes Trinkwasser eine existentielle Lebensgrundlage zu ermöglichen.
         </h2>
       </div>
     );

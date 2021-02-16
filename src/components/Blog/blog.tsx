@@ -55,7 +55,7 @@ const SectionBlog = () => {
     posts = posts.slice(0, 3);
 
     return (
-        <section className="bg-secondary">
+        <section className="bg-secondary" style={{ padding: '3rem 0rem' }}>
             <Container>
                 <Header
                     data-sal="slide-up"
@@ -65,7 +65,7 @@ const SectionBlog = () => {
                     textAlign='center'
                     className="global-flex-column global-no-margin"
                 >
-                    <h3 className={`global-subtitle text-primary}`}>News von WeWater</h3>
+                    <h3 className={`global-subtitle text-primary`}>News von WeWater</h3>
                     <h2 className="global-headline">Neuigkeiten</h2>
                 </Header>
                 <Grid style={{ paddingTop: '2em' }} stackable centered columns={3}>

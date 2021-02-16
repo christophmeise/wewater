@@ -1,8 +1,8 @@
 import { graphql } from 'gatsby';
 import React from 'react';
 import { Container } from 'semantic-ui-react';
+import VideoOverlay from '../components/HeaderOverlay/video-overlay';
 import Layout from '../components/Layout';
-import PlainHeader from '../components/PlainOverlay/plain-header';
 import SEO from '../components/seo';
 import withI18next from '../components/withI18next/withI18next';
 
@@ -36,8 +36,8 @@ class FiltersystemPage extends React.Component<Props, any> {
         return (
             <Layout title={siteTitle} t={t}>
                 <SEO title="Filtersystem" />
+                <VideoOverlay content={<OverlayContent t={t} inverted={true} />} darken={false} sources='videos/filtersystem.mp4' />
                 <Container className="global-header-padding">
-                    <PlainHeader content={HeaderContent(t)} />
                     <Container text>
                         <div className="main-content-sections">
                             <section>
@@ -51,14 +51,32 @@ class FiltersystemPage extends React.Component<Props, any> {
     }
 }
 
-const HeaderContent = (t) => {
-    return (
-        <div>
-            <h1 className="header-overlay-headline">{t('page_filtersystem:headline')}</h1>
-            <h2 className="header-overlay-subheadline">{t('page_filtersystem:subheadline')}</h2>
-        </div>
-    );
-};
+class OverlayContent extends React.Component<any, any> {
+    constructor(props: Props) {
+        super(props);
+    }
+
+    render() {
+        const { inverted, t } = this.props;
+
+        return (
+            <div>
+                <h1
+                    className={`header-overlay-headline ${inverted ? 'header-overlay-headline-inverted' : ''}`}
+                    style={{ marginBottom: '1.5rem' }}
+                >
+                    {t('page_filtersystem:headline')}
+                </h1>
+                <h2 className={`header-overlay-subheadline ${inverted ? 'header-overlay-subheadline-inverted' : ''}`}
+                    style={{ marginBottom: '1.5rem', marginTop: '0rem' }}>
+                    <p>
+                        {t('page_filtersystem:subheadline')}
+                    </p>
+                </h2>
+            </div>
+        );
+    }
+}
 
 export const pageQuery = graphql`
     query {

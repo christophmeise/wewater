@@ -1,0 +1,15 @@
+.header-overlay {
+  position: relative;
+  height: 850px;
+  width: 100% !important;
+  display: flex;
+  justify-content: center;
+}
+
+@media only screen and (max-width: 767px) {
+  .header-overlay {
+    /*  height: calc(100vh - 64px); */
+    height: 100vh; /* Fallback for browsers that do not support Custom Properties */
+    height: calc(var(--vh, 1vh) * 100);
+  }
+}
