@@ -3,8 +3,8 @@ import React, { Component } from 'react'
 import { Button, Menu } from 'semantic-ui-react'
 import CartIcon from '../Cart/CartIcon/CartIcon'
 import LanguageSwitcher from '../language-switcher/language-switcher'
+import Logo from '../Logo/Logo'
 import navigateWithLocale, { getPathWithLocale } from '../navigateWithLocale'
-import Logo from './../Logo/Logo'
 import './navbar.less'
 
 interface NavbarProps {
@@ -12,6 +12,7 @@ interface NavbarProps {
   location: any
   inverted: boolean
   mobile: boolean
+  onHoverMenuItem?: any;
 }
 
 interface NavbarState {
@@ -35,56 +36,58 @@ export default class Navbar extends Component<NavbarProps, NavbarState> {
   handleNavigate = (e, { name }) => navigateWithLocale(name)
 
   render() {
-    const { location, inverted, mobile, t } = this.props
-
+    const { location, inverted, mobile, t, onHoverMenuItem } = this.props
     return (
       <React.Fragment>
         {!mobile && (
-          <Menu.Item className="menu-item-logo" name="/" link onClick={this.handleNavigate.bind(this)}>
+          <Menu.Item className="menu-item-logo" name="/" link onClick={() => this.handleNavigate}>
             <Logo />
           </Menu.Item>
         )}
         <Menu.Item
           name="/filtersystem"
-          content="Das Filtersystem"
+          content="Filtersysteme"
           link
           active={location.pathname === '/filtersystem'}
-          onClick={this.handleNavigate.bind(this)}
+          onClick={() => this.handleNavigate}
+          onMouseEnter={onHoverMenuItem?.bind(this, 'Filtersysteme')}
+          data-nav='Filtersysteme'
+          className="navlinkdropdown"
         ></Menu.Item>
         <Menu.Item
           name="/spenden"
           content="Spenden"
           link
           active={location.pathname === '/spenden'}
-          onClick={this.handleNavigate.bind(this)}
+          onClick={() => this.handleNavigate}
         ></Menu.Item>
         <Menu.Item
           name="/team"
           content="Team"
           link
           active={location.pathname === '/team'}
-          onClick={this.handleNavigate.bind(this)}
+          onClick={() => this.handleNavigate}
         ></Menu.Item>
         <Menu.Item
           name="/projekte"
           content="Projekte"
           link
           active={location.pathname === '/projekte'}
-          onClick={this.handleNavigate.bind(this)}
+          onClick={() => this.handleNavigate}
         ></Menu.Item>
         <Menu.Item
           name="/blog"
           content="Blog"
           link
           active={location.pathname === '/blog'}
-          onClick={this.handleNavigate.bind(this)}
+          onClick={() => this.handleNavigate}
         ></Menu.Item>
         <Menu.Item
           name="/shop"
           content="Shop"
           link
           active={location.pathname === '/shop'}
-          onClick={this.handleNavigate.bind(this)}
+          onClick={() => this.handleNavigate}
         ></Menu.Item>
         <Menu.Item
           active={false}
