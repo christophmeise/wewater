@@ -4,20 +4,26 @@
 
 @importGoogleFonts : false;
 
-@primaryColor   : #5abee6;
-@lightPrimaryColor   : #ffffff;
-@secondaryColor : #171738;
-@red            : #B03060;
-@orange         : #FE9A76;
-@yellow         : #FFD700;
-@olive          : #32CD32;
-@green          : #016936;
-@teal           : #008080;
-@blue           : #0E6EB8;
-@violet         : #EE82EE;
-@purple         : #B413EC;
-@pink           : #FF1493;
-@brown          : #A52A2A;
-@grey           : #A0A0A0;
-@black          : #000000;
-@pageBackground : #FFFFFF;
+@primaryColor                 : #5ABEE6;
+@secondaryColor               : #000D3E;
+@primaryFontColorDark         : #000D3E;
+@primaryFontColorBright       : #FFFFFF;
+@extraColor1                  : #E6955A;
+@extraColor2                  : #7E5AE6;
+@extraColor3                  : #74E3A2;
+@pageBackground               : #FFFFFF;
+@pageBackgroundSecondary      : #F6F9FC;
+
+@red                 : #B03060;
+@orange              : #FE9A76;
+@yellow              : #FFD700;
+@olive               : #32CD32;
+@green               : #016936;
+@teal                : #008080;
+@blue                : #0E6EB8;
+@violet              : #EE82EE;
+@purple              : #B413EC;
+@pink                : #FF1493;
+@brown               : #A52A2A;
+@grey                : #A0A0A0;
+@black               : #000000;

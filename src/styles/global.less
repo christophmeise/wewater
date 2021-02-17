@@ -45,6 +45,17 @@
   font-display: swap;
 }
 
+/* 
+@primaryColor                 : #5ABEE6;
+@primaryFontColorDark         : #000D3E;
+@primaryFontColorBright       : #FFFFFF;
+@secondaryColor               : #E6955A;
+@thirdColor                   : #7E5AE6;
+@fourthColor                  : #74E3A2;
+@pageBackground               : #FFFFFF;
+@pageBackgroundSecondary      : #F6F9FC;
+*/
+
 html,
 body,
 h1,
@@ -61,13 +72,39 @@ li {
   white-space: pre-line;
 }
 
+html {
+  overflow: hidden;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  font-style: normal;
+  font-weight: 400;
+}
+
+body {
+  display: block;
+  background: @pageBackground;
+}
+
 p {
-    color: rgb(15, 19, 26);
-    font-size: 16px;
+    color: @primaryFontColorDark;
+    font-size: 15px;
+    font-style: normal;
     font-weight: 400;
-    line-height: 24px;
+    line-height: 20px;
     -webkit-font-smoothing: antialiased;
     text-rendering: optimizelegibility;
+}
+
+.text-primary {
+  color: @primaryColor;
+}
+
+.background-primary {
+  background-color: @primaryColor;
 }
 
 .global-subtitle {
@@ -90,33 +127,9 @@ h2&.global-headline {
 
 .ui.primary.button {
     font-weight: 600 !important;
-    text-shadow: 2px 2px 2px rgba(34, 36, 38, 0.25 ) !important;
+    text-shadow: 2px 2px 2px fade(@primaryFontColorDark, 0.25) !important;
 }
 
-.text-primary {
-  color: @primaryColor;
-}
-
-.background-primary {
-  background-color: @primaryColor;
-}
-
-html {
-  overflow: hidden;
-  font-size: 16px !important;
-}
-
-html,
-body {
-  margin: 0;
-  padding: 0;
-  font-style: normal;
-  font-weight: 400;
-}
-
-body {
-  display: block;
-}
 
 @media @mobile {
   .global-header-padding {
@@ -158,28 +171,25 @@ body {
   }
 }
 
-p {
-  /*  color: rgb(15, 19, 26); */
-  font-size: 16px;
-  font-weight: 400;
-  line-height: 24px;
-  -webkit-font-smoothing: antialiased;
-  text-rendering: optimizelegibility;
+
+.text-shadow {
+  text-shadow: 2px 2px 2px fade(@primaryFontColorDark, 0.1);
 }
 
 .shadow {
-  box-shadow: 0 5px 12px 0 rgba(33, 43, 54, 0.07), 0 10px 30px 0 rgba(33, 43, 54, 0.085) !important;
+  box-shadow: 0 5px 12px 0 fade(@primaryFontColorDark, 0.07), 0 10px 30px 0 fade(@primaryFontColorDark, 0.085) !important;
 }
 
 .shadow-lg {
-  box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.175);
+  box-shadow: 0 1rem 3rem fade(@primaryFontColorDark, 0.175);
 }
 
 .rounded {
   border-radius: 0.5rem !important;
 }
+
 .bg-secondary {
-  background: #eff9fd;
+  background: @pageBackgroundSecondary;
 }
 
 .dark-overlay {
@@ -209,29 +219,12 @@ p {
   transform: translate3d(0, -2px, 5px);
 }
 
-.text-shadow {
-  text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.1);
+.ui.inverted.primary.button {
+  color: @primaryFontColorBright !important;
+      box-shadow: 0px 0px 0px 2px #FFFFFF inset !important;
 }
 
 .ui.inverted.primary.button:hover {
-  background-color: #f2f2f2;
-  color: #000 !important;
-}
-
-.background-secondary {
-  background-color: #222222;
-}
-
-.checkout-success-container {
-    display: flex !important;
-        width: 100% !important;
-    flex-direction: row;
-    justify-content: center;
-    padding-top: 2rem;
-    padding-bottom: 5rem;
-
-    svg {
-        height: 100%;
-        width: 100%;
-    }
+  background-color: @pageBackgroundSecondary;
+  color: @primaryFontColorDark !important;
 }

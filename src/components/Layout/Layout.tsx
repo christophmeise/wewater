@@ -25,7 +25,7 @@ export default class Layout extends Component<Props, any> {
         super(props);
         this.state = {
             sections: ['Filtersysteme'],
-            Filtersysteme: { width: 490, height: 280, x: 0, navwidth: 0 },
+            Filtersysteme: { width: 490, height: 260, x: 0, navwidth: 0 },
             sidebarOpened: false,
             location: {
                 pathname: null,
