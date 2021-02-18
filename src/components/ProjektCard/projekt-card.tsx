@@ -1,7 +1,6 @@
 import { Link } from 'gatsby';
 import BackgroundImage from 'gatsby-background-image';
 import React from 'react';
-import { Card, CardContent, CardMeta } from 'semantic-ui-react';
 import './projekt-card.less';
 
 interface Props {
@@ -14,9 +13,9 @@ type Post = {
     date: string;
     uri: string;
     slug: string;
-    tags: {
+    dt_portfolio_categories: {
         nodes: any[];
-    };
+    }
     featuredImage: {
         node: {
             localFile: {
@@ -27,26 +26,39 @@ type Post = {
 };
 
 export default function ProjektCard({ post }: Props) {
+    const imageUrl = post.dt_portfolio_categories?.nodes[0].name === 'In Arbeit' ? 'gears.gif' : 'thumb.gif';
     return (
         <Link to={post.slug}>
-            <Card className="rounded hover-animate shadow" fluid centered>
-                <div></div>
+            <div className="hover-animate rounded-small shadow project-card">
                 <BackgroundImage
                     Tag="div"
-                    className="rounded-corners-top dark-overlay-blog rtt-areas-card-background"
+                    className="rounded-small project-card-background dark-overlay-project"
                     fluid={post.featuredImage.node.localFile.childImageSharp.fluid}
                 >
-                    <div className="rtt-areas-card-background-text-wrapper">
-                        <h3 className="rtt-areas-card-background-text">{post.title}</h3>
+                    <div className="project-card-progress-circle-wrapper">
+                        <div className="project-card-progress-circle">
+
+                            <img className="project-card-gif" src={'/images/projekte/' + imageUrl} alt="Turning gears" />
+                        </div>
+                    </div>
+                    <div className="project-card-background-text-wrapper">
+                        <div className="project-tag-label-group">
+
+                            {/* TODO */}
+                            {/*  {post?.tags?.nodes?.map((tag) => {
+                                return (
+                                    <p className="project-tag-label">
+                                        {tag.name}
+                                    </p>
+                                );
+                            })}
+ */}
+                        </div>
+                        <h4 className="project-card-background-text text-shadow">{post.title}</h4>
+                        <p>{post.date}</p>
                     </div>
                 </BackgroundImage>
-                <CardContent className="blog-post-card-content">
-                    <Card.Description>{post.excerpt}</Card.Description>
-                </CardContent>
-                <CardContent extra>
-                    <CardMeta>{post.date}</CardMeta>
-                </CardContent>
-            </Card>
+            </div>
         </Link>
     );
 }

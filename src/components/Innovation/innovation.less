@@ -1,0 +1,30 @@
+@import '../../styles/lib.less';
+
+.innovation-gif {
+    height: 80px;
+    width: 80px;
+}
+.innovation-tile {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+}
+
+.innovation-tile > strong {
+    position: relative;
+    font-size: 15px;
+    font-weight: 600;
+    line-height: 20px;
+    margin-bottom: 12px;
+}
+
+.innovation-tile > strong::before {
+    content: '';
+    position: absolute;
+    left: -15px;
+    top: 7px;
+    height: 7px;
+    width: 7px;
+    background-color: @primaryColor;
+    border-radius: 50%;
+}

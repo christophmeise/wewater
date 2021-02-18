@@ -20,9 +20,10 @@ const HeaderOverlay = ({ sources, color, inverted, content, darken = false, widt
                 }}
             >
                 <div className="header-overlay-image-wrapper">
+                    {/*  ${darken ? 'dark-overlay' : ''} */}
                     <BackgroundImage
                         Tag="section"
-                        className={`header-overlay-center-cropped ${darken ? 'dark-overlay' : null}`}
+                        className={`header-overlay-center-cropped`}
                         fluid={sources}
                     >
                         <Container className="header-overlay-container">
@@ -52,9 +53,8 @@ const HeaderOverlay = ({ sources, color, inverted, content, darken = false, widt
                     </BackgroundImage>
                 </div>
             </div>
-            <svg xmlns="http://www.w3.org/2000/svg" className="header-overlay-svg" viewBox="0 80 1440 200">
-                <path fill="#ffffff" fillOpacity="1" d="M0,192L80,181.3C160,171,320,149,480,144C640,139,800,149,960,144C1120,139,1280,117,1360,106.7L1440,96L1440,320L1360,320C1280,320,1120,320,960,320C800,320,640,320,480,320C320,320,160,320,80,320L0,320Z">
-                </path>
+            <svg className="header-overlay-svg" viewBox="0 0 1440 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path fill="#ffffff" fillOpacity="1" fill-rule="evenodd" clip-rule="evenodd" d="M1440 90.8571L1380 98.4286C1320 106 1200 121.143 1080 113.571C960 106 840 75.7143 720 71.9286C600 68.1429 480 90.8571 360 83.2857C240 75.7143 120 37.8571 60 18.9286L0 0V159H60C120 159 240 159 360 159C480 159 600 159 720 159C840 159 960 159 1080 159C1200 159 1320 159 1380 159H1440V90.8571Z" fill="white" />
             </svg>
         </React.Fragment>
     );

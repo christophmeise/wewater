@@ -1,8 +1,49 @@
+@import '../../styles/lib.less';
+
 #betterplace_donation_iframe {
     max-width: 600px;
-    margin: auto;
+    margin   : auto;
 }
 
 .donate-iframe-form {
     font-family: 'Poppins', 'Lato', 'Helvetica Neue', Arial, Helvetica, sans-serif !important;
+}
+
+.spenden-list {
+    list-style  : none;
+    padding-left: 0;
+    margin      : 28px 0;
+
+    li {
+        display       : flex;
+        flex-direction: row;
+        align-items   : center;
+        margin-bottom : 14px;
+    }
+
+    div {
+        height         : 100%;
+        display        : flex;
+        align-items    : center;
+        justify-content: center;
+
+        svg {
+            color       : @primaryColor;
+            height      : 32px;
+            width       : 32px;
+            margin-right: 14px;
+        }
+    }
+}
+
+.spenden-widget-left {
+
+    .spenden-info-box {
+        display       : flex;
+        flex-direction: column;
+    }
+
+    strong {
+        margin-bottom: 14px;
+    }
 }

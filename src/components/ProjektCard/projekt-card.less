@@ -1,44 +1,85 @@
-.rtt-areas-card-background {
-    background-size: cover;
-    overflow: hidden;
-    height: 100%;
-    cursor: pointer;
+.project-card {
+    height: 445px;
 }
 
-.rounded-corners-top, .rounded-corners-top img {
-    border-top-left-radius: .5rem!important;
-    border-top-right-radius: .5rem!important;
+.project-card-background {
+    background-size    : cover;
+    overflow           : hidden;
+    height             : 100%;
+    cursor             : pointer;
+    display            : flex;
+    flex-direction     : column;
+    justify-content    : flex-end;
+    opacity            : 1 !important;
+    background         : rgba(0, 13, 62, 0.25);
+    background-position: center;
+    padding            : 30px;
 }
 
-.rtt-areas-card-background-text-wrapper {
-    padding-top: 8rem;
-    padding-bottom: 8rem;
-    display: flex;
-    justify-content: center;
-    text-align: left;
-    word-break: break-word;
-    padding-left: 0.5rem;
-    padding-right: 0.5rem;
-    .rtt-areas-card-background-text {
-        z-index: 10;
-        text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.1);
-        text-transform: uppercase;
-        letter-spacing: 0.1em;
-        font-size: 1.75rem !important;
-        color: white;
-        font-weight: 700;
+.project-card-background-text-wrapper {
+    display        : flex;
+    flex-direction : column;
+    justify-content: flex-end;
+    text-align     : left;
+    word-break     : break-word;
+
+    .project-card-background-text {
+        font-size     : 30px !important;
+        line-height   : 34px;
+        color         : #FFFFFF;
+        z-index       : 10;
+        letter-spacing: -0.025em;
+        font-weight   : 600;
+    }
+
+    p {
+        color         : #FFFFFF;
+        font-style    : normal;
+        font-weight   : normal;
+        font-size     : 12px;
+        letter-spacing: -0.025em;
     }
 }
 
-
-.center-cropped {
-    object-fit: none; /* Do not scale the image */
-    object-position: center; /* Center the image within the element */
-    height: 300px;
-    width: 100%;
+.project-card-progress-circle-wrapper {
+    display        : flex;
+    justify-content: flex-end;
+    width          : 100%;
+    height         : 100%;
 }
 
-.blog-post-card-content {
-    font-size: 1rem !important;
-    text-align: justify;
+.project-card-progress-circle {
+    display        : flex;
+    align-items    : center;
+    justify-content: center;
+    height         : 130px;
+    width          : 130px;
+    background     : rgba(255, 255, 255, 0.2);
+    backdrop-filter: saturate(180%) blur(20px) !important;
+    border-radius  : 50%;
+
+    img {
+        height       : 85px;
+        width        : 85px;
+        border-radius: 50%;
+    }
+}
+
+.project-tag-label {
+    margin-bottom: 0 !important;
+    margin-left  : 0.5rem !important;
+    margin-right : 0rem !important;
+    cursor       : default;
+    user-select  : none;
+    z-index      : 100;
+}
+
+.project-tag-label-group {
+    display        : flex;
+    flex-direction : row;
+    justify-content: flex-start;
+    z-index        : 100;
+    margin-top     : 20px;
+    margin-bottom  : 15px;
+    margin-right   : 0.75rem;
 }

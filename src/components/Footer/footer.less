@@ -1,12 +1,13 @@
-@mobile: ~'only screen and (max-width: 767px)';
+@mobile :~'only screen and (max-width: 767px)';
 @desktop: ~'only screen and (min-width: 768px)';
+@import '../../styles/lib.less';
 
 footer {
   margin-top: 4.5rem;
 }
 
 .footer-trademark-link {
-  color: white;
+  color : @primaryFontColorDark;
   margin: 0;
 
   @media @mobile {
@@ -15,12 +16,14 @@ footer {
 }
 
 .footer-secondary {
-  margin-top: 0rem !important;
-  background-color: #343a40;
+  margin-top      : 0rem !important;
+  border-top      : 1px solid rgba(0, 13, 62, 0.2);
+  background-color: @pageBackgroundSecondary;
 
   @media @mobile {
     /*  padding: 2rem 0rem !important; */
   }
+
   @media @desktop {
     padding: 1rem 0rem !important;
   }
@@ -29,18 +32,41 @@ footer {
 footer {
   font-size: 1rem;
 
+
+  .company-links {
+
+    margin-bottom: 36px;
+
+    h5 {
+      font-size    : 24px;
+      margin-bottom: 18px;
+      font-weight  : 600;
+    }
+
+    i {
+      color: @primaryColor;
+    }
+
+  }
+
+
+
+  svg {
+    margin-bottom: -5px;
+  }
+
   h3 {
     font-size: 1rem !important;
   }
+
   .footer-main {
-    background: #e9ecef;
-    padding: 6em 0em;
+    background: @pageBackgroundSecondary;
+    padding   : 6em 0em;
   }
 }
 
 .footer-nav-header {
-  color: #343a40 !important;
-  font-weight: 700 !important;
-  text-transform: uppercase !important;
+  color         : #343a40 !important;
+  font-weight   : 700 !important;
   letter-spacing: 0.1em;
 }

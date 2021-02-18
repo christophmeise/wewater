@@ -55,13 +55,16 @@
     "react-helmet": "^6.1.0",
     "react-hyphen": "^1.4.0",
     "react-i18next": "^11.8.5",
+    "react-id-swiper": "^4.0.0",
     "react-lazy-load-image-component": "^1.5.1",
     "semantic-ui-less": "^2.4.1",
     "semantic-ui-react": "^2.0.1",
+    "swiper": "^6.4.14",
     "uuid": "^8.3.2",
     "validator": "^13.5.2"
   },
   "devDependencies": {
+    "@iconify/icons-bi": "^1.1.2",
     "@iconify/icons-fluent": "^1.1.5",
     "@iconify/icons-mdi": "^1.1.11",
     "@iconify/react": "^1.1.4",

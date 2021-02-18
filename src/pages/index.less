@@ -1,42 +1,88 @@
-h2 > p {
-    font-size: 1.2rem;
-    margin-bottom: 1rem;
+@import '../styles/lib.less';
+
+.main-overlay-content {
+
+    h1 {
+        font-style    : normal;
+        font-weight   : normal;
+        font-size     : 72px;
+        line-height   : 94px;
+        letter-spacing: -0.05em;
+        color         : @primaryColor;
+        margin-bottom : 0;
+    }
+
+    h2 {
+        margin-top : 0;
+        font-style : normal;
+        color      : @primaryFontColorBright;
+        font-weight: 500;
+        font-size  : 48px;
+        line-height: 63px;
+    }
+
+    p {
+        font-style : normal;
+        font-weight: normal;
+        font-size  : 18px;
+        line-height: 23px;
+        color      : @primaryFontColorBright;
+    }
+
+    .main-overlay-infobox {
+        user-select            : none;
+        display                : inline-flex;
+        flex-direction         : column;
+        padding                : 25px;
+        background-color       : rgba(0, 13, 18, 0.15) !important;
+        -webkit-backdrop-filter: blur(30px);
+        backdrop-filter        : blur(30px) !important;
+
+        .main-overlay-infobox-text {
+            margin-bottom: 20px;
+        }
+
+        div {
+            display       : flex;
+            flex-direction: row;
+            align-items   : baseline;
+        }
+
+        h3 {
+            color        : @primaryFontColorBright;
+            font-size    : 64px;
+            line-height  : 84px;
+            font-weight  : 500;
+            margin-bottom: 0;
+            margin-right : 0.5rem
+        }
+
+        p {
+            font-size  : 18px;
+            font-weight: 300;
+        }
+    }
 }
 
-.donate-c2a-section {
-    background: linear-gradient(
-    44.3deg
-    , #99EFE5 0%, #5abee6 26.12%, #3979E7 100%);
+/* .donate-c2a-section {
+    background: linear-gradient(44.3deg, #99EFE5 0%, #5abee6 26.12%, #3979E7 100%);
 
     h3 {
-        color: #ffffff;
-        font-weight: 400;
+        color         : #ffffff;
+        font-weight   : 400;
         letter-spacing: -0.05rem;
-        font-size: 2.75rem;
-        margin-top: 0rem;
-        line-height: 1.15 !important;
-        margin-bottom: 1.8rem !important;
+        font-size     : 2.75rem;
+        margin-top    : 0rem;
+        line-height   : 1.15 !important;
+        margin-bottom : 1.8rem !important;
     }
+
     h4 {
-        color: #ffffff;
-        font-weight: 300;
-        font-size: 1.25rem;
-        margin-top: 0rem;
-        line-height: 1.65rem !important;
+        color        : #ffffff;
+        font-weight  : 300;
+        font-size    : 1.25rem;
+        margin-top   : 0rem;
+        line-height  : 1.65rem !important;
         margin-bottom: 1.8rem !important;
     }
-}
-
-.checkout-success-container {
-    display: flex !important;
-    width: 100% !important;
-    flex-direction: row;
-    justify-content: center;
-    padding-top: 2rem;
-    padding-bottom: 5rem;
-
-    svg {
-        height: 100%;
-        width: 100%;
-    }
-}
+} */

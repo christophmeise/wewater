@@ -45,10 +45,7 @@ class ProjektePage extends React.Component<Props, any> {
             },
         ];
         const backgroundColor = '#FFFFFF';
-        let posts = data.german.edges;
-
-        posts = posts
-            .filter((post) => new Date(post.node.date) <= new Date())
+        const posts = data.german.edges;
 
         return (
             <Layout title={siteTitle} t={t}>
@@ -164,6 +161,11 @@ export const pageQuery = graphql`
                     date(formatString: "MMMM DD, YYYY", locale: "de")
                     uri
                     slug
+                    dt_portfolio_categories{
+                        nodes {
+                            name
+                        }
+                    }
                     featuredImage {
                         node {
                             localFile {
