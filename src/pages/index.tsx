@@ -4,6 +4,7 @@ import { graphql } from 'gatsby';
 import React from 'react';
 import { Button, Icon } from 'semantic-ui-react';
 import SectionBlog from '../components/Blog/blog';
+import SectionFiltersysteme from '../components/Filtersysteme/filtersysteme';
 import HeaderOverlay from '../components/HeaderOverlay/header-overlay';
 import Innovation from '../components/Innovation/innovation';
 import Layout from '../components/Layout/Layout';
@@ -64,6 +65,7 @@ class Index extends React.Component<Props> {
         <div>
           <Video></Video>
           <Innovation></Innovation>
+          <SectionFiltersysteme></SectionFiltersysteme>
           <SpendenWidget></SpendenWidget>
           <SectionBlog></SectionBlog>
           <SectionProjekte></SectionProjekte>

@@ -49,6 +49,7 @@ class Index extends React.Component<Props> {
     posts = posts
       .filter((post) => new Date(post.node.date) <= new Date())
 
+
     return (
       <Layout title="test" invertedHeader={false} t={t}>
         <SEO title="Home" />
@@ -174,36 +175,41 @@ export const pageQuery = graphql`
                 }
             }
         }
-        german: allWpPost(
-            sort: { fields: date, order: DESC }
-        ) {
-            edges {
-                node {
-                    id
-                    excerpt
-                    title
-                    date(formatString: "MMMM DD, YYYY", locale: "de")
-                    uri
-                    slug
-                    tags {
-                        nodes {
-                            name
-                        }
-                    }
-                    featuredImage {
+            german: allWpPost(
+                    sort: { fields: date, order: DESC }
+                ) {
+                    edges {
                         node {
-                            localFile {
-                                childImageSharp {
-                                    fluid(maxWidth: 800) {
-                                        ...GatsbyImageSharpFluid
+                            id
+                            excerpt
+                            title
+                            date(formatString: "MMMM DD, YYYY", locale: "de")
+                            uri
+                            slug
+                            tags {
+                                nodes {
+                                    name
+                                }
+                            }
+                            categories {
+                                nodes {
+                                    name
+                                }
+                            }
+                            featuredImage {
+                                node {
+                                    localFile {
+                                        childImageSharp {
+                                            fluid(maxWidth: 800) {
+                                                ...GatsbyImageSharpFluid
+                                            }
+                                        }
                                     }
                                 }
                             }
                         }
                     }
                 }
-            }
-        }
     }
 `;
 export default withI18next(['common', 'page_blog'])(Index);

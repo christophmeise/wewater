@@ -7,7 +7,7 @@ const Video = ({ }) => {
         <section className="main-section" style={{ padding: '3rem 0rem' }}>
             <Container>
                 <Grid columns="2" stackable centered>
-                    <GridColumn>
+                    <GridColumn width="10">
                         <div>
                             <Embed
                                 id="zy1MzATrJkc"
@@ -20,7 +20,7 @@ const Video = ({ }) => {
                             />
                         </div>
                     </GridColumn>
-                    <GridColumn>
+                    <GridColumn width="6">
                         <Header
                             data-sal="slide-up"
                             data-sal-delay="0"

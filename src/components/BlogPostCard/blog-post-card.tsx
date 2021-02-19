@@ -33,7 +33,7 @@ export default function BlogPostCard({ post }: Props) {
     return (
         <Link to={post.slug}>
             <div className="rounded hover-animate">
-                <Img className="rounded-small dark-overlay-blog blog-post-card-image" fluid={post.featuredImage.node.localFile.childImageSharp.fluid} />
+                <Img className="rounded-small dark-overlay-blog blog-post-card-image" fluid={post?.featuredImage?.node?.localFile?.childImageSharp?.fluid} />
                 <Label.Group className="blog-post-tag-label-group">
                     {post.categories.nodes.slice(0, 3).map((tag, index) => {
                         return (
