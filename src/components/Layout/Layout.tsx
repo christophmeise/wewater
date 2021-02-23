@@ -1,13 +1,16 @@
+import arrowSmallRight from '@iconify/icons-codicon/arrow-small-right';
 import cube20Regular from '@iconify/icons-fluent/cube-20-regular';
 import puzzleCube20Regular from '@iconify/icons-fluent/puzzle-cube-20-regular';
 import bloodBag from '@iconify/icons-mdi/blood-bag';
 import { Icon } from '@iconify/react';
 import { navigate } from '@reach/router';
+import { Link } from 'gatsby';
 import React, { Component } from 'react';
 import 'semantic-ui-less/semantic.less';
 import { Container, Menu } from 'semantic-ui-react';
 import Footer from '../Footer/Footer';
 import Navbar from '../Navbar/Navbar';
+import { getPathWithLocale } from '../navigateWithLocale';
 import './layout.less';
 import MobileMenu from './MobileMenu';
 
@@ -25,7 +28,7 @@ export default class Layout extends Component<Props, any> {
         super(props);
         this.state = {
             sections: ['Filtersysteme'],
-            Filtersysteme: { width: 490, height: 260, x: 0, navwidth: 0 },
+            Filtersysteme: { width: 490, height: 320, x: 0, navwidth: 0 },
             sidebarOpened: false,
             location: {
                 pathname: null,
@@ -115,11 +118,18 @@ export default class Layout extends Component<Props, any> {
     }
 
     calculatePopoverPosition = (): void => {
+        if (window.innerWidth <= 768) {
+            return;
+        }
         const popoverEl = document.getElementById('popover')
         const arrowEl = document.getElementById('arrow');
         const navLinkEls = document.querySelectorAll('.navlinkdropdown');
 
-        const popoverLeft = popoverEl.getBoundingClientRect().x;
+        if (!arrowEl) {
+            return;
+        }
+
+        const popoverLeft = popoverEl?.getBoundingClientRect()?.x;
 
         navLinkEls.forEach((navLink) => {
             const section = navLink.getAttribute('data-nav');
@@ -250,6 +260,14 @@ const Popover = () => {
             <div className="popover-content">
                 <section className="section section-Filtersysteme section-active">
                     <ul className="navlist-primary">
+                        <Link to={getPathWithLocale('/filtersystem')}>
+                            <li className="navlist-primary-entry">
+                                <div className="navlist-menu-entry">
+                                    <h4>Alle Filtersysteme <Icon className="icon-filtersysteme" icon={arrowSmallRight} color='#5ABEE6' /></h4>
+                                    <p>Übersicht aller Entwicklungen</p>
+                                </div>
+                            </li>
+                        </Link>
                         <li className="navlist-primary-bag two-col">
                             <div className="navlist-circle">
                                 <Icon icon={bloodBag} color='#FFFFFF' />

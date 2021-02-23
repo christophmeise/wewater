@@ -6,6 +6,7 @@ import Layout from '../components/Layout/Layout';
 import ProjektCard from '../components/ProjektCard/projekt-card';
 import SEO from '../components/seo';
 import withI18next from '../components/withI18next/withI18next';
+import './projekte.less';
 
 interface Props {
     pageContext: any;
@@ -60,17 +61,17 @@ class ProjektePage extends React.Component<Props, any> {
                         textAlign='center'
                         className="global-flex-column global-no-margin"
                     >
-                        <h3 className={`global-subtitle text-primary`}>News von WeWater</h3>
-                        <h2 className="global-headline">Neuigkeiten</h2>
+                        <h3 className={`global-subtitle text-primary`}>Projekte von WeWater</h3>
+                        <h2 className="global-headline">Projektübersicht</h2>
                     </Header>
-                    <Grid style={{ paddingTop: '2em' }} stackable centered columns={3}>
+                    <Grid style={{ paddingTop: '2em' }} stackable centered columns={2}>
                         <Grid.Column>
                             {posts
                                 .filter((post) => post.node.title.length > 0)
                                 .map(({ node: post }) => {
                                     return (
                                         posts.findIndex((entry) => entry.node.id === post.id) % 2 === 0 && (
-                                            <div data-sal="slide-up" data-sal-delay="0" data-sal-duration="300" data-sal-easing="ease">
+                                            <div className="projekt-post-card-wrapper" data-sal="slide-up" data-sal-delay="0" data-sal-duration="300" data-sal-easing="ease">
                                                 <ProjektCard key={post.id} post={post} ></ProjektCard>
                                             </div>
                                         )
@@ -83,7 +84,7 @@ class ProjektePage extends React.Component<Props, any> {
                                 .map(({ node: post }) => {
                                     return (
                                         posts.findIndex((entry) => entry.node.id === post.id) % 2 === 1 && (
-                                            <div data-sal="slide-up" data-sal-delay="0" data-sal-duration="300" data-sal-easing="ease">
+                                            <div className="projekt-post-card-wrapper" data-sal="slide-up" data-sal-delay="0" data-sal-duration="300" data-sal-easing="ease">
                                                 <ProjektCard key={post.id} post={post} data-sal="slide-up" data-sal-delay="0" data-sal-duration="300" data-sal-easing="ease"></ProjektCard>
                                             </div>
                                         )

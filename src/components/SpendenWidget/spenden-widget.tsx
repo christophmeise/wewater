@@ -5,13 +5,19 @@ import { Helmet } from 'react-helmet';
 import { Container, Grid, GridColumn, Header } from 'semantic-ui-react';
 import './spenden-widget.less';
 
-class SpendenWidget extends React.Component<any, any> {
+interface Props {
+    fullMode: boolean;
+}
+
+class SpendenWidget extends React.Component<Props, any> {
     constructor(props) {
         super(props);
         this.state = {};
     }
 
     render() {
+        const { fullMode } = this.props;
+
         return (
             <section className="main-section">
                 <Container style={{ padding: '3rem 0rem' }}>
@@ -103,7 +109,25 @@ class SpendenWidget extends React.Component<any, any> {
                             </div>
                         </GridColumn>
                     </Grid>
+                    {(fullMode === true &&
+                        <Grid columns="1">
+                            <GridColumn>
+                                <div className="spenden-info-box">
+                                    <strong>Spenden an uns kannst du steuerlich geltend machen</strong>
+                                    <p>Die WeWater gemeinnützige UG ist laut Bescheid vom 02.01.2019 vom Finanzamt für Körperschaften I (Bredtschneiderstraße 5, 14057 Berlin) nach § 60a Abs. 1 AO als gemeinnützig anerkannt.
 
+                                    Spenden an die WeWater gemeinnützige UG sind gemäß § 10b Abs. 1 EStG steuerlich abzugsfähig. Wir bestätigen, dass die Zuwendung nur zur Förderung gemeinnütziger Zwecke im Sinne der Förderung der Entwicklungszusammenarbeit gemäß §§ 52 Abs. 2 Satz 1 Nr.(n) 15 AO, verwendet wird.
+
+                                    Spenden bis zu 300 Euro (neu seit 01.01.2021, vorher 200€) jährlich kannst du ohne Spendenquittung (§ 50 Abs. 2 Nr. 2 Buchst. b EStDV) steuerlich geltend machen. Dafür reichst du einfach deinen Kontoauszug zusammen mit diesem Dokument für Spenden bis 31.12.2020 (Link anklicken) oder diesem Dokument für Spenden ab 01.01.2021 (Link anklicken) beim Finanzamt ein. Wichtig: Gib bei jeder Spende per Überweisung den Verwendungszweck an (z.B. monatliche Spende, einmalige Spende, Spende für Projekt xy). So können wir deine Spende richtig zuordnen.
+
+                                    Für Spenden über 300 Euro ab 01.01.2021 bzw. über 200 Euro bis 31.12.2020 jährlich benötigst du eine Spendenbescheinigung von uns, um sie steuerlich geltend zu machen. Bitte schreib uns eine E-Mail an hi@wewater.org mit deinem vollständigen Namen und deiner Anschrift. Wir senden dir dann deine Spendenbescheinigung per Mail zu.
+
+                                    Unsere Satzung findest du hier.
+</p>
+                                </div>
+                            </GridColumn>
+                        </Grid>
+                    )}
                 </Container>
             </section>
         );

@@ -8,7 +8,7 @@ import 'swiper/swiper.less';
 import BlogPostCard from '../BlogPostCard/blog-post-card';
 import './blog.less';
 
-const SectionBlog = () => {
+const SectionBlog = ({ slidesPerView }) => {
     const data = useStaticQuery(
         graphql`
             query LatestBlogQuery {
@@ -64,16 +64,6 @@ const SectionBlog = () => {
 
     posts = posts.slice(0, 10);
 
-    const isSSR = typeof window === 'undefined';
-    let slidesPerView = 5;
-    if (!isSSR) {
-        if (window.innerWidth < 768) {
-            slidesPerView = 2;
-        } else {
-            slidesPerView = 5;
-        }
-    }
-
     SwiperCore.use([Pagination, Autoplay]);
 
     return (
@@ -94,8 +84,8 @@ const SectionBlog = () => {
             <div>
                 <Swiper
                     spaceBetween={25}
-                    slidesPerView={5}
-                    autoplay={{ delay: 10000 }}
+                    slidesPerView={slidesPerView}
+                    /* autoplay={{ delay: 10000 }} */
                     pagination={{ clickable: true, dynamicBullets: true }}
                     onSlideChange={() => console.log('slide change')}
                     onSwiper={(swiper) => console.log(swiper)}

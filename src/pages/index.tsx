@@ -2,6 +2,7 @@ import { faTint } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { graphql } from 'gatsby';
 import React from 'react';
+import CountUp from 'react-countup';
 import { Button, Icon } from 'semantic-ui-react';
 import SectionBlog from '../components/Blog/blog';
 import SectionFiltersysteme from '../components/Filtersysteme/filtersysteme';
@@ -31,10 +32,45 @@ interface Props {
   };
 }
 
-class Index extends React.Component<Props> {
+interface State {
+  slidesPerView: number;
+}
+
+class Index extends React.Component<Props, State> {
   constructor(props: Props) {
     super(props);
+    this.state = {
+      slidesPerView: 5
+    };
   }
+
+  componentDidMount() {
+    if (typeof window !== 'undefined') {
+      window.addEventListener('resize', this.calculateSlidesPerView.bind(this), false);
+    }
+    this.calculateSlidesPerView();
+  }
+  componentWillUnmount() {
+    if (typeof window !== 'undefined') {
+      window.removeEventListener('resize', this.calculateSlidesPerView);
+    }
+  }
+
+  calculateSlidesPerView() {
+    const isSSR = typeof window === 'undefined';
+    let slidesPerView = 5;
+    if (!isSSR) {
+      if (window.innerWidth < 768) {
+        slidesPerView = 2;
+      } else if (window.innerWidth < 1200) {
+        slidesPerView = 3;
+      } else {
+        slidesPerView = 5;
+      }
+    }
+    this.setState({ slidesPerView: slidesPerView });
+  }
+
 
   render() {
     const {
@@ -51,6 +87,8 @@ class Index extends React.Component<Props> {
       },
     ];
 
+    const slidesPerView = this.state != null ? this.state.slidesPerView : 5;
+
     return (
       <Layout title="WeWater. Wasser weltweit klarmachen. - WeWater.org" invertedHeader={false} t={t}>
         <SEO title="WeWater. Wasser weltweit klarmachen. - WeWater.org" />
@@ -66,8 +104,8 @@ class Index extends React.Component<Props> {
           <Video></Video>
           <Innovation></Innovation>
           <SectionFiltersysteme></SectionFiltersysteme>
-          <SpendenWidget></SpendenWidget>
-          <SectionBlog></SectionBlog>
+          <SpendenWidget fullMode={false}></SpendenWidget>
+          <SectionBlog slidesPerView={slidesPerView}></SectionBlog>
           <SectionProjekte></SectionProjekte>
         </div>
       </Layout>
@@ -95,13 +133,13 @@ class OverlayContent extends React.Component<any, any> {
         <p style={{ marginBottom: '1.5rem', marginTop: '0rem' }}>
           Dafür haben wir eine innovative Wasserfiltertechnologie entwickelt, die ohne den Einsatz von elektrischer Energie und Chemie funktioniert und einen extrem hohen Reinheitsgrad gewährleistet.
         </p>
-        <div className="main-overlay-infobox rounded shadow">
+        <div className="main-overlay-infobox rounded">
           <div className="main-overlay-infobox-text">
-            <h3>8.100</h3>
-            <p>Menschen mit Trinkwasser versorgt</p>
+            <h3><CountUp delay={0.5} end={8100} start={0} separator="." duration={4}></CountUp></h3>
           </div>
+          <p>Menschen mit Trinkwasser versorgt</p>
           <div>
-            <Button primary className="shadow rounded">
+            <Button primary className="rounded">
               <FontAwesomeIcon icon={faTint} style={{ opacity: '1', margin: '0em 0.42857143em 0em -0.21428571em' }} />
             Ich will helfen!
           </Button>
@@ -110,7 +148,7 @@ class OverlayContent extends React.Component<any, any> {
               basic
               inverted={true}
               size="medium"
-              className="rounded shadow"
+              className="rounded"
             >
               <Icon name="newspaper outline" className="left" style={{ opacity: '1' }}></Icon>
                             Alle News in mein Postfach

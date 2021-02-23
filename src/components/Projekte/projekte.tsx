@@ -109,7 +109,7 @@ const SectionProjekte = () => {
                 data-sal-duration="300"
                 data-sal-easing="ease"
             >
-                <Link to='/blog'>
+                <Link to='/projekte'>
                     <Button
                         secondary={true}
                         basic

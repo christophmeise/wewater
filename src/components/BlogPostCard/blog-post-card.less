@@ -1,12 +1,51 @@
 @import '../../styles/lib.less';
 
 .blog-post-tag-label {
-    margin-bottom: 0 !important;
-    margin-left  : 0.5rem !important;
-    margin-right : 0rem !important;
-    cursor       : default;
-    user-select  : none;
-    z-index      : 100;
+    display       : flex;
+    flex-direction: row;
+    align-items   : center;
+    margin-bottom : 0;
+    margin-left   : 0rem;
+    margin-right  : 0.5rem;
+    cursor        : default;
+    user-select   : none;
+    z-index       : 100;
+    border-radius : 30px;
+    padding-left  : 10px;
+    padding-top   : 6px;
+    padding-bottom: 6px;
+    padding-right : 15px;
+    border        : 1px solid rgba(224, 222, 222, 1);
+
+    .label-dot {
+        display      : inline-block;
+        width        : 14px;
+        height       : 14px;
+        position     : relative;
+        border-radius: 100%;
+        margin-right : 10px;
+        flex-shrink  : 0;
+    }
+
+    .color-primary {
+        background-color: @primaryColor;
+    }
+
+    .color-secondary {
+        background-color: @extraColor1;
+    }
+
+    .color-tertiary {
+        background-color: @extraColor2;
+    }
+
+    .label-text {
+        font-size  : 14px;
+        font-style : normal;
+        font-weight: normal;
+        line-height: 16px;
+        color      : @primaryFontColorDark;
+    }
 }
 
 .blog-post-tag-label-group {
@@ -25,12 +64,19 @@
 }
 
 .blog-post-title {
-    color         : @primaryFontColorDark;
-    font-size     : 20px;
-    line-height   : 22px;
-    font-weight   : 600;
-    letter-spacing: -0.025em;
-    margin-bottom : 15px !important;
+    color              : @primaryFontColorDark;
+    font-size          : 20px;
+    line-height        : 22px;
+    font-weight        : 600;
+    letter-spacing     : -0.025em;
+    margin-bottom      : 15px !important;
+    text-align         : left;
+    transition-property: color;
+    transition         : 0.3s ease;
+}
+
+.blog-post-title:hover {
+    color: @primaryColor;
 }
 
 .blog-post-card-date>p {
@@ -40,6 +86,55 @@
     letter-spacing: -0.025em;
 }
 
+.blog-post-card-image:before {
+    -webkit-mask-image: -webkit-radial-gradient(white, black);
+    content           : " ";
+    width             : 100%;
+    height            : 100%;
+    display           : block;
+    position          : absolute;
+    opacity           : 1;
+    background        : @primaryFontColorDark;
+}
+
 .blog-post-card-image {
-    height: 150px;
+    div {
+        padding-bottom: 64.8648% !important;
+    }
+
+    opacity : 1;
+    cursor  : pointer;
+}
+
+.blog-post-card-image {
+
+    picture>img {
+        opacity   : 1;
+        transition: 0.4s ease !important;
+    }
+}
+
+.blog-post-card-image:hover {
+
+    picture>img {
+        opacity   : 0.85 !important;
+        transition: 0.4s ease !important;
+    }
+}
+
+.blog-post-card-image:after {
+    position    : absolute;
+    content     : '';
+    right       : 0;
+    bottom      : 0;
+    transition  : 0.4s ease;
+    border-top  : 0px solid @primaryColor;
+    border-right: 0px solid @pageBackground;
+
+}
+
+.blog-post-card-image:hover:after {
+    border-top      : 50px solid @primaryColor;
+    border-right    : 50px solid @pageBackground;
+    background-color: @pageBackgroundSecondary;
 }

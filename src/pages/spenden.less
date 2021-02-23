@@ -1,0 +1,48 @@
+@import '../styles/lib.less';
+
+.spenden-banner-container {
+    display              : grid;
+    width                : 100%;
+    grid-template-columns: 1fr 1fr 1fr;
+    column-gap           : 2%;
+
+    .spenden-banner-box {
+        user-select     : none;
+        display         : inline-flex;
+        flex-direction  : column;
+        padding         : 25px;
+        background-color: fade(@primaryFontColorDark, 30) !important;
+        text-align      : center;
+        transition      : 0.3s ease;
+        color           : #FFFFFF;
+        backdrop-filter : saturate(180%) blur(20px) !important;
+        box-shadow      : 4px 7px 3px 0px fade(@primaryFontColorDark, 40);
+
+        h3 {
+            color      : #FFFFFF;
+            font-style : normal;
+            font-weight: 300;
+            font-size  : 18px;
+            line-height: 23px;
+        }
+
+        .spenden-banner-payment-logos {
+            margin-top     : 1rem;
+            display        : flex;
+            flex-direction : row;
+            justify-content: center;
+            align-items    : center;
+
+            svg {
+                height      : 25px;
+                width       : 25px;
+                margin-right: 10px;
+                margin-left : 10px;
+            }
+        }
+    }
+
+    .spenden-banner-box:hover {
+        transform: scale(1.1);
+    }
+}

@@ -6,8 +6,7 @@ import HeaderOverlay from '../components/HeaderOverlay/header-overlay';
 import Layout from '../components/Layout/Layout';
 import SEO from '../components/seo';
 import withI18next from '../components/withI18next/withI18next';
-import './index.less';
-const HeaderImage = require('../../static/images/main.inline.svg') as string;
+import './blog.less';
 
 interface Props {
   t: any;
@@ -61,7 +60,7 @@ class Index extends React.Component<Props> {
           darken={true}
         />
         <div className="global-header-padding">
-          <section className="bg-secondary">
+          <section>
             <Container>
               <Header
                 data-sal="slide-up"
@@ -81,7 +80,7 @@ class Index extends React.Component<Props> {
                     .map(({ node: post }) => {
                       return (
                         posts.findIndex((entry) => entry.node.id === post.id) % 3 === 0 && (
-                          <div data-sal="slide-up" data-sal-delay="0" data-sal-duration="300" data-sal-easing="ease">
+                          <div className="blog-post-card-wrapper" data-sal="slide-up" data-sal-delay="0" data-sal-duration="300" data-sal-easing="ease">
                             <BlogPostCard key={post.id} post={post}></BlogPostCard>
                           </div>
                         )
@@ -94,7 +93,7 @@ class Index extends React.Component<Props> {
                     .map(({ node: post }) => {
                       return (
                         posts.findIndex((entry) => entry.node.id === post.id) % 3 === 1 && (
-                          <div data-sal="slide-up" data-sal-delay="0" data-sal-duration="300" data-sal-easing="ease">
+                          <div className="blog-post-card-wrapper" data-sal="slide-up" data-sal-delay="0" data-sal-duration="300" data-sal-easing="ease">
                             <BlogPostCard key={post.id} post={post}></BlogPostCard>
                           </div>
                         )
@@ -107,7 +106,7 @@ class Index extends React.Component<Props> {
                     .map(({ node: post }) => {
                       return (
                         posts.findIndex((entry) => entry.node.id === post.id) % 3 === 2 && (
-                          <div data-sal="slide-up" data-sal-delay="0" data-sal-duration="300" data-sal-easing="ease">
+                          <div className="blog-post-card-wrapper" data-sal="slide-up" data-sal-delay="0" data-sal-duration="300" data-sal-easing="ease">
                             <BlogPostCard key={post.id} post={post}></BlogPostCard>
                           </div>
                         )

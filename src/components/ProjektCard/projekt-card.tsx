@@ -1,6 +1,7 @@
 import { Link } from 'gatsby';
 import BackgroundImage from 'gatsby-background-image';
 import React from 'react';
+import LordIcon from '../Innovation/lordicon';
 import './projekt-card.less';
 
 interface Props {
@@ -26,9 +27,9 @@ type Post = {
 };
 
 export default function ProjektCard({ post }: Props) {
-    const imageUrl = post.dt_portfolio_categories?.nodes[0].name === 'In Arbeit' ? 'gears.gif' : 'thumb.gif';
+    const imageUrl = post.dt_portfolio_categories?.nodes[0].name === 'In Arbeit' ? 'gears.json' : 'thumb.json';
     return (
-        <Link to={post.slug}>
+        <Link to={`/projekte/` + post.slug}>
             <div className="hover-animate rounded-small shadow project-card">
                 <BackgroundImage
                     Tag="div"
@@ -37,8 +38,8 @@ export default function ProjektCard({ post }: Props) {
                 >
                     <div className="project-card-progress-circle-wrapper">
                         <div className="project-card-progress-circle">
-
-                            <img className="project-card-gif" src={'/images/projekte/' + imageUrl} alt="Turning gears" />
+                            <LordIcon src={'/images/projekte/' + imageUrl} delay={(3000 * Math.random()).toString()}></LordIcon>
+                            {/* <img className="project-card-gif" src={'/images/projekte/' + imageUrl} alt="Turning gears" /> */}
                         </div>
                     </div>
                     <div className="project-card-background-text-wrapper">

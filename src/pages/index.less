@@ -30,16 +30,16 @@
     }
 
     .main-overlay-infobox {
-        user-select            : none;
-        display                : inline-flex;
-        flex-direction         : column;
-        padding                : 25px;
-        background-color       : rgba(0, 13, 18, 0.15) !important;
-        -webkit-backdrop-filter: blur(30px);
-        backdrop-filter        : blur(30px) !important;
+        user-select                       : none;
+        display                           : inline-flex;
+        flex-direction                    : column;
+        padding                           : 25px;
+        background-color                  : rgba(0, 13, 18, 0.15) !important;
+        /*         -webkit-backdrop-filter: blur(30px);
+        backdrop-filter                   : blur(30px) !important; */
 
         .main-overlay-infobox-text {
-            margin-bottom: 20px;
+            margin-bottom: 0px;
         }
 
         div {
@@ -54,12 +54,14 @@
             line-height  : 84px;
             font-weight  : 500;
             margin-bottom: 0;
-            margin-right : 0.5rem
+            margin-right : 0.5rem;
+            width        : 200px;
         }
 
         p {
-            font-size  : 18px;
-            font-weight: 300;
+            font-size    : 18px;
+            font-weight  : 300;
+            margin-bottom: 3rem;
         }
     }
 }

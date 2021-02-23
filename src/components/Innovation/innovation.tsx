@@ -1,6 +1,15 @@
 import React from 'react';
 import { Container, Grid, GridColumn, Header } from 'semantic-ui-react';
 import './innovation.less';
+import LordIcon from './lordicon';
+
+declare global {
+    namespace JSX {
+        interface IntrinsicElements {
+            'lord-icon': React.DetailedHTMLProps<any, any>;
+        }
+    }
+}
 
 const Innovation = ({ }) => {
 
@@ -21,28 +30,28 @@ const Innovation = ({ }) => {
                 <Grid columns="4" stackable centered>
                     <GridColumn>
                         <div className="innovation-tile">
-                            <img className="innovation-gif" src={'/images/innovation/cheap.gif'} alt="Money Bag Euro" />
+                            <LordIcon src="/images/innovation/cheap.json"></LordIcon>
                             <strong>Günstig in der Herstellung</strong>
                             <p>Ob direkte Integrationen mit Kartennetzwerken und Banken oder Bezahlvorgänge im Browser, Stripe-Technologien bewirken Großes im gesamten Tech-Stack der Finanzwelt.</p>
                         </div>
                     </GridColumn>
                     <GridColumn>
                         <div className="innovation-tile">
-                            <img className="innovation-gif" src={'/images/innovation/gauge.gif'} alt="Gauge acceleration" />
+                            <LordIcon src="/images/innovation/gauge.json"></LordIcon>
                             <strong>Hohe Rückhalterate</strong>
                             <p>Mit Hunderten neuen Funktionen und Optimierungen pro Jahr halten wir Sie stets am technologischen Puls der Zeit. Für unsere Produktions-API etwa führen wir im Schnitt 16 Bereitstellungen täglich durch.</p>
                         </div>
                     </GridColumn>
                     <GridColumn>
                         <div className="innovation-tile">
-                            <img className="innovation-gif" src={'/images/innovation/energy.gif'} alt="Hand holding a leaf" />
+                            <LordIcon src="/images/innovation/energy.json"></LordIcon>
                             <strong>Energiefrei</strong>
                             <p>Unsere Systeme bieten eine Uptime von 99,9 %, hohe Skalierbarkeit und technische Redundanz. Stripe ist nach den höchsten Konformitätsstandards zertifiziert.</p>
                         </div>
                     </GridColumn>
                     <GridColumn>
                         <div className="innovation-tile">
-                            <img className="innovation-gif" src={'/images/innovation/chemicals.gif'} alt="Water waves" />
+                            <LordIcon src="/images/innovation/chemicals.json"></LordIcon>
                             <strong>Keine Chemikalien</strong>
                             <p>Wir trainieren unsere Modelle für maschinelles Lernen anhand von Milliarden Datensätzen – damit Sie sich auf bessere Konversionsraten und Umsatzsicherung sowie starken Betrugsschutz freuen können.</p>
                         </div>
