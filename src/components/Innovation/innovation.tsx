@@ -30,7 +30,9 @@ const Innovation = ({ }) => {
                 <Grid columns="4" stackable centered>
                     <GridColumn>
                         <div className="innovation-tile">
-                            <LordIcon src="/images/innovation/cheap.json"></LordIcon>
+                            {(typeof window !== 'undefined') &&
+                                <LordIcon src="/images/innovation/cheap.json"></LordIcon>
+                            }
                             <strong>Günstig in der Herstellung</strong>
                             <p>Ob direkte Integrationen mit Kartennetzwerken und Banken oder Bezahlvorgänge im Browser, Stripe-Technologien bewirken Großes im gesamten Tech-Stack der Finanzwelt.</p>
                         </div>

@@ -102,7 +102,9 @@ class Index extends React.Component<Props, State> {
         />
         <div>
           <Video></Video>
-          <Innovation></Innovation>
+          {(typeof window !== 'undefined') &&
+            <Innovation></Innovation>
+          }
           <SectionFiltersysteme></SectionFiltersysteme>
           <SpendenWidget fullMode={false}></SpendenWidget>
           <SectionBlog slidesPerView={slidesPerView}></SectionBlog>
