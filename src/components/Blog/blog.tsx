@@ -20,37 +20,7 @@ const SectionBlog = ({ slidesPerView }) => {
                 german: allWpPost(
                     sort: { fields: date, order: DESC }
                 ) {
-                    edges {
-                        node {
-                            id
-                            excerpt
-                            title
-                            date(formatString: "MMMM DD, YYYY", locale: "de")
-                            uri
-                            slug
-                            tags {
-                                nodes {
-                                    name
-                                }
-                            }
-                            categories {
-                                nodes {
-                                    name
-                                }
-                            }
-                            featuredImage {
-                                node {
-                                    localFile {
-                                        childImageSharp {
-                                            fluid(maxWidth: 800) {
-                                                ...GatsbyImageSharpFluid
-                                            }
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    }
+                    ...GetBlogposts
                 }
             }
         `,

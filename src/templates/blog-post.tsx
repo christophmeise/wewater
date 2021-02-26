@@ -18,7 +18,7 @@ function BlogPostTemplate({ data, t }) {
                 sources={sources}
                 color="#000000"
                 inverted={true}
-                content={<OverlayContent title={post.title} inverted={true} />}
+                content={<OverlayContent post={post} inverted={true} />}
             />
             <Container>
                 <div className="blog-content-sections">
@@ -33,15 +33,32 @@ function BlogPostTemplate({ data, t }) {
 
 export default withI18next('common')(BlogPostTemplate);
 
-const OverlayContent = ({ title, inverted }) => {
+const OverlayContent = ({ post, inverted }) => {
+    const colors = ['color-primary', 'color-secondary', 'color-tertiary'];
     return (
         <div>
+            <div className="blog-post-tag-label-group">
+                {post.categories.nodes.slice(0, 3).map((tag, index) => {
+                    return (
+                        <div
+                            key={"tag-" + index + post.uri}
+                            className="blog-post-tag-label blog-post-tag-label-overlay"
+                        >
+                            <span className={`label-dot ` + colors[index]}></span>
+                            <span className="label-text"> {tag?.name}</span>
+                        </div>
+                    );
+                })}
+            </div>
             <h1
                 className={`font-playfair text-shadow header-overlay-headline ${inverted ? 'header-overlay-headline-inverted' : null
                     }`}
             >
-                {title}
+                {post.title}
             </h1>
+            <div className="blog-post-author-box">
+                <p>Von {post.author.node.name} am {post.date}</p>
+            </div>
         </div>
     );
 };
@@ -49,32 +66,7 @@ const OverlayContent = ({ title, inverted }) => {
 export const pageQuery = graphql`
     query BlogPostByPath($slug: String!) {
         allWpPost(filter: { slug: { eq: $slug } }) {
-            edges {
-                node {
-                    id
-                    excerpt
-                    title
-                    content
-                    date(formatString: "MMMM DD, YYYY", locale: "de")
-                    uri
-                    tags {
-                        nodes {
-                            name
-                        }
-                    }
-                    featuredImage {
-                        node {
-                            localFile {
-                                childImageSharp {
-                                    fluid(maxWidth: 800) {
-                                        ...GatsbyImageSharpFluid
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-            }
+            ...GetBlogposts
         }
     }
 `;

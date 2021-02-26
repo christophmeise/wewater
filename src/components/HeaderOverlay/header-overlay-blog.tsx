@@ -6,15 +6,12 @@ import './header-overlay.less';
 const HeaderOverlayBlog = ({ sources, color, inverted, content }) => {
     return (
         <div
-            className="header-overlay"
-            style={{
-                backgroundColor: color,
-            }}
+            className="header-overlay-blog"
         >
             <div className="header-overlay-image-wrapper">
-                <BackgroundImage Tag="section" className="header-overlay-center-cropped dark-overlay" fluid={sources}>
-                    <Container className="header-overlay-container">
-                        <Grid className="header-overlay-container-desktop-blog responsive-desktop-container">
+                <BackgroundImage Tag="section" className="header-overlay-center-cropped dark-overlay-blog" fluid={sources}>
+                    <Container className="header-overlay-container header-overlay-container-blog">
+                        <Grid className="header-overlay-container-desktop-blog responsive-desktop-container" textAlign="left">
                             <GridColumn width={16}>
                                 <div
                                     data-sal="slide-down"

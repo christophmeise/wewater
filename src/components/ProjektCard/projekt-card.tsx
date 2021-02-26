@@ -33,7 +33,7 @@ export default function ProjektCard({ post }: Props) {
             <div className="hover-animate rounded-small shadow project-card">
                 <BackgroundImage
                     Tag="div"
-                    className="rounded-small project-card-background dark-overlay-project"
+                    className="rounded-small project-card-background"
                     fluid={post.featuredImage.node.localFile.childImageSharp.fluid}
                 >
                     <div className="project-card-progress-circle-wrapper">
