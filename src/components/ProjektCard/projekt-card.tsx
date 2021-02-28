@@ -27,7 +27,7 @@ type Post = {
 };
 
 export default function ProjektCard({ post }: Props) {
-    const imageUrl = post.dt_portfolio_categories?.nodes[0].name === 'In Arbeit' ? 'gears.json' : 'thumb.json';
+    const imageUrl = post.dt_portfolio_categories?.nodes[0].name === 'In Arbeit' ? 'gears' : 'thumb';
     return (
         <Link to={`/projekte/` + post.slug}>
             <div className="hover-animate rounded-small shadow project-card">
@@ -38,7 +38,7 @@ export default function ProjektCard({ post }: Props) {
                 >
                     <div className="project-card-progress-circle-wrapper">
                         <div className="project-card-progress-circle">
-                            <LordIcon src={'/images/projekte/' + imageUrl} delay={(3000 * Math.random()).toString()}></LordIcon>
+                            <LordIcon src={'/images/projekte/' + imageUrl + '.json'} altsrc={'/images/projekte/' + imageUrl + '.gif'} delay={(3000 * Math.random()).toString()}></LordIcon>
                             {/* <img className="project-card-gif" src={'/images/projekte/' + imageUrl} alt="Turning gears" /> */}
                         </div>
                     </div>
