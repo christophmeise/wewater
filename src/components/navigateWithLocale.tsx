@@ -3,7 +3,7 @@ import i18n from 'i18next';
 
 export default function navigateWithLocale(path: string) {
     if (i18n.language != 'de') {
-        navigate('/' + i18n.language + '/' + path);
+        navigate('/' + i18n.language + path);
     } else {
         navigate(path);
     }
@@ -11,7 +11,7 @@ export default function navigateWithLocale(path: string) {
 
 export function getPathWithLocale(path: string) {
     if (i18n.language != 'de') {
-        return '/' + i18n.language + '/' + path;
+        return '/' + i18n.language + path;
     } else {
         return path;
     }

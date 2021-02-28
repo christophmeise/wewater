@@ -268,33 +268,39 @@ const Popover = () => {
                                 </div>
                             </li>
                         </Link>
-                        <li className="navlist-primary-bag two-col">
-                            <div className="navlist-circle">
-                                <Icon icon={bloodBag} color='#FFFFFF' />
-                            </div>
-                            <div className="navlist-menu-entry">
-                                <h4>AQQA®bag</h4>
-                                <p>Lösung für Einzelpersonen</p>
-                            </div>
-                        </li>
-                        <li className="navlist-primary-cube two-col">
-                            <div className="navlist-circle">
-                                <Icon icon={cube20Regular} color='#FFFFFF' />
-                            </div>
-                            <div className="navlist-menu-entry">
-                                <h4>AQQA®cube</h4>
-                                <p>Sofortlösung für Lebensgemeinschaften</p>
-                            </div>
-                        </li>
-                        <li className="navlist-primary-system two-col">
-                            <div className="navlist-circle">
-                                <Icon icon={puzzleCube20Regular} color='#FFFFFF' />
-                            </div>
-                            <div className="navlist-menu-entry">
-                                <h4>AQQA®system</h4>
-                                <p>Lösung für den langfristigen Einsatz</p>
-                            </div>
-                        </li>
+                        <Link to={getPathWithLocale('/aqqabag')}>
+                            <li className="navlist-primary-bag two-col">
+                                <div className="navlist-circle">
+                                    <Icon icon={bloodBag} color='#FFFFFF' />
+                                </div>
+                                <div className="navlist-menu-entry">
+                                    <h4>AQQA®bag</h4>
+                                    <p>Lösung für Einzelpersonen</p>
+                                </div>
+                            </li>
+                        </Link>
+                        <Link to={getPathWithLocale('/aqqacube')}>
+                            <li className="navlist-primary-cube two-col">
+                                <div className="navlist-circle">
+                                    <Icon icon={cube20Regular} color='#FFFFFF' />
+                                </div>
+                                <div className="navlist-menu-entry">
+                                    <h4>AQQA®cube</h4>
+                                    <p>Sofortlösung für Lebensgemeinschaften</p>
+                                </div>
+                            </li>
+                        </Link>
+                        <Link to={getPathWithLocale('/aqqasystem')}>
+                            <li className="navlist-primary-system two-col">
+                                <div className="navlist-circle">
+                                    <Icon icon={puzzleCube20Regular} color='#FFFFFF' />
+                                </div>
+                                <div className="navlist-menu-entry">
+                                    <h4>AQQA®system</h4>
+                                    <p>Lösung für den langfristigen Einsatz</p>
+                                </div>
+                            </li>
+                        </Link>
                     </ul>
                 </section>
             </div>

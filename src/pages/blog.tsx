@@ -64,8 +64,6 @@ class Index extends React.Component<Props> {
             slidesPerView={1}
             autoplay={{ delay: 8000 }}
             navigation
-            onSlideChange={() => console.log('slide change')}
-            onSwiper={(swiper) => console.log(swiper)}
             className="swiper-container-full"
           >
             {posts.slice(0, 3).map((post) => {

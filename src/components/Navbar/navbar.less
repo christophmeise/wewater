@@ -1,68 +1,69 @@
 .global-navbar {
-  position: absolute !important;
-  top: 0;
-  width: 100%;
-  z-index: 1000;
-  padding: 0em 0em;
+  position     : absolute !important;
+  top          : 0;
+  width        : 100%;
+  z-index      : 1000;
+  padding      : 0em 0em;
   margin-bottom: 1em;
-  border: none;
-  text-align: 'center';
-  box-shadow: 0px 3px 7px 2px rgba(0, 0, 0, 0.07);
+  border       : none;
+  text-align   : 'center';
+  box-shadow   : 0px 3px 7px 2px rgba(0, 0, 0, 0.07);
 }
 
 .global-navbar-transparent {
-  background-color: rgba(255, 255, 255, 0.3) !important;
+  background-color: rgba(255, 255, 255, 0.6) !important;
 }
 
 .global-navbar-scrolled {
-  background-color: rgba(255, 255, 255, 0.3) !important;
+  background-color: rgba(255, 255, 255, 0.6) !important;
 }
 
-.global-navbar-scrolled > .logo-container > img {
+.global-navbar-scrolled>.logo-container>img {
   filter: drop-shadow(0px 0px 9px rgba(255, 255, 255, 0.8));
 }
 
 .global-navbar-mobile {
-  height: 52px;
-  top: -2px !important;
-  margin-top: 0px !important;
+  height          : 52px;
+  top             : -2px !important;
+  margin-top      : 0px !important;
   background-color: rgba(0, 0, 0, 0.9) !important;
-  border-top: none !important;
-  border-left: none !important;
-  border-right: none !important;
-  border-bottom: solid 1px rgba(0, 0, 0, 0.16);
+  border-top      : none !important;
+  border-left     : none !important;
+  border-right    : none !important;
+  border-bottom   : solid 1px rgba(0, 0, 0, 0.16);
 }
 
 .mobile-menu {
-  height: 0vh;
-  position: absolute;
-  top: 50px;
-  z-index: 100;
-  width: 100% !important;
-  overflow: hidden;
+  height    : 0vh;
+  position  : absolute;
+  top       : 50px;
+  z-index   : 100;
+  width     : 100% !important;
+  overflow  : hidden;
   transition: all 0.56s cubic-bezier(0.52, 0.16, 0.24, 1);
-  border: none !important;
+  border    : none !important;
   box-shadow: none !important;
-  z-index: 999;
+  z-index   : 999;
 }
 
-@supports ((-webkit-backdrop-filter: blur(20px)) or (backdrop-filter: blur(20px))) {
+@supports ((-webkit-backdrop-filter: blur(40px)) or (backdrop-filter: blur(40px))) {
   .global-navbar-transparent {
-    background-color: rgba(255, 255, 255, 0.3) !important;
-    -webkit-backdrop-filter: saturate(180%) blur(20px);
-    backdrop-filter: saturate(180%) blur(20px) !important;
+    background-color       : rgba(255, 255, 255, 0.6) !important;
+    -webkit-backdrop-filter: saturate(180%) blur(40px);
+    backdrop-filter        : saturate(180%) blur(40px) !important;
   }
 }
-@supports ((-webkit-backdrop-filter: blur(20px)) or (backdrop-filter: blur(20px))) {
+
+@supports ((-webkit-backdrop-filter: blur(40px)) or (backdrop-filter: blur(40px))) {
   .global-navbar-scrolled {
-    background-color: rgba(255, 255, 255, 0.3) !important;
-    -webkit-backdrop-filter: saturate(180%) blur(20px);
-    backdrop-filter: saturate(180%) blur(20px) !important;
+    background-color       : rgba(255, 255, 255, 0.6) !important;
+    -webkit-backdrop-filter: saturate(180%) blur(40px);
+    backdrop-filter        : saturate(180%) blur(40px) !important;
   }
 }
 
 .menu-item-logo {
-  padding: 0px !important;
+  padding     : 0px !important;
   margin-right: 1.5rem !important;
 }
 
@@ -71,20 +72,21 @@
 }
 
 .ui.menu .item {
-  color: #0d0c22;
+  color      : #0d0c22;
   font-family: 'Poppins', 'Helvetica Neue', Arial, Helvetica, sans-serif !important;
-  font-size: 16px;
+  font-size  : 16px;
 }
 
 .ui.vertical.menu .item {
   text-align: center;
 }
+
 .ui.vertical.menu .item:before {
-  position: absolute;
-  content: '';
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 1px;
+  position  : absolute;
+  content   : '';
+  top       : 0;
+  left      : 0;
+  width     : 100%;
+  height    : 1px;
   background: rgba(255, 255, 255, 0.3);
 }

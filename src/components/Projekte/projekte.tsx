@@ -78,8 +78,8 @@ const SectionProjekte = () => {
                             .map(({ node: post }) => {
                                 return (
                                     posts.findIndex((entry) => entry.node.id === post.id) % 2 === 0 && (
-                                        <div data-sal="slide-up" data-sal-delay="0" data-sal-duration="300" data-sal-easing="ease">
-                                            <ProjektCard key={post.id} post={post} ></ProjektCard>
+                                        <div key={post.id} data-sal="slide-up" data-sal-delay="0" data-sal-duration="300" data-sal-easing="ease">
+                                            <ProjektCard post={post} ></ProjektCard>
                                         </div>
                                     )
                                 );
@@ -91,8 +91,8 @@ const SectionProjekte = () => {
                             .map(({ node: post }) => {
                                 return (
                                     posts.findIndex((entry) => entry.node.id === post.id) % 2 === 1 && (
-                                        <div data-sal="slide-up" data-sal-delay="0" data-sal-duration="300" data-sal-easing="ease">
-                                            <ProjektCard key={post.id} post={post} data-sal="slide-up" data-sal-delay="0" data-sal-duration="300" data-sal-easing="ease"></ProjektCard>
+                                        <div key={post.id} data-sal="slide-up" data-sal-delay="0" data-sal-duration="300" data-sal-easing="ease">
+                                            <ProjektCard post={post} data-sal="slide-up" data-sal-delay="0" data-sal-duration="300" data-sal-easing="ease"></ProjektCard>
                                         </div>
                                     )
                                 );
