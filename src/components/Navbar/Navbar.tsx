@@ -1,13 +1,15 @@
-import { Link } from 'gatsby'
-import React, { Component } from 'react'
-import { Button, Menu } from 'semantic-ui-react'
-import CartIcon from '../Cart/CartIcon/CartIcon'
-import LanguageSwitcher from '../language-switcher/language-switcher'
-import Logo from '../Logo/Logo'
-import navigateWithLocale, { getPathWithLocale } from '../navigateWithLocale'
-import './navbar.less'
+import { Link } from 'gatsby-plugin-react-i18next';
+import React, { Component } from 'react';
+import { Button, Menu } from 'semantic-ui-react';
+import CartIcon from '../Cart/CartIcon/CartIcon';
+import LanguageSwitcher from '../language-switcher/language-switcher';
+import Logo from '../Logo/Logo';
+import { useTranslationHOC } from '../useTranslationHOC/useTranslationHOC';
+import './navbar.less';
 
 interface NavbarProps {
+  navigate: any;
+  language: string;
   t: any;
   location: any
   inverted: boolean
@@ -22,7 +24,7 @@ interface NavbarState {
   user: any
 }
 
-export default class Navbar extends Component<NavbarProps, NavbarState> {
+class Navbar extends Component<NavbarProps, NavbarState> {
   state = {
     menuFixed: false,
     width: 0,
@@ -33,20 +35,20 @@ export default class Navbar extends Component<NavbarProps, NavbarState> {
   componentDidMount = async () => {
   }
 
-  handleNavigate = (e, { name }) => navigateWithLocale(name)
+  handleNavigate = (e, { name }) => console.log('WIP')
 
   render() {
-    const { location, inverted, mobile, t, onHoverMenuItem } = this.props
+    const { location, inverted, mobile, t, onHoverMenuItem, navigate, language } = this.props
     return (
       <React.Fragment>
         {!mobile && (
-          <Menu.Item className="menu-item-logo" name="/" link onClick={this.handleNavigate.bind(this)}>
+          <Menu.Item className="menu-item-logo" link onClick={navigate.bind(this, '/')}>
             <Logo />
           </Menu.Item>
         )}
         <Menu.Item
           name="/filtersystem"
-          content="Filtersysteme"
+          content={t('Filtersysteme')}
           link
           active={location.pathname === '/filtersystem'}
           onMouseEnter={onHoverMenuItem?.bind(this, 'Filtersysteme')}
@@ -55,38 +57,37 @@ export default class Navbar extends Component<NavbarProps, NavbarState> {
         ></Menu.Item>
         <Menu.Item
           name="/spenden"
-          content="Spenden"
+          content={t('Spenden')}
           link
           active={location.pathname === '/spenden'}
-          onClick={this.handleNavigate.bind(this)}
+          onClick={navigate.bind(this, '/spenden')}
         ></Menu.Item>
         <Menu.Item
           name="/team"
-          content="Team"
-          link
+          content={t('Team')}
           active={location.pathname === '/team'}
-          onClick={this.handleNavigate.bind(this)}
+          onClick={navigate.bind(this, '/team')}
         ></Menu.Item>
         <Menu.Item
           name="/projekte"
-          content="Projekte"
+          content={t('Projekte')}
           link
           active={location.pathname === '/projekte'}
-          onClick={this.handleNavigate.bind(this)}
+          onClick={navigate.bind(this, '/projekte')}
         ></Menu.Item>
         <Menu.Item
           name="/blog"
-          content="Blog"
+          content={t('Blog')}
           link
           active={location.pathname === '/blog'}
-          onClick={this.handleNavigate.bind(this)}
+          onClick={navigate.bind(this, '/blog')}
         ></Menu.Item>
         <Menu.Item
           name="/shop"
-          content="Shop"
+          content={t('Shop')}
           link
           active={location.pathname === '/shop'}
-          onClick={this.handleNavigate.bind(this)}
+          onClick={navigate.bind(this, '/shop')}
         ></Menu.Item>
         <Menu.Item
           active={false}
@@ -96,27 +97,27 @@ export default class Navbar extends Component<NavbarProps, NavbarState> {
         {!mobile && (
           <Menu.Menu position="right">
             <Menu.Item>
-              <Link to={getPathWithLocale('/spenden')}>
+              <Link to={'/spenden'} language={language}>
                 <Button
                   className="shadow hover-animate rounded"
                   primary={!inverted}
                   inverted={inverted}
                   size="small"
                 >
-                  {t('spenden-button-call2action')}
+                  {t('Ich will helfen!')}
                 </Button>
               </Link>
             </Menu.Item>
-            <LanguageSwitcher t={t} mobile={mobile}></LanguageSwitcher>
+            <LanguageSwitcher mobile={mobile}></LanguageSwitcher>
           </Menu.Menu>
         )}
         {mobile && (
           <React.Fragment>
-            <LanguageSwitcher t={t} mobile={mobile}></LanguageSwitcher>
+            <LanguageSwitcher mobile={mobile}></LanguageSwitcher>
             <Menu.Item>
-              <Link to={getPathWithLocale('/spenden')}>
+              <Link to={'/spenden'} language={language}>
                 <Button primary={true} inverted={false} size="small">
-                  {t('spenden-button-call2action')}
+                  {t('Ich will helfen!')}
                 </Button>
               </Link>
             </Menu.Item>
@@ -126,3 +127,5 @@ export default class Navbar extends Component<NavbarProps, NavbarState> {
     )
   }
 }
+
+export default useTranslationHOC(Navbar);

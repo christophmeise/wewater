@@ -1,26 +1,22 @@
+// i18next-extract-mark-ns-start page_spenden
 import { faPaypal } from '@fortawesome/free-brands-svg-icons';
 import { faCreditCard, faReply, faTint } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { graphql } from 'gatsby';
+import { Trans } from 'gatsby-plugin-react-i18next';
 import React from 'react';
 import { Button, Container } from 'semantic-ui-react';
 import HeaderOverlayFlexend from '../components/HeaderOverlay/header-overlay-flexend';
 import Layout from '../components/Layout/Layout';
 import SEO from '../components/seo';
 import SpendenWidget from '../components/SpendenWidget/spenden-widget';
-import withI18next from '../components/withI18next/withI18next';
+import { useTranslationHOC } from '../components/useTranslationHOC/useTranslationHOC';
 import './spenden.less';
 
+
 interface Props {
-    pageContext: any;
     t: any;
     data: {
-        site: {
-            siteMetadata: {
-                title: string;
-                description: string;
-            };
-        };
         mobileImage: any;
         desktopImage: any;
     };
@@ -32,13 +28,7 @@ class SpendenPage extends React.Component<Props, any> {
     }
 
     render() {
-        const {
-            pageContext: { locale },
-            t,
-        } = this.props;
-        const data = this.props.data;
-        const siteTitle = data.site.siteMetadata.title;
-        const description = data.site.siteMetadata.description;
+        const { t, data } = this.props;
 
         const headerImage = [
             data.mobileImage.childImageSharp.fluid,
@@ -50,8 +40,8 @@ class SpendenPage extends React.Component<Props, any> {
         const backgroundColor = '#FFFFFF';
 
         return (
-            <Layout title={siteTitle} t={t}>
-                <SEO title="Imprint" />
+            <Layout>
+                <SEO title={t('SpendenSEOTitle')} description={t('SpendenSEODescription')} />
                 <HeaderOverlayFlexend content={<OverlayContent t={t} inverted={true} />} color={backgroundColor} darken={false} inverted={false} sources={headerImage} width={16} />
                 <Container className="global-header-padding">
                     <SpendenWidget fullMode={true}></SpendenWidget>
@@ -79,11 +69,11 @@ class OverlayContent extends React.Component<any, any> {
                 </h1>
                 <div className="spenden-banner-container">
                     <div className="spenden-banner-box rounded shadow">
-                        <h3>Du spendest monatlich einen Geldbetrag deiner Wahl</h3>
+                        <h3><Trans>Du spendest monatlich einen Geldbetrag deiner Wahl</Trans></h3>
                         <Button size="large" primary inverted className="rounded">
                             <FontAwesomeIcon icon={faTint} style={{ opacity: '1', margin: '0em 0.42857143em 0em -0.21428571em' }} />
-                            Monatlich Spenden
-                    </Button>
+                            <Trans>Monatlich Spenden</Trans>
+                        </Button>
                         <div className="spenden-banner-payment-logos">
                             <FontAwesomeIcon icon={faPaypal} style={{ opacity: '1' }} />
                             <FontAwesomeIcon icon={faReply} style={{ opacity: '1' }} />
@@ -91,11 +81,11 @@ class OverlayContent extends React.Component<any, any> {
                     </div>
 
                     <div className="spenden-banner-box rounded shadow">
-                        <h3>Du spendest einmalig einen Geldbetrag deiner Wahl</h3>
+                        <h3><Trans>Du spendest einmalig einen Geldbetrag deiner Wahl</Trans></h3>
                         <Button size="large" primary inverted className="rounded">
                             <FontAwesomeIcon icon={faTint} style={{ opacity: '1', margin: '0em 0.42857143em 0em -0.21428571em' }} />
-                            Einmalig Spenden
-                    </Button>
+                            <Trans>Einmalig Spenden</Trans>
+                        </Button>
                         <div className="spenden-banner-payment-logos">
                             <FontAwesomeIcon icon={faPaypal} style={{ opacity: '1' }} />
                             <FontAwesomeIcon icon={faCreditCard} style={{ opacity: '1' }} />
@@ -105,10 +95,10 @@ class OverlayContent extends React.Component<any, any> {
 
 
                     <div className="spenden-banner-box rounded shadow">
-                        <h3>Du spendest projektbezogen einen Geldbetrag deiner Wahl</h3>
+                        <h3><Trans>Du spendest projektbezogen einen Geldbetrag deiner Wahl</Trans></h3>
                         <Button size="large" primary inverted className="rounded">
                             <FontAwesomeIcon icon={faTint} style={{ opacity: '1', margin: '0em 0.42857143em 0em -0.21428571em' }} />
-                            Projektbezogen Spenden
+                            <Trans>Projektbezogen Spenden</Trans>
                         </Button>
                         <div className="spenden-banner-payment-logos">
                             <FontAwesomeIcon icon={faPaypal} style={{ opacity: '1' }} />
@@ -122,12 +112,9 @@ class OverlayContent extends React.Component<any, any> {
     }
 }
 export const pageQuery = graphql`
-    query {
-        site {
-            siteMetadata {
-                title
-                description
-            }
+    query($language: String!) {
+        locales: allLocale(filter: {language: {eq: $language}}) {
+          ...GetTranslations
         }
         desktopImage: file(relativePath: { eq: "images/spenden/main-banner.jpg" }) {
             childImageSharp {
@@ -146,4 +133,4 @@ export const pageQuery = graphql`
     }
 `;
 
-export default withI18next(['common', 'page_spenden'])(SpendenPage);
+export default useTranslationHOC(SpendenPage);

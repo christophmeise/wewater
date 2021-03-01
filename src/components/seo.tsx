@@ -1,10 +1,10 @@
 import { graphql, useStaticQuery } from 'gatsby';
+import { useI18next } from 'gatsby-plugin-react-i18next';
 import React from 'react';
 import { Helmet } from 'react-helmet';
 
 interface Props {
     description?: string;
-    lang?: string;
     meta?: [];
     title: string;
 }
@@ -24,12 +24,15 @@ const SEO = ({ description, meta, title }: Props) => {
         `,
     );
 
+    const t = useI18next();
+    const currentLanguage: string = t.language.toString();
+
     const metaDescription = description || site.siteMetadata.description;
     return (
         <React.Fragment>
             <Helmet
                 htmlAttributes={{
-                    lang: 'en'
+                    lang: currentLanguage
                 }}
                 title={title}
                 titleTemplate={`%s | ${site.siteMetadata.title}`}

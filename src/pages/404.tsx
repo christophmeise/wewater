@@ -1,10 +1,12 @@
+// i18next-extract-mark-ns-start page_404
 import { graphql } from 'gatsby';
+import { Trans } from 'gatsby-plugin-react-i18next';
 import React from 'react';
 import { Container } from 'semantic-ui-react';
 import Layout from '../components/Layout/Layout';
 import PlainHeader from '../components/PlainOverlay/plain-header';
 import SEO from '../components/seo';
-import withI18next from '../components/withI18next/withI18next';
+import { useTranslationHOC } from '../components/useTranslationHOC/useTranslationHOC';
 
 interface Props {
     pageContext: any;
@@ -30,11 +32,9 @@ class NotFound extends React.Component<Props, any> {
             t,
         } = this.props;
         const data = this.props.data;
-        const siteTitle = data.site.siteMetadata.title;
-        const description = data.site.siteMetadata.description;
         return (
-            <Layout title={siteTitle} t={t}>
-                <SEO title="NotFound" />
+            <Layout>
+                <SEO title={t('404SEOTitle')} description={t('404SEODescription')} />
                 <Container className="global-header-padding">
                     <PlainHeader content={HeaderContent()} />
                     <div className="main-content-sections">
@@ -53,19 +53,16 @@ class NotFound extends React.Component<Props, any> {
 const HeaderContent = () => {
     return (
         <div>
-            <h1 className="header-overlay-headline">NotFound</h1>
+            <h1 className="header-overlay-headline"><Trans>NotFound</Trans></h1>
         </div>
     );
 };
 
 export const pageQuery = graphql`
-    query {
-        site {
-            siteMetadata {
-                title
-                description
-            }
+    query($language: String!) {
+        locales: allLocale(filter: {language: {eq: $language}}) {
+          ...GetTranslations
         }
     }
 `;
-export default withI18next(['common'])(NotFound);
+export default useTranslationHOC(NotFound);

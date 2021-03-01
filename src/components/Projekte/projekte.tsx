@@ -1,4 +1,5 @@
 import { graphql, Link, useStaticQuery } from 'gatsby';
+import { Trans } from 'gatsby-plugin-react-i18next';
 import React from 'react';
 import { Button, Container, Grid, Header, Icon } from 'semantic-ui-react';
 import ProjektCard from '../ProjektCard/projekt-card';
@@ -68,8 +69,8 @@ const SectionProjekte = () => {
                     textAlign='left'
                     className="global-flex-column global-no-margin"
                 >
-                    <h3 className={`global-subtitle text-primary`}>Projekte</h3>
-                    <h2 className="global-headline">Projekte im Überblick</h2>
+                    <h3 className={`global-subtitle text-primary`}><Trans>Projekte</Trans></h3>
+                    <h2 className="global-headline"><Trans>Projekte im Überblick</Trans></h2>
                 </Header>
                 <Grid style={{ paddingTop: '2em' }} stackable centered columns={2}>
                     <Grid.Column>
@@ -118,8 +119,8 @@ const SectionProjekte = () => {
                         className="rounded shadow hover-animate"
                     >
                         <Icon name="grid layout" className="left" style={{ opacity: '1' }}></Icon>
-                            Zur Projektübersicht
-                        </Button>
+                        <Trans>Zur Projektübersicht</Trans>
+                    </Button>
                 </Link>
             </Container>
         </section >

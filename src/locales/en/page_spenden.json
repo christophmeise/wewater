@@ -1,4 +1,11 @@
 {
-    "headline": "Donate",
-    "subheadline": "Donate for a better life with potable water"
+  "Du spendest einmalig einen Geldbetrag deiner Wahl": "Du spendest einmalig einen Geldbetrag deiner Wahl",
+  "Du spendest monatlich einen Geldbetrag deiner Wahl": "Du spendest monatlich einen Geldbetrag deiner Wahl",
+  "Du spendest projektbezogen einen Geldbetrag deiner Wahl": "Du spendest projektbezogen einen Geldbetrag deiner Wahl",
+  "Einmalig Spenden": "Einmalig Spenden",
+  "Monatlich Spenden": "Monatlich Spenden",
+  "Projektbezogen Spenden": "Projektbezogen Spenden",
+  "SpendenSEODescription": "SpendenSEODescription",
+  "SpendenSEOTitle": "SpendenSEOTitle",
+  "page_spenden:headline": "page_spenden:headline"
 }

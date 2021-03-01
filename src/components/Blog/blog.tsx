@@ -1,4 +1,5 @@
 import { graphql, Link, useStaticQuery } from 'gatsby';
+import { Trans } from 'gatsby-plugin-react-i18next';
 import React from 'react';
 import { Button, Container, Header, Icon } from 'semantic-ui-react';
 import SwiperCore, { Autoplay, Pagination } from 'swiper';
@@ -26,10 +27,7 @@ const SectionBlog = ({ slidesPerView }) => {
         `,
     );
 
-
-    let posts = data.german.edges;
-
-    posts = posts
+    let posts = data.german.edges
         .filter((post) => new Date(post.node.date) <= new Date())
 
     posts = posts.slice(0, 10);
@@ -47,8 +45,8 @@ const SectionBlog = ({ slidesPerView }) => {
                     textAlign='left'
                     className="global-flex-column global-no-margin"
                 >
-                    <h3 className={`global-subtitle text-primary`}>Aktuelle News</h3>
-                    <h2 className="global-headline">Updates zu den Projekten</h2>
+                    <h3 className={`global-subtitle text-primary`}><Trans>Aktuelle News</Trans></h3>
+                    <h2 className="global-headline"><Trans>Updates zu den Projekten</Trans></h2>
                 </Header>
             </Container>
             <div>
@@ -87,8 +85,8 @@ const SectionBlog = ({ slidesPerView }) => {
                         className="rounded shadow hover-animate"
                     >
                         <Icon name="grid layout" className="left" style={{ opacity: '1' }}></Icon>
-                            Alle Blogeinträge
-                        </Button>
+                        <Trans>Alle Blogeinträge</Trans>
+                    </Button>
                 </Link>
             </Container>
         </section >

@@ -4,25 +4,25 @@ import puzzleCube20Regular from '@iconify/icons-fluent/puzzle-cube-20-regular';
 import bloodBag from '@iconify/icons-mdi/blood-bag';
 import { Icon } from '@iconify/react';
 import { navigate } from '@reach/router';
-import { Link } from 'gatsby';
+import { Link } from 'gatsby-plugin-react-i18next';
 import React, { Component } from 'react';
 import 'semantic-ui-less/semantic.less';
 import { Container, Menu } from 'semantic-ui-react';
 import Footer from '../Footer/Footer';
 import Navbar from '../Navbar/Navbar';
-import { getPathWithLocale } from '../navigateWithLocale';
+import { useTranslationHOC } from '../useTranslationHOC/useTranslationHOC';
 import './layout.less';
 import MobileMenu from './MobileMenu';
 
 interface Props {
-    t: any;
-    title: string;
+    t?: any;
+    language: string;
     invertedHeader?: boolean;
     children?: any;
     headerOverlay?: any;
 }
 
-export default class Layout extends Component<Props, any> {
+class Layout extends Component<Props, any> {
 
     constructor(props) {
         super(props);
@@ -180,7 +180,7 @@ export default class Layout extends Component<Props, any> {
     }
 
     render() {
-        const { children, invertedHeader, t } = this.props;
+        const { children, invertedHeader, t, language } = this.props;
         const { sidebarOpened, location } = this.state;
 
         const isMobileBrowser = typeof window !== 'undefined' && window.innerWidth < 768;
@@ -239,7 +239,7 @@ export default class Layout extends Component<Props, any> {
                                     </Container>
                                 </Menu>
                             </section>
-                            <Popover></Popover>
+                            <Popover language={language}></Popover>
                         </header>
                     )}
                     <main role="main">
@@ -254,13 +254,13 @@ export default class Layout extends Component<Props, any> {
 
 
 
-const Popover = () => {
+const Popover = ({language}) => {
     return (
         <div id="popover" className="nav-popover">
             <div className="popover-content">
                 <section className="section section-Filtersysteme section-active">
                     <ul className="navlist-primary">
-                        <Link to={getPathWithLocale('/filtersystem')}>
+                        <Link to={'/filtersystem'} language={language}>
                             <li className="navlist-primary-entry">
                                 <div className="navlist-menu-entry">
                                     <h4>Alle Filtersysteme <Icon className="icon-filtersysteme" icon={arrowSmallRight} color='#5ABEE6' /></h4>
@@ -268,7 +268,7 @@ const Popover = () => {
                                 </div>
                             </li>
                         </Link>
-                        <Link to={getPathWithLocale('/aqqabag')}>
+                        <Link to={'/aqqabag'} language={language}>
                             <li className="navlist-primary-bag two-col">
                                 <div className="navlist-circle">
                                     <Icon icon={bloodBag} color='#FFFFFF' />
@@ -279,7 +279,7 @@ const Popover = () => {
                                 </div>
                             </li>
                         </Link>
-                        <Link to={getPathWithLocale('/aqqacube')}>
+                        <Link to={'/aqqacube'} language={language}>
                             <li className="navlist-primary-cube two-col">
                                 <div className="navlist-circle">
                                     <Icon icon={cube20Regular} color='#FFFFFF' />
@@ -290,7 +290,7 @@ const Popover = () => {
                                 </div>
                             </li>
                         </Link>
-                        <Link to={getPathWithLocale('/aqqasystem')}>
+                        <Link to={'/aqqasystem'} language={language}>
                             <li className="navlist-primary-system two-col">
                                 <div className="navlist-circle">
                                     <Icon icon={puzzleCube20Regular} color='#FFFFFF' />
@@ -309,3 +309,5 @@ const Popover = () => {
         </div>
     )
 }
+
+export default useTranslationHOC(Layout);

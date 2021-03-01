@@ -1,13 +1,14 @@
+// i18next-extract-mark-ns-start page_dataprotection
 import { graphql } from 'gatsby';
+import { Trans } from 'gatsby-plugin-react-i18next';
 import React from 'react';
 import { Container } from 'semantic-ui-react';
 import Layout from '../components/Layout/Layout';
 import PlainHeader from '../components/PlainOverlay/plain-header';
 import SEO from '../components/seo';
-import withI18next from '../components/withI18next/withI18next';
+import { useTranslationHOC } from '../components/useTranslationHOC/useTranslationHOC';
 
 interface Props {
-    pageContext: any;
     t: any;
     data: {
         site: {
@@ -25,17 +26,11 @@ class DataProtection extends React.Component<Props, any> {
     }
 
     render() {
-        const {
-            pageContext: { locale },
-            t,
-        } = this.props;
-        const data = this.props.data;
-        const siteTitle = data.site.siteMetadata.title;
-        const description = data.site.siteMetadata.description;
+        const { t } = this.props;
 
         return (
-            <Layout title={siteTitle} t={t}>
-                <SEO title="Dataprotection" />
+            <Layout>
+                <SEO title={t('DataprotectionSEOTitle')} description={t('DataprotectionSEODescription')} />
                 <Container className="global-header-padding">
                     <PlainHeader content={HeaderContent()} />
                     <Container>
@@ -322,21 +317,18 @@ class DataProtection extends React.Component<Props, any> {
 const HeaderContent = () => {
     return (
         <div>
-            <h1 className="header-overlay-headline">Dataprotection</h1>
+            <h1 className="header-overlay-headline"><Trans>Dataprotection</Trans></h1>
             <h2 className="header-overlay-subheadline"></h2>
         </div>
     );
 };
 
 export const pageQuery = graphql`
-    query {
-                            site {
-                            siteMetadata {
-                            title
-                description
-            }
+    query($language: String!) {
+        locales: allLocale(filter: {language: {eq: $language}}) {
+          ...GetTranslations
         }
     }
 `;
 
-export default withI18next(['common', 'page_dataprotection'])(DataProtection);
+export default useTranslationHOC(DataProtection);

@@ -3,16 +3,16 @@ import React from 'react';
 import { Container } from 'semantic-ui-react';
 import Layout from '../components/Layout/Layout';
 import SEO from '../components/seo';
-import withI18next from '../components/withI18next/withI18next';
 import './projekt-post.less';
+
 
 function ProjektPostTemplate({ data, t }) {
     const post = data.allWpDtPortfolio.edges[0].node;
     const sources = post.featuredImage.node.localFile.childImageSharp.fluid;
 
     return (
-        <Layout title={post.title} invertedHeader={true} t={t}>
-            <SEO lang="en" description={post.title} title={post.title} />
+        <Layout invertedHeader={true}>
+            <SEO description={post.title} title={post.title} />
             <Container>
                 <div className="blog-content-sections">
                     <section className="blog-post">
@@ -24,7 +24,7 @@ function ProjektPostTemplate({ data, t }) {
     );
 }
 
-export default withI18next('common')(ProjektPostTemplate);
+export default ProjektPostTemplate;
 
 const OverlayContent = ({ title, inverted }) => {
     return (
@@ -41,7 +41,7 @@ const OverlayContent = ({ title, inverted }) => {
 
 export const pageQuery = graphql`
     query ProjektPostByPath($slug: String!) {
-allWpDtPortfolio(
+        allWpDtPortfolio(
             filter: { slug: { eq: $slug } }
         ) {
             edges {

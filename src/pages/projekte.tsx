@@ -1,23 +1,19 @@
+// i18next-extract-mark-ns-start page_projekte
 import { graphql } from 'gatsby';
+import { Trans } from 'gatsby-plugin-react-i18next';
 import React from 'react';
 import { Container, Grid, Header } from 'semantic-ui-react';
 import HeaderOverlay from '../components/HeaderOverlay/header-overlay';
 import Layout from '../components/Layout/Layout';
 import ProjektCard from '../components/ProjektCard/projekt-card';
 import SEO from '../components/seo';
-import withI18next from '../components/withI18next/withI18next';
+import { useTranslationHOC } from '../components/useTranslationHOC/useTranslationHOC';
 import './projekte.less';
 
+
 interface Props {
-    pageContext: any;
     t: any;
     data: {
-        site: {
-            siteMetadata: {
-                title: string;
-                description: string;
-            };
-        };
         mobileImage: any;
         desktopImage: any;
         german: any;
@@ -30,13 +26,7 @@ class ProjektePage extends React.Component<Props, any> {
     }
 
     render() {
-        const {
-            pageContext: { locale },
-            t,
-        } = this.props;
-        const data = this.props.data;
-        const siteTitle = data.site.siteMetadata.title;
-        const description = data.site.siteMetadata.description;
+        const { data, t } = this.props;
 
         const headerImage = [
             data.mobileImage.childImageSharp.fluid,
@@ -49,8 +39,8 @@ class ProjektePage extends React.Component<Props, any> {
         const posts = data.german.edges;
 
         return (
-            <Layout title={siteTitle} t={t}>
-                <SEO title="Projekte" />
+            <Layout>
+                <SEO title={t('ProjekteSEOTitle')} description={t('ProjekteSEODescription')} />
                 <HeaderOverlay content={<OverlayContent t={t} inverted={true} />} color={backgroundColor} darken={false} inverted={false} sources={headerImage} width={12} />
                 <Container className="global-header-padding">
                     <Header
@@ -61,8 +51,8 @@ class ProjektePage extends React.Component<Props, any> {
                         textAlign='center'
                         className="global-flex-column global-no-margin"
                     >
-                        <h3 className={`global-subtitle text-primary`}>Projekte von WeWater</h3>
-                        <h2 className="global-headline">Projektübersicht</h2>
+                        <h3 className={`global-subtitle text-primary`}><Trans>Projekte von WeWater</Trans></h3>
+                        <h2 className="global-headline"><Trans>Projektübersicht</Trans></h2>
                     </Header>
                     <Grid style={{ paddingTop: '2em' }} stackable centered columns={2}>
                         <Grid.Column>
@@ -124,12 +114,9 @@ class OverlayContent extends React.Component<any, any> {
 }
 
 export const pageQuery = graphql`
-    query {
-        site {
-            siteMetadata {
-                title
-                description
-            }
+    query($language: String!) {
+        locales: allLocale(filter: {language: {eq: $language}}) {
+          ...GetTranslations
         }
         desktopImage: file(relativePath: { eq: "images/projekte/banner.jpeg" }) {
             childImageSharp {
@@ -184,4 +171,4 @@ export const pageQuery = graphql`
     }
 `;
 
-export default withI18next(['common', 'page_projekte'])(ProjektePage);
+export default useTranslationHOC(ProjektePage);

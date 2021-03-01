@@ -1,4 +1,6 @@
+// i18next-extract-mark-ns-start page_blog
 import { graphql, Link } from 'gatsby';
+import { Trans } from 'gatsby-plugin-react-i18next';
 import React from 'react';
 import { Container, Grid, Header } from 'semantic-ui-react';
 import SwiperCore, { Autoplay, Navigation } from 'swiper';
@@ -10,7 +12,7 @@ import BlogPostCard from '../components/BlogPostCard/blog-post-card';
 import HeaderOverlayBlog from '../components/HeaderOverlay/header-overlay-blog';
 import Layout from '../components/Layout/Layout';
 import SEO from '../components/seo';
-import withI18next from '../components/withI18next/withI18next';
+import { useTranslationHOC } from '../components/useTranslationHOC/useTranslationHOC';
 import './blog.less';
 
 interface Props {
@@ -29,35 +31,23 @@ interface Props {
   };
 }
 
-class Index extends React.Component<Props> {
+class BlogPage extends React.Component<Props> {
   constructor(props: Props) {
     super(props);
   }
 
   render() {
-    const {
-      pageContext: { locale },
-      t,
-    } = this.props;
+    const { t } = this.props;
     const data = this.props.data;
-    const sources = [
-      data.mobileImage.childImageSharp.fluid,
-      {
-        ...data.desktopImage.childImageSharp.fluid,
-        media: `(min-width: 768px)`,
-      },
-    ];
-    const backgroundColor = '#FFFFFF';
 
     SwiperCore.use([Autoplay, Navigation]);
 
     const posts = data.german.edges
       .filter((post) => new Date(post.node.date) <= new Date())
 
-
     return (
-      <Layout title="test" invertedHeader={false} t={t}>
-        <SEO title="Home" />
+      <Layout invertedHeader={false}>
+        <SEO title={t('BlogSEOTitle')} description={t('BlogSEODescription')} />
         <div>
           <Swiper
             spaceBetween={0}
@@ -92,8 +82,8 @@ class Index extends React.Component<Props> {
               textAlign='center'
               className="global-flex-column global-no-margin"
             >
-              <h3 className={`global-subtitle text-primary`}>News von WeWater</h3>
-              <h2 className="global-headline">Neuigkeiten</h2>
+              <h3 className={`global-subtitle text-primary`}><Trans>News von WeWater</Trans></h3>
+              <h2 className="global-headline"><Trans>Neuigkeiten</Trans></h2>
             </Header>
             <Grid style={{ paddingTop: '2em' }} stackable centered columns={3}>
               <Grid.Column>
@@ -167,7 +157,7 @@ const OverlayContent = ({ post, inverted }) => {
         {post.title}
       </h1>
       <div className="blog-post-author-box">
-        <p>Von {post.author.node.name} am {post.date}</p>
+        <p><Trans>Von</Trans> {post.author.node.name} <Trans>am</Trans> {post.date}</p>
       </div>
     </div>
   );
@@ -175,12 +165,9 @@ const OverlayContent = ({ post, inverted }) => {
 
 
 export const pageQuery = graphql`
-    query {
-        site {
-            siteMetadata {
-                title
-                description
-            }
+    query($language: String!) {
+        locales: allLocale(filter: {language: {eq: $language}}) {
+          ...GetTranslations
         }
         desktopImage: file(relativePath: { eq: "images/main-banner.jpg" }) {
             childImageSharp {
@@ -203,4 +190,4 @@ export const pageQuery = graphql`
         }
     }
 `;
-export default withI18next(['common', 'page_blog'])(Index);
+export default useTranslationHOC(BlogPage);

@@ -1,4 +1,8 @@
 {
-    "headline": "Shop",
-    "subheadline": "Spenden und Durst nach besserem Leben stillen"
+  "Neuigkeiten": "Neuigkeiten",
+  "News von WeWater": "News von WeWater",
+  "ShopSEODescription": "ShopSEODescription",
+  "ShopSEOTitle": "ShopSEOTitle",
+  "page_shop:headline": "page_shop:headline",
+  "page_shop:subheadline": "page_shop:subheadline"
 }

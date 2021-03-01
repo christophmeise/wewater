@@ -1,6 +1,8 @@
+// i18next-extract-mark-ns-start page_landing
 import { faTint } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { graphql } from 'gatsby';
+import { Trans } from 'gatsby-plugin-react-i18next';
 import React from 'react';
 import CountUp from 'react-countup';
 import { Button, Icon } from 'semantic-ui-react';
@@ -12,21 +14,13 @@ import Layout from '../components/Layout/Layout';
 import SectionProjekte from '../components/Projekte/projekte';
 import SEO from '../components/seo';
 import SpendenWidget from '../components/SpendenWidget/spenden-widget';
+import { useTranslationHOC } from '../components/useTranslationHOC/useTranslationHOC';
 import Video from '../components/Video/video';
-import withI18next from '../components/withI18next/withI18next';
 import './index.less';
-const HeaderImage = require('../../static/images/main.inline.svg') as string;
 
 interface Props {
   t: any;
-  pageContext: any;
   data: {
-    site: {
-      siteMetadata: {
-        title: string;
-        description: string;
-      };
-    };
     mobileImage: any;
     desktopImage: any;
   };
@@ -73,11 +67,7 @@ class Index extends React.Component<Props, State> {
 
 
   render() {
-    const {
-      pageContext: { locale },
-      t,
-    } = this.props;
-    const data = this.props.data;
+    const { t, data } = this.props;
 
     const sources = [
       data.mobileImage.childImageSharp.fluid,
@@ -90,8 +80,8 @@ class Index extends React.Component<Props, State> {
     const slidesPerView = this.state != null ? this.state.slidesPerView : 5;
 
     return (
-      <Layout title="WeWater. Wasser weltweit klarmachen. - WeWater.org" invertedHeader={false} t={t}>
-        <SEO title="WeWater. Wasser weltweit klarmachen. - WeWater.org" />
+      <Layout invertedHeader={false}>
+        <SEO title={t('LandingpageSEOTitle')} description={t('LandingpageSEODescription')} />
         <HeaderOverlay
           sources={sources}
           color={'#FFFFFF'}
@@ -120,7 +110,7 @@ class OverlayContent extends React.Component<any, any> {
   }
 
   render() {
-    const { inverted } = this.props;
+    const { inverted, t } = this.props;
 
     return (
       <div className="main-overlay-content">
@@ -128,21 +118,21 @@ class OverlayContent extends React.Component<any, any> {
           WeWater.
         </h1>
         <h2>
-          Wasser weltweit klarmachen.
+          <Trans>Wasser weltweit klarmachen.</Trans>
         </h2>
         <p style={{ marginBottom: '1.5rem', marginTop: '0rem' }}>
-          Dafür haben wir eine innovative Wasserfiltertechnologie entwickelt, die ohne den Einsatz von elektrischer Energie und Chemie funktioniert und einen extrem hohen Reinheitsgrad gewährleistet.
+          <Trans>Dafür haben wir eine innovative Wasserfiltertechnologie entwickelt, die ohne den Einsatz von elektrischer Energie und Chemie funktioniert und einen extrem hohen Reinheitsgrad gewährleistet.</Trans>
         </p>
         <div className="main-overlay-infobox rounded">
           <div className="main-overlay-infobox-text">
             <h3><CountUp delay={0.5} end={8100} start={0} separator="." duration={4}></CountUp></h3>
           </div>
-          <p>Menschen mit Trinkwasser versorgt</p>
+          <p><Trans>Menschen mit Trinkwasser versorgt</Trans></p>
           <div>
             <Button primary className="rounded">
               <FontAwesomeIcon icon={faTint} style={{ opacity: '1', margin: '0em 0.42857143em 0em -0.21428571em' }} />
-            Ich will helfen!
-          </Button>
+              <Trans>Ich will helfen!</Trans>
+            </Button>
             <Button
               secondary={true}
               basic
@@ -151,22 +141,19 @@ class OverlayContent extends React.Component<any, any> {
               className="rounded"
             >
               <Icon name="newspaper outline" className="left" style={{ opacity: '1' }}></Icon>
-                            Alle News in mein Postfach
-          </Button>
+              <Trans>Alle News in mein Postfach</Trans>
+            </Button>
           </div>
         </div>
-      </div>
+      </div >
     );
   }
 }
 
 export const pageQuery = graphql`
-    query {
-        site {
-            siteMetadata {
-                title
-                description
-            }
+    query($language: String!) {
+        locales: allLocale(filter: {language: {eq: $language}}) {
+          ...GetTranslations
         }
         desktopImage: file(relativePath: { eq: "images/main/main-banner.jpg" }) {
             childImageSharp {
@@ -184,4 +171,4 @@ export const pageQuery = graphql`
         }
     }
 `;
-export default withI18next(['common'])(Index);
+export default useTranslationHOC(Index);

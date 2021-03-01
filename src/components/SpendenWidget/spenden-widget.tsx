@@ -1,5 +1,6 @@
 import shieldCheck from '@iconify/icons-bi/shield-check';
 import { Icon } from '@iconify/react';
+import { Trans } from 'gatsby-plugin-react-i18next';
 import React from 'react';
 import { Helmet } from 'react-helmet';
 import { Container, Grid, GridColumn, Header } from 'semantic-ui-react';
@@ -32,45 +33,51 @@ class SpendenWidget extends React.Component<Props, any> {
                                     textAlign='left'
                                     className="global-flex-column global-no-margin"
                                 >
-                                    <h3 className={`global-subtitle text-primary`}>Spenden und Durst nach besserem Leben stillen</h3>
-                                    <h2 className="global-headline">Spenden und Durst nach besserem Leben stillen</h2>
+                                    <h3 className={`global-subtitle text-primary`}><Trans>Spenden und Durst nach besserem Leben stillen</Trans></h3>
+                                    <h2 className="global-headline"><Trans>Spenden und Durst nach besserem Leben stillen</Trans></h2>
                                 </Header>
-                                <h5>WeWater arbeitet ehrenamtlich sowie auf Spendenbasis. Daher sind wir auf finanzielle Hilfe angewiesen sind, um Wasserprojekte zu realisieren. Hilf jetzt mit einer Spende.</h5>
+                                <h5><Trans>WeWater arbeitet ehrenamtlich sowie auf Spendenbasis. Daher sind wir auf finanzielle Hilfe angewiesen sind, um Wasserprojekte zu realisieren. Hilf jetzt mit einer Spende.</Trans></h5>
                                 <ul className="spenden-list">
                                     <li>
                                         <div><Icon icon={shieldCheck} /></div>
-                                        <p>Unsere Gemeinnützigkeit ist vom Finanzamt anerkannt.</p>
+                                        <p><Trans>Unsere Gemeinnützigkeit ist vom Finanzamt anerkannt.</Trans></p>
+                                    </li>
+                                    <li>
+                                        <div><Icon icon={shieldCheck} /></div>
+                                        <p><Trans>Wir arbeiten ehrenamtlich und beziehen kein Gehalt, Sachleistungen oder andere Vergütungen.</Trans></p>
                                     </li>
                                     <li>
                                         <div><Icon icon={shieldCheck} /></div>
                                         <p>
-                                            Wir arbeiten ehrenamtlich und beziehen kein Gehalt, Sachleistungen oder andere Vergütungen.
-                                </p>
+                                            <Trans>
+                                                Da wir eine kleine Organisation mit flachen Hierachien sind, arbeiten wir sehr effektiv. Quasi jeder Euro kommt dem Satzungsziel zugute, weil wir keinen riesigen Verwaltungsapparat finanzieren müssen.
+                                            </Trans>
+                                        </p>
                                     </li>
                                     <li>
                                         <div><Icon icon={shieldCheck} /></div>
                                         <p>
-                                            Da wir eine kleine Organisation mit flachen Hierachien sind, arbeiten wir sehr effektiv. Quasi jeder Euro kommt dem Satzungsziel zugute, weil wir keinen riesigen Verwaltungsapparat finanzieren müssen.
-                                </p>
+                                            <Trans>
+                                                Wir arbeiten transparent, haben unsere Satzung veröffentlicht und im Blog kannst du genau mitverfolgen was mit deinen Spendengeldern geschieht.
+                                            </Trans>
+                                        </p>
                                     </li>
                                     <li>
                                         <div><Icon icon={shieldCheck} /></div>
                                         <p>
-                                            Wir arbeiten transparent, haben unsere Satzung veröffentlicht und im Blog kannst du genau mitverfolgen was mit deinen Spendengeldern geschieht.
-                                </p>
-                                    </li>
-                                    <li>
-                                        <div><Icon icon={shieldCheck} /></div>
-                                        <p>
-                                            Mit dem Brunnenprojekt in Uganda haben wir uns schon vor der Gründung von WeWater engagiert, Spenden gesammelt und vor allem: Das Projekt erfolgreich umgesetzt.
-                                </p>
+                                            <Trans>
+                                                Mit dem Brunnenprojekt in Uganda haben wir uns schon vor der Gründung von WeWater engagiert, Spenden gesammelt und vor allem: Das Projekt erfolgreich umgesetzt.
+                                            </Trans>
+                                        </p>
                                     </li>
                                 </ul>
                                 <div className="spenden-info-box">
-                                    <strong>Mittelverwendung</strong>
-                                    <p>Grundsätzlich werden bei gemeinnützigen Organisationen Verwaltungs-, Organisations- oder sogar Lohnkosten als kritisch angesehen.
-                                    Aktuell arbeiten wir mit sehr geringen Verwaltungskosten. Dazu gehören Kosten für das Website-Hosting, Gebühren für ein SSL-Zertifikat,
-                        Kontoführungsgebühren sowie Kosten für Rechtsberatung und Steuerberater. Lohnkosten haben wir zum jetzigen Zeitpunkt keine. Dennoch werden ab einer gewissen Größe Lohnausgaben unabdingbar sein.</p>
+                                    <strong><Trans>Mittelverwendung</Trans></strong>
+                                    <p><Trans>
+                                        Grundsätzlich werden bei gemeinnützigen Organisationen Verwaltungs-, Organisations- oder sogar Lohnkosten als kritisch angesehen.
+                                        Aktuell arbeiten wir mit sehr geringen Verwaltungskosten. Dazu gehören Kosten für das Website-Hosting, Gebühren für ein SSL-Zertifikat,
+                                        Kontoführungsgebühren sowie Kosten für Rechtsberatung und Steuerberater. Lohnkosten haben wir zum jetzigen Zeitpunkt keine. Dennoch werden ab einer gewissen Größe Lohnausgaben unabdingbar sein.</Trans>
+                                    </p>
                                 </div>
 
                             </article>
@@ -116,17 +123,20 @@ class SpendenWidget extends React.Component<Props, any> {
                         <Grid columns="1">
                             <GridColumn>
                                 <div className="spenden-info-box">
-                                    <strong>Spenden an uns kannst du steuerlich geltend machen</strong>
-                                    <p>Die WeWater gemeinnützige UG ist laut Bescheid vom 02.01.2019 vom Finanzamt für Körperschaften I (Bredtschneiderstraße 5, 14057 Berlin) nach § 60a Abs. 1 AO als gemeinnützig anerkannt.
+                                    <strong><Trans>Spenden an uns kannst du steuerlich geltend machen</Trans></strong>
+                                    <p>
+                                        <Trans>
+                                            Die WeWater gemeinnützige UG ist laut Bescheid vom 02.01.2019 vom Finanzamt für Körperschaften I (Bredtschneiderstraße 5, 14057 Berlin) nach § 60a Abs. 1 AO als gemeinnützig anerkannt.
 
-                                    Spenden an die WeWater gemeinnützige UG sind gemäß § 10b Abs. 1 EStG steuerlich abzugsfähig. Wir bestätigen, dass die Zuwendung nur zur Förderung gemeinnütziger Zwecke im Sinne der Förderung der Entwicklungszusammenarbeit gemäß §§ 52 Abs. 2 Satz 1 Nr.(n) 15 AO, verwendet wird.
+                                            Spenden an die WeWater gemeinnützige UG sind gemäß § 10b Abs. 1 EStG steuerlich abzugsfähig. Wir bestätigen, dass die Zuwendung nur zur Förderung gemeinnütziger Zwecke im Sinne der Förderung der Entwicklungszusammenarbeit gemäß §§ 52 Abs. 2 Satz 1 Nr.(n) 15 AO, verwendet wird.
 
-                                    Spenden bis zu 300 Euro (neu seit 01.01.2021, vorher 200€) jährlich kannst du ohne Spendenquittung (§ 50 Abs. 2 Nr. 2 Buchst. b EStDV) steuerlich geltend machen. Dafür reichst du einfach deinen Kontoauszug zusammen mit diesem Dokument für Spenden bis 31.12.2020 (Link anklicken) oder diesem Dokument für Spenden ab 01.01.2021 (Link anklicken) beim Finanzamt ein. Wichtig: Gib bei jeder Spende per Überweisung den Verwendungszweck an (z.B. monatliche Spende, einmalige Spende, Spende für Projekt xy). So können wir deine Spende richtig zuordnen.
+                                            Spenden bis zu 300 Euro (neu seit 01.01.2021, vorher 200€) jährlich kannst du ohne Spendenquittung (§ 50 Abs. 2 Nr. 2 Buchst. b EStDV) steuerlich geltend machen. Dafür reichst du einfach deinen Kontoauszug zusammen mit diesem Dokument für Spenden bis 31.12.2020 (Link anklicken) oder diesem Dokument für Spenden ab 01.01.2021 (Link anklicken) beim Finanzamt ein. Wichtig: Gib bei jeder Spende per Überweisung den Verwendungszweck an (z.B. monatliche Spende, einmalige Spende, Spende für Projekt xy). So können wir deine Spende richtig zuordnen.
 
-                                    Für Spenden über 300 Euro ab 01.01.2021 bzw. über 200 Euro bis 31.12.2020 jährlich benötigst du eine Spendenbescheinigung von uns, um sie steuerlich geltend zu machen. Bitte schreib uns eine E-Mail an hi@wewater.org mit deinem vollständigen Namen und deiner Anschrift. Wir senden dir dann deine Spendenbescheinigung per Mail zu.
+                                            Für Spenden über 300 Euro ab 01.01.2021 bzw. über 200 Euro bis 31.12.2020 jährlich benötigst du eine Spendenbescheinigung von uns, um sie steuerlich geltend zu machen. Bitte schreib uns eine E-Mail an hi@wewater.org mit deinem vollständigen Namen und deiner Anschrift. Wir senden dir dann deine Spendenbescheinigung per Mail zu.
 
-                                    Unsere Satzung findest du hier.
-</p>
+                                            Unsere Satzung findest du hier.
+                                    </Trans>
+                                    </p>
                                 </div>
                             </GridColumn>
                         </Grid>

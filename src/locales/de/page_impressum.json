@@ -1,4 +1,6 @@
 {
-    "headline": "Impressum",
-    "subheadline": "Kontaktinformationen zu WeWater"
+  "ImpressumSEODescription": "ImpressumSEODescription",
+  "ImpressumSEOTitle": "ImpressumSEOTitle",
+  "page_impressum:headline": "page_impressum:headline",
+  "page_impressum:subheadline": "page_impressum:subheadline"
 }

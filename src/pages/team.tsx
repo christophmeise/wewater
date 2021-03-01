@@ -1,3 +1,4 @@
+// i18next-extract-mark-ns-start page_team
 import { graphql } from 'gatsby';
 import Img from 'gatsby-image';
 import React from 'react';
@@ -5,19 +6,12 @@ import { Container, Grid, GridColumn, GridRow, Header, Icon } from 'semantic-ui-
 import HeaderOverlay from '../components/HeaderOverlay/header-overlay';
 import Layout from '../components/Layout/Layout';
 import SEO from '../components/seo';
-import withI18next from '../components/withI18next/withI18next';
+import { useTranslationHOC } from '../components/useTranslationHOC/useTranslationHOC';
 import './team.less';
 
 interface Props {
-    pageContext: any;
     t: any;
     data: {
-        site: {
-            siteMetadata: {
-                title: string;
-                description: string;
-            };
-        };
         mobileImage: any;
         desktopImage: any;
         allWpDtTeam: any;
@@ -30,13 +24,8 @@ class TeamPage extends React.Component<Props, any> {
     }
 
     render() {
-        const {
-            pageContext: { locale },
-            t,
-        } = this.props;
-        const data = this.props.data;
-        const siteTitle = data.site.siteMetadata.title;
-        const description = data.site.siteMetadata.description;
+        const { t, data } = this.props;
+
         const teamData = data.allWpDtTeam.edges.reverse();
         const headerImage = [
             data.mobileImage.childImageSharp.fluid,
@@ -45,11 +34,10 @@ class TeamPage extends React.Component<Props, any> {
                 media: `(min-width: 768px)`,
             },
         ];
-        const sources = teamData[0].node.featuredImage.node.localFile.childImageSharp.fluid;
 
         return (
-            <Layout title={siteTitle} t={t}>
-                <SEO title="Team" />
+            <Layout>
+                <SEO title={t('TeamSEOTitle')} description={t('TeamSEODescription')} />
                 <HeaderOverlay content={<OverlayContent t={t} inverted={true} />} color="#ffffff" darken={true} inverted={false} sources={headerImage} width={16} />
                 <Container>
                     <Container>
@@ -153,12 +141,9 @@ class OverlayContent extends React.Component<any, any> {
 }
 
 export const pageQuery = graphql`
-    query {
-        site {
-            siteMetadata {
-                title
-                description
-            }
+    query($language: String!) {
+        locales: allLocale(filter: {language: {eq: $language}}) {
+          ...GetTranslations
         }
         desktopImage: file(relativePath: { eq: "images/team/banner.jpeg" }) {
             childImageSharp {
@@ -196,4 +181,4 @@ export const pageQuery = graphql`
     }
 `;
 
-export default withI18next(['common', 'page_team'])(TeamPage);
+export default useTranslationHOC(TeamPage);

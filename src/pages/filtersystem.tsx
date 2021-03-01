@@ -1,22 +1,15 @@
+// i18next-extract-mark-ns-start page_filtersystem
 import { graphql } from 'gatsby';
+import { Trans } from 'gatsby-plugin-react-i18next';
 import React from 'react';
 import { Container } from 'semantic-ui-react';
 import VideoOverlay from '../components/HeaderOverlay/video-overlay';
 import Layout from '../components/Layout/Layout';
 import SEO from '../components/seo';
-import withI18next from '../components/withI18next/withI18next';
+import { useTranslationHOC } from '../components/useTranslationHOC/useTranslationHOC';
 
 interface Props {
-    pageContext: any;
     t: any;
-    data: {
-        site: {
-            siteMetadata: {
-                title: string;
-                description: string;
-            };
-        };
-    };
 }
 
 class FiltersystemPage extends React.Component<Props, any> {
@@ -25,23 +18,17 @@ class FiltersystemPage extends React.Component<Props, any> {
     }
 
     render() {
-        const {
-            pageContext: { locale },
-            t,
-        } = this.props;
-        const data = this.props.data;
-        const siteTitle = data.site.siteMetadata.title;
-        const description = data.site.siteMetadata.description;
+        const { t } = this.props;
 
         return (
-            <Layout title={siteTitle} t={t}>
-                <SEO title="Filtersystem" />
+            <Layout>
+                <SEO title={t('FiltersystemeSEOTitle')} description={t('FiltersystemeSEODescription')} />
                 <VideoOverlay content={<OverlayContent t={t} inverted={true} />} darken={false} sources='videos/filtersystem.mp4' />
                 <Container className="global-header-padding">
                     <Container text>
                         <div className="main-content-sections">
                             <section>
-                                <p>Wenn du an WeWater spenden möchtest, dann gibt es dafür drei Möglichkeiten:</p>
+                                <p><Trans>Wenn du an WeWater spenden möchtest, dann gibt es dafür drei Möglichkeiten:</Trans></p>
                             </section>
                         </div>
                     </Container>
@@ -79,14 +66,11 @@ class OverlayContent extends React.Component<any, any> {
 }
 
 export const pageQuery = graphql`
-    query {
-        site {
-            siteMetadata {
-                title
-                description
-            }
+    query($language: String!) {
+        locales: allLocale(filter: {language: {eq: $language}}) {
+          ...GetTranslations
         }
     }
 `;
 
-export default withI18next(['common', 'page_filtersystem'])(FiltersystemPage);
+export default useTranslationHOC(FiltersystemPage);

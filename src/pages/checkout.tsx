@@ -1,3 +1,4 @@
+// i18next-extract-mark-ns-start page_checkout
 import { graphql } from 'gatsby';
 import React from 'react';
 import { Container } from 'semantic-ui-react';
@@ -6,7 +7,7 @@ import HeaderOverlay from '../components/HeaderOverlay/header-overlay';
 import Layout from '../components/Layout/Layout';
 import SEO from '../components/seo';
 import { ShopItem } from '../components/ShopCard/shop-card';
-import withI18next from '../components/withI18next/withI18next';
+import { useTranslationHOC } from '../components/useTranslationHOC/useTranslationHOC';
 
 interface Props {
     pageContext: any;
@@ -34,13 +35,8 @@ class ShopPage extends React.Component<Props, any> {
     }
 
     render() {
-        const {
-            pageContext: { locale },
-            t,
-        } = this.props;
+        const { t } = this.props;
         const data = this.props.data;
-        const siteTitle = data.site.siteMetadata.title;
-        const description = data.site.siteMetadata.description;
 
         const headerImage = [
             data.mobileImage.childImageSharp.fluid,
@@ -53,8 +49,8 @@ class ShopPage extends React.Component<Props, any> {
         const shopItems = data.german.edges;
 
         return (
-            <Layout title={siteTitle} t={t}>
-                <SEO title="Shop" />
+            <Layout>
+                <SEO title={t('CheckoutSEOTitle')} description={t('CheckoutSEODescription')} />
                 <HeaderOverlay content={<OverlayContent t={t} inverted={true} />} color={backgroundColor} darken={false} inverted={false} sources={headerImage} width={12} />
                 <Container className="global-header-padding">
                     <CheckoutForm />
@@ -92,12 +88,9 @@ class OverlayContent extends React.Component<any, any> {
 }
 
 export const pageQuery = graphql`
-    query {
-        site {
-            siteMetadata {
-                title
-                description
-            }
+    query($language: String!) {
+        locales: allLocale(filter: {language: {eq: $language}}) {
+          ...GetTranslations
         }
         desktopImage: file(relativePath: { eq: "images/projekte/banner.jpeg" }) {
             childImageSharp {
@@ -143,4 +136,4 @@ export const pageQuery = graphql`
     }
 `;
 
-export default withI18next(['common', 'page_shop'])(ShopPage);
+export default useTranslationHOC(ShopPage);

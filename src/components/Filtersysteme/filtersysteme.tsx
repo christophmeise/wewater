@@ -1,6 +1,7 @@
 import { graphql, Link, useStaticQuery } from 'gatsby';
 import BackgroundImage from 'gatsby-background-image';
 import Img from 'gatsby-image';
+import { Trans } from 'gatsby-plugin-react-i18next';
 import React from 'react';
 import { Button, Container, Grid, GridColumn, GridRow, Header, Icon } from 'semantic-ui-react';
 import './filtersysteme.less';
@@ -104,10 +105,10 @@ const SectionFiltersysteme = () => {
                             textAlign='center'
                             className="global-flex-column global-no-margin"
                         >
-                            <h3 className={`global-subtitle text-primary`}>Weil's an Wasser mangelt. Nicht an guten Ideen.</h3>
-                            <h2 className="global-headline">Filtersysteme für jeden Anwendungsfall</h2>
+                            <h3 className={`global-subtitle text-primary`}><Trans>Weil's an Wasser mangelt. Nicht an guten Ideen.</Trans></h3>
+                            <h2 className="global-headline"><Trans>Filtersysteme für jeden Anwendungsfall</Trans></h2>
                         </Header>
-                        <p>Dennoch leiden weltweit 844 Millionen Menschen Durst oder erkranken an verschmutztem Wasser. Unsere Mission ist es, diesen Menschen durch sauberes Trinkwasser eine existentielle Lebensgrundlage zu ermöglichen.</p>
+                        <p><Trans>Dennoch leiden weltweit 844 Millionen Menschen Durst oder erkranken an verschmutztem Wasser. Unsere Mission ist es, diesen Menschen durch sauberes Trinkwasser eine existentielle Lebensgrundlage zu ermöglichen.</Trans></p>
                         <Link to='/blog'>
                             <Button
                                 primary
@@ -116,7 +117,7 @@ const SectionFiltersysteme = () => {
                                 className="rounded shadow hover-animate"
                             >
                                 <Icon name="grid layout" className="left" style={{ opacity: '1' }}></Icon>
-                            Alle Filtersysteme entdecken
+                                <Trans>Alle Filtersysteme entdecken</Trans>
                             </Button>
                         </Link>
                     </Container>

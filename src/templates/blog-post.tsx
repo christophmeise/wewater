@@ -2,18 +2,18 @@ import { graphql } from 'gatsby';
 import React from 'react';
 import { Container } from 'semantic-ui-react';
 import Layout from '../components/Layout/Layout';
-import withI18next from '../components/withI18next/withI18next';
 import HeaderOverlayBlog from './../components/HeaderOverlay/header-overlay-blog';
 import SEO from './../components/seo';
 import './blog-post.less';
+
 
 function BlogPostTemplate({ data, t }) {
     const post = data.allWpPost.edges[0].node;
     const sources = post.featuredImage.node.localFile.childImageSharp.fluid;
 
     return (
-        <Layout title={post.title} invertedHeader={true} t={t}>
-            <SEO lang="en" description={post.title} title={post.title} />
+        <Layout invertedHeader={true}>
+            <SEO description={post.title} title={post.title} />
             <HeaderOverlayBlog
                 sources={sources}
                 color="#000000"
@@ -31,7 +31,7 @@ function BlogPostTemplate({ data, t }) {
     );
 }
 
-export default withI18next('common')(BlogPostTemplate);
+export default BlogPostTemplate;
 
 const OverlayContent = ({ post, inverted }) => {
     const colors = ['color-primary', 'color-secondary', 'color-tertiary'];

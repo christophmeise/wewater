@@ -1,11 +1,13 @@
+// i18next-extract-mark-ns-start page_contact
 import { graphql } from 'gatsby';
+import { Trans } from 'gatsby-plugin-react-i18next';
 import React from 'react';
 import { Container, Grid, Icon } from 'semantic-ui-react';
 import ContactForm from '../components/ContactForm/contactForm';
 import Layout from '../components/Layout/Layout';
 import PlainHeader from '../components/PlainOverlay/plain-header';
 import SEO from '../components/seo';
-import withI18next from '../components/withI18next/withI18next';
+import { useTranslationHOC } from '../components/useTranslationHOC/useTranslationHOC';
 
 interface Props {
     pageContext: any;
@@ -26,16 +28,11 @@ class Contact extends React.Component<Props, any> {
     }
 
     render() {
-        const {
-            pageContext: { locale },
-            t,
-        } = this.props;
-        const data = this.props.data;
-        const siteTitle = data.site.siteMetadata.title;
-        const description = data.site.siteMetadata.description;
+        const { t } = this.props;
+
         return (
-            <Layout title={siteTitle} t={t}>
-                <SEO title="Contact" />
+            <Layout>
+                <SEO title={t('ContactSEOTitle')} description={t('ContactSEODescription')} />
                 <Container className="global-header-padding">
                     <PlainHeader content={HeaderContent()} />
                     <div className="main-content-sections">
@@ -44,7 +41,7 @@ class Contact extends React.Component<Props, any> {
                                 <ContactForm disabled={false} t={t}></ContactForm>
                                 <Grid textAlign="center" style={{ marginTop: '3rem' }}>
                                     <Grid.Row>
-                                        <h3>Follow me on</h3>
+                                        <h3><Trans>Follow me on</Trans></h3>
                                     </Grid.Row>
                                     <Grid.Row>
                                         <div>
@@ -72,7 +69,6 @@ class Contact extends React.Component<Props, any> {
                                             >
                                                 <Icon className="hover-animate" size="massive" name="youtube" inverted></Icon>
                                             </a>
-
                                         </div>
                                     </Grid.Row>
                                 </Grid>
@@ -83,12 +79,6 @@ class Contact extends React.Component<Props, any> {
             </Layout>
         );
     }
-}
-
-function encode(data) {
-    return Object.keys(data)
-        .map((key) => encodeURIComponent(key) + '=' + encodeURIComponent(data[key]))
-        .join('&');
 }
 
 const HeaderContent = () => {
@@ -103,13 +93,10 @@ const HeaderContent = () => {
 };
 
 export const pageQuery = graphql`
-    query {
-        site {
-            siteMetadata {
-                title
-                description
-            }
+    query($language: String!) {
+        locales: allLocale(filter: {language: {eq: $language}}) {
+          ...GetTranslations
         }
     }
 `;
-export default withI18next(['common', 'page_contact'])(Contact);
+export default useTranslationHOC(Contact);

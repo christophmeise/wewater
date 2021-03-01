@@ -6,16 +6,16 @@ import AddToCartButton from '../components/Cart/AddToCartButton/AddToCartButton'
 import Layout from '../components/Layout/Layout';
 import SEO from '../components/seo';
 import { ShopItem } from '../components/ShopCard/shop-card';
-import withI18next from '../components/withI18next/withI18next';
 import './shop-article.less';
+
 
 function ShopArticleTemplate({ data, t }) {
     const shopArticle: ShopItem = data.allWpProduct.edges[0].node;
     const sources = shopArticle.image.localFile.childImageSharp.fluid;
 
     return (
-        <Layout title={shopArticle.name} invertedHeader={false} t={t}>
-            <SEO lang="en" description={shopArticle.name} title={shopArticle.name} />
+        <Layout invertedHeader={false}>
+            <SEO description={shopArticle.name} title={shopArticle.name} />
             <Container>
                 <section className="shop-item-section global-header-padding">
                     <article>
@@ -45,7 +45,7 @@ function ShopArticleTemplate({ data, t }) {
     );
 }
 
-export default withI18next('common')(ShopArticleTemplate);
+export default ShopArticleTemplate;
 
 const OverlayContent = ({ title, inverted }) => {
     return (

@@ -42,9 +42,9 @@ module.exports = {
             limit:
               process.env.NODE_ENV === `development`
                 ? // Lets just pull 50 posts in development to make it easy on ourselves (aka. faster).
-                  50
+                50
                 : // and we don't actually need more than 5000 in production for this particular site
-                  5000,
+                5000,
           }
         }
       }
@@ -62,29 +62,29 @@ module.exports = {
     "gatsby-plugin-mdx",
     "gatsby-plugin-sharp",
     "gatsby-transformer-sharp",
-     {
-        resolve: 'gatsby-plugin-react-svg',
-        options: {
-            rule: {
-                include: /\.inline\.svg$/,
-            },
+    {
+      resolve: 'gatsby-plugin-react-svg',
+      options: {
+        rule: {
+          include: /\.inline\.svg$/,
         },
+      },
     },
     {
-        resolve: `gatsby-plugin-scroll-reveal`,
-        options: {
-            threshold: 0.4, // Percentage of an element's area that needs to be visible to launch animation
-            once: true, // Defines if animation needs to be launched once
-            disable: false, // Flag for disabling animations
+      resolve: `gatsby-plugin-scroll-reveal`,
+      options: {
+        threshold: 0.4, // Percentage of an element's area that needs to be visible to launch animation
+        once: true, // Defines if animation needs to be launched once
+        disable: false, // Flag for disabling animations
 
-            // Advanced Options
-            selector: '[data-sal]', // Selector of the elements to be animated
-            animateClassName: 'sal-animate', // Class name which triggers animation
-            disabledClassName: 'sal-disabled', // Class name which defines the disabled state
-            rootMargin: '0% 50%', // Corresponds to root's bounding box margin
-            enterEventName: 'sal:in', // Enter event name
-            exitEventName: 'sal:out', // Exit event name
-        },
+        // Advanced Options
+        selector: '[data-sal]', // Selector of the elements to be animated
+        animateClassName: 'sal-animate', // Class name which triggers animation
+        disabledClassName: 'sal-disabled', // Class name which defines the disabled state
+        rootMargin: '0% 50%', // Corresponds to root's bounding box margin
+        enterEventName: 'sal:in', // Enter event name
+        exitEventName: 'sal:out', // Exit event name
+      },
     },
     {
       resolve: "gatsby-source-filesystem",
@@ -97,8 +97,45 @@ module.exports = {
     {
       resolve: `gatsby-source-filesystem`,
       options: {
+        path: "./src/locales",
+        name: `locale`
+      }
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
         path: `${__dirname}/static`,
       },
+    },
+    {
+      resolve: `gatsby-plugin-react-i18next`,
+      options: {
+        localeJsonSourceName: `locale`, // name given to `gatsby-source-filesystem` plugin.
+        languages: [`en`, `de`],
+        defaultLanguage: `de`,
+        // if you are using Helmet, you must include siteUrl, and make sure you add http:https
+        siteUrl: `https://example.com/`,
+        // you can pass any i18next options
+        // pass following options to allow message content as a key
+        i18nextOptions: {
+          interpolation: {
+            escapeValue: false // not needed for react as it escapes by default
+          },
+          keySeparator: false,
+          nsSeparator: false
+        },
+        pages: [
+          /*           {
+                      matchPath: '/:lang?/blog/:uid',
+                      getLanguageFromPath: true,
+                      excludeLanguages: ['en']
+                    },
+                    {
+                      matchPath: '/preview',
+                      languages: ['en']
+                    }*/
+        ]
+      }
     },
     {
       resolve: `gatsby-plugin-manifest`,

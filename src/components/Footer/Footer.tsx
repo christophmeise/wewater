@@ -1,11 +1,11 @@
-import { Link } from 'gatsby';
+import { Link, Trans, useI18next } from 'gatsby-plugin-react-i18next';
 import React from 'react';
 import { Container, Grid, GridRow, Header, Icon, List } from 'semantic-ui-react';
-import { getPathWithLocale } from '../navigateWithLocale';
 import Logo from './../Logo/Logo';
 import './footer.less';
 
 const Footer = (t) => {
+    const { language } = useI18next();
     return (
         <footer>
             <svg className="footer-overlay-svg" viewBox="0 0 1440 130" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -72,16 +72,16 @@ const Footer = (t) => {
                                     <Header className="footer-nav-header" as="h3" content="Hilf uns" />
                                     <List link>
                                         <List.Item>
-                                            <Link to={getPathWithLocale('/spenden')}>So kannst du spenden</Link>
+                                            <Link to={'/spenden'} language={language}><Trans>So kannst du spenden</Trans></Link>
                                         </List.Item>
                                         <List.Item>
-                                            <Link to={getPathWithLocale('/unterstuetzen')}>So kannst du anderweitig unterstützen</Link>
+                                            <Link to={'/unterstuetzen'} language={language}><Trans>So kannst du anderweitig unterstützen</Trans></Link>
                                         </List.Item>
                                         <List.Item>
-                                            <Link to={getPathWithLocale('/shop')}>Hier kannst du unsere Wasserfilter kaufen</Link>
+                                            <Link to={'/shop'} language={language}><Trans>Hier kannst du unsere Wasserfilter kaufen</Trans></Link>
                                         </List.Item>
                                         <List.Item>
-                                            <Link to={getPathWithLocale('/spenden')}>Spendenbescheinigung</Link>
+                                            <Link to={'/spenden'} language={language}><Trans>Spendenbescheinigung</Trans></Link>
                                         </List.Item>
                                     </List>
                                 </Grid.Column>
@@ -93,16 +93,16 @@ const Footer = (t) => {
                                     <Header className="footer-nav-header" as="h3" content="Informationen" />
                                     <List link>
                                         <List.Item>
-                                            <Link to={getPathWithLocale('/presse')}>Pressespiegel – WeWater in den Medien</Link>
+                                            <Link to={'/presse'} language={language}><Trans>Pressespiegel – WeWater in den Medien</Trans></Link>
                                         </List.Item>
                                         <List.Item>
-                                            <Link to={getPathWithLocale('/partner')}>Partner</Link>
+                                            <Link to={'/partner'} language={language}><Trans>Partner</Trans></Link>
                                         </List.Item>
                                         <List.Item>
-                                            <Link to={getPathWithLocale('/faq')}>FAQ</Link>
+                                            <Link to={'/faq'} language={language}><Trans>FAQ</Trans></Link>
                                         </List.Item>
                                         <List.Item>
-                                            <Link to="mailto:hi@wewater.org">Fragen? Schreib an hi@wewater.org</Link>
+                                            <Link to={'mailto:hi@wewater.org'} language={language}><Trans>Fragen? Schreib an hi@wewater.org</Trans></Link>
                                         </List.Item>
                                     </List>
                                 </Grid.Column>
@@ -118,7 +118,7 @@ const Footer = (t) => {
                                         IBAN: DE86 1002 0500 0001 6026 01
                                         BIC-/SWIFT: BFSWDE33BER
 
-                                        Gib bitte Vor- und Nachnamen sowie den Verwendungszweck deiner Spende (z.B. monatliche Spende, einmalige Spende oder Projektspende) an.
+                                        <Trans>Gib bitte Vor- und Nachnamen sowie den Verwendungszweck deiner Spende (z.B. monatliche Spende, einmalige Spende oder Projektspende) an.</Trans>
                                     </p>
                                 </Grid.Column>
                             </GridRow>
