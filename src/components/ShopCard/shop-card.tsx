@@ -35,7 +35,7 @@ export default function ShopCard({ shopItem }: Props) {
             <div></div>
             <BackgroundImage
                 Tag="div"
-                className="rounded-corners-top dark-overlay-blog rtt-areas-card-background"
+                className="rounded-corners-top rtt-areas-card-background"
                 fluid={shopItem.image.localFile.childImageSharp.fluid}
             >
                 <div className="rtt-areas-card-background-text-wrapper">

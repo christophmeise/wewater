@@ -18,48 +18,57 @@
 
 .dark-overlay-blog {
   opacity         : 1 !important;
-  background-color: rgba(0, 13, 62, 0.25);
+  background-color: rgba(0, 6, 30, 0.55);
 }
 
 .swiper-container-full {
   .dark-overlay-blog {
     cursor          : pointer;
     opacity         : 1 !important;
-    background-color: rgba(0, 13, 62, 0.25);
+    background-color: rgba(0, 6, 30, 0.55);
     transition      : background-color 0.5s ease;
   }
 
   .header-overlay-blog:hover {
     .dark-overlay-blog {
-      background-color: rgba(0, 13, 62, 0.5) !important;
+      background-color: rgba(0, 6, 30, 0.75) !important;
     }
   }
 }
+
+.swiper-button-prev,
+.swiper-button-next {
+  color        : #fff !important;
+  background   : rgba(255, 255, 255, 0.2) !important;
+  padding      : 35px !important;
+  border-radius: 100% !important;
+}
+
 
 
 .swiper-container-full:hover {
 
   .swiper-button-prev,
   .swiper-container-rtl .swiper-button-next {
-    left: 10px !important;
+    left: 20px !important;
   }
 
   .swiper-button-next,
   .swiper-container-rtl .swiper-button-prev {
-    right: 10px !important;
+    right: 20px !important;
   }
 }
 
 .swiper-button-prev,
 .swiper-container-rtl .swiper-button-next {
   transition: 0.5s ease;
-  left      : -30px;
+  left      : -70px;
 }
 
 .swiper-button-next,
 .swiper-container-rtl .swiper-button-prev {
   transition: 0.5s ease;
-  right     : -30px;
+  right     : -70px;
 }
 
 .ui.text.container {
@@ -88,7 +97,7 @@
 }
 
 .header-overlay-container-blog {
-  height: 80% !important;
+  height: 100% !important;
 }
 
 .header-overlay-center-cropped {
@@ -117,10 +126,11 @@
 }
 
 .header-overlay-container-desktop-blog {
-  display   : flex;
-  align-self: flex-end;
-  text-align: center;
-  width     : 100%;
+  display      : flex;
+  align-self   : flex-end;
+  text-align   : center;
+  width        : 100%;
+  margin-bottom: 3rem !important;
 }
 
 .header-overlay-container-mobile {
@@ -164,9 +174,12 @@
 }
 
 .header-overlay-headline-inverted {
-  color      : #fff;
-  text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.25);
-  font-weight: 500;
+  color         : #fff;
+  text-shadow   : 2px 2px 2px rgba(0, 0, 0, 0.25);
+  font-weight   : 600;
+  letter-spacing: 0.0em !important;
+  font-size     : 42px !important;
+  line-height   : 56px !important;
 }
 
 .header-overlay-subheadline-inverted {

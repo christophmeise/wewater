@@ -151,7 +151,7 @@ const OverlayContent = ({ post, inverted }) => {
         })}
       </div>
       <h1
-        className={`font-playfair text-shadow header-overlay-headline ${inverted ? 'header-overlay-headline-inverted' : null
+        className={`text-shadow header-overlay-headline ${inverted ? 'header-overlay-headline-inverted' : null
           }`}
       >
         {post.title}

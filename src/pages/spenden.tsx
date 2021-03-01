@@ -16,6 +16,7 @@ import './spenden.less';
 
 interface Props {
     t: any;
+    navigate: any;
     data: {
         mobileImage: any;
         desktopImage: any;
@@ -28,7 +29,7 @@ class SpendenPage extends React.Component<Props, any> {
     }
 
     render() {
-        const { t, data } = this.props;
+        const { t, data, navigate } = this.props;
 
         const headerImage = [
             data.mobileImage.childImageSharp.fluid,
@@ -42,7 +43,7 @@ class SpendenPage extends React.Component<Props, any> {
         return (
             <Layout>
                 <SEO title={t('SpendenSEOTitle')} description={t('SpendenSEODescription')} />
-                <HeaderOverlayFlexend content={<OverlayContent t={t} inverted={true} />} color={backgroundColor} darken={false} inverted={false} sources={headerImage} width={16} />
+                <HeaderOverlayFlexend content={<OverlayContent t={t} navigate={navigate} inverted={true} />} color={backgroundColor} darken={false} inverted={false} sources={headerImage} width={16} />
                 <Container className="global-header-padding">
                     <SpendenWidget fullMode={true}></SpendenWidget>
                 </Container>
@@ -57,7 +58,7 @@ class OverlayContent extends React.Component<any, any> {
     }
 
     render() {
-        const { inverted, t } = this.props;
+        const { inverted, t, navigate } = this.props;
 
         return (
             <div>
@@ -70,7 +71,7 @@ class OverlayContent extends React.Component<any, any> {
                 <div className="spenden-banner-container">
                     <div className="spenden-banner-box rounded shadow">
                         <h3><Trans>Du spendest monatlich einen Geldbetrag deiner Wahl</Trans></h3>
-                        <Button size="large" primary inverted className="rounded">
+                        <Button size="large" primary inverted className="rounded" onClick={() => navigate('/spenden/monatlich')}>
                             <FontAwesomeIcon icon={faTint} style={{ opacity: '1', margin: '0em 0.42857143em 0em -0.21428571em' }} />
                             <Trans>Monatlich Spenden</Trans>
                         </Button>
@@ -82,7 +83,7 @@ class OverlayContent extends React.Component<any, any> {
 
                     <div className="spenden-banner-box rounded shadow">
                         <h3><Trans>Du spendest einmalig einen Geldbetrag deiner Wahl</Trans></h3>
-                        <Button size="large" primary inverted className="rounded">
+                        <Button size="large" primary inverted className="rounded" onClick={() => navigate('/spenden/einmalig')}>
                             <FontAwesomeIcon icon={faTint} style={{ opacity: '1', margin: '0em 0.42857143em 0em -0.21428571em' }} />
                             <Trans>Einmalig Spenden</Trans>
                         </Button>
@@ -96,7 +97,7 @@ class OverlayContent extends React.Component<any, any> {
 
                     <div className="spenden-banner-box rounded shadow">
                         <h3><Trans>Du spendest projektbezogen einen Geldbetrag deiner Wahl</Trans></h3>
-                        <Button size="large" primary inverted className="rounded">
+                        <Button size="large" primary inverted className="rounded" onClick={() => navigate('/spenden/projektbezogen')}>
                             <FontAwesomeIcon icon={faTint} style={{ opacity: '1', margin: '0em 0.42857143em 0em -0.21428571em' }} />
                             <Trans>Projektbezogen Spenden</Trans>
                         </Button>

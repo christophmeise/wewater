@@ -254,7 +254,7 @@ class Layout extends Component<Props, any> {
 
 
 
-const Popover = ({language}) => {
+const Popover = ({ language }) => {
     return (
         <div id="popover" className="nav-popover">
             <div className="popover-content">
@@ -268,7 +268,7 @@ const Popover = ({language}) => {
                                 </div>
                             </li>
                         </Link>
-                        <Link to={'/aqqabag'} language={language}>
+                        <Link to={'/filtersysteme/aqqabag'} language={language}>
                             <li className="navlist-primary-bag two-col">
                                 <div className="navlist-circle">
                                     <Icon icon={bloodBag} color='#FFFFFF' />
@@ -279,7 +279,7 @@ const Popover = ({language}) => {
                                 </div>
                             </li>
                         </Link>
-                        <Link to={'/aqqacube'} language={language}>
+                        <Link to={'/filtersysteme/aqqacube'} language={language}>
                             <li className="navlist-primary-cube two-col">
                                 <div className="navlist-circle">
                                     <Icon icon={cube20Regular} color='#FFFFFF' />
@@ -290,7 +290,7 @@ const Popover = ({language}) => {
                                 </div>
                             </li>
                         </Link>
-                        <Link to={'/aqqasystem'} language={language}>
+                        <Link to={'/filtersysteme/aqqasystem'} language={language}>
                             <li className="navlist-primary-system two-col">
                                 <div className="navlist-circle">
                                     <Icon icon={puzzleCube20Regular} color='#FFFFFF' />
