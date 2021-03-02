@@ -1,5 +1,6 @@
 import { useMutation, useQuery } from "@apollo/client";
 import Link from "gatsby-link";
+import { Trans } from 'gatsby-plugin-react-i18next';
 import React, { useContext, useState } from "react";
 import { Button } from "semantic-ui-react";
 import { v4 } from "uuid";
@@ -10,12 +11,15 @@ import { AppContext } from "../../context/AppContext";
 import "./style.less";
 
 const AddToCartButton = (props) => {
-  const { product } = props;
+  const { product, variationId } = props;
 
-  const productQtyInput = {
+  const productQtyInput: any = {
     clientMutationId: v4(), // Generate a unique id.
-    productId: product?.databaseId,
+    productId: product?.databaseId
   };
+  if (variationId != null) {
+    productQtyInput.variationId = variationId;
+  }
 
   /* eslint-disable */
   const [cart, setCart]: any = useContext(AppContext);
@@ -73,31 +77,23 @@ const AddToCartButton = (props) => {
 
   return (
     <div>
-      {/*	Check if its an external product then put its external buy link */}
-      {"ExternalProduct" === product.nodeType ? (
-        <a href={product.externalUrl} target="_blank">
-          <button className="btn btn-outline-dark">Buy Now</button>
-        </a>
-      ) : (
-          <Button primary className="shadow rounded hover-animate" onClick={handleAddToCartClick}>
-            <Button.Content>In den Warenkorb</Button.Content>
-          </Button>
-        )}
+      <Button primary className="shadow rounded hover-animate" onClick={handleAddToCartClick}>
+        <Button.Content><Trans>In den Warenkorb</Trans></Button.Content>
+      </Button>
       {showViewCart ? (
-        <Link to="/cart">
-          <button className="woo-next-view-cart-btn btn btn-outline-dark">
-            View Cart
-          </button>
+        <Link to="/warenkorb">
+          <Button secondary className="shadow rounded hover-animate">
+            <Button.Content><Trans>Zum Warenkorb</Trans></Button.Content>
+          </Button>
         </Link>
       ) : (
           ""
         )}
-      {/* Add To Cart Loading*/}
       {addToCartLoading ? (
-        <p className="mt-2">Adding to Cart...</p>
+        <p className="mt-2"><Trans>Füge zum Warenkorb hinzu...</Trans></p>
       ) : (
           <p className="mt-2" style={{ color: "transparent" }}>
-            Adding to Cart...
+            <Trans>Füge zum Warenkorb hinzu...</Trans>
           </p>
         )}
     </div>

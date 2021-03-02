@@ -1,7 +1,11 @@
+import shoppingCart from '@iconify/icons-jam/shopping-cart';
+import { Icon } from '@iconify/react';
 import Link from "gatsby-link";
+import { Trans } from 'gatsby-plugin-react-i18next';
 import { isEmpty } from "lodash";
 import React, { useContext } from 'react';
 import { LazyLoadImage } from "react-lazy-load-image-component";
+import { Button } from 'semantic-ui-react';
 import { AppContext } from "../../context/AppContext";
 import './style.less';
 
@@ -22,14 +26,13 @@ const CartDropdown = ({ isDropdownOpen }) => {
 		<div className={`shopping-cart ${isDropdownOpen ? 'is-open' : ''}`}>
 			<div className="shopping-cart-header">
 				<div className="cart-icon-wrp">
-					<Link to="/cart">
-						{/* eslint-disable */}
-						<span className="cart-icon" role="img">🛒</span>
+					<Link to="/warenkorb">
+						<span className="cart-icon" role="img"><Icon icon={shoppingCart} /></span>
 						<span className="badge">{productsCount}</span>
 					</Link>
 				</div>
 				<div className="shopping-cart-total">
-					<span className="lighter-text">Total:</span>
+					<span className="lighter-text"><Trans>Summe</Trans>:</span>
 					<span className="main-color-text">{totalPrice}</span>
 				</div>
 			</div>
@@ -59,11 +62,15 @@ const CartDropdown = ({ isDropdownOpen }) => {
 						) : null}
 						<span className="item-name">{product.name}</span>
 						<span className="item-price">{product.totalPrice}</span>
-						<span className="item-quantity">Quantity: {product.qty}</span>
+						<span className="item-quantity"><Trans>Menge</Trans>: {product.qty}</span>
 					</li>
 				))}
 			</ul>
-			<Link to="/checkout" className="button">Checkout</Link>
+			<Link to="/warenkorb">
+				<Button primary className="shadow rounded hover-animate">
+					<Button.Content><Trans>Zum Warenkorb</Trans></Button.Content>
+				</Button>
+			</Link>
 		</div>
 	)
 }

@@ -3,7 +3,6 @@ import { graphql } from 'gatsby';
 import React from 'react';
 import { Container } from 'semantic-ui-react';
 import CheckoutForm from '../components/Checkout/CheckoutForm/CheckoutForm';
-import HeaderOverlay from '../components/HeaderOverlay/header-overlay';
 import Layout from '../components/Layout/Layout';
 import SEO from '../components/seo';
 import { ShopItem } from '../components/ShopCard/shop-card';
@@ -51,38 +50,10 @@ class ShopPage extends React.Component<Props, any> {
         return (
             <Layout>
                 <SEO title={t('CheckoutSEOTitle')} description={t('CheckoutSEODescription')} />
-                <HeaderOverlay content={<OverlayContent t={t} inverted={true} />} color={backgroundColor} darken={false} inverted={false} sources={headerImage} width={12} />
                 <Container className="global-header-padding">
                     <CheckoutForm />
                 </Container>
             </Layout>
-        );
-    }
-}
-
-class OverlayContent extends React.Component<any, any> {
-    constructor(props: Props) {
-        super(props);
-    }
-
-    render() {
-        const { inverted, t } = this.props;
-
-        return (
-            <div>
-                <h1
-                    className={`header-overlay-headline ${inverted ? 'header-overlay-headline-inverted' : ''}`}
-                    style={{ marginBottom: '1.5rem' }}
-                >
-                    {t('page_shop:headline')}
-                </h1>
-                <h2 className={`header-overlay-subheadline ${inverted ? 'header-overlay-subheadline-inverted' : ''}`}
-                    style={{ marginBottom: '1.5rem', marginTop: '0rem' }}>
-                    <p>
-                        {t('page_shop:subheadline')}
-                    </p>
-                </h2>
-            </div>
         );
     }
 }

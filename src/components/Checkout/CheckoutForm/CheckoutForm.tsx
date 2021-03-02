@@ -1,15 +1,19 @@
 import { useMutation, useQuery } from "@apollo/client";
+import { faTint } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { Trans } from 'gatsby-plugin-react-i18next';
 import React, { useContext, useEffect, useState } from "react";
+import { Button, Form, Grid, GridColumn, Header } from "semantic-ui-react";
 import CHECKOUT_MUTATION from "../../../mutations/checkout";
 import GET_CART from "../../../queries/get-cart";
 import { createCheckoutData, getFormattedCart } from "../../../utils/functions";
 import validateAndSanitizeCheckoutForm from "../../../validator/checkout";
 import { AppContext } from "../../context/AppContext";
-import Billing from "../billing";
-import CheckoutError from "../checkout-error";
-import OrderSuccess from "../order-success";
-import PaymentModes from "../payment-mode";
-import YourOrder from "../your-order";
+import Billing from "../Billing/Billing";
+import CheckoutError from "../CheckoutError/CheckoutError";
+import OrderSuccess from "../OrderSuccess/OrderSuccess";
+import PaymentModes from "../PaymentModes/PaymentModes";
+import YourOrder from "../YourOrder/YourOrder";
 
 const CheckoutForm = () => {
   const initialState = {
@@ -138,41 +142,42 @@ const CheckoutForm = () => {
 
   return (
     <>
+      <Header
+        data-sal="slide-up"
+        data-sal-delay="0"
+        data-sal-duration="300"
+        data-sal-easing="ease"
+        textAlign='left'
+        className="global-flex-column global-no-margin"
+      >
+        <h3 className={`global-subtitle text-primary`}><Trans>Nur noch wenige Schritte</Trans></h3>
+        <h2 className="global-headline"><Trans>Bestellung abschließen</Trans></h2>
+      </Header>
       {cart ? (
-        <form onSubmit={handleFormSubmit} className="woo-next-checkout-form">
-          <div className="row">
-            {/*Billing Details*/}
-            <div className="col-lg-6 mb-lg-0 mb-5">
-              <h2 className="mb-4">Billing Details</h2>
+        <Form onSubmit={handleFormSubmit} className="woo-next-checkout-form">
+          <Grid columns="2" stackable>
+            <GridColumn>
+              <h4 className="mb-4"><Trans>Bestelldetails</Trans></h4>
               <Billing input={input} handleOnChange={handleOnChange} />
-            </div>
-            {/* Order & Payments*/}
-            <div className="col-lg-6">
-              {/*	Order*/}
-              <h2 className="mb-4">Your Order</h2>
+            </GridColumn>
+            <GridColumn>
+              <h4 className="mb-4"><Trans>Dein Warenkorb</Trans></h4>
               <YourOrder cart={cart} />
+            </GridColumn>
+          </Grid>
+          <PaymentModes input={input} handleOnChange={handleOnChange} />
+          <Button primary className="rounded">
+            <FontAwesomeIcon icon={faTint} style={{ opacity: '1', margin: '0em 0.42857143em 0em -0.21428571em' }} />
+            <Trans>Kostenpflichtig bestellen</Trans>
+          </Button>
 
-              {/*Payment*/}
-              <PaymentModes input={input} handleOnChange={handleOnChange} />
-              <div className="woo-next-place-order-btn-wrap mt-5">
-                <button
-                  className="woo-next-large-black-btn woo-next-place-order-btn btn btn-dark"
-                  style={{ backgroundColor: '#fd7e35', color: '#fff', borderColor: '#fd7e35' }}
-                  type="submit"
-                >
-                  Place Order
-                </button>
-              </div>
-
-              {/* Checkout Loading*/}
-              {checkoutLoading && <p>Processing Order...</p>}
-              {requestError && <CheckoutError requestError={requestError} />}
-            </div>
-          </div>
-        </form>
+          {checkoutLoading && <p>Processing Order...</p>}
+          {requestError && <CheckoutError requestError={requestError} />}
+        </Form>
       ) : (
           ""
-        )}
+        )
+      }
 
       {/*Show message if Order Success*/}
       <OrderSuccess response={checkoutResponse} />

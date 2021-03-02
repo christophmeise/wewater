@@ -125,15 +125,10 @@ module.exports = {
           nsSeparator: false
         },
         pages: [
-          /*           {
-                      matchPath: '/:lang?/blog/:uid',
-                      getLanguageFromPath: true,
-                      excludeLanguages: ['en']
-                    },
-                    {
-                      matchPath: '/preview',
-                      languages: ['en']
-                    }*/
+          {
+            matchPath: '/shop/*',
+            languages: ['de']
+          }
         ]
       }
     },

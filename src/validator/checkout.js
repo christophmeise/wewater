@@ -1,11 +1,11 @@
-import validator from 'validator';
 import { isEmpty } from 'lodash';
+import validator from 'validator';
 
 // @TODO to be revisited for updating for other countries.
 const postCodeLocale = "IN"
 
 
-const validateAndSanitizeCheckoutForm = ( data ) => {
+const validateAndSanitizeCheckoutForm = (data) => {
 
 	let errors = {};
 	let sanitizedData = {};
@@ -16,19 +16,19 @@ const validateAndSanitizeCheckoutForm = ( data ) => {
 	 * Validator.isEmpty() down below comes from validator library.
 	 * Similarly we do it for for the rest of the fields
 	 */
-	data.firstName = ( ! isEmpty( data.firstName ) ) ? data.firstName : '';
-	data.lastName = ( ! isEmpty( data.lastName ) ) ? data.lastName : '';
-	data.company = ( ! isEmpty( data.company ) ) ? data.company : '';
-	data.country = ( ! isEmpty( data.country ) ) ? data.country : '';
-	data.address1 = ( ! isEmpty( data.address1 ) ) ? data.address1 : '';
-	data.address2 = ( ! isEmpty( data.address2 ) ) ? data.address2 : '';
-	data.city = ( ! isEmpty( data.city ) ) ? data.city : '';
-	data.state = ( ! isEmpty( data.state ) ) ? data.state : '';
-	data.postcode = ( ! isEmpty( data.postcode ) ) ? data.postcode : '';
-	data.phone = ( ! isEmpty( data.phone ) ) ? data.phone : '';
-	data.email = ( ! isEmpty( data.email ) ) ? data.email : '';
-	data.customerNote = ( ! isEmpty( data.customerNote ) ) ? data.customerNote : '';
-	data.paymentMethod = ( ! isEmpty( data.paymentMethod ) ) ? data.paymentMethod : '';
+	data.firstName = (!isEmpty(data.firstName)) ? data.firstName : '';
+	data.lastName = (!isEmpty(data.lastName)) ? data.lastName : '';
+	data.company = (!isEmpty(data.company)) ? data.company : '';
+	data.country = (!isEmpty(data.country)) ? data.country : '';
+	data.address1 = (!isEmpty(data.address1)) ? data.address1 : '';
+	data.address2 = (!isEmpty(data.address2)) ? data.address2 : '';
+	data.city = (!isEmpty(data.city)) ? data.city : '';
+	data.state = (!isEmpty(data.state)) ? data.state : '';
+	data.postcode = (!isEmpty(data.postcode)) ? data.postcode : '';
+	data.phone = (!isEmpty(data.phone)) ? data.phone : '';
+	data.email = (!isEmpty(data.email)) ? data.email : '';
+	data.customerNote = (!isEmpty(data.customerNote)) ? data.customerNote : '';
+	data.paymentMethod = (!isEmpty(data.paymentMethod)) ? data.paymentMethod : '';
 
 	/**
 	 * Checks for error if required is true
@@ -41,7 +41,7 @@ const validateAndSanitizeCheckoutForm = ( data ) => {
 	 * @param {String} type Type e.g. email, phone etc.
 	 * @param {boolean} required Required if required is passed as false, it will not validate error and just do sanitization.
 	 */
-	const addErrorAndSanitizedData = ( fieldName, errorContent, min, max, type = '', required ) => {
+	const addErrorAndSanitizedData = (fieldName, errorContent, min, max, type = '', required) => {
 
 		const postCodeLocaleVal = postCodeLocale ? postCodeLocale : '';
 		/**
@@ -49,65 +49,65 @@ const validateAndSanitizeCheckoutForm = ( data ) => {
 		 *
 		 * Check for error and if there is no error then sanitize data.
 		 */
-		if ( ! validator.isLength( data[ fieldName ], { min, max } ) ){
-			errors[ fieldName ] = `${errorContent} must be ${min} to ${max} characters`;
+		if (!validator.isLength(data[fieldName], { min, max })) {
+			errors[fieldName] = `${errorContent} must be ${min} to ${max} characters`;
 		}
 
-		if ( 'email' === type && ! validator.isEmail( data[ fieldName ] ) ){
-			errors[ fieldName ] = `${errorContent} is not valid`;
+		if ('email' === type && !validator.isEmail(data[fieldName])) {
+			errors[fieldName] = `${errorContent} is not valid`;
 		}
 
-		if ( 'phone' === type && ! validator.isMobilePhone( data[ fieldName ] ) ) {
-			errors[ fieldName ] = `${errorContent} is not valid`;
+		if ('phone' === type && !validator.isMobilePhone(data[fieldName])) {
+			errors[fieldName] = `${errorContent} is not valid`;
 		}
 
-		if ( 'postcode' === type && postCodeLocaleVal && ! validator.isPostalCode( data[ fieldName ], postCodeLocaleVal ) ) {
-			errors[ fieldName ] = `${errorContent} is not valid`;
-		}
+		/* 		if ( 'postcode' === type && postCodeLocaleVal && ! validator.isPostalCode( data[ fieldName ], postCodeLocaleVal ) ) {
+					errors[ fieldName ] = `${errorContent} is not valid`;
+				} */
 
-		if ( required && validator.isEmpty( data[ fieldName ] ) ) {
-			errors[ fieldName ] = `${errorContent} is required`;
+		if (required && validator.isEmpty(data[fieldName])) {
+			errors[fieldName] = `${errorContent} is required`;
 		}
 
 
 		// If no errors
-		if ( ! errors[ fieldName ] ) {
-			sanitizedData[ fieldName ] = validator.trim( data[ fieldName ] );
-			sanitizedData[ fieldName ] = ( 'email' === type ) ? validator.normalizeEmail( sanitizedData[ fieldName ] ) : sanitizedData[ fieldName ];
-			sanitizedData[ fieldName ] = validator.escape( sanitizedData[ fieldName ] );
+		if (!errors[fieldName]) {
+			sanitizedData[fieldName] = validator.trim(data[fieldName]);
+			sanitizedData[fieldName] = ('email' === type) ? validator.normalizeEmail(sanitizedData[fieldName]) : sanitizedData[fieldName];
+			sanitizedData[fieldName] = validator.escape(sanitizedData[fieldName]);
 		}
 
 	};
 
-	addErrorAndSanitizedData( 'firstName', 'First name', 2, 35, 'string', true );
-	addErrorAndSanitizedData( 'lastName', 'Last name', 2, 35, 'string', true );
-	addErrorAndSanitizedData( 'company', 'Company Name', 0, 35, 'string', false );
-	addErrorAndSanitizedData( 'country', 'Country name', 2, 55, 'string', true );
-	addErrorAndSanitizedData( 'address1', 'Street address line 1', 20, 100,'string',true );
-	addErrorAndSanitizedData( 'address2', '', 0, 254, 'string', false );
-	addErrorAndSanitizedData( 'city', 'City field', 3, 25, 'string', true );
-	addErrorAndSanitizedData( 'state', 'State/County', 0, 254, 'string', true );
-	addErrorAndSanitizedData( 'postcode', 'Post code', 2, 9, 'postcode', true );
-	addErrorAndSanitizedData( 'phone', 'Phone number', 10, 15, 'phone', true );
-	addErrorAndSanitizedData( 'email', 'Email', 11, 254, 'email', true );
+	addErrorAndSanitizedData('firstName', 'First name', 2, 35, 'string', true);
+	addErrorAndSanitizedData('lastName', 'Last name', 2, 35, 'string', true);
+	addErrorAndSanitizedData('company', 'Company Name', 0, 35, 'string', false);
+	addErrorAndSanitizedData('country', 'Country name', 2, 55, 'string', true);
+	addErrorAndSanitizedData('address1', 'Street address line 1', 20, 100, 'string', true);
+	addErrorAndSanitizedData('address2', '', 0, 254, 'string', false);
+	addErrorAndSanitizedData('city', 'City field', 3, 25, 'string', true);
+	addErrorAndSanitizedData('state', 'State/County', 0, 254, 'string', true);
+	addErrorAndSanitizedData('postcode', 'Post code', 2, 9, 'postcode', true);
+	addErrorAndSanitizedData('phone', 'Phone number', 10, 15, 'phone', true);
+	addErrorAndSanitizedData('email', 'Email', 11, 254, 'email', true);
 
 	// The data.createAccount is a boolean value.
 	sanitizedData.createAccount = data.createAccount;
 
 	// If create accoun is true.
-	if ( data.createAccount ) {
-		addErrorAndSanitizedData( 'username', 'Username', 2, 35, 'string', true );
-		addErrorAndSanitizedData( 'password', 'Password', 2, 35, 'string', true );
+	if (data.createAccount) {
+		addErrorAndSanitizedData('username', 'Username', 2, 35, 'string', true);
+		addErrorAndSanitizedData('password', 'Password', 2, 35, 'string', true);
 	}
 
-	addErrorAndSanitizedData( 'customerNote', '', 0, 254, 'string', false );
-	addErrorAndSanitizedData( 'paymentMethod', 'Payment mode field', 2, 50, 'string', true );
+	addErrorAndSanitizedData('customerNote', '', 0, 254, 'string', false);
+	addErrorAndSanitizedData('paymentMethod', 'Payment mode field', 2, 50, 'string', true);
 
 
 	return {
 		sanitizedData,
 		errors,
-		isValid: isEmpty( errors )
+		isValid: isEmpty(errors)
 	}
 };
 

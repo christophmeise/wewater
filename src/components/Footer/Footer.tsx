@@ -102,7 +102,7 @@ const Footer = (t) => {
                                             <Link to={'/faq'} language={language}><Trans>FAQ</Trans></Link>
                                         </List.Item>
                                         <List.Item>
-                                            <Link to={'mailto:hi@wewater.org'} language={language}><Trans>Fragen? Schreib an hi@wewater.org</Trans></Link>
+                                            <a href='mailto:hi@wewater.org'><Trans>Fragen? Schreib an hi@wewater.org</Trans></a>
                                         </List.Item>
                                     </List>
                                 </Grid.Column>
