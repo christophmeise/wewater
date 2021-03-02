@@ -125,10 +125,10 @@ module.exports = {
           nsSeparator: false
         },
         pages: [
-          {
-            matchPath: '/shop/*',
-            languages: ['de']
-          }
+          /*          {
+                     matchPath: '/shop/*',
+                     languages: ['de']
+                   } */
         ]
       }
     },
