@@ -24,6 +24,7 @@ export type ShopItem = {
     variations: any;
     attributes: any;
     variationId: any;
+    galleryImages: any;
     image: {
         localFile: {
             childImageSharp: any;

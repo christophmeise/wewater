@@ -4,10 +4,7 @@ import { Trans } from 'gatsby-plugin-react-i18next';
 import React from 'react';
 import { Container, Grid, Header } from 'semantic-ui-react';
 import SwiperCore, { Autoplay, Navigation } from 'swiper';
-import 'swiper/components/navigation/navigation.less';
-import 'swiper/components/pagination/pagination.less';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import 'swiper/swiper.less';
 import BlogPostCard from '../components/BlogPostCard/blog-post-card';
 import HeaderOverlayBlog from '../components/HeaderOverlay/header-overlay-blog';
 import Layout from '../components/Layout/Layout';
@@ -92,8 +89,8 @@ class BlogPage extends React.Component<Props> {
                   .map(({ node: post }) => {
                     return (
                       posts.findIndex((entry) => entry.node.id === post.id) % 3 === 0 && (
-                        <div className="blog-post-card-wrapper" data-sal="slide-up" data-sal-delay="0" data-sal-duration="300" data-sal-easing="ease">
-                          <BlogPostCard key={post.id} post={post}></BlogPostCard>
+                        <div key={post.id} className="blog-post-card-wrapper" data-sal="slide-up" data-sal-delay="0" data-sal-duration="300" data-sal-easing="ease">
+                          <BlogPostCard post={post}></BlogPostCard>
                         </div>
                       )
                     );
@@ -105,8 +102,8 @@ class BlogPage extends React.Component<Props> {
                   .map(({ node: post }) => {
                     return (
                       posts.findIndex((entry) => entry.node.id === post.id) % 3 === 1 && (
-                        <div className="blog-post-card-wrapper" data-sal="slide-up" data-sal-delay="0" data-sal-duration="300" data-sal-easing="ease">
-                          <BlogPostCard key={post.id} post={post}></BlogPostCard>
+                        <div key={post.id} className="blog-post-card-wrapper" data-sal="slide-up" data-sal-delay="0" data-sal-duration="300" data-sal-easing="ease">
+                          <BlogPostCard post={post}></BlogPostCard>
                         </div>
                       )
                     );
@@ -118,8 +115,8 @@ class BlogPage extends React.Component<Props> {
                   .map(({ node: post }) => {
                     return (
                       posts.findIndex((entry) => entry.node.id === post.id) % 3 === 2 && (
-                        <div className="blog-post-card-wrapper" data-sal="slide-up" data-sal-delay="0" data-sal-duration="300" data-sal-easing="ease">
-                          <BlogPostCard key={post.id} post={post}></BlogPostCard>
+                        <div key={post.id} className="blog-post-card-wrapper" data-sal="slide-up" data-sal-delay="0" data-sal-duration="300" data-sal-easing="ease">
+                          <BlogPostCard post={post}></BlogPostCard>
                         </div>
                       )
                     );

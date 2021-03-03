@@ -5,6 +5,7 @@ import React from 'react';
 import { Container, Grid, GridColumn, Header, Select } from 'semantic-ui-react';
 import AddToCartButton from '../components/Cart/AddToCartButton/AddToCartButton';
 import Layout from '../components/Layout/Layout';
+import Lightbox from '../components/Lightbox/lightbox';
 import SEO from '../components/seo';
 import { ShopItem } from '../components/ShopCard/shop-card';
 import './shop-article.less';
@@ -12,10 +13,29 @@ import './shop-article.less';
 class ShopArticleTemplate extends React.Component<any, any> {
     constructor(props) {
         super(props);
-        this.state = { variationId: null };
+        this.state = {
+            variationId: null,
+            selectedImage: null,
+            showLightbox: false
+        };
     }
 
     handleChange = (e, { value }) => this.setState({ variationId: value });
+
+    handleOpen = (i) => {
+        console.log('AAAH');
+        this.setState({ showLightbox: true, selectedImage: i });
+    }
+
+    handleClose = () => {
+        this.setState({ showLightbox: false, selectedImage: null });
+    }
+    handlePrevRequest = (i, length) => e => {
+        this.setState({ selectedImage: (i - 1 + length) % length });
+    }
+    handleNextRequest = (i, length) => e => {
+        this.setState({ selectedImage: (i + 1) % length });
+    }
 
     render() {
         const shopArticle: ShopItem = this.props.data.allWpProduct.edges[0].node;
@@ -27,16 +47,34 @@ class ShopArticleTemplate extends React.Component<any, any> {
                 variations.push({ text: attribute.value, value: variation.databaseId })
             });
         });
+        const gallery: any = [shopArticle.image].concat(shopArticle.galleryImages.nodes);
         return (
             <Layout invertedHeader={false}>
                 <SEO description={shopArticle.name} title={shopArticle.name} />
                 <Container>
                     <section className="shop-item-section global-header-padding">
                         <article>
+                            {this.state.showLightbox && this.state.selectedImage !== null && (
+                                <Lightbox
+                                    images={gallery}
+                                    handleClose={this.handleClose}
+                                    handleNextRequest={this.handleNextRequest}
+                                    handlePrevRequest={this.handlePrevRequest}
+                                    selectedImage={this.state.selectedImage}
+                                />)}
                             <Grid stackable columns="2">
                                 <GridColumn width="6">
-                                    <div className="shop-item-picture">
+                                    <div className="shop-item-picture" onClick={() => this.setState({ showLightbox: true, selectedImage: 0 })}>
                                         <Img className="img-fluid rounded shadow" fluid={sources} />
+                                    </div>
+                                    <div className="shop-item-picture-gallery">
+                                        {shopArticle.galleryImages.nodes.map((galleryImg, i) => {
+                                            return (
+                                                <div className="shop-item-picture-gallery-item" key={i} onClick={() => this.setState({ showLightbox: true, selectedImage: i })}>
+                                                    <Img className="shop-item-picture-gallery-img rounded shadow" fluid={galleryImg.localFile.childImageSharp.fluid} />
+                                                </div>
+                                            )
+                                        })}
                                     </div>
                                 </GridColumn>
                                 <GridColumn width="10">
@@ -105,6 +143,18 @@ export const pageQuery = graphql`
                             name
                         }
                     }
+                    galleryImages {
+                        nodes {
+                            id
+                            localFile {
+                                childImageSharp {
+                                    fluid(maxWidth: 800) {
+                                        ...GatsbyImageSharpFluid
+                                    }
+                                }
+                            }
+                        }
+                    }
                     ... on WpSimpleProduct {
                         id
                         name
@@ -135,6 +185,9 @@ export const pageQuery = graphql`
                             childImageSharp {
                                 fluid(maxWidth: 800) {
                                     ...GatsbyImageSharpFluid
+                                }
+                                fixed(height: 100) {
+                                    ...GatsbyImageSharpFixed
                                 }
                             }
                         }
