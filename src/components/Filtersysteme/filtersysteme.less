@@ -1,5 +1,25 @@
+@import '../../styles/lib.less';
+
 .main-button-container {
     margin-top: 2rem;
+}
+
+.filtersysteme-grid-mobile {
+    display: none !important;
+}
+
+.filtersysteme-grid-desktop {
+    display: block !important;
+}
+
+@media @mobile {
+    .filtersysteme-grid-mobile {
+        display: block !important;
+    }
+
+    .filtersysteme-grid-desktop {
+        display: none !important;
+    }
 }
 
 .filtersysteme-section {

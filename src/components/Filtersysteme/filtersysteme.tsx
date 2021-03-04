@@ -64,45 +64,45 @@ const SectionFiltersysteme = () => {
     return (
         <section className="main-section bg-secondary filtersysteme-section" style={{ padding: '3rem 0rem' }}>
             <Container>
-                {typeof window != 'undefined' && window.innerWidth > 767 ?
-                    <>
-                        <Grid style={{ paddingTop: '2em' }} stackable centered>
-                            <GridRow columns="2" className="filtersysteme-img-horizontal">
-                                <GridColumn >
-                                    <Img className="img-fluid rounded shadow" fluid={data.image1.childImageSharp.fluid} />
-                                </GridColumn>
-                                <GridColumn>
-                                    <Img className="img-fluid rounded shadow" fluid={data.image2.childImageSharp.fluid} />
-                                </GridColumn>
-                            </GridRow>
-                            <GridRow columns="3" className="filtersysteme-img-vertical">
-                                <GridColumn>
-                                    <Img className="img-fluid rounded shadow" fluid={data.image3.childImageSharp.fluid} />
-                                </GridColumn>
-                                <GridColumn>
-                                    {/* empty */}
-                                </GridColumn>
-                                <GridColumn className="filtersysteme-align-right">
-                                    <Img className="img-fluid rounded shadow" fluid={data.image4.childImageSharp.fluid} />
-                                </GridColumn>
-                            </GridRow>
-                            <GridRow columns="2" className="filtersysteme-img-horizontal">
-                                <GridColumn>
-                                    <Img className="img-fluid rounded shadow" fluid={data.image5.childImageSharp.fluid} />
-                                </GridColumn>
-                                <GridColumn>
-                                    <Img className="img-fluid rounded shadow" fluid={data.image6.childImageSharp.fluid} />
-                                </GridColumn>
-                            </GridRow>
-                        </Grid>
-                        <BackgroundImage
-                            className="filtersysteme-blob"
-                            fluid={data.blob.childImageSharp.fluid}>
-                            <TextContent />
-                        </BackgroundImage>
-                    </> :
+                <div className="filtersysteme-grid-desktop">
+                    <Grid style={{ paddingTop: '2em' }} stackable centered>
+                        <GridRow columns="2" className="filtersysteme-img-horizontal">
+                            <GridColumn >
+                                <Img className="img-fluid rounded shadow" fluid={data.image1.childImageSharp.fluid} />
+                            </GridColumn>
+                            <GridColumn>
+                                <Img className="img-fluid rounded shadow" fluid={data.image2.childImageSharp.fluid} />
+                            </GridColumn>
+                        </GridRow>
+                        <GridRow columns="3" className="filtersysteme-img-vertical">
+                            <GridColumn>
+                                <Img className="img-fluid rounded shadow" fluid={data.image3.childImageSharp.fluid} />
+                            </GridColumn>
+                            <GridColumn>
+                                {/* empty */}
+                            </GridColumn>
+                            <GridColumn className="filtersysteme-align-right">
+                                <Img className="img-fluid rounded shadow" fluid={data.image4.childImageSharp.fluid} />
+                            </GridColumn>
+                        </GridRow>
+                        <GridRow columns="2" className="filtersysteme-img-horizontal">
+                            <GridColumn>
+                                <Img className="img-fluid rounded shadow" fluid={data.image5.childImageSharp.fluid} />
+                            </GridColumn>
+                            <GridColumn>
+                                <Img className="img-fluid rounded shadow" fluid={data.image6.childImageSharp.fluid} />
+                            </GridColumn>
+                        </GridRow>
+                    </Grid>
+                    <BackgroundImage
+                        className="filtersysteme-blob"
+                        fluid={data.blob.childImageSharp.fluid}>
+                        <TextContent />
+                    </BackgroundImage>
+                </div>
+                <div className="filtersysteme-grid-mobile">
                     <TextContent />
-                }
+                </div>
             </Container>
         </section >
     );
