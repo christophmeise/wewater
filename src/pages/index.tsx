@@ -123,28 +123,30 @@ class OverlayContent extends React.Component<any, any> {
         <p style={{ marginBottom: '1.5rem', marginTop: '0rem' }}>
           <Trans>Dafür haben wir eine innovative Wasserfiltertechnologie entwickelt, die ohne den Einsatz von elektrischer Energie und Chemie funktioniert und einen extrem hohen Reinheitsgrad gewährleistet.</Trans>
         </p>
-        <div className="main-overlay-infobox rounded">
-          <div className="main-overlay-infobox-text">
-            <h3><CountUp delay={0.5} end={8100} start={0} separator="." duration={4}></CountUp></h3>
+        {typeof window != 'undefined' && window.innerWidth > 767 &&
+          <div className="main-overlay-infobox rounded">
+            <div className="main-overlay-infobox-text">
+              <h3><CountUp delay={0.5} end={8100} start={0} separator="." duration={4}></CountUp></h3>
+            </div>
+            <p><Trans>Menschen mit Trinkwasser versorgt</Trans></p>
+            <div>
+              <Button primary className="rounded">
+                <FontAwesomeIcon icon={faTint} style={{ opacity: '1', margin: '0em 0.42857143em 0em -0.21428571em' }} />
+                <Trans>Ich will helfen!</Trans>
+              </Button>
+              <Button
+                secondary={true}
+                basic
+                inverted={true}
+                size="medium"
+                className="rounded"
+              >
+                <Icon name="newspaper outline" className="left" style={{ opacity: '1' }}></Icon>
+                <Trans>Alle News in mein Postfach</Trans>
+              </Button>
+            </div>
           </div>
-          <p><Trans>Menschen mit Trinkwasser versorgt</Trans></p>
-          <div>
-            <Button primary className="rounded">
-              <FontAwesomeIcon icon={faTint} style={{ opacity: '1', margin: '0em 0.42857143em 0em -0.21428571em' }} />
-              <Trans>Ich will helfen!</Trans>
-            </Button>
-            <Button
-              secondary={true}
-              basic
-              inverted={true}
-              size="medium"
-              className="rounded"
-            >
-              <Icon name="newspaper outline" className="left" style={{ opacity: '1' }}></Icon>
-              <Trans>Alle News in mein Postfach</Trans>
-            </Button>
-          </div>
-        </div>
+        }
       </div >
     );
   }

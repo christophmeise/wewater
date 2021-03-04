@@ -1,3 +1,5 @@
+@import '../styles/lib.less';
+
 .shop-h3 {
     color      : #ffffff;
     font-weight: 300;
@@ -37,6 +39,17 @@
     box-shadow     : 0px 4px 4px rgba(0, 0, 0, 0.25);
     margin-right   : 10px;
     cursor         : pointer;
+}
+
+@media @mobile {
+    .shop-spenden-amount-selector {
+        font-size   : 16px;
+        line-height : 23px;
+        font-weight : 500;
+        width       : 60px;
+        height      : 28px;
+        margin-right: 6px;
+    }
 }
 
 .shop-spenden-amount-selector-selected {

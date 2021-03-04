@@ -133,10 +133,12 @@ class OverlayContent extends React.Component<any, any> {
                 >
                     <Trans>Individuelle Wasserspende</Trans>
                 </h1>
-                <h2 className={`header-overlay-subheadline ${inverted ? 'header-overlay-subheadline-inverted' : ''}`}
-                    style={{ marginBottom: '1.5rem', marginTop: '0rem' }}>
-                    <Trans>Mit unserer Wasserspende hast du immer ein ideales Geschenk parat. Denn damit spendest du lebensnotwendiges Trinkwasser und widmest diese Wasserspende zeitgleich einem lieben Menschen.</Trans>
-                </h2>
+                {typeof window != 'undefined' && window.innerWidth > 767 &&
+                    <h2 className={`header-overlay-subheadline ${inverted ? 'header-overlay-subheadline-inverted' : ''}`}
+                        style={{ marginBottom: '1.5rem', marginTop: '0rem' }}>
+                        <Trans>Mit unserer Wasserspende hast du immer ein ideales Geschenk parat. Denn damit spendest du lebensnotwendiges Trinkwasser und widmest diese Wasserspende zeitgleich einem lieben Menschen.</Trans>
+                    </h2>
+                }
                 <h4 className="shop-h4 text-shadow">
                     <Trans>Spendenhöhe</Trans>
                 </h4>

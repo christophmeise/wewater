@@ -30,7 +30,7 @@ class FiltersystemPage extends React.Component<Props, any> {
                 <Container className="global-header-padding">
                     <div className="main-content-sections">
                         <section id="filtersystem-grid">
-                            <Grid>
+                            <Grid stackable>
                                 <GridRow className="team-grid-member" columns="2">
                                     <GridColumn>
                                         <Header

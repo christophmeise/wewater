@@ -58,6 +58,16 @@
     margin-right   : 0.75rem;
 }
 
+@media @mobile {
+    .blog-post-tag-label-group {
+        flex-direction: column;
+    }
+
+    .blog-post-tag-label {
+        margin-bottom: 0.5rem;
+    }
+}
+
 .blog-post-card-content {
     font-size : 1rem !important;
     text-align: justify;
@@ -73,6 +83,12 @@
     text-align         : left;
     transition-property: color;
     transition         : 0.3s ease;
+}
+
+@media @mobile {
+    .blog-post-title {
+        word-break: break-all;
+    }
 }
 
 .blog-post-title:hover {

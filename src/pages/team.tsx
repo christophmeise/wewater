@@ -43,12 +43,12 @@ class TeamPage extends React.Component<Props, any> {
                     <Container>
                         <div className="main-content-sections">
                             <section id="team-grid">
-                                <Grid>
+                                <Grid stackable>
                                     {teamData
                                         .filter((post) => post.node.title.length > 0)
                                         .map(({ node: post }) => {
                                             return (
-                                                <GridRow className="team-grid-member" columns="2">
+                                                <GridRow key={post.title} className="team-grid-member" columns="2">
                                                     <GridColumn>
                                                         <Header
                                                             data-sal="slide-up"

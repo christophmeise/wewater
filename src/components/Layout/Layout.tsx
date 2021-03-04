@@ -3,7 +3,6 @@ import cube20Regular from '@iconify/icons-fluent/cube-20-regular';
 import puzzleCube20Regular from '@iconify/icons-fluent/puzzle-cube-20-regular';
 import bloodBag from '@iconify/icons-mdi/blood-bag';
 import { Icon } from '@iconify/react';
-import { navigate } from '@reach/router';
 import { Link } from 'gatsby-plugin-react-i18next';
 import React, { Component } from 'react';
 import 'semantic-ui-less/semantic.less';
@@ -15,6 +14,7 @@ import './layout.less';
 import MobileMenu from './MobileMenu';
 
 interface Props {
+    navigate: any;
     t?: any;
     language: string;
     invertedHeader?: boolean;
@@ -108,7 +108,6 @@ class Layout extends Component<Props, any> {
         });
     }
 
-    handleNavigate = (e, { name }) => navigate(name);
     handleToggle = () => this.setState({ sidebarOpened: !this.state.sidebarOpened });
     handleSidebarHide = () => this.setState({ sidebarOpened: false });
 
@@ -180,7 +179,7 @@ class Layout extends Component<Props, any> {
     }
 
     render() {
-        const { children, invertedHeader, t, language } = this.props;
+        const { children, invertedHeader, t, language, navigate } = this.props;
         const { sidebarOpened, location } = this.state;
 
         const isMobileBrowser = typeof window !== 'undefined' && window.innerWidth < 768;
@@ -188,7 +187,7 @@ class Layout extends Component<Props, any> {
 
         return (
             <React.Fragment>
-                <MobileMenu handleToggle={this.handleToggle} handleNavigate={this.handleNavigate}></MobileMenu>
+                <MobileMenu handleToggle={this.handleToggle} handleNavigate={navigate}></MobileMenu>
 
                 <div className="flex-container">
                     <Menu

@@ -68,46 +68,47 @@ class OverlayContent extends React.Component<any, any> {
                 >
                     {t('page_spenden:headline')}
                 </h1>
-                <div className="spenden-banner-container">
-                    <div className="spenden-banner-box rounded shadow">
-                        <h3><Trans>Du spendest monatlich einen Geldbetrag deiner Wahl</Trans></h3>
-                        <Button size="large" primary inverted className="rounded" onClick={() => navigate('/spenden/monatlich')}>
-                            <FontAwesomeIcon icon={faTint} style={{ opacity: '1', margin: '0em 0.42857143em 0em -0.21428571em' }} />
-                            <Trans>Monatlich Spenden</Trans>
-                        </Button>
-                        <div className="spenden-banner-payment-logos">
-                            <FontAwesomeIcon icon={faPaypal} style={{ opacity: '1' }} />
-                            <FontAwesomeIcon icon={faReply} style={{ opacity: '1' }} />
+                {typeof window != 'undefined' && window.innerWidth > 767 &&
+                    <div className="spenden-banner-container">
+                        <div className="spenden-banner-box rounded shadow">
+                            <h3><Trans>Du spendest monatlich einen Geldbetrag deiner Wahl</Trans></h3>
+                            <Button size="large" primary inverted className="rounded" onClick={() => navigate('/spenden/monatlich')}>
+                                <FontAwesomeIcon icon={faTint} style={{ opacity: '1', margin: '0em 0.42857143em 0em -0.21428571em' }} />
+                                <Trans>Monatlich Spenden</Trans>
+                            </Button>
+                            <div className="spenden-banner-payment-logos">
+                                <FontAwesomeIcon icon={faPaypal} style={{ opacity: '1' }} />
+                                <FontAwesomeIcon icon={faReply} style={{ opacity: '1' }} />
+                            </div>
+                        </div>
+
+                        <div className="spenden-banner-box rounded shadow">
+                            <h3><Trans>Du spendest einmalig einen Geldbetrag deiner Wahl</Trans></h3>
+                            <Button size="large" primary inverted className="rounded" onClick={() => navigate('/spenden/einmalig')}>
+                                <FontAwesomeIcon icon={faTint} style={{ opacity: '1', margin: '0em 0.42857143em 0em -0.21428571em' }} />
+                                <Trans>Einmalig Spenden</Trans>
+                            </Button>
+                            <div className="spenden-banner-payment-logos">
+                                <FontAwesomeIcon icon={faPaypal} style={{ opacity: '1' }} />
+                                <FontAwesomeIcon icon={faCreditCard} style={{ opacity: '1' }} />
+                                <FontAwesomeIcon icon={faReply} style={{ opacity: '1' }} />
+                            </div>
+                        </div>
+
+
+                        <div className="spenden-banner-box rounded shadow">
+                            <h3><Trans>Du spendest projektbezogen einen Geldbetrag deiner Wahl</Trans></h3>
+                            <Button size="large" primary inverted className="rounded" onClick={() => navigate('/spenden/projektbezogen')}>
+                                <FontAwesomeIcon icon={faTint} style={{ opacity: '1', margin: '0em 0.42857143em 0em -0.21428571em' }} />
+                                <Trans>Projektbezogen Spenden</Trans>
+                            </Button>
+                            <div className="spenden-banner-payment-logos">
+                                <FontAwesomeIcon icon={faPaypal} style={{ opacity: '1' }} />
+                                <FontAwesomeIcon icon={faReply} style={{ opacity: '1' }} />
+                            </div>
                         </div>
                     </div>
-
-                    <div className="spenden-banner-box rounded shadow">
-                        <h3><Trans>Du spendest einmalig einen Geldbetrag deiner Wahl</Trans></h3>
-                        <Button size="large" primary inverted className="rounded" onClick={() => navigate('/spenden/einmalig')}>
-                            <FontAwesomeIcon icon={faTint} style={{ opacity: '1', margin: '0em 0.42857143em 0em -0.21428571em' }} />
-                            <Trans>Einmalig Spenden</Trans>
-                        </Button>
-                        <div className="spenden-banner-payment-logos">
-                            <FontAwesomeIcon icon={faPaypal} style={{ opacity: '1' }} />
-                            <FontAwesomeIcon icon={faCreditCard} style={{ opacity: '1' }} />
-                            <FontAwesomeIcon icon={faReply} style={{ opacity: '1' }} />
-                        </div>
-                    </div>
-
-
-                    <div className="spenden-banner-box rounded shadow">
-                        <h3><Trans>Du spendest projektbezogen einen Geldbetrag deiner Wahl</Trans></h3>
-                        <Button size="large" primary inverted className="rounded" onClick={() => navigate('/spenden/projektbezogen')}>
-                            <FontAwesomeIcon icon={faTint} style={{ opacity: '1', margin: '0em 0.42857143em 0em -0.21428571em' }} />
-                            <Trans>Projektbezogen Spenden</Trans>
-                        </Button>
-                        <div className="spenden-banner-payment-logos">
-                            <FontAwesomeIcon icon={faPaypal} style={{ opacity: '1' }} />
-                            <FontAwesomeIcon icon={faReply} style={{ opacity: '1' }} />
-                        </div>
-                    </div>
-                </div>
-
+                }
             </div >
         );
     }

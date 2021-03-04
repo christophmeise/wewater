@@ -32,29 +32,35 @@ class Navbar extends Component<NavbarProps, NavbarState> {
     user: null,
   }
 
-  componentDidMount = async () => {
-  }
-
-  handleNavigate = (e, { name }) => console.log('WIP')
-
   render() {
     const { location, inverted, mobile, t, onHoverMenuItem, navigate, language } = this.props
     return (
       <React.Fragment>
         {!mobile && (
-          <Menu.Item className="menu-item-logo" link onClick={navigate.bind(this, '/')}>
-            <Logo />
-          </Menu.Item>
+          <>
+            <Menu.Item className="menu-item-logo" link onClick={navigate.bind(this, '/')}>
+              <Logo />
+            </Menu.Item>
+            <Menu.Item
+              name="/filtersystem"
+              content={t('Filtersysteme')}
+              link
+              active={location.pathname === '/filtersystem'}
+              onMouseEnter={onHoverMenuItem?.bind(this, 'Filtersysteme')}
+              data-nav='Filtersysteme'
+              className="navlinkdropdown"
+            ></Menu.Item>
+          </>
         )}
-        <Menu.Item
-          name="/filtersystem"
-          content={t('Filtersysteme')}
-          link
-          active={location.pathname === '/filtersystem'}
-          onMouseEnter={onHoverMenuItem?.bind(this, 'Filtersysteme')}
-          data-nav='Filtersysteme'
-          className="navlinkdropdown"
-        ></Menu.Item>
+        {mobile && (
+          <Menu.Item
+            name="/filtersystem"
+            content={t('Filtersysteme')}
+            link
+            active={location.pathname === '/filtersystem'}
+            onClick={navigate.bind(this, '/filtersystem')}
+          ></Menu.Item>
+        )}
         <Menu.Item
           name="/spenden"
           content={t('Spenden')}

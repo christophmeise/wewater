@@ -18,7 +18,7 @@ const MobileMenu = ({
             <Menu.Item
                 style={{ paddingBottom: '0', paddingTop: '0', alignSelf: 'center' }}
                 link
-                onClick={($event) => handleNavigate($event, '/')}
+                onClick={($event) => handleNavigate('/')}
             >
                 <Logo />
             </Menu.Item>
