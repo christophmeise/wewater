@@ -62,14 +62,6 @@ class SpendenWidget extends React.Component<Props, any> {
                                             </Trans>
                                         </p>
                                     </li>
-                                    <li>
-                                        <div><Icon icon={shieldCheck} /></div>
-                                        <p>
-                                            <Trans>
-                                                Mit dem Brunnenprojekt in Uganda haben wir uns schon vor der Gründung von WeWater engagiert, Spenden gesammelt und vor allem: Das Projekt erfolgreich umgesetzt.
-                                            </Trans>
-                                        </p>
-                                    </li>
                                 </ul>
                                 <div className="spenden-info-box">
                                     <strong><Trans>Mittelverwendung</Trans></strong>
@@ -94,6 +86,7 @@ class SpendenWidget extends React.Component<Props, any> {
                             _bp_iframe.project_id = 68773; /* REQUIRED */
                             _bp_iframe.lang       = 'de'; /* Language of the form */
                             _bp_iframe.width = 600; /* Custom iframe-tag-width, integer */
+                            _bp_iframe.width = 1000; /* Custom iframe-tag-width, integer */
                             _bp_iframe.color = '5ABEE6'; /* Button and banderole color, hex without "#" */
                             _bp_iframe.background_color = 'ffffff'; /* Background-color, hex without "#" */
                             _bp_iframe.default_amount = 20; /* Donation-amount, integer 1-99 */

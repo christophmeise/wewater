@@ -1,6 +1,5 @@
 import { graphql, useStaticQuery } from 'gatsby';
 import BackgroundImage from 'gatsby-background-image';
-import Img from 'gatsby-image';
 import { Link, Trans } from 'gatsby-plugin-react-i18next';
 import React from 'react';
 import { Button, Container, Grid, GridColumn, GridRow, Header, Icon } from 'semantic-ui-react';
@@ -65,32 +64,44 @@ const SectionFiltersysteme = () => {
         <section className="main-section bg-secondary filtersysteme-section" style={{ padding: '3rem 0rem' }}>
             <Container>
                 <div className="filtersysteme-grid-desktop">
-                    <Grid style={{ paddingTop: '2em' }} stackable centered>
+                    <Grid stackable centered>
                         <GridRow columns="2" className="filtersysteme-img-horizontal">
-                            <GridColumn >
-                                <Img className="img-fluid rounded shadow" fluid={data.image1.childImageSharp.fluid} />
+                            <GridColumn>
+                                <BackgroundImage className="img-fluid rounded shadow filtersysteme-dark-overlay" fluid={data.image1.childImageSharp.fluid}>
+                                    <p>AQQA®bag</p>
+                                </BackgroundImage>
                             </GridColumn>
                             <GridColumn>
-                                <Img className="img-fluid rounded shadow" fluid={data.image2.childImageSharp.fluid} />
+                                <BackgroundImage className="img-fluid rounded shadow filtersysteme-dark-overlay" fluid={data.image2.childImageSharp.fluid} >
+                                    <p>AQQA®bag</p>
+                                </BackgroundImage>
                             </GridColumn>
                         </GridRow>
                         <GridRow columns="3" className="filtersysteme-img-vertical">
                             <GridColumn>
-                                <Img className="img-fluid rounded shadow" fluid={data.image3.childImageSharp.fluid} />
+                                <BackgroundImage className="img-fluid rounded shadow filtersysteme-dark-overlay" fluid={data.image3.childImageSharp.fluid} >
+                                    <p>AQQA®bag</p>
+                                </BackgroundImage>
                             </GridColumn>
                             <GridColumn>
                                 {/* empty */}
                             </GridColumn>
                             <GridColumn className="filtersysteme-align-right">
-                                <Img className="img-fluid rounded shadow" fluid={data.image4.childImageSharp.fluid} />
+                                <BackgroundImage className="img-fluid rounded shadow filtersysteme-dark-overlay" fluid={data.image4.childImageSharp.fluid} >
+                                    <p>AQQA®bag</p>
+                                </BackgroundImage>
                             </GridColumn>
                         </GridRow>
                         <GridRow columns="2" className="filtersysteme-img-horizontal">
                             <GridColumn>
-                                <Img className="img-fluid rounded shadow" fluid={data.image5.childImageSharp.fluid} />
+                                <BackgroundImage className="img-fluid rounded shadow filtersysteme-dark-overlay" fluid={data.image5.childImageSharp.fluid} >
+                                    <p>AQQA®bag</p>
+                                </BackgroundImage>
                             </GridColumn>
                             <GridColumn>
-                                <Img className="img-fluid rounded shadow" fluid={data.image6.childImageSharp.fluid} />
+                                <BackgroundImage className="img-fluid rounded shadow filtersysteme-dark-overlay" fluid={data.image6.childImageSharp.fluid} >
+                                    <p>AQQA®bag</p>
+                                </BackgroundImage>
                             </GridColumn>
                         </GridRow>
                     </Grid>
@@ -119,7 +130,7 @@ export const TextContent = () => {
                 textAlign='center'
                 className="global-flex-column global-no-margin"
             >
-                <h3 className={`global-subtitle text-primary`}><Trans>Weil's an Wasser mangelt. Nicht an guten Ideen.</Trans></h3>
+                <h3 className={`global-subtitle text-primary`}><Trans>Weil's an Wasser mangelt. <br /> Nicht an guten Ideen.</Trans></h3>
                 <h2 className="global-headline"><Trans>Filtersysteme für jeden Anwendungsfall</Trans></h2>
             </Header>
             <p><Trans>Dennoch leiden weltweit 844 Millionen Menschen Durst oder erkranken an verschmutztem Wasser. Unsere Mission ist es, diesen Menschen durch sauberes Trinkwasser eine existentielle Lebensgrundlage zu ermöglichen.</Trans></p>

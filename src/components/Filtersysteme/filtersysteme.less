@@ -23,15 +23,17 @@
 }
 
 .filtersysteme-section {
-    .img-fluid {}
+    .img-fluid:after {
+        border-radius: 25px !important;
+    }
 
     .container {
         position: relative;
     }
 
     .filtersysteme-blob {
-        height         : 750px;
-        width          : 700px;
+        height         : 725px;
+        width          : 670px;
         position       : absolute !important;
         top            : 50%;
         /* position the top  edge of the element at the middle of the parent */
@@ -49,11 +51,15 @@
         }
     }
 
-    .filtersysteme-img-horizontal {}
+    .filtersysteme-img-horizontal {
+        .img-fluid {
+            height: 300px;
+        }
+    }
 
     .filtersysteme-img-vertical {
         .img-fluid {
-            height: 450px;
+            height: 400px;
             width : 300px;
         }
     }
@@ -61,6 +67,37 @@
     .filtersysteme-align-right {
         .img-fluid {
             margin-left: auto;
+        }
+    }
+
+    .filtersysteme-dark-overlay {
+        transition     : filter 0.5s ease !important;
+        cursor         : pointer;
+        display        : flex;
+        justify-content: center;
+        align-items    : center;
+
+        p {
+            transition: opacity 0.5s ease;
+            opacity   : 0;
+            color     : #FFFFFF;
+            font-size : 28px;
+        }
+    }
+
+    .filtersysteme-dark-overlay::after {
+        transition: filter 0.5s ease !important;
+        filter    : brightness(1);
+    }
+
+    .filtersysteme-dark-overlay:hover::after {
+        transition: filter 0.5s ease !important;
+        filter    : brightness(0.5);
+    }
+
+    .filtersysteme-dark-overlay:hover {
+        p {
+            opacity: 1;
         }
     }
 }
