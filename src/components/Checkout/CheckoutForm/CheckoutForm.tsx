@@ -126,7 +126,7 @@ const CheckoutForm = () => {
         <h2 className="global-headline"><Trans>Bestellung abschließen</Trans></h2>
       </Header>
       {cart ? (
-        <Form onSubmit={handleFormSubmit} className="woo-next-checkout-form">
+        <Form className="woo-next-checkout-form">
           <Grid columns="2" stackable>
             <GridColumn>
               <h4 className="mb-4"><Trans>Bestelldetails</Trans></h4>
@@ -138,7 +138,7 @@ const CheckoutForm = () => {
             </GridColumn>
           </Grid>
           <PaymentModes input={input} handleOnChange={handleOnChange} />
-          <Button primary className="rounded">
+          <Button primary className="rounded" type="submit" onClick={handleFormSubmit}>
             <Trans>Jetzt kaufen</Trans>
           </Button>
 

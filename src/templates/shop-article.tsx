@@ -53,10 +53,10 @@ class ShopArticleTemplate extends React.Component<any, any> {
         return (
             <Layout invertedHeader={false}>
                 <SEO description={shopArticle.name} title={shopArticle.name} />
-                <Container>
+                <Container className="global-header-padding">
                     <Grid columns={2}>
                         <GridColumn width={12}>
-                            <section className="shop-item-section global-header-padding">
+                            <section className="shop-item-section">
                                 <article>
                                     {this.state.showLightbox && this.state.selectedImage !== null && (
                                         <Lightbox
