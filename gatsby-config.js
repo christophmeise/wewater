@@ -9,7 +9,7 @@ module.exports = {
     {
       resolve: `gatsby-source-wordpress-experimental`,
       options: {
-        url: process.env.WPGRAPHQL_URL || 'http://3.121.162.50/graphql',
+        url: process.env.WPGRAPHQL_URL || 'https://18.192.237.211/graphql',
         verbose: true,
         //'https://wewater.org/graphql',
         // allows a fallback url if WPGRAPHQL_URL is not set in the env, this may be a local or remote WP instance.
