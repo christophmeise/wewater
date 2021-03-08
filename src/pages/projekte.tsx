@@ -2,8 +2,7 @@
 import { graphql } from 'gatsby';
 import { Trans } from 'gatsby-plugin-react-i18next';
 import React from 'react';
-import { Container, Grid, Header } from 'semantic-ui-react';
-import HeaderOverlay from '../components/HeaderOverlay/header-overlay';
+import { Container, Header } from 'semantic-ui-react';
 import Layout from '../components/Layout/Layout';
 import ProjektCard from '../components/ProjektCard/projekt-card';
 import SEO from '../components/seo';
@@ -23,6 +22,9 @@ interface Props {
 class ProjektePage extends React.Component<Props, any> {
     constructor(props) {
         super(props);
+        this.state = {
+            filter: 0
+        }
     }
 
     render() {
@@ -41,47 +43,49 @@ class ProjektePage extends React.Component<Props, any> {
         return (
             <Layout>
                 <SEO title={t('ProjekteSEOTitle')} description={t('ProjekteSEODescription')} />
-                <HeaderOverlay content={<OverlayContent t={t} inverted={true} />} color={backgroundColor} darken={false} inverted={false} sources={headerImage} width={12} />
+                {/*  <HeaderOverlay content={<OverlayContent t={t} inverted={true} />} color={backgroundColor} darken={false} inverted={false} sources={headerImage} width={12} /> */}
                 <Container className="global-header-padding">
                     <Header
                         data-sal="slide-up"
                         data-sal-delay="0"
                         data-sal-duration="300"
                         data-sal-easing="ease"
-                        textAlign='center'
+                        textAlign='left'
                         className="global-flex-column global-no-margin"
                     >
                         <h3 className={`global-subtitle text-primary`}><Trans>Projekte von WeWater</Trans></h3>
                         <h2 className="global-headline"><Trans>Projektübersicht</Trans></h2>
                     </Header>
-                    <Grid style={{ paddingTop: '2em' }} stackable centered columns={2}>
-                        <Grid.Column>
-                            {posts
-                                .filter((post) => post.node.title.length > 0)
-                                .map(({ node: post }) => {
-                                    return (
-                                        posts.findIndex((entry) => entry.node.id === post.id) % 2 === 0 && (
-                                            <div className="projekt-post-card-wrapper" data-sal="slide-up" data-sal-delay="0" data-sal-duration="300" data-sal-easing="ease">
-                                                <ProjektCard key={post.id} post={post} ></ProjektCard>
-                                            </div>
-                                        )
-                                    );
-                                })}
-                        </Grid.Column>
-                        <Grid.Column>
-                            {posts
-                                .filter((post) => post.node.title.length > 0)
-                                .map(({ node: post }) => {
-                                    return (
-                                        posts.findIndex((entry) => entry.node.id === post.id) % 2 === 1 && (
-                                            <div className="projekt-post-card-wrapper" data-sal="slide-up" data-sal-delay="0" data-sal-duration="300" data-sal-easing="ease">
-                                                <ProjektCard key={post.id} post={post} data-sal="slide-up" data-sal-delay="0" data-sal-duration="300" data-sal-easing="ease"></ProjektCard>
-                                            </div>
-                                        )
-                                    );
-                                })}
-                        </Grid.Column>
-                    </Grid>
+                    <div className="projekt-filter-wrapper">
+                        <h4>Projekte filtern</h4>
+                        <div className="projekt-tag-wrapper">
+                            <div className={`projekt-tag-label ${this.state.filter === 0 && 'projekt-tag-label-selected'}`}>
+                                <span className="label-text" onClick={() => this.setState({ filter: 0 })}>Alle Projekte</span>
+                            </div>
+                            <div className={`projekt-tag-label ${this.state.filter === 1 && 'projekt-tag-label-selected'}`}>
+                                <span className="label-text" onClick={() => this.setState({ filter: 1 })}>In Arbeit</span>
+                            </div>
+                            <div className={`projekt-tag-label ${this.state.filter === 2 && 'projekt-tag-label-selected'}`}>
+                                <span className="label-text" onClick={() => this.setState({ filter: 2 })}>Abgeschlossen</span>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div className="projekt-card-grid">
+                        {posts
+                            .filter((post) => post.node.title.length > 0)
+                            .filter((post) => this.state.filter === 0 ||
+                                this.state.filter === 1 && post.node.dt_portfolio_categories?.nodes[0].name === 'In Arbeit' ||
+                                this.state.filter === 2 && post.node.dt_portfolio_categories?.nodes[0].name !== 'In Arbeit'
+                            )
+                            .map(({ node: post }) => {
+                                return (
+                                    <div className="projekt-post-card-wrapper">
+                                        <ProjektCard key={post.id} post={post} ></ProjektCard>
+                                    </div>
+                                );
+                            })}
+                    </div>
                 </Container>
             </Layout>
         );

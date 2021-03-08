@@ -1,9 +1,21 @@
 @import '../styles/lib.less';
 
 .shop-article-price {
-    font-size  : 32px;
-    font-weight: 600;
-    color      : @primaryFontColorDark;
+    display       : flex;
+    flex-direction: row;
+
+    p {
+        font-size  : 32px;
+        font-weight: 600;
+        color      : @primaryFontColorDark;
+    }
+
+    .shop-regular-price {
+        font-weight    : 400;
+        text-decoration: line-through;
+        margin-right   : 0.5rem;
+        margin-bottom  : 0;
+    }
 }
 
 .shop-item-picture {
@@ -45,4 +57,10 @@
     .shop-item-picture-gallery-item:hover img {
         transform: scale(1.2);
     }
+}
+
+.sold-out-text {
+    color  : red;
+    margin : 2rem 0rem;
+    display: block;
 }

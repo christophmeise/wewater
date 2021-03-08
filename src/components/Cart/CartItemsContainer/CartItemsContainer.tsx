@@ -2,19 +2,22 @@ import { useMutation, useQuery } from "@apollo/client";
 import Link from "gatsby-link";
 import { Trans } from 'gatsby-plugin-react-i18next';
 import React, { useContext, useState } from "react";
-import { Button, Grid, GridColumn, Header } from "semantic-ui-react";
+import { Button, Container, Grid, GridColumn } from "semantic-ui-react";
 import { v4 } from "uuid";
+import APPLY_COUPON from "../../../mutations/apply_coupon";
 import CLEAR_CART_MUTATION from "../../../mutations/clear-cart";
 import UPDATE_CART from "../../../mutations/update-cart";
 import GET_CART from "../../../queries/get-cart";
 import { getFormattedCart, getUpdatedItems } from "../../../utils/functions";
 import { AppContext } from "../../context/AppContext";
 import CartItem from "../CartItem/CartItem";
-
+import CouponInput from "./CouponInput";
+import './style.less';
 
 const CartItemsContainer = () => {
-  const [cart, setCart] = useContext(AppContext);
+  const [cart, setCart]: any = useContext(AppContext);
   const [requestError, setRequestError] = useState(null);
+  const [couponCode, setCouponCode] = useState('');
 
   // Get Cart Data.
   const { data, refetch } = useQuery(GET_CART, {
@@ -49,6 +52,20 @@ const CartItemsContainer = () => {
   // Update Cart Mutation.
   const [clearCart, { loading: clearCartProcessing }] = useMutation(
     CLEAR_CART_MUTATION,
+    {
+      onCompleted: () => {
+        refetch();
+      },
+      onError: (error) => {
+        if (error) {
+          setRequestError(error.graphQLErrors[0].message);
+        }
+      },
+    }
+  );
+
+  const [applyCoupon, { loading: applyCouponProcessing }] = useMutation(
+    APPLY_COUPON,
     {
       onCompleted: () => {
         refetch();
@@ -105,22 +122,30 @@ const CartItemsContainer = () => {
     });
   };
 
-  return (
-    <div className="content-wrap-cart">
-      {cart ? (
-        <div>
-          <Header
-            data-sal="slide-up"
-            data-sal-delay="0"
-            data-sal-duration="300"
-            data-sal-easing="ease"
-            textAlign='left'
-            className="global-flex-column global-no-margin"
-          >
-            <h3 className={`global-subtitle text-primary`}><Trans>Überprüfe deine Bestellung</Trans></h3>
-            <h2 className="global-headline"><Trans>Warenkorb</Trans></h2>
-          </Header>
+  const handleApplyCoupon = (coupon) => {
+    // event.stopPropagation();
 
+    if (applyCouponProcessing) {
+      return;
+    }
+
+    applyCoupon({
+      variables: {
+        input: {
+          clientMutationId: v4(),
+          code: coupon
+        },
+      },
+    });
+  };
+
+  return (
+    <div className="cart-items-container">
+      {cart ? (
+        <>
+          <Button primary basic compact size="small" onClick={(event) => handleClearCart(event)} disabled={clearCartProcessing} className={`shadow rounded hover-animate ${clearCartProcessing && 'loading'}`}>
+            <Button.Content><Trans>Warenkorb leeren</Trans></Button.Content>
+          </Button>
           <Grid columns="2">
             <GridColumn width="10">
               <Grid>
@@ -137,10 +162,7 @@ const CartItemsContainer = () => {
                   ))}
               </Grid>
               <div>
-                <Button primary basic onClick={(event) => handleClearCart(event)} disabled={clearCartProcessing} className="shadow rounded hover-animate">
-                  <Button.Content><Trans>Warenkorb leeren</Trans></Button.Content>
-                </Button>
-                {clearCartProcessing ? <p><Trans>Leere Warenkorb...</Trans></p> : ""}
+                <CouponInput handleApplyCoupon={handleApplyCoupon} applyCouponProcessing={applyCouponProcessing} />
               </div>
 
               {/* Display Errors if any */}
@@ -154,47 +176,64 @@ const CartItemsContainer = () => {
                 )}
             </GridColumn>
             <GridColumn width="6">
-              <div className="woo-next-cart-total-container col-md-4">
-                <h3><Trans>Warenkorb-Summe</Trans></h3>
-                <p><Trans>Zwischensumme</Trans></p>
-                <p className="font-primary">
-                  {"string" !== typeof cart.subtotal
-                    ? cart.subtotal.toFixed(2)
-                    : cart.subtotal}
-                </p>
-                <p><Trans>Versand</Trans></p>
-                <p className="font-primary">
-                  {"string" !== typeof cart?.shippingTotal
-                    ? cart.shippingTotal?.toFixed(2)
-                    : cart.shippingTotal}
-                </p>
-                <p><Trans>Gesamtsumme</Trans></p>
-                <p className="font-primary">
+              <h3><Trans>Bestellungsübersicht</Trans></h3>
+
+              <div className="cart-checkout-overview">
+                <div className="cart-checkout-overview-row">
+                  <p><Trans>Artikel:</Trans></p>
+                  <p className="font-primary">
+                    {"string" !== typeof cart.subtotal
+                      ? cart.subtotal.toFixed(2)
+                      : cart.subtotal}
+                  </p>
+                </div>
+                <div className="cart-checkout-overview-row">
+                  <p><Trans>Verpackung & Versand</Trans></p>
+                  <p className="font-primary">
+                    {"string" !== typeof cart?.shippingTotal
+                      ? cart.shippingTotal?.toFixed(2)
+                      : cart.shippingTotal}
+                  </p>
+                </div>
+                {cart.appliedCoupons?.nodes?.length > 0 && cart.discountTotal != '€0,00' && (
+                  <div className="cart-checkout-overview-row">
+                    <p><Trans>Coupons</Trans></p>
+                    <p className="font-primary">
+                      - {cart.discountTotal}
+                    </p>
+                  </div>
+                )}
+              </div>
+
+
+              <div className="cart-checkout-overview-row">
+                <h4><Trans>Gesamtbetrag</Trans></h4>
+                <h4 className="font-primary">
                   {"string" !== typeof cart.totalProductsPrice
                     ? cart.totalProductsPrice.toFixed(2)
                     : cart.totalProductsPrice}
-                </p>
+                </h4>
+              </div>
+              <p><Trans>Oben genannte Preise verstehen sich inklusive Mehrwertsteuer.</Trans></p>
+              <div className="cart-checkout-overview-row-button">
                 <Link to="/checkout">
-                  <Button primary className="shadow rounded hover-animate">
-                    <Button.Content> <Trans>Weiter zur Kasse</Trans></Button.Content>
+                  <Button primary size="large" className="shadow rounded hover-animate">
+                    <Button.Content> <Trans>Zur Kasse gehen</Trans></Button.Content>
                   </Button>
                 </Link>
               </div>
             </GridColumn>
           </Grid>
-        </div>
+        </>
       ) : (
-          <div className="container mt-5" style={{ height: '72vh' }}>
+          <Container>
             <h2><Trans>Keine Produkte im Warenkorb</Trans></h2>
             <Link to="/shop">
-              <button className="btn btn-secondary woo-next-large-black-btn">
-                <span className="woo-next-cart-checkout-txt">
-                  <Trans>Zurück zum Shop</Trans>
-                </span>
-                <i className="fas fa-long-arrow-alt-right" />
-              </button>
+              <Button primary basic className="shadow rounded hover-animate">
+                <Button.Content><Trans>Zurück zum Shop</Trans></Button.Content>
+              </Button>
             </Link>
-          </div>
+          </Container>
         )}
     </div>
   );

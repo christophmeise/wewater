@@ -23,8 +23,9 @@ const Billing = ({ input, handleOnChange }) => {
             name="firstName"
             className="form-control woo-next-checkout-input"
             id="first-name"
+            autoComplete="given-name"
           />
-          <Error errors={input.errors} fieldName={"firstName"} />
+          <Error errors={input.errors} fieldName={"fname"} />
         </Form.Field>
         <Form.Field>
           <label htmlFor="last-name">
@@ -40,8 +41,9 @@ const Billing = ({ input, handleOnChange }) => {
             name="lastName"
             className="form-control woo-next-checkout-input"
             id="last-name"
+            autoComplete="family-name"
           />
-          <Error errors={input.errors} fieldName={"lastName"} />
+          <Error errors={input.errors} fieldName={"lname "} />
         </Form.Field>
 
       </Form.Group>
@@ -70,6 +72,7 @@ const Billing = ({ input, handleOnChange }) => {
           name="country"
           className="form-control woo-next-checkout-input"
           id="country-select"
+          autoComplete="country"
         >
           <option value="">Bitte wählen...</option>
           {countryList.length &&
@@ -96,8 +99,9 @@ const Billing = ({ input, handleOnChange }) => {
           placeholder="Straßenname und Hausnummer"
           className="form-control woo-next-checkout-input"
           id="street-address"
+          autoComplete="address-line1"
         />
-        <Error errors={input.errors} fieldName={"address1"} />
+        <Error errors={input.errors} fieldName={"address-line1"} />
         <br />
         <input
           type="text"
@@ -107,6 +111,7 @@ const Billing = ({ input, handleOnChange }) => {
           placeholder="Wohnung, Suite, Zimmer usw (optional)"
           className="form-control woo-next-checkout-input"
           id="address-2"
+          autoComplete="address-line2"
         />
       </Form.Field>
       <Form.Field>
@@ -123,6 +128,7 @@ const Billing = ({ input, handleOnChange }) => {
           name="city"
           className="form-control woo-next-checkout-input"
           id="city"
+          autoComplete="city"
         />
         <Error errors={input.errors} fieldName={"city"} />
       </Form.Field>
@@ -140,6 +146,7 @@ const Billing = ({ input, handleOnChange }) => {
           name="state"
           className="form-control woo-next-checkout-input"
           id="state"
+          autoComplete="state"
         />
         <Error errors={input.errors} fieldName={"state"} />
       </Form.Field>
@@ -157,8 +164,9 @@ const Billing = ({ input, handleOnChange }) => {
           name="postcode"
           className="form-control woo-next-checkout-input"
           id="post-code"
+          autoComplete="postal-code"
         />
-        <Error errors={input.errors} fieldName={"postcode"} />
+        <Error errors={input.errors} fieldName={"postal"} />
       </Form.Field>
       <Form.Group widths='equal'>
         <Form.Field>
@@ -175,6 +183,7 @@ const Billing = ({ input, handleOnChange }) => {
             name="phone"
             className="form-control woo-next-checkout-input"
             id="phone"
+            autoComplete="tel"
           />
           <Error errors={input.errors} fieldName={"phone"} />
         </Form.Field>
@@ -192,6 +201,7 @@ const Billing = ({ input, handleOnChange }) => {
             name="email"
             className="form-control woo-next-checkout-input"
             id="email"
+            autoComplete="email"
           />
           <Error errors={input.errors} fieldName={"email"} />
         </Form.Field>

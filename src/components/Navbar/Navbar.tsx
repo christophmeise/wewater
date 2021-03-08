@@ -1,3 +1,5 @@
+import { faTint } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Link } from 'gatsby-plugin-react-i18next';
 import React, { Component } from 'react';
 import { Button, Menu } from 'semantic-ui-react';
@@ -95,13 +97,13 @@ class Navbar extends Component<NavbarProps, NavbarState> {
           active={location.pathname === '/shop'}
           onClick={navigate.bind(this, '/shop')}
         ></Menu.Item>
-        <Menu.Item
-          active={false}
-        >
-          <CartIcon t={t}></CartIcon>
-        </Menu.Item>
         {!mobile && (
           <Menu.Menu position="right">
+            <Menu.Item
+              active={false}
+            >
+              <CartIcon t={t}></CartIcon>
+            </Menu.Item>
             <Menu.Item>
               <Link to={'/spenden'} language={language}>
                 <Button
@@ -110,6 +112,7 @@ class Navbar extends Component<NavbarProps, NavbarState> {
                   inverted={inverted}
                   size="small"
                 >
+                  <FontAwesomeIcon icon={faTint} style={{ opacity: '1', margin: '0em 0.42857143em 0em -0.21428571em' }} />
                   {t('Ich will helfen!')}
                 </Button>
               </Link>
@@ -119,10 +122,16 @@ class Navbar extends Component<NavbarProps, NavbarState> {
         )}
         {mobile && (
           <React.Fragment>
+            <Menu.Item
+              active={false}
+            >
+              <CartIcon t={t}></CartIcon>
+            </Menu.Item>
             <LanguageSwitcher mobile={mobile}></LanguageSwitcher>
             <Menu.Item>
               <Link to={'/spenden'} language={language}>
                 <Button primary={true} inverted={false} size="small">
+                  <FontAwesomeIcon icon={faTint} style={{ opacity: '1', margin: '0em 0.42857143em 0em -0.21428571em' }} />
                   {t('Ich will helfen!')}
                 </Button>
               </Link>

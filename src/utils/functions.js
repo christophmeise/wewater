@@ -280,7 +280,6 @@ export const getFormattedCart = (data) => {
     product.cartKey = givenProducts[i].key;
     product.name = cleanName;
     product.qty = givenProducts[i].quantity;
-    product.price = total / product.qty;
     product.totalPrice = givenProducts[i].total;
 
     // Ensure we can add products without images to the cart
@@ -306,6 +305,8 @@ export const getFormattedCart = (data) => {
   formattedCart.totalProductsPrice = data.cart.total;
   formattedCart.subtotal = data.cart.subtotal;
   formattedCart.shippingTotal = data.cart.shippingTotal;
+  formattedCart.discountTotal = data.cart.discountTotal;
+  formattedCart.appliedCoupons = data.cart.appliedCoupons;
 
   return formattedCart;
 };
@@ -345,13 +346,6 @@ export const createCheckoutData = (order) => {
     transactionId: "hjkhjkhsdsdiui",
     customerNote: order.customerNote,
   };
-
-  if (order.createAccount) {
-    checkoutData.account = {
-      username: order.username,
-      password: order.password,
-    };
-  }
 
   return checkoutData;
 };

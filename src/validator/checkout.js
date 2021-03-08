@@ -91,15 +91,6 @@ const validateAndSanitizeCheckoutForm = (data) => {
 	addErrorAndSanitizedData('phone', 'Phone number', 10, 15, 'phone', true);
 	addErrorAndSanitizedData('email', 'Email', 11, 254, 'email', true);
 
-	// The data.createAccount is a boolean value.
-	sanitizedData.createAccount = data.createAccount;
-
-	// If create accoun is true.
-	if (data.createAccount) {
-		addErrorAndSanitizedData('username', 'Username', 2, 35, 'string', true);
-		addErrorAndSanitizedData('password', 'Password', 2, 35, 'string', true);
-	}
-
 	addErrorAndSanitizedData('customerNote', '', 0, 254, 'string', false);
 	addErrorAndSanitizedData('paymentMethod', 'Payment mode field', 2, 50, 'string', true);
 

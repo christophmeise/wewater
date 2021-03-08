@@ -1,6 +1,12 @@
 import React, { useEffect, useState } from "react";
 
-export const AppContext = React.createContext([{}, () => { }]);
+type ICartState = {
+  cart?: any;
+};
+
+type ICartContext = [ICartState, React.Dispatch<React.SetStateAction<ICartState>>];
+
+export const AppContext = React.createContext<ICartContext>([{}, () => { }]);
 
 export const AppProvider = (props) => {
   const [cart, setCart] = useState(null);

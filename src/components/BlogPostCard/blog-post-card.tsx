@@ -57,3 +57,18 @@ export default function BlogPostCard({ post }: Props) {
         </Link>
     );
 }
+
+export function BlogPostCardSimple({ post }: Props) {
+    return (
+        <Link to={`/blog/` + post.slug}>
+            <div className="rounded blog-post-card-simple">
+                <div className="blog-post-card-simple-image-wrapper">
+                    <Img className="rounded-small dark-overlay-blog blog-post-card-image-simple" fluid={post?.featuredImage?.node?.localFile?.childImageSharp?.fluid} />
+                </div>
+                <div className="blog-post-card-content">
+                    <h3 className="blog-post-title">{post.title}</h3>
+                </div>
+            </div>
+        </Link>
+    );
+}

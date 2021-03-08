@@ -1,35 +1,23 @@
 @import '../../../styles/lib.less';
 
 .cart-product-title-wrap {
-	height       : 100px;
-	border       : 1px solid #ccc;
-	padding      : 17px 20px;
-	margin-bottom: 5px;
-	position     : relative;
+	padding-bottom: 1rem;
+
+	.cart-product-title {
+		color      : @primaryFontColorDark;
+		font-weight: normal;
+		font-size  : 25px;
+	}
 }
 
-.cart-remove-item {
-	cursor          : pointer;
-	position        : absolute;
-	right           : 0;
-	top             : 0;
-	color           : #757575;
-	font-size       : 22px;
-	padding         : 0 11px;
-	border          : 1px solid #ccc;
-	background-color: #f5f5f5;
-	border-top      : 0;
-	border-right    : 0;
+
+.cart-item-row {
+	margin-bottom: 2rem;
 }
 
-.cart-product-title {
-	color      : @primaryColor;
-	font-weight: normal;
-	font-size  : 25px;
+.cart-item-column-right {
+	padding-left: 0 !important;
 }
-
-.cart-left-col,
-.cart-right-col {}
 
 .cart-items-wrap {
 	margin-bottom: 60px;
@@ -50,7 +38,6 @@
 	display        : flex;
 	justify-content: space-between;
 	align-items    : center;
-	border         : 1px solid #ccc;
 }
 
 .cart-total-price {

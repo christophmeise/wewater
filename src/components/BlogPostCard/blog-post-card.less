@@ -154,3 +154,26 @@
     border-right    : 50px solid @pageBackground;
     background-color: @pageBackgroundSecondary;
 }
+
+.blog-post-card-simple {
+    display              : grid;
+    grid-template-columns: 1fr 2fr;
+    grid-column-gap      : 0.5rem;
+    align-items          : center;
+
+    .blog-post-card-image {}
+
+    .blog-post-card-image-simple {
+        div {
+            padding-bottom: 64.8648% !important;
+        }
+
+        opacity : 1;
+        cursor  : pointer;
+    }
+
+    .blog-post-title {
+        font-size    : 14px !important;
+        margin-bottom: 0rem !important;
+    }
+}

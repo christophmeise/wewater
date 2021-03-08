@@ -1,3 +1,82 @@
-.projekt-post-card-wrapper {
+@import '../styles/lib.less';
+
+.projekt-card-grid {
+    display              : grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap           : 1rem;
+    row-gap              : 1rem;
+}
+
+.projekt-filter-wrapper {
+    text-align   : center;
     margin-bottom: 2rem;
+}
+
+.projekt-tag-wrapper {
+    display        : flex;
+    flex-direction : row;
+    align-items    : center;
+    justify-content: center;
+}
+
+.projekt-tag-label {
+    display       : flex;
+    cursor        : pointer;
+    flex-direction: row;
+    align-items   : center;
+    margin-bottom : 0;
+    margin-left   : 0rem;
+    margin-right  : 0.5rem;
+    user-select   : none;
+    z-index       : 100;
+    border-radius : 30px;
+    padding-left  : 10px;
+    padding-top   : 6px;
+    padding-bottom: 6px;
+    padding-right : 15px;
+    border        : 1px solid rgba(224, 222, 222, 1);
+
+    .color-primary {
+        background-color: @primaryColor;
+    }
+
+    .color-secondary {
+        background-color: @extraColor1;
+    }
+
+    .color-tertiary {
+        background-color: @extraColor2;
+    }
+
+    .label-text {
+        font-size  : 14px;
+        font-style : normal;
+        font-weight: normal;
+        line-height: 16px;
+        color      : @primaryFontColorDark;
+    }
+}
+
+.projekt-tag-label-selected {
+    background-color: @primaryColor;
+}
+
+.blog-post-tag-label-group {
+    display        : flex;
+    flex-direction : row;
+    justify-content: flex-start;
+    z-index        : 100;
+    margin-top     : 20px;
+    margin-bottom  : 15px;
+    margin-right   : 0.75rem;
+}
+
+@media @mobile {
+    .blog-post-tag-label-group {
+        flex-direction: column;
+    }
+
+    .blog-post-tag-label {
+        margin-bottom: 0.5rem;
+    }
 }

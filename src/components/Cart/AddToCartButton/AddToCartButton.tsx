@@ -76,26 +76,17 @@ const AddToCartButton = (props) => {
   };
 
   return (
-    <div>
-      <Button primary className="shadow rounded hover-animate" onClick={handleAddToCartClick}>
+    <div className="add-to-card-wrapper">
+      <Button primary className={`shadow rounded hover-animate ${addToCartLoading && 'loading'}`} onClick={handleAddToCartClick}>
         <Button.Content><Trans>In den Warenkorb</Trans></Button.Content>
       </Button>
-      {showViewCart ? (
+      {showViewCart && (
         <Link to="/warenkorb">
           <Button secondary className="shadow rounded hover-animate">
             <Button.Content><Trans>Zum Warenkorb</Trans></Button.Content>
           </Button>
         </Link>
-      ) : (
-          ""
-        )}
-      {addToCartLoading ? (
-        <p className="mt-2"><Trans>Füge zum Warenkorb hinzu...</Trans></p>
-      ) : (
-          <p className="mt-2" style={{ color: "transparent" }}>
-            <Trans>Füge zum Warenkorb hinzu...</Trans>
-          </p>
-        )}
+      )}
     </div>
   );
 };

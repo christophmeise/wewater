@@ -12,28 +12,6 @@ const Footer = (t) => {
                 <path d="M-0.500244 149L21.0998 140.722C42.6998 132.444 87.0998 115.889 130.3 113.13C173.5 110.37 217.9 121.407 261.1 118.648C305.5 115.889 348.7 99.3333 391.9 85.537C436.3 71.7407 479.5 60.7037 522.7 66.2222C567.1 71.7407 610.3 93.8148 653.5 107.611C697.9 121.407 741.1 126.926 785.5 118.648C828.7 110.37 871.9 88.2963 916.3 66.2222C959.5 44.1481 1002.7 22.0741 1047.1 19.3148C1090.3 16.5556 1133.5 33.1111 1177.9 38.6296C1221.1 44.1481 1265.5 38.6296 1308.7 30.3519C1351.9 22.0741 1396.3 11.037 1417.9 5.51852L1439.5 1.90735e-06V149H1417.9C1396.3 149 1351.9 149 1308.7 149C1265.5 149 1221.1 149 1177.9 149C1133.5 149 1090.3 149 1047.1 149C1002.7 149 959.5 149 916.3 149C871.9 149 828.7 149 785.5 149C741.1 149 697.9 149 653.5 149C610.3 149 567.1 149 522.7 149C479.5 149 436.3 149 391.9 149C348.7 149 305.5 149 261.1 149C217.9 149 173.5 149 130.3 149C87.0998 149 42.6998 149 21.0998 149H-0.500244Z" fill="#F6F9FC" />
             </svg>
             <div className="footer-main">
-                {/*           <div className="background-primary donate-c2a-section">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#eff9fd" fillOpacity="1" d="M0,192L80,181.3C160,171,320,149,480,128C640,107,800,85,960,85.3C1120,85,1280,107,1360,117.3L1440,128L1440,0L1360,0C1280,0,1120,0,960,0C800,0,640,0,480,0C320,0,160,0,80,0L0,0Z"></path>
-            </svg>
-            <Container textAlign="center">
-              <h3>Hilf jetzt mit deiner Spende.</h3>
-              <h4>WeWater arbeitet ehrenamtlich sowie auf Spendenbasis. Daher sind wir auf finanzielle Hilfe angewiesen sind, um Wasserprojekte zu realisieren.</h4>
-              <Link to={getPathWithLocale('/spenden')}>
-                <Button primary inverted className="shadow rounded hover-animate">
-                  <FontAwesomeIcon icon={faTint} style={{ opacity: '1', margin: '0em 0.42857143em 0em -0.21428571em' }} />
-                Ich will helfen!
-              </Button>
-              </Link>
-
-            </Container>
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" style={{ marginBottom: "-0.5rem" }}>
-              <path fill="#ffffff" fillOpacity="1" d="M0,192L80,181.3C160,171,320,149,480,144C640,139,800,149,960,144C1120,139,1280,117,1360,106.7L1440,96L1440,320L1360,320C1280,320,1120,320,960,320C800,320,640,320,480,320C320,320,160,320,80,320L0,320Z">
-              </path>
-            </svg>
-          </div> */}
-
-
-
                 <Container>
                     <div className="company-links">
                         <h5>WeWater</h5>
@@ -113,10 +91,10 @@ const Footer = (t) => {
                                 <Grid.Column style={{ display: 'inline-block', verticalAlign: 'top' }}>
                                     <Header className="footer-nav-header" as="h3" content="Du willst direkt handeln? Spende jetzt!" />
                                     <p>
-                                        WeWater gUG
-                                        Bank für Sozialwirtschaft
-                                        IBAN: DE86 1002 0500 0001 6026 01
-                                        BIC-/SWIFT: BFSWDE33BER
+                                        WeWater gUG <br />
+                                        Bank für Sozialwirtschaft <br />
+                                        IBAN: DE86 1002 0500 0001 6026 01 <br />
+                                        BIC-/SWIFT: BFSWDE33BER <br />
 
                                         <Trans>Gib bitte Vor- und Nachnamen sowie den Verwendungszweck deiner Spende (z.B. monatliche Spende, einmalige Spende oder Projektspende) an.</Trans>
                                     </p>
@@ -135,7 +113,7 @@ const Footer = (t) => {
                             </Grid.Column>
                             <Grid.Column only="tablet computer" textAlign="center" verticalAlign="middle">
                                 <a
-                                    className="footer-trademark-link"
+                                    className="footer-trademark-link footer-link"
                                     href="https://explorechristoph.com"
                                     target="_blank"
                                     rel="noopener"
@@ -144,32 +122,11 @@ const Footer = (t) => {
                                 </a>
                             </Grid.Column>
                             <Grid.Column textAlign="right" verticalAlign="middle">
-                                <div>
-                                    <a
-                                        href="https://www.facebook.com/wewater.org/"
-                                        target="_blank"
-                                        rel="noopener"
-                                        aria-label="Facebook"
-                                    >
-                                        <Icon className="hover-animate" size="large" name="facebook" inverted></Icon>
-                                    </a>
-                                    <a
-                                        href="https://www.instagram.com/wewater_org/"
-                                        target="_blank"
-                                        rel="noopener"
-                                        aria-label="Instagram"
-                                    >
-                                        <Icon className="hover-animate" size="large" name="instagram" inverted></Icon>
-                                    </a>
-                                    <a
-                                        href="https://www.youtube.com/channel/UC3zOjWWL5drSnoxzcj3-jqw"
-                                        target="_blank"
-                                        rel="noopener"
-                                        aria-label=">outube"
-                                    >
-                                        <Icon className="hover-animate" size="large" name="youtube" inverted></Icon>
-                                    </a>
-                                </div>
+                                <p className="footer-link">
+                                    <Link to={'/impressum'} language={language}><Trans>Impressum</Trans></Link>
+                                    <span className="footer-link-seperator">|</span>
+                                    <Link to={'/dataprotection'} language={language}><Trans>Datenschutz</Trans></Link>
+                                </p>
                             </Grid.Column>
                         </Grid.Row>
                     </Grid>

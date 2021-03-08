@@ -1,7 +1,8 @@
 // i18next-extract-mark-ns-start page_warenkorb
 import { graphql } from 'gatsby';
+import { Trans } from 'gatsby-plugin-react-i18next';
 import React from 'react';
-import { Container } from 'semantic-ui-react';
+import { Container, Header } from 'semantic-ui-react';
 import CartItemsContainer from '../components/Cart/CartItemsContainer/CartItemsContainer';
 import Layout from '../components/Layout/Layout';
 import SEO from '../components/seo';
@@ -40,6 +41,17 @@ class WarenkorbPage extends React.Component<Props, any> {
             <Layout>
                 <SEO title={t('WarenkorbSEOTitle')} description={t('WarenkorbSEODescription')} />
                 <Container className="global-header-padding">
+                    <Header
+                        data-sal="slide-up"
+                        data-sal-delay="0"
+                        data-sal-duration="300"
+                        data-sal-easing="ease"
+                        textAlign='left'
+                        className="global-flex-column global-no-margin"
+                    >
+                        <h3 className={`global-subtitle text-primary`}><Trans>Überprüfe deine Bestellung</Trans></h3>
+                        <h2 className="global-headline"><Trans>Warenkorb</Trans></h2>
+                    </Header>
                     <CartItemsContainer />
                 </Container>
             </Layout>

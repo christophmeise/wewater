@@ -16,7 +16,7 @@ const CartIcon = ({ t }) => {
 	return (
 		<>
 			<button className="woo-menu-cart-icon" onClick={() => setIsDropdownOpen(!isDropdownOpen)}>
-				<div className="woo-next-cart-wrap">
+				<div>
 					{totalPrice ? <span className="woo-next-cart-price mr-2">{totalPrice}</span> : ''}
 					<span className="woo-next-cart-icon-container">
 						<span role="img" aria-label="cart-icon"><Icon icon={shoppingCart} /> {t('Einkaufswagen')}</span>

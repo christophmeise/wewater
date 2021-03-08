@@ -8,6 +8,7 @@ import Layout from '../components/Layout/Layout';
 import Lightbox from '../components/Lightbox/lightbox';
 import SEO from '../components/seo';
 import { ShopItem } from '../components/ShopCard/shop-card';
+import SidebarWidget from '../components/Sidebar/sidebar';
 import './shop-article.less';
 
 class ShopArticleTemplate extends React.Component<any, any> {
@@ -48,68 +49,80 @@ class ShopArticleTemplate extends React.Component<any, any> {
             });
         });
         const gallery: any = [shopArticle.image].concat(shopArticle.galleryImages.nodes);
+        const outOfStock: boolean = shopArticle.stockStatus === 'OUT_OF_STOCK' ? true : false;
         return (
             <Layout invertedHeader={false}>
                 <SEO description={shopArticle.name} title={shopArticle.name} />
                 <Container>
-                    <section className="shop-item-section global-header-padding">
-                        <article>
-                            {this.state.showLightbox && this.state.selectedImage !== null && (
-                                <Lightbox
-                                    images={gallery}
-                                    handleClose={this.handleClose}
-                                    handleNextRequest={this.handleNextRequest}
-                                    handlePrevRequest={this.handlePrevRequest}
-                                    selectedImage={this.state.selectedImage}
-                                />)}
-                            <Grid stackable columns="2">
-                                <GridColumn width="6">
-                                    <div className="shop-item-picture" onClick={() => this.setState({ showLightbox: true, selectedImage: 0 })}>
-                                        <Img className="img-fluid rounded shadow" fluid={sources} />
-                                    </div>
-                                    <div className="shop-item-picture-gallery">
-                                        {shopArticle.galleryImages.nodes.map((galleryImg, i) => {
-                                            return (
-                                                <div className="shop-item-picture-gallery-item" key={i} onClick={() => this.setState({ showLightbox: true, selectedImage: i })}>
-                                                    <Img className="shop-item-picture-gallery-img rounded shadow" fluid={galleryImg.localFile.childImageSharp.fluid} />
-                                                </div>
-                                            )
-                                        })}
-                                    </div>
-                                </GridColumn>
-                                <GridColumn width="10">
-                                    <Header
-                                        data-sal="slide-up"
-                                        data-sal-delay="0"
-                                        data-sal-duration="300"
-                                        data-sal-easing="ease"
-                                        textAlign='left'
-                                        className="global-flex-column global-no-margin"
-                                    >
-                                        <h3 className={`global-subtitle text-primary`}>{shopArticle.productCategories.nodes.map((node) => node.name)}</h3>
-                                        <h2 className="global-headline">{shopArticle.name}</h2>
-                                    </Header>
-                                    <h4 className="shop-article-price">
-                                        {shopArticle.price}
-                                    </h4>
-                                    {shopArticle.variations?.nodes != null &&
-                                        <>
-                                            <h4 className="shop-article-variation-label">
-                                                <Trans>Auswahl</Trans>
-                                            </h4>
-                                            <div className="shop-article-variations">
-                                                <Select placeholder='Select your variation' options={variations} onChange={this.handleChange.bind(this)} />
+                    <Grid columns={2}>
+                        <GridColumn width={12}>
+                            <section className="shop-item-section global-header-padding">
+                                <article>
+                                    {this.state.showLightbox && this.state.selectedImage !== null && (
+                                        <Lightbox
+                                            images={gallery}
+                                            handleClose={this.handleClose}
+                                            handleNextRequest={this.handleNextRequest}
+                                            handlePrevRequest={this.handlePrevRequest}
+                                            selectedImage={this.state.selectedImage}
+                                        />)}
+                                    <Grid stackable columns="2">
+                                        <GridColumn width="6">
+                                            <div className="shop-item-picture rounded shadow" onClick={() => this.setState({ showLightbox: true, selectedImage: 0 })}>
+                                                <Img className="img-fluid" fluid={sources} />
                                             </div>
-                                        </>
-                                    }
-                                    <p dangerouslySetInnerHTML={{ __html: shopArticle.description }}>
-                                    </p>
-                                    <AddToCartButton product={shopArticle} variationId={this.state.variationId} />
-                                </GridColumn>
-                            </Grid>
+                                            <div className="shop-item-picture-gallery">
+                                                {shopArticle.galleryImages.nodes.map((galleryImg, i) => {
+                                                    return (
+                                                        <div className="shop-item-picture-gallery-item rounded shadow" key={i} onClick={() => this.setState({ showLightbox: true, selectedImage: i })}>
+                                                            <Img className="shop-item-picture-gallery-img" fluid={galleryImg.localFile.childImageSharp.fluid} />
+                                                        </div>
+                                                    )
+                                                })}
+                                            </div>
+                                        </GridColumn>
+                                        <GridColumn width="10">
+                                            <Header
+                                                data-sal="slide-up"
+                                                data-sal-delay="0"
+                                                data-sal-duration="300"
+                                                data-sal-easing="ease"
+                                                textAlign='left'
+                                                className="global-flex-column global-no-margin"
+                                            >
+                                                <h3 className={`global-subtitle text-primary`}>{shopArticle.productCategories.nodes.map((node) => node.name)}</h3>
+                                                <h2 className="global-headline">{shopArticle.name}</h2>
+                                            </Header>
+                                            <h4 className="shop-article-price">
+                                                {shopArticle.onSale && <p className="shop-regular-price">{shopArticle.regularPrice}</p>}
+                                                <p>{shopArticle.price}</p>
+                                            </h4>
+                                            {shopArticle.variations?.nodes != null &&
+                                                <>
+                                                    <h4 className="shop-article-variation-label">
+                                                        <Trans>Auswahl</Trans>
+                                                    </h4>
+                                                    <div className="shop-article-variations">
+                                                        <Select placeholder='Select your variation' options={variations} onChange={this.handleChange.bind(this)} />
+                                                    </div>
+                                                </>
+                                            }
+                                            {!outOfStock ?
+                                                <AddToCartButton product={shopArticle} variationId={this.state.variationId} />
+                                                : <strong className="sold-out-text"><Trans>Aktuell leider ausverkauft!</Trans></strong>
+                                            }
+                                            <p dangerouslySetInnerHTML={{ __html: shopArticle.description }}>
+                                            </p>
+                                        </GridColumn>
+                                    </Grid>
 
-                        </article>
-                    </section>
+                                </article>
+                            </section>
+                        </GridColumn>
+                        <GridColumn width={4}>
+                            <SidebarWidget></SidebarWidget>
+                        </GridColumn>
+                    </Grid>
                 </Container>
             </Layout>
         );
@@ -161,11 +174,13 @@ export const pageQuery = graphql`
                         salePrice
                         price
                         regularPrice
+                        stockStatus
                     }
                     ... on WpVariableProduct {
                         id
                         name
                         price
+                        stockStatus
                         variations {
                             nodes {
                                 name
