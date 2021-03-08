@@ -14,25 +14,25 @@ import PaymentModes from "../PaymentModes/PaymentModes";
 import YourOrder from "../YourOrder/YourOrder";
 
 const CheckoutForm = () => {
-  /*   const initialState = {
-      firstName: '',
-      lastName: '',
-      company: '',
-      country: '',
-      address1: '',
-      address2: '',
-      city: '',
-      state: '',
-      postcode: '',
-      phone: '',
-      email: '',
-      customerNote: '',
-      paymentMethod: '',
-      errors: null
-    }; */
+  const initialState = {
+    firstName: '',
+    lastName: '',
+    company: '',
+    country: '',
+    address1: '',
+    address2: '',
+    city: '',
+    state: '',
+    postcode: '',
+    phone: '',
+    email: '',
+    customerNote: '',
+    paymentMethod: '',
+    errors: null
+  };
 
   // Use this for testing purposes, so you dont have to fill the checkout form over an over again.
-  const initialState = {
+  /* const initialState = {
     firstName: "Imran",
     lastName: "Sayed",
     address1: "109 Hills Road Valley",
@@ -47,7 +47,7 @@ const CheckoutForm = () => {
     customerNote: "My Order notes",
     paymentMethod: "cod",
     errors: null,
-  };
+  }; */
 
   const [cart, setCart]: any = useContext(AppContext);
   const [input, setInput] = useState(initialState);
