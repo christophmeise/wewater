@@ -1,3 +1,5 @@
+@import '../../styles/lib.less';
+
 .project-card {
     height: 445px;
 }
@@ -24,7 +26,7 @@
     word-break     : break-word;
 
     .project-card-background-text {
-        font-size     : 30px !important;
+        font-size     : 30px;
         line-height   : 34px;
         color         : #FFFFFF;
         z-index       : 10;
@@ -40,6 +42,7 @@
         letter-spacing: -0.025em;
     }
 }
+
 
 .project-card-progress-circle-wrapper {
     display        : flex;
@@ -62,6 +65,25 @@
         height       : 85px;
         width        : 85px;
         border-radius: 50%;
+    }
+}
+
+@media @mobile {
+    .project-card-background-text-wrapper {
+        .project-card-background-text {
+            font-size  : 24px;
+            line-height: 34px;
+        }
+    }
+
+    .project-card-progress-circle {
+        height: 90px;
+        width : 90px;
+
+        lord-icon {
+            height: 75px;
+            width : 75px;
+        }
     }
 }
 

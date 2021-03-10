@@ -1,42 +1,41 @@
 @import '../../styles/lib.less';
 
 .logo-container {
-    display: flex !important;
-    flex-direction: row;
+    display        : flex !important;
+    flex-direction : row;
     justify-content: flex-start;
-    align-items: center;
-    height: 100%;
-    width: 100%;
+    align-items    : center;
+    height         : 100%;
+    width          : 100%;
 }
 
 @media @desktop {
 
-.logo-container {
-    img {
-        height: 60px;
-        width: 80px;
-    }
+    .logo-container {
+        img {
+            height: 60px;
+            width : 80px;
+        }
 
-    svg {
-        height: 60px;
-        width: 80px;
-    }
+        svg {
+            height: 60px;
+            width : 80px;
+        }
     }
 }
 
 @media @mobile {
-.logo-container {
-    img {
-    height: 48px;
-    width: 64px;
-    }
+    .logo-container {
+        img {
+            height: 44px;
+            width : 64px;
+        }
 
-    svg {
-    height: 48px;
-    width: 64px;
-        margin-bottom: -5px;
-
+        svg {
+            height       : 44px;
+            width        : 64px;
+            margin-bottom: -6px;
+        }
     }
-}
 
 }

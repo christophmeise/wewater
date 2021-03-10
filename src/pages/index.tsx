@@ -55,7 +55,7 @@ class Index extends React.Component<Props, State> {
     let slidesPerView = 5;
     if (!isSSR) {
       if (window.innerWidth < 768) {
-        slidesPerView = 2;
+        slidesPerView = 1;
       } else if (window.innerWidth < 1200) {
         slidesPerView = 3;
       } else {
@@ -78,6 +78,7 @@ class Index extends React.Component<Props, State> {
     ];
 
     const slidesPerView = this.state != null ? this.state.slidesPerView : 5;
+    const darken = typeof window !== 'undefined' && (window.innerWidth <= 768);
 
     return (
       <Layout invertedHeader={false}>
@@ -87,7 +88,7 @@ class Index extends React.Component<Props, State> {
           color={'#FFFFFF'}
           inverted={false}
           content={<OverlayContent inverted={false} />}
-          darken={false}
+          darken={darken}
           width={10}
         />
         <div>

@@ -143,12 +143,12 @@
 }
 
 .header-overlay-headline {
-  font-size     : 4rem;
-  line-height   : 4.5rem;
+  letter-spacing: 0em;
+  font-size     : 42px;
+  line-height   : 56px;
   font-weight   : 700;
   white-space   : pre-line;
   color         : @primaryColor;
-  letter-spacing: -0.2rem;
 }
 
 .header-overlay-subheadline {
@@ -159,10 +159,23 @@
   margin-bottom: 1rem;
 }
 
+.header-overlay-headline-inverted {
+  color      : #fff;
+  text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.25);
+  font-weight: 600;
+}
+
+.header-overlay-subheadline-inverted {
+  color      : #fff;
+  text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.25);
+}
+
 @media only screen and (max-width: 767px) {
   .header-overlay-headline {
-    font-size    : 2.5rem;
-    line-height  : 3rem;
+    /*     font-size     : 2.5rem;
+    line-height   : 3rem; */
+    font-size    : 32px;
+    line-height  : 46px;
     margin-bottom: 0.5rem;
   }
 
@@ -172,20 +185,6 @@
     font-size  : 1.2rem;
     line-height: 1.5rem;
   }
-}
-
-.header-overlay-headline-inverted {
-  color         : #fff;
-  text-shadow   : 2px 2px 2px rgba(0, 0, 0, 0.25);
-  font-weight   : 600;
-  letter-spacing: 0.0em !important;
-  font-size     : 42px !important;
-  line-height   : 56px !important;
-}
-
-.header-overlay-subheadline-inverted {
-  color      : #fff;
-  text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.25);
 }
 
 .header-overlay-svg {

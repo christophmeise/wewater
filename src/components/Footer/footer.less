@@ -28,8 +28,23 @@ footer {
   border-top      : 1px solid rgba(0, 13, 62, 0.2);
   background-color: @pageBackgroundSecondary;
 
+  .footer-secondary-grid {
+    display              : grid;
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+
+
   @media @mobile {
-    /*  padding: 2rem 0rem !important; */
+    .footer-secondary-grid {
+      display              : grid;
+      grid-template-columns: auto 1fr;
+      align-items          : center;
+      text-align           : right;
+    }
+
+    .footer-trademark-link {
+      visibility: hidden;
+    }
   }
 
   @media @desktop {

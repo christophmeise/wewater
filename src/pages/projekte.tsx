@@ -80,8 +80,8 @@ class ProjektePage extends React.Component<Props, any> {
                             )
                             .map(({ node: post }) => {
                                 return (
-                                    <div className="projekt-post-card-wrapper">
-                                        <ProjektCard key={post.id} post={post} ></ProjektCard>
+                                    <div key={post.id} className="projekt-post-card-wrapper">
+                                        <ProjektCard post={post} ></ProjektCard>
                                     </div>
                                 );
                             })}

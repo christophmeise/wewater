@@ -64,3 +64,21 @@
     margin : 2rem 0rem;
     display: block;
 }
+
+.shop-article-grid {
+    display              : grid;
+    grid-template-columns: 3fr 1fr;
+    column-gap           : 1rem;
+}
+
+@media @mobile {
+    .shop-article-grid {
+        grid-template-columns: 1fr;
+        column-gap           : 0;
+    }
+
+    .sidebar-widget-wrapper {
+        visibility: hidden;
+        height    : 0;
+    }
+}

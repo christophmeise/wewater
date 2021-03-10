@@ -3,7 +3,7 @@ import React from 'react';
 import { Container, Grid, GridColumn } from 'semantic-ui-react';
 import './header-overlay.less';
 
-const HeaderOverlay = ({ sources, color, inverted, content, darken = false, width = 8, floatRight = false }) => {
+const HeaderOverlay = ({ sources, color, inverted, content, darken = false, width = 8, floatRight = false, forceDarken = false }) => {
     let vh = 100;
     const isSSR = typeof window === 'undefined';
     if (!isSSR) {
@@ -15,15 +15,14 @@ const HeaderOverlay = ({ sources, color, inverted, content, darken = false, widt
         <React.Fragment>
             <div
                 className="header-overlay"
-                style={{
+                style={((!isSSR && window.innerWidth > 767) || !darken) && !forceDarken ? {
                     backgroundColor: color,
-                }}
+                } : {}}
             >
-                <div className="header-overlay-image-wrapper">
-                    {/*  ${darken ? 'dark-overlay' : ''} */}
+                <div className={`header-overlay-image-wrapper`}>
                     <BackgroundImage
                         Tag="section"
-                        className={`header-overlay-center-cropped`}
+                        className={`header-overlay-center-cropped ${darken && 'dark-overlay-blog'}`}
                         fluid={sources}
                     >
                         <Container className="header-overlay-container">

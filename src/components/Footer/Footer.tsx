@@ -106,33 +106,27 @@ const Footer = (t) => {
             </div>
             <div className="footer-secondary">
                 <Container>
-                    <Grid inverted>
-                        <Grid.Row centered columns="equal">
-                            <Grid.Column>
-                                <Logo />
-                            </Grid.Column>
-                            <Grid.Column only="tablet computer" textAlign="center" verticalAlign="middle">
-                                <a
-                                    className="footer-trademark-link footer-link"
-                                    href="https://explorechristoph.com"
-                                    target="_blank"
-                                    rel="noopener"
-                                >
-                                    © 2021, ExploreChristoph. All rights reserved.
-                                </a>
-                            </Grid.Column>
-                            <Grid.Column textAlign="right" verticalAlign="middle">
-                                <p className="footer-link">
-                                    <Link to={'/impressum'} language={language}><Trans>Impressum</Trans></Link>
-                                    <span className="footer-link-seperator">|</span>
-                                    <Link to={'/dataprotection'} language={language}><Trans>Datenschutz</Trans></Link>
-                                </p>
-                            </Grid.Column>
-                        </Grid.Row>
-                    </Grid>
+                    <div className="footer-secondary-grid">
+                        <Link to={'/'} language={language}>
+                            <Logo />
+                        </Link>
+                        <a
+                            className="footer-trademark-link footer-link"
+                            href="https://explorechristoph.com"
+                            target="_blank"
+                            rel="noopener"
+                        >
+                            © 2021, ExploreChristoph. All rights reserved.
+                        </a>
+                        <p className="footer-link">
+                            <Link to={'/impressum'} language={language}><Trans>Impressum</Trans></Link>
+                            <span className="footer-link-seperator">|</span>
+                            <Link to={'/dataprotection'} language={language}><Trans>Datenschutz</Trans></Link>
+                        </p>
+                    </div>
                 </Container>
-            </div>
-        </footer>
+            </div >
+        </footer >
     );
 };
 

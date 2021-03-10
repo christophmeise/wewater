@@ -146,7 +146,7 @@ const CartItemsContainer = () => {
           <Button primary basic compact size="small" onClick={(event) => handleClearCart(event)} disabled={clearCartProcessing} className={`shadow rounded hover-animate ${clearCartProcessing && 'loading'}`}>
             <Button.Content><Trans>Warenkorb leeren</Trans></Button.Content>
           </Button>
-          <Grid columns="2">
+          <Grid columns="2" stackable>
             <GridColumn width="10">
               <Grid>
                 {cart.products.length &&
@@ -172,8 +172,8 @@ const CartItemsContainer = () => {
                   {requestError}{" "}
                 </div>
               ) : (
-                  ""
-                )}
+                ""
+              )}
             </GridColumn>
             <GridColumn width="6">
               <h3><Trans>Bestellungsübersicht</Trans></h3>
@@ -226,15 +226,15 @@ const CartItemsContainer = () => {
           </Grid>
         </>
       ) : (
-          <Container>
-            <h2><Trans>Keine Produkte im Warenkorb</Trans></h2>
-            <Link to="/shop">
-              <Button primary basic className="shadow rounded hover-animate">
-                <Button.Content><Trans>Zurück zum Shop</Trans></Button.Content>
-              </Button>
-            </Link>
-          </Container>
-        )}
+        <Container>
+          <h2><Trans>Keine Produkte im Warenkorb</Trans></h2>
+          <Link to="/shop">
+            <Button primary basic className="shadow rounded hover-animate">
+              <Button.Content><Trans>Zurück zum Shop</Trans></Button.Content>
+            </Button>
+          </Link>
+        </Container>
+      )}
     </div>
   );
 };

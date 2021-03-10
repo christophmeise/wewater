@@ -73,6 +73,7 @@ class Navbar extends Component<NavbarProps, NavbarState> {
         <Menu.Item
           name="/team"
           content={t('Team')}
+          link
           active={location.pathname === '/team'}
           onClick={navigate.bind(this, '/team')}
         ></Menu.Item>
@@ -123,9 +124,11 @@ class Navbar extends Component<NavbarProps, NavbarState> {
         {mobile && (
           <React.Fragment>
             <Menu.Item
-              active={false}
-            >
-              <CartIcon t={t}></CartIcon>
+              name="/warenkorb"
+              content={t('Warenkorb')}
+              link
+              active={location.pathname === '/warenkorb'}
+              onClick={navigate.bind(this, '/warenkorb')}>
             </Menu.Item>
             <LanguageSwitcher mobile={mobile}></LanguageSwitcher>
             <Menu.Item>

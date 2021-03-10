@@ -15,7 +15,7 @@ function ProjektPostTemplate({ data, t }) {
             <SEO description={post.title} title={post.title} />
             <Container>
                 <div className="blog-content-sections">
-                    <section className="blog-post">
+                    <section className="projekt-post">
                         <article dangerouslySetInnerHTML={{ __html: post.content }}></article>
                     </section>
                 </div>
