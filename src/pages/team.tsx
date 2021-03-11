@@ -43,12 +43,10 @@ class TeamPage extends React.Component<Props, any> {
             },
         ];
 
-        const darken = typeof window !== 'undefined' && (window.innerWidth <= 768);
-
         return (
             <Layout>
                 <SEO title={t('TeamSEOTitle')} description={t('TeamSEODescription')} />
-                <HeaderOverlay content={<OverlayContent t={t} inverted={true} />} color="#ffffff" darken={true} inverted={false} sources={headerImage} width={16} forceDarken={true} />
+                <HeaderOverlay content={<OverlayContent t={t} inverted={true} />} darken={true} inverted={false} sources={headerImage} width={16} />
                 <Container>
                     <Container>
                         <div className="main-content-sections">

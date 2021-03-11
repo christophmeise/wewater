@@ -35,17 +35,6 @@ class ShopPage extends React.Component<Props, any> {
 
     render() {
         const { t } = this.props;
-        const data = this.props.data;
-
-        const headerImage = [
-            data.mobileImage.childImageSharp.fluid,
-            {
-                ...data.desktopImage.childImageSharp.fluid,
-                media: `(min-width: 768px)`,
-            },
-        ];
-        const backgroundColor = '#FFFFFF';
-        const shopItems = data.german.edges;
 
         return (
             <Layout>

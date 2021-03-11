@@ -38,8 +38,7 @@ export default function ProjektCard({ post }: Props) {
                 >
                     <div className="project-card-progress-circle-wrapper">
                         <div className="project-card-progress-circle">
-                            <LordIcon src={'/images/projekte/' + imageUrl + '.json'} altsrc={'/images/projekte/' + imageUrl + '.gif'} delay={(3000 * Math.random()).toString()}></LordIcon>
-                            {/* <img className="project-card-gif" src={'/images/projekte/' + imageUrl} alt="Turning gears" /> */}
+                            <LordIcon src={'/images/projekte/' + imageUrl + '.json'} delay={(3000 * Math.random()).toString()}></LordIcon>
                         </div>
                     </div>
                     <div className="project-card-background-text-wrapper">

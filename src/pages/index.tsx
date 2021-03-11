@@ -78,17 +78,15 @@ class Index extends React.Component<Props, State> {
     ];
 
     const slidesPerView = this.state != null ? this.state.slidesPerView : 5;
-    const darken = typeof window !== 'undefined' && (window.innerWidth <= 768);
 
     return (
       <Layout invertedHeader={false}>
         <SEO title={t('LandingpageSEOTitle')} description={t('LandingpageSEODescription')} />
         <HeaderOverlay
           sources={sources}
-          color={'#FFFFFF'}
           inverted={false}
           content={<OverlayContent inverted={false} />}
-          darken={darken}
+          darken={false}
           width={10}
         />
         <div>

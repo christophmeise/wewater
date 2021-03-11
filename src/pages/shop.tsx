@@ -5,7 +5,7 @@ import { graphql } from 'gatsby';
 import { Link, Trans } from 'gatsby-plugin-react-i18next';
 import React from 'react';
 import { Button, Container, Grid, Header } from 'semantic-ui-react';
-import HeaderOverlay from '../components/HeaderOverlay/header-overlay';
+import HeaderOverlayBackground from '../components/HeaderOverlay/header-overlay-background';
 import Layout from '../components/Layout/Layout';
 import SEO from '../components/seo';
 import ShopCard, { ShopItem } from '../components/ShopCard/shop-card';
@@ -49,7 +49,7 @@ class ShopPage extends React.Component<Props, any> {
         return (
             <Layout>
                 <SEO title={t('ShopSEOTitle')} description={t('ShopSEODescription')} />
-                <HeaderOverlay content={<OverlayContent t={t} inverted={true} />} color={backgroundColor} darken={false} inverted={false} sources={headerImage} width={8} floatRight={true} />
+                <HeaderOverlayBackground content={<OverlayContent t={t} inverted={true} />} color={backgroundColor} darken={false} inverted={false} sources={headerImage} width={8} floatRight={true} />
                 <Container className="global-header-padding">
                     <Header
                         data-sal="slide-up"

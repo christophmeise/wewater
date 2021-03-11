@@ -1,7 +1,7 @@
 
 import React from 'react';
 
-export default function LordIcon({ src, altsrc, trigger = "loop", delay = "2500" }) {
+export default function LordIcon({ src, trigger = "loop", delay = "2500" }) {
     if (typeof window !== `undefined`) {
         const lordiconelement = require('lord-icon-element');
         const lottie = require('lottie-web');
@@ -10,5 +10,5 @@ export default function LordIcon({ src, altsrc, trigger = "loop", delay = "2500"
             <lord-icon trigger={trigger} delay={delay} src={src}></lord-icon>
         )
     }
-    return <img className="project-card-gif" src={altsrc} alt="Turning gears" />
+    return <img className="project-card-gif" src="/images/innovation/chemicals.gif" alt="Turning gears" />
 }

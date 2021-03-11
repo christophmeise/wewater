@@ -29,21 +29,11 @@ class ProjektePage extends React.Component<Props, any> {
 
     render() {
         const { data, t } = this.props;
-
-        const headerImage = [
-            data.mobileImage.childImageSharp.fluid,
-            {
-                ...data.desktopImage.childImageSharp.fluid,
-                media: `(min-width: 768px)`,
-            },
-        ];
-        const backgroundColor = '#FFFFFF';
         const posts = data.german.edges;
 
         return (
             <Layout>
                 <SEO title={t('ProjekteSEOTitle')} description={t('ProjekteSEODescription')} />
-                {/*  <HeaderOverlay content={<OverlayContent t={t} inverted={true} />} color={backgroundColor} darken={false} inverted={false} sources={headerImage} width={12} /> */}
                 <Container className="global-header-padding">
                     <Header
                         data-sal="slide-up"

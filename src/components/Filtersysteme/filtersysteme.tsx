@@ -10,49 +10,49 @@ const SectionFiltersysteme = () => {
         graphql` query FiltersystemeQuery {
             image1: file(relativePath: { eq: "images/filtersysteme/image1.jpg" }) {
                 childImageSharp {
-                    fluid(maxWidth: 1600, quality: 100) {
+                    fluid(maxWidth: 600, quality: 100) {
                         ...GatsbyImageSharpFluid_withWebp
                     }
                 }
             }
             image2: file(relativePath: { eq: "images/filtersysteme/image2.jpg" }) {
                 childImageSharp {
-                    fluid(maxWidth: 1200, quality: 100) {
+                    fluid(maxWidth: 600, quality: 100) {
                         ...GatsbyImageSharpFluid_withWebp
                     }
                 }
             }
             image3: file(relativePath: { eq: "images/filtersysteme/image3.jpg" }) {
                 childImageSharp {
-                    fluid(maxWidth: 1600, quality: 100) {
+                    fluid(maxWidth: 600, quality: 100) {
                         ...GatsbyImageSharpFluid_withWebp
                     }
                 }
             }
             image4: file(relativePath: { eq: "images/filtersysteme/image4.jpg" }) {
                 childImageSharp {
-                    fluid(maxWidth: 1200, quality: 100) {
+                    fluid(maxWidth: 600, quality: 100) {
                         ...GatsbyImageSharpFluid_withWebp
                     }
                 }
             }
             image5: file(relativePath: { eq: "images/filtersysteme/image5.jpg" }) {
                 childImageSharp {
-                    fluid(maxWidth: 1600, quality: 100) {
+                    fluid(maxWidth: 600, quality: 100) {
                         ...GatsbyImageSharpFluid_withWebp
                     }
                 }
             }
             image6: file(relativePath: { eq: "images/filtersysteme/image6.jpg" }) {
                 childImageSharp {
-                    fluid(maxWidth: 1200, quality: 100) {
+                    fluid(maxWidth: 600, quality: 100) {
                         ...GatsbyImageSharpFluid_withWebp
                     }
                 }
             }
             blob: file(relativePath: { eq: "images/filtersysteme/blob.png" }) {
                 childImageSharp {
-                    fluid(maxWidth: 1200, quality: 100) {
+                    fluid(maxWidth: 800, quality: 100) {
                         ...GatsbyImageSharpFluid_withWebp
                     }
                 }
@@ -61,7 +61,7 @@ const SectionFiltersysteme = () => {
     );
 
     return (
-        <section className="main-section bg-secondary filtersysteme-section" style={{ padding: '3rem 0rem' }}>
+        <section className="main-section bg-secondary filtersysteme-section">
             <Container>
                 <div className="filtersysteme-grid-desktop">
                     <Grid stackable centered>

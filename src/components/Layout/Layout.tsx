@@ -33,7 +33,6 @@ class Layout extends Component<Props, any> {
             location: {
                 pathname: null,
             },
-            theposition: 0,
             xDown: null,
             yDown: null
         };
@@ -42,7 +41,6 @@ class Layout extends Component<Props, any> {
     componentDidMount() {
         const isSSR = typeof window === 'undefined';
         if (!isSSR) {
-            document.body.addEventListener('scroll', this.listenToScroll.bind(this));
             document.addEventListener('touchstart', this.handleTouchStart.bind(this), false);
             document.addEventListener('touchmove', this.handleTouchMove.bind(this), false);
             this.setState({ location: window.location });
@@ -55,7 +53,6 @@ class Layout extends Component<Props, any> {
 
     componentWillUnmount() {
         if (typeof window !== 'undefined') {
-            document.body.removeEventListener('scroll', this.listenToScroll);
             document.removeEventListener('touchstart', this.handleTouchStart);
             document.removeEventListener('touchmove', this.handleTouchMove);
             window.removeEventListener('resize', this.calculatePopoverPosition);
@@ -100,13 +97,6 @@ class Layout extends Component<Props, any> {
         this.setState({ xDown: null });
         this.setState({ yDown: null });
     };
-
-    listenToScroll(event) {
-        const scrolled = document.body.scrollTop != null ? document.body.scrollTop : 0;
-        this.setState({
-            theposition: scrolled,
-        });
-    }
 
     handleToggle = () => this.setState({ sidebarOpened: !this.state.sidebarOpened });
     handleSidebarHide = () => this.setState({ sidebarOpened: false });
@@ -212,16 +202,9 @@ class Layout extends Component<Props, any> {
 
                     {(typeof window === 'undefined' || isDesktopBrowser) && (
                         <header id="header" className="header" onMouseLeave={this.onHeaderMouseLeave.bind(this)}>
-                            <section
-                                className={
-                                    'responsive-desktop-container global-navbar' +
-                                    (!(this.state.theposition > 825)
-                                        ? ' global-navbar-transparent'
-                                        : ' global-navbar-scrolled')
-                                }
-                            >
+                            <section className='responsive-desktop-container global-navbar global-navbar-transparent'>
                                 <Menu
-                                    inverted={!(this.state.theposition > 825) && invertedHeader}
+                                    inverted={invertedHeader}
                                     pointing={false}
                                     secondary={true}
                                     size="large"
@@ -230,7 +213,7 @@ class Layout extends Component<Props, any> {
                                     <Container className="test-css">
                                         <Navbar
                                             location={location}
-                                            inverted={!(this.state.theposition > 825) && invertedHeader}
+                                            inverted={invertedHeader}
                                             mobile={false}
                                             t={t}
                                             onHoverMenuItem={this.onHoverMenuItem.bind(this)}

@@ -16,6 +16,12 @@ class SpendenWidget extends React.Component<Props, any> {
         this.state = {};
     }
 
+    componentDidMount() {
+        var bp = document.createElement('script'); bp.type = 'text/javascript'; bp.async = true;
+        bp.src = 'https://betterplace-assets.betterplace.org/assets/load_donation_iframe.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(bp, s);
+    }
+
     render() {
         const { fullMode } = this.props;
 
@@ -92,12 +98,7 @@ class SpendenWidget extends React.Component<Props, any> {
                             _bp_iframe.default_amount = 20; /* Donation-amount, integer 1-99 */
                             _bp_iframe.default_data_transfer_accepted = true; /* true (default), false */
                             _bp_iframe.recurring_interval = 'single'; /* Interval for recurring donations, string out of ["single", "monthly", "quarter_yearly", "half_yearly", "yearly"] */
-                            _bp_iframe.bottom_logo = true;
-                            (function() {
-                                var bp = document.createElement('script'); bp.type = 'text/javascript'; bp.async = true;
-                                bp.src = 'https://betterplace-assets.betterplace.org/assets/load_donation_iframe.js';
-                                var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(bp, s);
-                            })();`
+                            _bp_iframe.bottom_logo = true;`
                                             }
                                         ]}
                                 />

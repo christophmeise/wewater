@@ -31,28 +31,28 @@ const Innovation = ({ }) => {
                 <Grid columns="4" stackable centered>
                     <GridColumn>
                         <div className="innovation-tile">
-                            <LordIcon src="/images/innovation/cheap.json" altsrc="/images/innovation/cheap.gif"></LordIcon>
+                            <LordIcon src="/images/innovation/cheap.json"></LordIcon>
                             <strong><Trans>Günstig in der Herstellung</Trans></strong>
                             <p><Trans>Ob direkte Integrationen mit Kartennetzwerken und Banken oder Bezahlvorgänge im Browser, Stripe-Technologien bewirken Großes im gesamten Tech-Stack der Finanzwelt.</Trans></p>
                         </div>
                     </GridColumn>
                     <GridColumn>
                         <div className="innovation-tile">
-                            <LordIcon src="/images/innovation/gauge.json" altsrc="/images/innovation/gauge.gif"></LordIcon>
+                            <LordIcon src="/images/innovation/gauge.json"></LordIcon>
                             <strong><Trans>Hohe Rückhalterate</Trans></strong>
                             <p><Trans>Mit Hunderten neuen Funktionen und Optimierungen pro Jahr halten wir Sie stets am technologischen Puls der Zeit. Für unsere Produktions-API etwa führen wir im Schnitt 16 Bereitstellungen täglich durch.</Trans></p>
                         </div>
                     </GridColumn>
                     <GridColumn>
                         <div className="innovation-tile">
-                            <LordIcon src="/images/innovation/energy.json" altsrc="/images/innovation/energy.gif"></LordIcon>
+                            <LordIcon src="/images/innovation/energy.json"></LordIcon>
                             <strong><Trans>Energiefrei</Trans></strong>
                             <p><Trans>Unsere Systeme bieten eine Uptime von 99,9 %, hohe Skalierbarkeit und technische Redundanz. Stripe ist nach den höchsten Konformitätsstandards zertifiziert.</Trans></p>
                         </div>
                     </GridColumn>
                     <GridColumn>
                         <div className="innovation-tile">
-                            <LordIcon src="/images/innovation/chemicals.json" altsrc="/images/innovation/chemicals.gif"></LordIcon>
+                            <LordIcon src="/images/innovation/chemicals.json"></LordIcon>
                             <strong><Trans>Keine Chemikalien</Trans></strong>
                             <p><Trans>Wir trainieren unsere Modelle für maschinelles Lernen anhand von Milliarden Datensätzen – damit Sie sich auf bessere Konversionsraten und Umsatzsicherung sowie starken Betrugsschutz freuen können.</Trans></p>
                         </div>

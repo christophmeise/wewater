@@ -3,7 +3,7 @@ import React from 'react';
 import { Container, Grid, GridColumn } from 'semantic-ui-react';
 import './header-overlay.less';
 
-const HeaderOverlay = ({ sources, inverted, content, darken = false, width = 8, floatRight = false }) => {
+const HeaderOverlayBackground = ({ sources, color, inverted, content, darken = false, width = 8, floatRight = false }) => {
     let vh = 100;
     const isSSR = typeof window === 'undefined';
     if (!isSSR) {
@@ -15,6 +15,7 @@ const HeaderOverlay = ({ sources, inverted, content, darken = false, width = 8, 
         <React.Fragment>
             <div
                 className="header-overlay"
+                style={{ backgroundColor: color }}
             >
                 <div className={`header-overlay-image-wrapper`}>
                     <BackgroundImage
@@ -56,4 +57,4 @@ const HeaderOverlay = ({ sources, inverted, content, darken = false, width = 8, 
     );
 };
 
-export default HeaderOverlay;
+export default HeaderOverlayBackground;
