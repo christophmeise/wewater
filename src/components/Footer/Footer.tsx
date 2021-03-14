@@ -14,7 +14,7 @@ const Footer = (t) => {
             <div className="footer-main">
                 <Container>
                     <div className="company-links">
-                        <h5>WeWater</h5>
+                        <h4>WeWater</h4>
                         <div>
                             <a
                                 href="https://www.facebook.com/wewater.org/"
@@ -107,7 +107,7 @@ const Footer = (t) => {
             <div className="footer-secondary">
                 <Container>
                     <div className="footer-secondary-grid">
-                        <Link to={'/'} language={language}>
+                        <Link to={'/'} language={language} aria-label="WeWater">
                             <Logo />
                         </Link>
                         <a

@@ -1,8 +1,17 @@
+const {
+  NODE_ENV,
+  URL: NETLIFY_SITE_URL = 'https://wewater-staging.org/',
+  DEPLOY_PRIME_URL: NETLIFY_DEPLOY_URL = NETLIFY_SITE_URL,
+  CONTEXT: NETLIFY_ENV = NODE_ENV
+} = process.env;
+const isNetlifyProduction = NETLIFY_ENV === 'production';
+const siteUrl = isNetlifyProduction ? NETLIFY_SITE_URL : NETLIFY_DEPLOY_URL;
+
 module.exports = {
   siteMetadata: {
     title: `WeWater`,
     description: `WeWater`,
-    siteUrl: `https://wewater.org/`,
+    siteUrl: siteUrl,
     author: `Christoph Meise`,
   },
   plugins: [
@@ -114,7 +123,7 @@ module.exports = {
         languages: [`en`, `de`],
         defaultLanguage: `de`,
         // if you are using Helmet, you must include siteUrl, and make sure you add http:https
-        siteUrl: `https://example.com/`,
+        siteUrl: siteUrl,
         // you can pass any i18next options
         // pass following options to allow message content as a key
         i18nextOptions: {
@@ -133,13 +142,34 @@ module.exports = {
       }
     },
     {
+      resolve: 'gatsby-plugin-robots-txt',
+      options: {
+        resolveEnv: () => NETLIFY_ENV,
+        env: {
+          production: {
+            policy: [{ userAgent: '*' }]
+          },
+          'branch-deploy': {
+            policy: [{ userAgent: '*', disallow: ['/'] }],
+            sitemap: null,
+            host: null
+          },
+          'deploy-preview': {
+            policy: [{ userAgent: '*', disallow: ['/'] }],
+            sitemap: null,
+            host: null
+          }
+        }
+      }
+    },
+    {
       resolve: `gatsby-plugin-manifest`,
       options: {
         name: `WeWater`,
         short_name: `WeWater`,
         start_url: `/`,
-        background_color: `#663399`,
-        theme_color: `#663399`,
+        background_color: `#3cb9eb`,
+        theme_color: `#3cb9eb`,
         display: `minimal-ui`,
         icon: `static/Logo1.png`, // This path is relative to the root of the site.
       },

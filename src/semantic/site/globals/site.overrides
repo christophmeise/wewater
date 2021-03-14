@@ -31,7 +31,7 @@ h3 {
   font-style: normal;
   color: @primaryColor;
 }
-h5 {
+h4 {
   font-size: 18px;
   line-height: 23px;
   font-weight: 400;

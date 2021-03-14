@@ -35,12 +35,12 @@ const Video = ({ }) => {
                             <h3 className={`global-subtitle text-primary`}><Trans>Jeder kann einen Beitrag leisten</Trans></h3>
                             <h2 className="global-headline"><Trans>Trinkwasser ist ein Menschenrecht.</Trans></h2>
                         </Header>
-                        <h5>
+                        <h4>
                             <Trans>
                                 Dennoch leiden weltweit 844 Millionen Menschen Durst oder erkranken an verschmutztem Wasser.
                                 Unsere Mission ist es, diesen Menschen durch sauberes Trinkwasser eine existentielle Lebensgrundlage zu ermöglichen.
                             </Trans>
-                        </h5>
+                        </h4>
                     </GridColumn>
                 </Grid>
             </Container>

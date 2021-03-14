@@ -18,9 +18,11 @@ class SpendenWidget extends React.Component<Props, any> {
     }
 
     componentDidMount() {
-        var bp = document.createElement('script'); bp.type = 'text/javascript'; bp.async = true;
-        bp.src = 'https://betterplace-assets.betterplace.org/assets/load_donation_iframe.js';
-        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(bp, s);
+        if (!this.props.hideForm) {
+            var bp = document.createElement('script'); bp.type = 'text/javascript'; bp.async = true;
+            bp.src = 'https://betterplace-assets.betterplace.org/assets/load_donation_iframe.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(bp, s);
+        }
     }
 
     render() {
@@ -43,7 +45,7 @@ class SpendenWidget extends React.Component<Props, any> {
                                     <h3 className={`global-subtitle text-primary`}><Trans>Spenden und Durst nach besserem Leben stillen</Trans></h3>
                                     <h2 className="global-headline"><Trans>Spenden und Durst nach besserem Leben stillen</Trans></h2>
                                 </Header>
-                                <h5><Trans>WeWater arbeitet ehrenamtlich sowie auf Spendenbasis. Daher sind wir auf finanzielle Hilfe angewiesen sind, um Wasserprojekte zu realisieren. Hilf jetzt mit einer Spende.</Trans></h5>
+                                <h4><Trans>WeWater arbeitet ehrenamtlich sowie auf Spendenbasis. Daher sind wir auf finanzielle Hilfe angewiesen sind, um Wasserprojekte zu realisieren. Hilf jetzt mit einer Spende.</Trans></h4>
                                 <ul className="spenden-list">
                                     <li>
                                         <div><Icon icon={shieldCheck} /></div>
