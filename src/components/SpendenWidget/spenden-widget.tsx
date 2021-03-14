@@ -2,7 +2,6 @@ import shieldCheck from '@iconify/icons-bi/shield-check';
 import { Icon } from '@iconify/react';
 import { Link, Trans } from 'gatsby-plugin-react-i18next';
 import React from 'react';
-import { Helmet } from 'react-helmet';
 import { Button, Container, Grid, GridColumn, Header } from 'semantic-ui-react';
 import './spenden-widget.less';
 
@@ -15,14 +14,6 @@ class SpendenWidget extends React.Component<Props, any> {
     constructor(props) {
         super(props);
         this.state = {};
-    }
-
-    componentDidMount() {
-        if (!this.props.hideForm) {
-            var bp = document.createElement('script'); bp.type = 'text/javascript'; bp.async = true;
-            bp.src = 'https://betterplace-assets.betterplace.org/assets/load_donation_iframe.js';
-            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(bp, s);
-        }
     }
 
     render() {
@@ -85,33 +76,8 @@ class SpendenWidget extends React.Component<Props, any> {
                         </GridColumn>
                         <GridColumn>
                             {typeof window !== 'undefined' && !hideForm && <React.Fragment>
-                                <Helmet
-                                    script={
-                                        [
-                                            {
-                                                type: 'text/javascript',
-                                                innerHTML: `
-                                                    var _bp_iframe        = _bp_iframe || {};
-                                                    _bp_iframe.project_id = 68773; /* REQUIRED */
-                                                    _bp_iframe.lang       = 'de'; /* Language of the form */
-                                                    _bp_iframe.width      = 1000; /* Custom iframe-tag-width, integer */
-                                                    _bp_iframe.loading    = 'lazy';
-                                                    _bp_iframe.color = '5ABEE6'; /* Button and banderole color, hex without "#" */
-                                                    _bp_iframe.background_color = 'ffffff'; /* Background-color, hex without "#" */
-                                                    _bp_iframe.default_amount = 20; /* Donation-amount, integer 1-99 */
-                                                    _bp_iframe.default_data_transfer_accepted = true; /* true (default), false */
-                                                    _bp_iframe.recurring_interval = 'single';
-                                                    /* Interval for recurring donations, string out of ["single", "monthly", "quarter_yearly", "half_yearly", "yearly"] */
-                                                    _bp_iframe.bottom_logo = true;`
-                                            }
-                                        ]}
-                                />
-                                <div id="betterplace_donation_iframe" style={{ background: "transparent url('https://www.betterplace.org/assets/new_spinner.gif') 275px 20px no-repeat" }}>
-                                    <strong>
-                                        <a href="https://www.betterplace.org/de/projects/68773-sauberes-trinkwasser-fur-die-schulen-im-kinderdorf-bei-bweyale-in-uganda/donations/new">
-                                            Jetzt Spenden für „SAUBERES TRINKWASSER FÜR DIE SCHULEN IM KINDERDORF BEI BWEYALE IN UGANDA“ bei unserem Partner betterplace.org
-                                    </a>
-                                    </strong>
+                                <div id="betterplace_donation_iframe">
+                                    <iframe loading="lazy" frameBorder="0" marginHeight={0} marginWidth={0} src="https://www.betterplace.org/de/donate/iframe/projects/68773?background_color=ffffff&color=5ABEE6&donation_amount=20&bottom_logo=true&default_payment_method=&default_interval=single&utm_campaign=external_donation_forms" width="100%"></iframe>
                                 </div>
                             </React.Fragment>
                             }
@@ -154,16 +120,9 @@ class SpendenWidget extends React.Component<Props, any> {
                         </Grid>
                     )}
                 </Container>
-            </section>
+            </section >
         );
     }
 }
 
 export default SpendenWidget;
-
-
-
-
-
-
-
