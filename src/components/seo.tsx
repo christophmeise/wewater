@@ -16,7 +16,6 @@ const SEO = ({ description, meta, title }: Props) => {
                 site {
                     siteMetadata {
                         title
-                        description
                         author
                     }
                 }
@@ -27,7 +26,6 @@ const SEO = ({ description, meta, title }: Props) => {
     const t = useI18next();
     const currentLanguage: string = t.language.toString();
 
-    const metaDescription = description || site.siteMetadata.description;
     return (
         <React.Fragment>
             <Helmet
@@ -39,7 +37,7 @@ const SEO = ({ description, meta, title }: Props) => {
                 meta={[
                     {
                         name: `description`,
-                        content: metaDescription,
+                        content: description,
                     },
                     {
                         property: `og:title`,
@@ -47,7 +45,7 @@ const SEO = ({ description, meta, title }: Props) => {
                     },
                     {
                         property: `og:description`,
-                        content: metaDescription,
+                        content: description,
                     },
                     {
                         property: `og:type`,
@@ -67,7 +65,7 @@ const SEO = ({ description, meta, title }: Props) => {
                     },
                     {
                         name: `twitter:description`,
-                        content: metaDescription,
+                        content: description,
                     },
                 ].concat(meta || [])}
             />

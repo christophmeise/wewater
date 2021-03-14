@@ -3,7 +3,6 @@ import { Trans } from 'gatsby-plugin-react-i18next';
 import React from 'react';
 import { Button, Container, Grid, Header, Icon } from 'semantic-ui-react';
 import ProjektCard from '../ProjektCard/projekt-card';
-import './projekte.less';
 
 const SectionProjekte = () => {
     const data = useStaticQuery(
@@ -59,7 +58,7 @@ const SectionProjekte = () => {
 
 
     return (
-        <section className="main-section" style={{ padding: '3rem 0rem' }}>
+        <section className="main-section">
             <Container>
                 <Header
                     data-sal="slide-up"

@@ -11,7 +11,7 @@ function ProjektPostTemplate({ data, t }) {
     const sources = post.featuredImage.node.localFile.childImageSharp.fluid;
 
     return (
-        <Layout invertedHeader={false}>
+        <Layout>
             <SEO description={post.title} title={post.title} />
             <Container>
                 <div className="blog-content-sections">

@@ -141,7 +141,6 @@ module.exports = {
         ]
       }
     },
-    'gatsby-plugin-preact',
     {
       resolve: 'gatsby-plugin-robots-txt',
       options: {

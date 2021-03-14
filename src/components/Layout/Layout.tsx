@@ -17,7 +17,6 @@ interface Props {
     navigate: any;
     t?: any;
     language: string;
-    invertedHeader?: boolean;
     children?: any;
     headerOverlay?: any;
 }
@@ -169,7 +168,7 @@ class Layout extends Component<Props, any> {
     }
 
     render() {
-        const { children, invertedHeader, t, language, navigate } = this.props;
+        const { children, t, language, navigate } = this.props;
         const { sidebarOpened, location } = this.state;
 
         const isMobileBrowser = typeof window !== 'undefined' && window.innerWidth < 768;
@@ -201,19 +200,18 @@ class Layout extends Component<Props, any> {
                     </Menu>
 
                     {(typeof window === 'undefined' || isDesktopBrowser) && (
-                        <header id="header" className="header" onMouseLeave={this.onHeaderMouseLeave.bind(this)}>
-                            <section className='responsive-desktop-container global-navbar global-navbar-transparent'>
+                        <header id="header" onMouseLeave={this.onHeaderMouseLeave.bind(this)}>
+                            <section className='responsive-desktop-container global-navbar'>
                                 <Menu
-                                    inverted={invertedHeader}
+                                    inverted={false}
                                     pointing={false}
                                     secondary={true}
                                     size="large"
                                     borderless
                                 >
-                                    <Container className="test-css">
+                                    <Container>
                                         <Navbar
                                             location={location}
-                                            inverted={invertedHeader}
                                             mobile={false}
                                             t={t}
                                             onHoverMenuItem={this.onHoverMenuItem.bind(this)}

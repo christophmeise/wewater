@@ -14,7 +14,6 @@ interface NavbarProps {
   language: string;
   t: any;
   location: any
-  inverted: boolean
   mobile: boolean
   onHoverMenuItem?: any;
 }
@@ -35,7 +34,7 @@ class Navbar extends Component<NavbarProps, NavbarState> {
   }
 
   render() {
-    const { location, inverted, mobile, t, onHoverMenuItem, navigate, language } = this.props
+    const { location, mobile, t, onHoverMenuItem, navigate, language } = this.props
     return (
       <React.Fragment>
         {!mobile && (
@@ -109,8 +108,7 @@ class Navbar extends Component<NavbarProps, NavbarState> {
               <Link to={'/spenden'} language={language}>
                 <Button
                   className="shadow hover-animate rounded"
-                  primary={!inverted}
-                  inverted={inverted}
+                  primary
                   size="small"
                 >
                   {/* <FontAwesomeIcon icon={faTint} style={{ opacity: '1', margin: '0em 0.42857143em 0em -0.21428571em' }} /> */}

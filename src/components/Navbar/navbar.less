@@ -1,16 +1,13 @@
 .global-navbar {
-  position     : absolute !important;
-  top          : 0;
-  width        : 100%;
-  z-index      : 1000;
-  padding      : 0em 0em;
-  margin-bottom: 1em;
-  border       : none;
-  text-align   : 'center';
-  box-shadow   : 0px 3px 7px 2px rgba(0, 0, 0, 0.07);
-}
-
-.global-navbar-transparent {
+  position        : absolute !important;
+  top             : 0;
+  width           : 100%;
+  z-index         : 1000;
+  padding         : 0em 0em;
+  margin-bottom   : 1em;
+  border          : none;
+  text-align      : 'center';
+  box-shadow      : 0px 3px 7px 2px rgba(0, 0, 0, 0.07);
   background-color: rgba(255, 255, 255, 0.9) !important;
 }
 
@@ -39,15 +36,7 @@
 }
 
 @supports ((-webkit-backdrop-filter: blur(40px)) or (backdrop-filter: blur(40px))) {
-  .global-navbar-transparent {
-    background-color       : rgba(255, 255, 255, 0.6) !important;
-    -webkit-backdrop-filter: saturate(180%) blur(40px);
-    backdrop-filter        : saturate(180%) blur(40px) !important;
-  }
-}
-
-@supports ((-webkit-backdrop-filter: blur(40px)) or (backdrop-filter: blur(40px))) {
-  .global-navbar-scrolled {
+  .global-navbar {
     background-color       : rgba(255, 255, 255, 0.6) !important;
     -webkit-backdrop-filter: saturate(180%) blur(40px);
     backdrop-filter        : saturate(180%) blur(40px) !important;
@@ -56,10 +45,6 @@
 
 .menu-item-logo {
   padding: 0px !important;
-}
-
-.navbar-signup {
-  margin-right: 1rem;
 }
 
 .ui.menu .item {

@@ -119,7 +119,7 @@ const SectionFiltersysteme = () => {
     );
 };
 
-export const TextContent = () => {
+const TextContent = () => {
     return (
         <Container textAlign="center">
             <Header

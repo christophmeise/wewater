@@ -30,7 +30,7 @@ class SpendenWidget extends React.Component<Props, any> {
 
         return (
             <section className="main-section">
-                <Container style={{ padding: '3rem 0rem' }}>
+                <Container>
                     <Grid columns="2" stackable>
                         <GridColumn>
                             <article className="spenden-widget-left">

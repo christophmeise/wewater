@@ -13,11 +13,6 @@ const SectionBlog = ({ slidesPerView }) => {
     const data = useStaticQuery(
         graphql`
             query LatestBlogQuery {
-                site {
-                    siteMetadata {
-                        title
-                    }
-                }
                 german: allWpPost(
                     sort: { fields: date, order: DESC }
                 ) {
@@ -35,7 +30,7 @@ const SectionBlog = ({ slidesPerView }) => {
     SwiperCore.use([Pagination, Autoplay]);
 
     return (
-        <section className="bg-secondary main-section" style={{ padding: '3rem 0rem' }}>
+        <section className="bg-secondary main-section">
             <Container>
                 <Header
                     data-sal="slide-up"
@@ -53,10 +48,8 @@ const SectionBlog = ({ slidesPerView }) => {
                 <Swiper
                     spaceBetween={25}
                     slidesPerView={slidesPerView}
-                    /* autoplay={{ delay: 10000 }} */
+                    autoplay={{ delay: 10000 }}
                     pagination={{ clickable: true, dynamicBullets: true }}
-                    onSlideChange={() => console.log('slide change')}
-                    onSwiper={(swiper) => console.log(swiper)}
                 >
                     {posts.map((post) => {
                         return (

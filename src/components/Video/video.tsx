@@ -3,9 +3,9 @@ import React from 'react';
 import { Container, Grid, GridColumn, Header } from 'semantic-ui-react';
 import './video.less';
 
-const Video = ({ }) => {
+const Video = () => {
     return (
-        <section className="main-section" style={{ padding: '3rem 0rem' }}>
+        <section className="main-section">
             <Container>
                 <Grid columns="2" stackable centered>
                     <GridColumn width="10">
@@ -19,6 +19,7 @@ const Video = ({ }) => {
                                 frameBorder="0"
                                 allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
                                 allowFullScreen
+                                loading="lazy"
                                 title="WeWater Team Video"
                             ></iframe>
                         </div>

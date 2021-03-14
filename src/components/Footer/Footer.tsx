@@ -46,7 +46,7 @@ const Footer = (t) => {
                     <Grid centered stackable columns="3">
                         <Grid.Column>
                             <GridRow columns="1">
-                                <Grid.Column style={{ display: 'inline-block', verticalAlign: 'top' }}>
+                                <Grid.Column className="footer-column">
                                     <Header className="footer-nav-header" as="h3" content="Hilf uns" />
                                     <List link>
                                         <List.Item>
@@ -67,7 +67,7 @@ const Footer = (t) => {
                         </Grid.Column>
                         <Grid.Column>
                             <GridRow>
-                                <Grid.Column style={{ display: 'inline-block', verticalAlign: 'top' }}>
+                                <Grid.Column className="footer-column">
                                     <Header className="footer-nav-header" as="h3" content="Informationen" />
                                     <List link>
                                         <List.Item>
@@ -88,7 +88,7 @@ const Footer = (t) => {
                         </Grid.Column>
                         <Grid.Column>
                             <GridRow>
-                                <Grid.Column style={{ display: 'inline-block', verticalAlign: 'top' }}>
+                                <Grid.Column className="footer-column">
                                     <Header className="footer-nav-header" as="h3" content="Du willst direkt handeln? Spende jetzt!" />
                                     <p>
                                         WeWater gUG <br />

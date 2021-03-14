@@ -43,7 +43,7 @@ class BlogPage extends React.Component<Props> {
       .filter((post) => new Date(post.node.date) <= new Date())
 
     return (
-      <Layout invertedHeader={false}>
+      <Layout>
         <SEO title={t('BlogSEOTitle')} description={t('BlogSEODescription')} />
         <div>
           <Swiper

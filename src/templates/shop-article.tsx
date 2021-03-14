@@ -51,7 +51,7 @@ class ShopArticleTemplate extends React.Component<any, any> {
         const gallery: any = [shopArticle.image].concat(shopArticle.galleryImages.nodes);
         const outOfStock: boolean = shopArticle.stockStatus === 'OUT_OF_STOCK' ? true : false;
         return (
-            <Layout invertedHeader={false}>
+            <Layout>
                 <SEO description={shopArticle.name} title={shopArticle.name} />
                 <Container className="global-header-padding">
                     <div className="shop-article-grid">

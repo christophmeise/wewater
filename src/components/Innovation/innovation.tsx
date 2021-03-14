@@ -12,10 +12,10 @@ declare global {
     }
 }
 
-const Innovation = ({ }) => {
+const Innovation = () => {
 
     return (
-        <section className="main-section" style={{ padding: '3rem 0rem' }}>
+        <section className="main-section">
             <Container>
                 <Header
                     data-sal="slide-up"
