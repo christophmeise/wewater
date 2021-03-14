@@ -1,5 +1,6 @@
 // i18next-extract-mark-ns-start page_landing
 import tintIcon from '@iconify/icons-fa-solid/tint';
+import { Icon as IconifyIcon } from '@iconify/react';
 import { graphql } from 'gatsby';
 import { Trans } from 'gatsby-plugin-react-i18next';
 import React from 'react';
@@ -123,7 +124,7 @@ const OverlayContent = () => {
           <p><Trans>Menschen mit Trinkwasser versorgt</Trans></p>
           <div>
             <Button primary className="rounded">
-              <Icon icon={tintIcon} style={{ opacity: '1', margin: '0em 0.42857143em 0em -0.21428571em' }} />
+              <IconifyIcon icon={tintIcon} style={{ opacity: '1', margin: '0em 0.42857143em 0em -0.21428571em' }} />
               <Trans>Ich will helfen!</Trans>
             </Button>
             <Button
