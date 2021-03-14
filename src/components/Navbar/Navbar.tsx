@@ -1,3 +1,5 @@
+import tintIcon from '@iconify/icons-fa-solid/tint';
+import { Icon as IconifyIcon } from '@iconify/react';
 import { Link } from 'gatsby-plugin-react-i18next';
 import React, { Component } from 'react';
 import { Button, Menu } from 'semantic-ui-react';
@@ -109,7 +111,6 @@ class Navbar extends Component<NavbarProps, NavbarState> {
                   primary
                   size="small"
                 >
-                  {/* <FontAwesomeIcon icon={faTint} style={{ opacity: '1', margin: '0em 0.42857143em 0em -0.21428571em' }} /> */}
                   {t('Ich will helfen!')}
                 </Button>
               </Link>
@@ -130,7 +131,7 @@ class Navbar extends Component<NavbarProps, NavbarState> {
             <Menu.Item>
               <Link to={'/spenden'} language={language}>
                 <Button primary inverted={false} size="small" className="rounded" fluid>
-                  <FontAwesomeIcon icon={faTint} style={{ opacity: '1', margin: '0em 0.42857143em 0em -0.21428571em' }} />
+                  <IconifyIcon icon={tintIcon} style={{ opacity: '1', margin: '0em 0.42857143em 0em -0.21428571em' }} />
                   {t('Ich will helfen!')}
                 </Button>
               </Link>

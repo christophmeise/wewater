@@ -58,11 +58,6 @@ export default function ShopCard({ shopItem }: Props) {
                         {shopItem.onSale && <p className="shop-regular-price">{shopItem.regularPrice}</p>}
                         <p>{shopItem.price}</p>
                     </div>
-                    {/* <AddToCartButton product={shopItem} /> */}
-                    {/*  <Button primary className="shadow rounded hover-animate">
-                        <FontAwesomeIcon icon={faTint} style={{ opacity: '1', margin: '0em 0.42857143em 0em -0.21428571em' }} />
-            In den Warenkorb
-          </Button> */}
                 </div>
             </div>
         </Link>
