@@ -79,6 +79,8 @@ class Index extends React.Component<Props, State> {
 
     const slidesPerView = this.state != null ? this.state.slidesPerView : 5;
 
+    const shouldHideForm = ((typeof window !== 'undefined') && window.innerWidth < 768) ? true : false;
+
     return (
       <Layout invertedHeader={false}>
         <SEO title={t('LandingpageSEOTitle')} description={t('LandingpageSEODescription')} />
@@ -93,7 +95,7 @@ class Index extends React.Component<Props, State> {
           <Video></Video>
           <Innovation></Innovation>
           <SectionFiltersysteme></SectionFiltersysteme>
-          <SpendenWidget fullMode={false}></SpendenWidget>
+          <SpendenWidget fullMode={false} hideForm={shouldHideForm}></SpendenWidget>
           <SectionBlog slidesPerView={slidesPerView}></SectionBlog>
           <SectionProjekte></SectionProjekte>
         </div>

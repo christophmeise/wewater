@@ -1,13 +1,14 @@
 import shieldCheck from '@iconify/icons-bi/shield-check';
 import { Icon } from '@iconify/react';
-import { Trans } from 'gatsby-plugin-react-i18next';
+import { Link, Trans } from 'gatsby-plugin-react-i18next';
 import React from 'react';
 import { Helmet } from 'react-helmet';
-import { Container, Grid, GridColumn, Header } from 'semantic-ui-react';
+import { Button, Container, Grid, GridColumn, Header } from 'semantic-ui-react';
 import './spenden-widget.less';
 
 interface Props {
     fullMode: boolean;
+    hideForm: boolean;
 }
 
 class SpendenWidget extends React.Component<Props, any> {
@@ -23,7 +24,7 @@ class SpendenWidget extends React.Component<Props, any> {
     }
 
     render() {
-        const { fullMode } = this.props;
+        const { fullMode, hideForm } = this.props;
 
         return (
             <section className="main-section">
@@ -81,24 +82,25 @@ class SpendenWidget extends React.Component<Props, any> {
                             </article>
                         </GridColumn>
                         <GridColumn>
-                            {typeof window !== 'undefined' && <React.Fragment>
+                            {typeof window !== 'undefined' && !hideForm && <React.Fragment>
                                 <Helmet
                                     script={
                                         [
                                             {
                                                 type: 'text/javascript',
                                                 innerHTML: `
-                            var _bp_iframe        = _bp_iframe || {};
-                            _bp_iframe.project_id = 68773; /* REQUIRED */
-                            _bp_iframe.lang       = 'de'; /* Language of the form */
-                            _bp_iframe.width = 1000; /* Custom iframe-tag-width, integer */
-                            _bp_iframe.loading  = 'lazy';
-                            _bp_iframe.color = '5ABEE6'; /* Button and banderole color, hex without "#" */
-                            _bp_iframe.background_color = 'ffffff'; /* Background-color, hex without "#" */
-                            _bp_iframe.default_amount = 20; /* Donation-amount, integer 1-99 */
-                            _bp_iframe.default_data_transfer_accepted = true; /* true (default), false */
-                            _bp_iframe.recurring_interval = 'single'; /* Interval for recurring donations, string out of ["single", "monthly", "quarter_yearly", "half_yearly", "yearly"] */
-                            _bp_iframe.bottom_logo = true;`
+                                                    var _bp_iframe        = _bp_iframe || {};
+                                                    _bp_iframe.project_id = 68773; /* REQUIRED */
+                                                    _bp_iframe.lang       = 'de'; /* Language of the form */
+                                                    _bp_iframe.width      = 1000; /* Custom iframe-tag-width, integer */
+                                                    _bp_iframe.loading    = 'lazy';
+                                                    _bp_iframe.color = '5ABEE6'; /* Button and banderole color, hex without "#" */
+                                                    _bp_iframe.background_color = 'ffffff'; /* Background-color, hex without "#" */
+                                                    _bp_iframe.default_amount = 20; /* Donation-amount, integer 1-99 */
+                                                    _bp_iframe.default_data_transfer_accepted = true; /* true (default), false */
+                                                    _bp_iframe.recurring_interval = 'single';
+                                                    /* Interval for recurring donations, string out of ["single", "monthly", "quarter_yearly", "half_yearly", "yearly"] */
+                                                    _bp_iframe.bottom_logo = true;`
                                             }
                                         ]}
                                 />
@@ -110,6 +112,20 @@ class SpendenWidget extends React.Component<Props, any> {
                                     </strong>
                                 </div>
                             </React.Fragment>
+                            }
+                            {hideForm &&
+                                <div className="spenden-button-center">
+                                    <Link to='/spenden'>
+                                        <Button
+                                            primary
+                                            inverted={false}
+                                            size="medium"
+                                            className="rounded shadow hover-animate"
+                                        >
+                                            <Trans>Zur Spendenseite</Trans>
+                                        </Button>
+                                    </Link>
+                                </div>
                             }
                         </GridColumn>
                     </Grid>

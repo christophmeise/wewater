@@ -45,7 +45,7 @@ class SpendenPage extends React.Component<Props, any> {
                 <SEO title={t('SpendenSEOTitle')} description={t('SpendenSEODescription')} />
                 <HeaderOverlayFlexend content={<OverlayContent t={t} navigate={navigate} inverted={true} />} color={backgroundColor} darken={false} inverted={false} sources={headerImage} width={16} />
                 <Container className="global-header-padding">
-                    <SpendenWidget fullMode={true}></SpendenWidget>
+                    <SpendenWidget fullMode={true} hideForm={false}></SpendenWidget>
                 </Container>
             </Layout>
         );

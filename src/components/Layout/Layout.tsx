@@ -177,7 +177,7 @@ class Layout extends Component<Props, any> {
 
         return (
             <React.Fragment>
-                <MobileMenu handleToggle={this.handleToggle} handleNavigate={navigate}></MobileMenu>
+                <MobileMenu sidebarOpened={this.state.sidebarOpened} handleToggle={this.handleToggle} handleNavigate={navigate}></MobileMenu>
 
                 <div className="flex-container">
                     <Menu
