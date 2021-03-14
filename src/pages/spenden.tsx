@@ -1,7 +1,9 @@
 // i18next-extract-mark-ns-start page_spenden
-import { faPaypal } from '@fortawesome/free-brands-svg-icons';
-import { faCreditCard, faReply, faTint } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import paypalIcon from '@iconify/icons-fa-brands/paypal';
+import creditCard from '@iconify/icons-fa-solid/credit-card';
+import replyIcon from '@iconify/icons-fa-solid/reply';
+import tintIcon from '@iconify/icons-fa-solid/tint';
+import { Icon } from '@iconify/react';
 import { graphql } from 'gatsby';
 import { Trans } from 'gatsby-plugin-react-i18next';
 import React from 'react';
@@ -73,25 +75,25 @@ class OverlayContent extends React.Component<any, any> {
                         <div className="spenden-banner-box rounded shadow">
                             <h3><Trans>Du spendest monatlich einen Geldbetrag deiner Wahl</Trans></h3>
                             <Button size="large" primary inverted className="rounded" onClick={() => navigate('/spenden/monatlich')}>
-                                <FontAwesomeIcon icon={faTint} style={{ opacity: '1', margin: '0em 0.42857143em 0em -0.21428571em' }} />
+                                <Icon icon={tintIcon} style={{ opacity: '1', margin: '0em 0.42857143em 0em -0.21428571em' }} />
                                 <Trans>Monatlich Spenden</Trans>
                             </Button>
                             <div className="spenden-banner-payment-logos">
-                                <FontAwesomeIcon icon={faPaypal} style={{ opacity: '1' }} />
-                                <FontAwesomeIcon icon={faReply} style={{ opacity: '1' }} />
+                                <Icon icon={paypalIcon} style={{ opacity: '1' }} />
+                                <Icon icon={replyIcon} style={{ opacity: '1' }} />
                             </div>
                         </div>
 
                         <div className="spenden-banner-box rounded shadow">
                             <h3><Trans>Du spendest einmalig einen Geldbetrag deiner Wahl</Trans></h3>
                             <Button size="large" primary inverted className="rounded" onClick={() => navigate('/spenden/einmalig')}>
-                                <FontAwesomeIcon icon={faTint} style={{ opacity: '1', margin: '0em 0.42857143em 0em -0.21428571em' }} />
+                                <Icon icon={tintIcon} style={{ opacity: '1', margin: '0em 0.42857143em 0em -0.21428571em' }} />
                                 <Trans>Einmalig Spenden</Trans>
                             </Button>
                             <div className="spenden-banner-payment-logos">
-                                <FontAwesomeIcon icon={faPaypal} style={{ opacity: '1' }} />
-                                <FontAwesomeIcon icon={faCreditCard} style={{ opacity: '1' }} />
-                                <FontAwesomeIcon icon={faReply} style={{ opacity: '1' }} />
+                                <Icon icon={paypalIcon} style={{ opacity: '1' }} />
+                                <Icon icon={creditCard} style={{ opacity: '1' }} />
+                                <Icon icon={replyIcon} style={{ opacity: '1' }} />
                             </div>
                         </div>
 
@@ -99,12 +101,12 @@ class OverlayContent extends React.Component<any, any> {
                         <div className="spenden-banner-box rounded shadow">
                             <h3><Trans>Du spendest projektbezogen einen Geldbetrag deiner Wahl</Trans></h3>
                             <Button size="large" primary inverted className="rounded" onClick={() => navigate('/spenden/projektbezogen')}>
-                                <FontAwesomeIcon icon={faTint} style={{ opacity: '1', margin: '0em 0.42857143em 0em -0.21428571em' }} />
+                                <Icon icon={tintIcon} style={{ opacity: '1', margin: '0em 0.42857143em 0em -0.21428571em' }} />
                                 <Trans>Projektbezogen Spenden</Trans>
                             </Button>
                             <div className="spenden-banner-payment-logos">
-                                <FontAwesomeIcon icon={faPaypal} style={{ opacity: '1' }} />
-                                <FontAwesomeIcon icon={faReply} style={{ opacity: '1' }} />
+                                <Icon icon={paypalIcon} style={{ opacity: '1' }} />
+                                <Icon icon={replyIcon} style={{ opacity: '1' }} />
                             </div>
                         </div>
                     </div>

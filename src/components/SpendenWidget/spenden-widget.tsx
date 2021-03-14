@@ -77,7 +77,7 @@ class SpendenWidget extends React.Component<Props, any> {
                         <GridColumn>
                             {typeof window !== 'undefined' && !hideForm && <React.Fragment>
                                 <div id="betterplace_donation_iframe">
-                                    <iframe loading="lazy" frameBorder="0" marginHeight={0} marginWidth={0} src="https://www.betterplace.org/de/donate/iframe/projects/68773?background_color=ffffff&color=5ABEE6&donation_amount=20&bottom_logo=true&default_payment_method=&default_interval=single&utm_campaign=external_donation_forms" width="100%"></iframe>
+                                    <iframe loading="lazy" title="Spendenformular WeWater Betterplace Donation" frameBorder="0" marginHeight={0} marginWidth={0} src="https://www.betterplace.org/de/donate/iframe/projects/68773?background_color=ffffff&color=5ABEE6&donation_amount=20&bottom_logo=true&default_payment_method=&default_interval=single&utm_campaign=external_donation_forms" width="100%"></iframe>
                                 </div>
                             </React.Fragment>
                             }

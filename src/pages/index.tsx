@@ -1,6 +1,5 @@
 // i18next-extract-mark-ns-start page_landing
-import { faTint } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import tintIcon from '@iconify/icons-fa-solid/tint';
 import { graphql } from 'gatsby';
 import { Trans } from 'gatsby-plugin-react-i18next';
 import React from 'react';
@@ -124,7 +123,7 @@ const OverlayContent = () => {
           <p><Trans>Menschen mit Trinkwasser versorgt</Trans></p>
           <div>
             <Button primary className="rounded">
-              <FontAwesomeIcon icon={faTint} style={{ opacity: '1', margin: '0em 0.42857143em 0em -0.21428571em' }} />
+              <Icon icon={tintIcon} style={{ opacity: '1', margin: '0em 0.42857143em 0em -0.21428571em' }} />
               <Trans>Ich will helfen!</Trans>
             </Button>
             <Button

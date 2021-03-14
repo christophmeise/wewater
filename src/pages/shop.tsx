@@ -1,6 +1,6 @@
 // i18next-extract-mark-ns-start page_shop
-import { faArrowRight } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import arrowRight from '@iconify/icons-fa-solid/arrow-right';
+import { Icon } from '@iconify/react';
 import { graphql } from 'gatsby';
 import { Link, Trans } from 'gatsby-plugin-react-i18next';
 import React from 'react';
@@ -152,7 +152,7 @@ class OverlayContent extends React.Component<any, any> {
                 <Link to={getWasserspendeLinkByAmount(state.selected)}>
                     <Button primary basic inverted className="rounded">
                         <Trans>Wasserspende für {state.selected.toString()}€ schenken</Trans>
-                        <FontAwesomeIcon icon={faArrowRight} style={{ opacity: '1', margin: '0em -0.21428571em 0em 0.42857143em' }} />
+                        <Icon icon={arrowRight} style={{ opacity: '1', margin: '0em -0.21428571em 0em 0.42857143em' }} />
                     </Button>
                 </Link>
             </div>

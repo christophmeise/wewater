@@ -1,5 +1,3 @@
-import { faTint } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Link } from 'gatsby-plugin-react-i18next';
 import React, { Component } from 'react';
 import { Button, Menu } from 'semantic-ui-react';
