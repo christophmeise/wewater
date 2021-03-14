@@ -168,11 +168,13 @@ module.exports = {
         name: `WeWater`,
         short_name: `WeWater`,
         start_url: `/`,
-        background_color: `#3cb9eb`,
+        background_color: `#FFFFFF`,
         theme_color: `#3cb9eb`,
         display: `minimal-ui`,
         icon: `static/Logo1.png`, // This path is relative to the root of the site.
+        cache_busting_mode: 'none'
       },
     },
+    'gatsby-plugin-offline'
   ],
 };
