@@ -141,6 +141,7 @@ module.exports = {
         ]
       }
     },
+    'gatsby-plugin-preact',
     {
       resolve: 'gatsby-plugin-robots-txt',
       options: {
@@ -172,7 +173,12 @@ module.exports = {
         theme_color: `#3cb9eb`,
         display: `minimal-ui`,
         icon: `static/maskable_icon.png`, // This path is relative to the root of the site.
-        cache_busting_mode: 'none'
+        cache_busting_mode: 'none',
+        icon_options: {
+          // For all the options available,
+          // please see the section "Additional Resources" below.
+          purpose: `any maskable`,
+        },
       },
     },
     'gatsby-plugin-offline'
