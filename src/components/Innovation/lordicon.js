@@ -10,5 +10,5 @@ export default function LordIcon({ src, trigger = "loop", delay = "2500" }) {
             <lord-icon trigger={trigger} delay={delay} src={src}></lord-icon>
         )
     }
-    return <img className="project-card-gif" src="/images/innovation/chemicals.jpg" alt="Turning gears" />
+    return <div></div> /* <img className="project-card-gif" src="/images/innovation/chemicals.jpg" alt="Turning gears" /> */
 }
