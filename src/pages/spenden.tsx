@@ -1,8 +1,8 @@
 // i18next-extract-mark-ns-start page_spenden
 import paypalIcon from '@iconify/icons-fa-brands/paypal';
 import creditCard from '@iconify/icons-fa-solid/credit-card';
-import replyIcon from '@iconify/icons-fa-solid/reply';
 import tintIcon from '@iconify/icons-fa-solid/tint';
+import universityIcon from '@iconify/icons-fa-solid/university';
 import { Icon } from '@iconify/react';
 import { graphql } from 'gatsby';
 import { Trans } from 'gatsby-plugin-react-i18next';
@@ -80,7 +80,7 @@ class OverlayContent extends React.Component<any, any> {
                             </Button>
                             <div className="spenden-banner-payment-logos">
                                 <Icon icon={paypalIcon} style={{ opacity: '1' }} />
-                                <Icon icon={replyIcon} style={{ opacity: '1' }} />
+                                <Icon icon={universityIcon} style={{ opacity: '1' }} />
                             </div>
                         </div>
 
@@ -93,12 +93,12 @@ class OverlayContent extends React.Component<any, any> {
                             <div className="spenden-banner-payment-logos">
                                 <Icon icon={paypalIcon} style={{ opacity: '1' }} />
                                 <Icon icon={creditCard} style={{ opacity: '1' }} />
-                                <Icon icon={replyIcon} style={{ opacity: '1' }} />
+                                <Icon icon={universityIcon} style={{ opacity: '1' }} />
                             </div>
                         </div>
 
 
-                        <div className="spenden-banner-box rounded shadow">
+                        {/* <div className="spenden-banner-box rounded shadow">
                             <h3><Trans>Du spendest projektbezogen einen Geldbetrag deiner Wahl</Trans></h3>
                             <Button size="large" primary inverted className="rounded" onClick={() => navigate('/spenden/projektbezogen')}>
                                 <Icon icon={tintIcon} style={{ opacity: '1', margin: '0em 0.42857143em 0em -0.21428571em' }} />
@@ -106,9 +106,9 @@ class OverlayContent extends React.Component<any, any> {
                             </Button>
                             <div className="spenden-banner-payment-logos">
                                 <Icon icon={paypalIcon} style={{ opacity: '1' }} />
-                                <Icon icon={replyIcon} style={{ opacity: '1' }} />
+                                <Icon icon={universityIcon} style={{ opacity: '1' }} />
                             </div>
-                        </div>
+                        </div> */}
                     </div>
                 }
             </div >

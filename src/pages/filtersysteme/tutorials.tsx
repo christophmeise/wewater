@@ -1,18 +1,18 @@
-// i18next-extract-mark-ns-start page_partner
+// i18next-extract-mark-ns-start page_tutorials
 import { graphql } from 'gatsby';
 import { Trans } from 'gatsby-plugin-react-i18next';
 import React from 'react';
 import { Container } from 'semantic-ui-react';
-import Layout from '../components/Layout/Layout';
-import PlainHeader from '../components/PlainOverlay/plain-header';
-import SEO from '../components/seo';
-import { useTranslationHOC } from '../components/useTranslationHOC/useTranslationHOC';
+import Layout from '../../components/Layout/Layout';
+import PlainHeader from '../../components/PlainOverlay/plain-header';
+import SEO from '../../components/seo';
+import { useTranslationHOC } from '../../components/useTranslationHOC/useTranslationHOC';
 
 interface Props {
     t: any;
 }
 
-class PartnerPage extends React.Component<Props, any> {
+class TutorialsPage extends React.Component<Props, any> {
     constructor(props) {
         super(props);
     }
@@ -22,7 +22,7 @@ class PartnerPage extends React.Component<Props, any> {
 
         return (
             <Layout>
-                <SEO title={t('PartnerSEOTitle')} description={t('PartnerSEODescription')} />
+                <SEO title={t('TutorialsSEOTitle')} description={t('TutorialsSEODescription')} />
                 <Container className="global-header-padding">
                     <PlainHeader content={HeaderContent(t)} />
                     <Container text>
@@ -41,8 +41,8 @@ class PartnerPage extends React.Component<Props, any> {
 const HeaderContent = (t) => {
     return (
         <div>
-            <h1 className="header-overlay-headline">{t('page_partner:headline')}</h1>
-            <h2 className="header-overlay-subheadline">{t('page_partner:subheadline')}</h2>
+            <h1 className="header-overlay-headline">{t('page_tutorials:headline')}</h1>
+            <h2 className="header-overlay-subheadline">{t('page_tutorials:subheadline')}</h2>
         </div>
     );
 };
@@ -55,4 +55,4 @@ export const pageQuery = graphql`
     }
 `;
 
-export default useTranslationHOC(PartnerPage);
+export default useTranslationHOC(TutorialsPage);

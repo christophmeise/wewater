@@ -27,7 +27,7 @@ class Layout extends Component<Props, any> {
         super(props);
         this.state = {
             sections: ['Filtersysteme'],
-            Filtersysteme: { width: 490, height: 320, x: 0, navwidth: 0 },
+            Filtersysteme: { width: 490, height: 400, x: 0, navwidth: 0 },
             sidebarOpened: false,
             location: {
                 pathname: null,
@@ -248,13 +248,21 @@ const Popover = ({ language }) => {
                                 </div>
                             </Link>
                         </li>
+                        <li className="navlist-primary-entry">
+                            <Link to={'/filtersysteme/tutorials'} language={language}>
+                                <div className="navlist-menu-entry">
+                                    <h4>Zu den Tutorials <Icon className="icon-filtersysteme" icon={arrowSmallRight} color='#5ABEE6' /></h4>
+                                    <p>Wir erklären unsere Lösungen</p>
+                                </div>
+                            </Link>
+                        </li>
                         <li className="navlist-primary-bag two-col">
                             <Link to={'/filtersysteme/aqqabag'} language={language}>
                                 <div className="navlist-circle">
                                     <Icon icon={bloodBag} color='#FFFFFF' />
                                 </div>
                                 <div className="navlist-menu-entry">
-                                    <h4>AQQA®bag</h4>
+                                    <h4>AQQAbag</h4>
                                     <p>Lösung für Einzelpersonen</p>
                                 </div>
                             </Link>
@@ -265,7 +273,7 @@ const Popover = ({ language }) => {
                                     <Icon icon={cube20Regular} color='#FFFFFF' />
                                 </div>
                                 <div className="navlist-menu-entry">
-                                    <h4>AQQA®cube</h4>
+                                    <h4>AQQAcube</h4>
                                     <p>Sofortlösung für Lebensgemeinschaften</p>
                                 </div>
                             </Link>
@@ -276,7 +284,7 @@ const Popover = ({ language }) => {
                                     <Icon icon={puzzleCube20Regular} color='#FFFFFF' />
                                 </div>
                                 <div className="navlist-menu-entry">
-                                    <h4>AQQA®system</h4>
+                                    <h4>AQQAsystem</h4>
                                     <p>Lösung für den langfristigen Einsatz</p>
                                 </div>
                             </Link>

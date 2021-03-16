@@ -27,7 +27,7 @@ class SpendenPage extends React.Component<Props, any> {
         return (
             <Layout>
                 <SEO title={t('SpendenEinmaligSEOTitle')} description={t('SpendenEinmaligSEODescription')} />
-                <Container className="global-header-padding">
+                <Container text className="global-header-padding">
                     <PlainHeader content={HeaderContent()} />
                     <section>
                         <h3><Trans>Vielen Dank, dass du an uns spenden möchtest. Für eine einmalige Spende gibt es vier Möglichkeiten.</Trans></h3>
@@ -45,14 +45,19 @@ class SpendenPage extends React.Component<Props, any> {
                                 <iframe src="https://secure.spendenbank.de/form/3291?langid=1" frameBorder="0" width="800" height="800" />
                             </div>
                         </div>
-                        <h4><strong>3. Du spendest über unsere Projektseite auf <a href="https://www.betterplace.org/de/projects/68773-sauberes-trinkwasser-fur-die-schulen-im-kinderdorf-bei-bweyale-in-uganda" target="_blank" rel="noopener noreferrer">betterplace (hier klicken)</a>.</strong></h4>
-
-
+                        <h4><strong>3. Du spendest über unsere Projektseite auf Betterplace.</strong></h4>
+                        {typeof window !== 'undefined' && 
+                            <React.Fragment>
+                                <div id="betterplace_donation_iframe">
+                                    <iframe loading="lazy" title="Spendenformular WeWater Betterplace Donation" frameBorder="0" marginHeight={0} marginWidth={0} src="https://www.betterplace.org/de/donate/iframe/projects/68773?background_color=ffffff&color=5ABEE6&donation_amount=20&bottom_logo=true&default_payment_method=&default_interval=single&utm_campaign=external_donation_forms" width="100%"></iframe>
+                                </div>
+                            </React.Fragment>
+                            }
                         <h4><strong>4. Du spendest über eine Banküberweisung an</strong></h4>
                         <p>
-                            WeWater gUG
-                            Bank für Sozialwirtschaft
-                            IBAN: DE86 1002 0500 0001 6026 01
+                            WeWater gUG <br/>
+                            Bank für Sozialwirtschaft <br/>
+                            IBAN: DE86 1002 0500 0001 6026 01 <br/>
                             BIC-/SWIFT: BFSWDE33BER
                         </p>
                     </section>

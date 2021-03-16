@@ -77,7 +77,7 @@ class AqqabagPage extends React.Component<Props, any> {
                         textAlign='left'
                         className="global-flex-column global-no-margin"
                     >
-                        <h3 className={`global-subtitle text-primary`}>AQQA®bag</h3>
+                        <h3 className={`global-subtitle text-primary`}>AQQAbag</h3>
                         <h2 className="global-headline"><Trans>Die Lösung für den Soforteinsatz für Einzelpersonen</Trans></h2>
                     </Header>
                     <Grid>
@@ -120,7 +120,7 @@ class AqqabagPage extends React.Component<Props, any> {
                             </section>
                         </GridColumn>
                         <GridColumn width={4}>
-                            <SidebarWidget></SidebarWidget>
+                           {/*  <SidebarWidget></SidebarWidget> */}
                         </GridColumn>
                     </Grid>
 

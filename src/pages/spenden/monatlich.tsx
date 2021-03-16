@@ -27,7 +27,7 @@ class SpendenPage extends React.Component<Props, any> {
         return (
             <Layout>
                 <SEO title={t('SpendenMonatlichSEOTitle')} description={t('SpendenMonatlichSEODescription')} />
-                <Container className="global-header-padding">
+                <Container text className="global-header-padding">
                     <PlainHeader content={HeaderContent()} />
                     <section>
                         <h3><Trans>Wenn du gerne regelmäßig an uns spenden möchtest, dann gibt es zwei Möglichkeiten.</Trans></h3>

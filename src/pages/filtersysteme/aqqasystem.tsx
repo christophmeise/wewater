@@ -60,7 +60,7 @@ class AqqasystemPage extends React.Component<Props, any> {
             },
             {
                 key: 'Haltbarkeit',
-                value: '5 Jahre (halbjährlich muss das AQQA®system mit klarem Wasser gespült werden)'
+                value: '5 Jahre (halbjährlich muss das AQQAsystem mit klarem Wasser gespült werden)'
             }
         ];
 
@@ -76,7 +76,7 @@ class AqqasystemPage extends React.Component<Props, any> {
                         textAlign='left'
                         className="global-flex-column global-no-margin"
                     >
-                        <h3 className={`global-subtitle text-primary`}>AQQA®system</h3>
+                        <h3 className={`global-subtitle text-primary`}>AQQAsystem</h3>
                         <h2 className="global-headline"><Trans>Die Lösung für den langfristigen Einsatz</Trans></h2>
                     </Header>
                     <Grid>
@@ -110,7 +110,7 @@ class AqqasystemPage extends React.Component<Props, any> {
                             </section>
                         </GridColumn>
                         <GridColumn width={4}>
-                            <SidebarWidget></SidebarWidget>
+                           {/*  <SidebarWidget></SidebarWidget> */}
                         </GridColumn>
                     </Grid>
                 </Container>

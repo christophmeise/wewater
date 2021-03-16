@@ -68,19 +68,19 @@ const SectionFiltersysteme = () => {
                         <GridRow columns="2" className="filtersysteme-img-horizontal">
                             <GridColumn>
                                 <BackgroundImage className="img-fluid rounded shadow filtersysteme-dark-overlay" fluid={data.image1.childImageSharp.fluid}>
-                                    <p>AQQA®bag</p>
+                                    <p>AQQAbag</p>
                                 </BackgroundImage>
                             </GridColumn>
                             <GridColumn>
                                 <BackgroundImage className="img-fluid rounded shadow filtersysteme-dark-overlay" fluid={data.image2.childImageSharp.fluid} >
-                                    <p>AQQA®bag</p>
+                                    <p>AQQAbag</p>
                                 </BackgroundImage>
                             </GridColumn>
                         </GridRow>
                         <GridRow columns="3" className="filtersysteme-img-vertical">
                             <GridColumn>
                                 <BackgroundImage className="img-fluid rounded shadow filtersysteme-dark-overlay" fluid={data.image3.childImageSharp.fluid} >
-                                    <p>AQQA®bag</p>
+                                    <p>AQQAbag</p>
                                 </BackgroundImage>
                             </GridColumn>
                             <GridColumn>
@@ -88,19 +88,19 @@ const SectionFiltersysteme = () => {
                             </GridColumn>
                             <GridColumn className="filtersysteme-align-right">
                                 <BackgroundImage className="img-fluid rounded shadow filtersysteme-dark-overlay" fluid={data.image4.childImageSharp.fluid} >
-                                    <p>AQQA®bag</p>
+                                    <p>AQQAbag</p>
                                 </BackgroundImage>
                             </GridColumn>
                         </GridRow>
                         <GridRow columns="2" className="filtersysteme-img-horizontal">
                             <GridColumn>
                                 <BackgroundImage className="img-fluid rounded shadow filtersysteme-dark-overlay" fluid={data.image5.childImageSharp.fluid} >
-                                    <p>AQQA®bag</p>
+                                    <p>AQQAbag</p>
                                 </BackgroundImage>
                             </GridColumn>
                             <GridColumn>
                                 <BackgroundImage className="img-fluid rounded shadow filtersysteme-dark-overlay" fluid={data.image6.childImageSharp.fluid} >
-                                    <p>AQQA®bag</p>
+                                    <p>AQQAbag</p>
                                 </BackgroundImage>
                             </GridColumn>
                         </GridRow>

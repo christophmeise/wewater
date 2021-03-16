@@ -22,7 +22,7 @@ const HeaderOverlay = ({ sources, inverted, content, darken = false, width = 8, 
                         className={`header-overlay-center-cropped ${darken && 'dark-overlay-blog'}`}
                         fluid={sources}
                     >
-                        <Container className="header-overlay-container">
+                        <Container className="header-overlay-container header-overlay-container-absolute">
                             <Grid className={`header-overlay-container-desktop responsive-desktop-container ${floatRight ? 'justifyContentEnd' : ''}`}>
                                 <GridColumn width={width}>
                                     <div

@@ -73,10 +73,6 @@
   right     : -70px;
 }
 
-.ui.text.container {
-  max-width: 100% !important;
-}
-
 @media only screen and (max-width: 767px) {
   .header-overlay {
     /*  height: calc(100vh - 64px); */
@@ -98,6 +94,13 @@
   }
 }
 
+.header-overlay-container-absolute {
+  position: absolute;
+  z-index : 100000;
+  left    : 0;
+  right   : 0;
+}
+
 .header-overlay-container-blog {
   height: 100% !important;
 }
@@ -111,6 +114,7 @@
   background-repeat  : no-repeat;
   background-position: center center !important;
   background-size    : cover;
+  opacity            : 1;
 }
 
 .header-overlay-image-wrapper {
