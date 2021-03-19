@@ -14,7 +14,7 @@ interface Props {
     data: {
         mobileImage: any;
         desktopImage: any;
-        allWpDtTeam: any;
+        allWpTeamMember: any;
     };
 }
 
@@ -34,7 +34,7 @@ class TeamPage extends React.Component<Props, any> {
     render() {
         const { t, data } = this.props;
 
-        const teamData = data.allWpDtTeam.edges.slice(3, data.allWpDtTeam.edges.length).reverse().concat(shuffle(data.allWpDtTeam.edges.slice(0, 3)));
+        const teamData = data.allWpTeamMember.edges.slice(3, data.allWpTeamMember.edges.length).reverse().concat(shuffle(data.allWpTeamMember.edges.slice(0, 3)));
         const headerImage = [
             data.mobileImage.childImageSharp.fluid,
             {
@@ -73,35 +73,71 @@ class TeamPage extends React.Component<Props, any> {
                                                     textAlign='left'
                                                     className="global-flex-column global-no-margin"
                                                 >
-                                                    <h3 className={`global-subtitle text-primary`}>FOUNDER</h3>
+                                                    <h3 className={`global-subtitle text-primary`}>{post?.acf_team?.kurzbeschreibung}</h3>
                                                     <h2 className="global-headline">{post.title}</h2>
                                                 </Header>
-                                                <p dangerouslySetInnerHTML={{ __html: post.excerpt }}></p>
+                                                <p dangerouslySetInnerHTML={{ __html: post.acf_team?.description }}></p>
                                                 <div>
-                                                    <a
-                                                        href="https://www.facebook.com/wewater.org/"
-                                                        target="_blank"
-                                                        rel="noopener"
-                                                        aria-label="Facebook"
-                                                    >
-                                                        <Icon className="hover-animate" size="large" name="facebook"></Icon>
-                                                    </a>
-                                                    <a
-                                                        href="https://www.instagram.com/wewater_org/"
-                                                        target="_blank"
-                                                        rel="noopener"
-                                                        aria-label="Instagram"
-                                                    >
-                                                        <Icon className="hover-animate" size="large" name="instagram"></Icon>
-                                                    </a>
-                                                    <a
-                                                        href="https://www.youtube.com/channel/UC3zOjWWL5drSnoxzcj3-jqw"
-                                                        target="_blank"
-                                                        rel="noopener"
-                                                        aria-label="Youtube"
-                                                    >
-                                                        <Icon className="hover-animate" size="large" name="youtube"></Icon>
-                                                    </a>
+                                                    {post.acf_team?.facebook != null &&
+                                                        <a
+                                                            href={post.acf_team?.facebook}
+                                                            target="_blank"
+                                                            rel="noopener"
+                                                            aria-label="Facebook"
+                                                        >
+                                                            <Icon className="hover-animate" size="large" name="facebook"></Icon>
+                                                        </a>
+                                                    }
+                                                    {post.acf_team?.instagram != null &&
+                                                        <a
+                                                            href={post.acf_team?.instagram}
+                                                            target="_blank"
+                                                            rel="noopener"
+                                                            aria-label="Instagram"
+                                                        >
+                                                            <Icon className="hover-animate" size="large" name="instagram"></Icon>
+                                                        </a>
+                                                    }
+                                                    {post.acf_team?.linkedin != null &&
+                                                        <a
+                                                            href={post.acf_team?.linkedin}
+                                                            target="_blank"
+                                                            rel="noopener"
+                                                            aria-label="LinkedIn"
+                                                        >
+                                                            <Icon className="hover-animate" size="large" name="linkedin"></Icon>
+                                                        </a>
+                                                    }
+                                                    {post.acf_team?.email != null &&
+                                                        <a
+                                                            href={'mailto:' + post.acf_team?.email}
+                                                            target="_blank"
+                                                            rel="noopener"
+                                                            aria-label="Email"
+                                                        >
+                                                            <Icon className="hover-animate" size="large" name="mail outline"></Icon>
+                                                        </a>
+                                                    }
+                                                    {post.acf_team?.website != null &&
+                                                        <a
+                                                            href={post.acf_team?.website}
+                                                            target="_blank"
+                                                            rel="noopener"
+                                                            aria-label="Website"
+                                                        >
+                                                            <Icon className="hover-animate" size="large" name="globe"></Icon>
+                                                        </a>
+                                                    }
+                                                    {post.acf_team?.twitter != null &&
+                                                        <a
+                                                            href={post.acf_team?.twitter}
+                                                            target="_blank"
+                                                            rel="noopener"
+                                                            aria-label="Twitter"
+                                                        >
+                                                            <Icon className="hover-animate" size="large" name="twitter"></Icon>
+                                                        </a>
+                                                    }
                                                 </div>
                                             </div>
                                         );
@@ -141,25 +177,36 @@ export const pageQuery = graphql`
         locales: allLocale(filter: {language: {eq: $language}}) {
           ...GetTranslations
         }
-        desktopImage: file(relativePath: { eq: "images/team/banner.jpeg" }) {
+        desktopImage: file(relativePath: { eq: "images/team/banner.jpg" }) {
             childImageSharp {
                 fluid(maxWidth: 1600, quality: 100) {
                     ...GatsbyImageSharpFluid_withWebp
                 }
             }
         }
-        mobileImage: file(relativePath: { eq: "images/team/banner-mobile.jpeg" }) {
+        mobileImage: file(relativePath: { eq: "images/team/banner-mobile.jpg" }) {
             childImageSharp {
                 fluid(maxWidth: 1200, quality: 100) {
                     ...GatsbyImageSharpFluid_withWebp
                 }
             }
         }
-        allWpDtTeam {
+        allWpTeamMember {
             edges {
                 node {
                     title
-                    excerpt
+                    acf_team {
+                        email
+                        fieldGroupName
+                        kurzbeschreibung
+                        facebook
+                        description
+                        instagram
+                        linkedin
+                        twitter
+                        website
+                    }
+                    content
                     featuredImage {
                         node {
                             localFile {

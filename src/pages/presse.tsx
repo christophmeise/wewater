@@ -1,6 +1,5 @@
 // i18next-extract-mark-ns-start page_presse
 import { graphql } from 'gatsby';
-import { Trans } from 'gatsby-plugin-react-i18next';
 import React from 'react';
 import { Container } from 'semantic-ui-react';
 import Layout from '../components/Layout/Layout';
@@ -10,6 +9,8 @@ import { useTranslationHOC } from '../components/useTranslationHOC/useTranslatio
 
 interface Props {
     t: any;
+    data: any;
+    language: any;
 }
 
 class PressePage extends React.Component<Props, any> {
@@ -18,7 +19,10 @@ class PressePage extends React.Component<Props, any> {
     }
 
     render() {
-        const { t } = this.props;
+        const { t, data, language } = this.props;
+
+        const pageData = language === 'de' ? data.german.edges[0].node.content : data.english.edges[0].node.content;
+
 
         return (
             <Layout>
@@ -28,7 +32,7 @@ class PressePage extends React.Component<Props, any> {
                     <Container text>
                         <div className="main-content-sections">
                             <section>
-                                <p><Trans>Wenn du an WeWater spenden möchtest, dann gibt es dafür drei Möglichkeiten:</Trans></p>
+                                <p dangerouslySetInnerHTML={{ __html: pageData }}></p>
                             </section>
                         </div>
                     </Container>
@@ -48,9 +52,34 @@ const HeaderContent = (t) => {
 };
 
 export const pageQuery = graphql`
+
     query($language: String!) {
         locales: allLocale(filter: {language: {eq: $language}}) {
           ...GetTranslations
+        }
+        german: allWpPage(filter: {title: {eq: "Pressespiegel – WeWater in den Medien"}, language: {locale: {eq: "de_DE"}}}) {
+            edges {
+                node {
+                    id
+                    title
+                    content
+                    language {
+                        code
+                    }
+                }
+            }
+        }
+        english: allWpPage(filter: {title: {eq: "Press – WeWater in Media"}, language: {locale: {eq: "en_GB"}}}) {
+            edges {
+                node {
+                    id
+                    title
+                    content
+                    language {
+                        code
+                    }
+                }
+            }
         }
     }
 `;

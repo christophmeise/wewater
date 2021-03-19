@@ -130,10 +130,10 @@ const TextContent = () => {
                 textAlign='center'
                 className="global-flex-column global-no-margin"
             >
-                <h3 className={`global-subtitle text-primary`}><Trans>Weil's an Wasser mangelt. <br /> Nicht an guten Ideen.</Trans></h3>
+                <h3 className={`global-subtitle text-primary`}><Trans>Weil's an Trinkwasser mangelt, <br /> nicht an guten Ideen.</Trans></h3>
                 <h2 className="global-headline"><Trans>Filtersysteme für jeden Anwendungsfall</Trans></h2>
             </Header>
-            <p><Trans>Dennoch leiden weltweit 844 Millionen Menschen Durst oder erkranken an verschmutztem Wasser. Unsere Mission ist es, diesen Menschen durch sauberes Trinkwasser eine existentielle Lebensgrundlage zu ermöglichen.</Trans></p>
+            <p><Trans>844 Millionen Menschen Durst oder erkranken an verschmutztem Wasser. Unsere Mission ist es, diesen Menschen durch sauberes Trinkwasser eine existentielle Lebensgrundlage zu ermöglichen.</Trans></p>
             <Link to='/filtersystem'>
                 <Button
                     primary

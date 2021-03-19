@@ -8,7 +8,7 @@ const SectionProjekte = () => {
     const data = useStaticQuery(
         graphql`
             query LatestProjectsQuery {
-                german: allWpDtPortfolio(
+                german: allWpProjekt(
                     sort: { fields: date, order: DESC }
                 ) {
                     edges {
@@ -20,7 +20,7 @@ const SectionProjekte = () => {
                                     lastName
                                 }
                             }
-                            dt_portfolio_categories{
+                            categories{
                                 nodes {
                                     name
                                 }

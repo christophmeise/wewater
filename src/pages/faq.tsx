@@ -1,8 +1,8 @@
 // i18next-extract-mark-ns-start page_faq
 import { graphql } from 'gatsby';
-import { Trans } from 'gatsby-plugin-react-i18next';
 import React from 'react';
 import { Container } from 'semantic-ui-react';
+import FAQAccordion from '../components/FAQAccordionItem/faq-accordion';
 import Layout from '../components/Layout/Layout';
 import PlainHeader from '../components/PlainOverlay/plain-header';
 import SEO from '../components/seo';
@@ -10,6 +10,8 @@ import { useTranslationHOC } from '../components/useTranslationHOC/useTranslatio
 
 interface Props {
     t: any;
+    data: any;
+    language: any;
 }
 
 class FAQPage extends React.Component<Props, any> {
@@ -18,7 +20,26 @@ class FAQPage extends React.Component<Props, any> {
     }
 
     render() {
-        const { t } = this.props;
+        const { t, data, language } = this.props;
+
+        const faqContent = [];
+
+        const pageData = language === 'de' ? data?.german?.edges[0]?.node?.blocksJSON : data?.english?.edges[0]?.node?.blocksJSON;
+
+        const blocksJSON: any[] = pageData != null ? JSON.parse(pageData) : [];
+        const faqContentBlock = blocksJSON?.filter((blocksJSON) => blocksJSON.name === 'yoast/faq-block');
+        let faqContentFields;
+        if (faqContentBlock != null && faqContentBlock.length > 0) {
+            faqContentFields = faqContentBlock[0]?.attributes?.questions;
+            for (let index = 0; index < faqContentFields.length; index++) {
+                const element = faqContentFields[index];
+                faqContent.push({
+                    index: index,
+                    question: element?.jsonQuestion,
+                    answer: element?.jsonAnswer,
+                });
+            }
+        }
 
         return (
             <Layout>
@@ -28,7 +49,7 @@ class FAQPage extends React.Component<Props, any> {
                     <Container text>
                         <div className="main-content-sections">
                             <section>
-                                <p><Trans>Wenn du an WeWater spenden möchtest, dann gibt es dafür drei Möglichkeiten:</Trans></p>
+                                <FAQAccordion t={t} faqContent={faqContent}></FAQAccordion>
                             </section>
                         </div>
                     </Container>
@@ -51,6 +72,32 @@ export const pageQuery = graphql`
     query($language: String!) {
         locales: allLocale(filter: {language: {eq: $language}}) {
           ...GetTranslations
+        }
+        german: allWpPage(filter: {title: {eq: "FAQ1"}, language: {locale: {eq: "de_DE"}}}) {
+            edges {
+                node {
+                    id
+                    title
+                    language {
+                        code
+                        locale
+                    }
+                    blocksJSON
+                }
+            }
+        }
+        english: allWpPage(filter: {title: {eq: "FAQ1"}, language: {locale: {eq: "en_GB"}}}) {
+            edges {
+                node {
+                    id
+                    title
+                    language {
+                        code
+                        locale
+                    }
+                    blocksJSON
+                }
+            }
         }
     }
 `;

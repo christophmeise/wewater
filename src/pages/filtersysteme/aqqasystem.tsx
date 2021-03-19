@@ -3,9 +3,9 @@ import { graphql } from 'gatsby';
 import { Trans } from 'gatsby-plugin-react-i18next';
 import React from 'react';
 import { Container, Grid, GridColumn, Header, Table } from 'semantic-ui-react';
+import VideoOverlay from '../../components/HeaderOverlay/video-overlay';
 import Layout from '../../components/Layout/Layout';
 import SEO from '../../components/seo';
-import SidebarWidget from '../../components/Sidebar/sidebar';
 import { useTranslationHOC } from '../../components/useTranslationHOC/useTranslationHOC';
 
 interface Props {
@@ -52,7 +52,7 @@ class AqqasystemPage extends React.Component<Props, any> {
             },
             {
                 key: 'Leergewicht',
-                value: '30 kg'
+                value: 'Abhängig von der Größe des Filtersystems'
             },
             {
                 key: 'Rückhalterate Bakterien',
@@ -67,6 +67,7 @@ class AqqasystemPage extends React.Component<Props, any> {
         return (
             <Layout>
                 <SEO title={t('AqqasystemSEOTitle')} description={t('AqqasystemSEODescription')} />
+                <VideoOverlay content={<OverlayContent t={t} inverted={true} />} darken={false} sources='../videos/AQQASystem.mp4' poster='../videos/aqqasystemPlaceholder.JPG' />
                 <Container className="global-header-padding">
                     <Header
                         data-sal="slide-up"
@@ -102,19 +103,53 @@ class AqqasystemPage extends React.Component<Props, any> {
                                     </Table.Body>
                                 </Table>
                                 <p><Trans>
-                                    Die Anwendung ist sehr einfach: Es wird Wasser aus einem See oder einem Fluss mit einer Membran gefiltert. Das Besondere am AQQAbag ist die bisher unerreichte Qualität des Wassers bei gleichzeitig niedrigen Kosten.
+                                    Um kurzfristig den Bedarf an Trinkwasser zu decken, kann der AQQAbag eine Person ein halbes Jahr lang mit vier Litern Trinkwasser pro Tag versorgen.
+                                    <a href="https://wewater.org/wp-content/uploads/2019/09/WW09232019-BCS-1909302-303p.pdf" target="_blank"> Das Zertifikat für den AQQAbag haben wir hier hochgeladen.</a>
+                                </Trans></p>
+                                <p><Trans>
+                                    Das AQQAsystem basiert auf der Idee des AQQAbag. Es macht in größerem Maßstab aus Oberflächenwasser hygienisch sicheres Trinkwasser. Dabei kann es direkt an eine Wasserquelle oder einen Flußlauf installiert werden.
                         </Trans></p>
                                 <p><Trans>
-                                    Der AQQAbag verstopft nicht und muss nicht gewartet werden, er ist leicht, handlich und kann unbegrenzt gelagert werden. Damit ist der AQQAbag das ideale Produkt, um Menschen vorübergehend mit Trinkwasser zu versorgen – sei es im Krisenfall, für Menschen, für die noch keine dauerhafte Lösung bereit steht oder für Reisende. Der AQQAbag wurde über mehrere Monate erfolgreich getestet und seine Wirkung von Laboren bestätigt.
+                                    Im ersten Reinigungsschritt wird in modularen Boxen, die mit unseren Filterplatten bestückt sind, das Wasser durch die Membran gereinigt. Die Membran besitzt eine Rückhaltewirkung von 99,9999 Prozent für Bakterien. Es wird nur mit geringstem Druck filtriert. Dadurch kann sich der Schmutz nur mit Hilfe der Schwerkraft von der Filterplatte lösen.
+                        </Trans></p>
+                                <p><Trans>
+                                    AQQAsystem kann monatelang ohne Reinigung und mit gleich bleibender Leistung genutzt werden und kann durch die Aneinanderreihung mehrerer Boxen für jeden Anwendungsfall konfiguriert werden – von ca. 500 bis 30.000 Litern pro Tag. Unser Filtersystem ist damit eine dauerhafte Lösung zur Trinkwasserversorgung von Dörfern und Gemeinschaften, in denen mehrere Menschen leben.
                         </Trans></p>
                             </section>
                         </GridColumn>
                         <GridColumn width={4}>
-                           {/*  <SidebarWidget></SidebarWidget> */}
+                            {/*  <SidebarWidget></SidebarWidget> */}
                         </GridColumn>
                     </Grid>
                 </Container>
             </Layout>
+        );
+    }
+}
+
+class OverlayContent extends React.Component<any, any> {
+    constructor(props: Props) {
+        super(props);
+    }
+
+    render() {
+        const { inverted, t } = this.props;
+
+        return (
+            <div>
+                <h1
+                    className={`header-overlay-headline ${inverted ? 'header-overlay-headline-inverted' : ''}`}
+                    style={{ marginBottom: '1.5rem' }}
+                >
+                    {t('page_filtersystem:headline')}
+                </h1>
+                <h2 className={`header-overlay-subheadline ${inverted ? 'header-overlay-subheadline-inverted' : ''}`}
+                    style={{ marginBottom: '1.5rem', marginTop: '0rem' }}>
+                    <p>
+                        {t('page_filtersystem:subheadline')}
+                    </p>
+                </h2>
+            </div>
         );
     }
 }
