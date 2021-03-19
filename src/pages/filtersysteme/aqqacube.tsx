@@ -72,7 +72,11 @@ class AqqacubePage extends React.Component<Props, any> {
         return (
             <Layout>
                 <SEO title={t('AqqacubeSEOTitle')} description={t('AqqacubeSEODescription')} />
-                <VideoOverlay content={<OverlayContent t={t} inverted={true} />} darken={false} sources='../videos/AQQACube.mp4' poster='../videos/aqqacubePlaceholder.JPG' />
+                <VideoOverlay content={<OverlayContent t={t} inverted={true} />} darken={false}
+                    sourceMP4='/videos/aqqacube/AQQACube.mp4'
+                    sourceWebm='/videos/aqqacube/AQQACube.webm'
+                    sourceOGV='/videos/aqqacube/AQQACube.ogv'
+                    poster='/videos/aqqacube/aqqacubePlaceholder.webp' />
                 <Container className="global-header-padding">
                     <Header
                         data-sal="slide-up"

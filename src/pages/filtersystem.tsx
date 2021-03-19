@@ -79,7 +79,11 @@ class FiltersystemPage extends React.Component<Props, any> {
         return (
             <Layout>
                 <SEO title={t('FiltersystemeSEOTitle')} description={t('FiltersystemeSEODescription')} />
-                <VideoOverlay content={<OverlayContent t={t} inverted={true} />} darken={false} sources='videos/AlleFilter.mp4' poster='videos/AlleFilterPlaceholder.JPG' />
+                <VideoOverlay content={<OverlayContent t={t} inverted={true} />} darken={false}
+                    sourceMP4='/videos/AlleFilter.mp4'
+                    sourceWebm='/videos/AlleFilter.webm'
+                    sourceOGV='/videos/AlleFilter.ogv'
+                    poster='/videos/AlleFilterPlaceholder.JPG' />
                 <Container className="global-header-padding">
                     <div className="main-content-sections">
                         <section id="filtersystem-grid">

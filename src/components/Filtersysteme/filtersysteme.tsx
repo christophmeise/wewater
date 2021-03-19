@@ -67,41 +67,53 @@ const SectionFiltersysteme = () => {
                     <Grid stackable centered>
                         <GridRow columns="2" className="filtersysteme-img-horizontal">
                             <GridColumn>
-                                <BackgroundImage className="img-fluid rounded shadow filtersysteme-dark-overlay" fluid={data.image1.childImageSharp.fluid}>
-                                    <p>AQQAbag</p>
-                                </BackgroundImage>
+                                <Link to="/filtersysteme/aqqasystem">
+                                    <BackgroundImage className="img-fluid rounded shadow filtersysteme-dark-overlay" fluid={data.image1.childImageSharp.fluid}>
+                                        <p>AQQAsystem</p>
+                                    </BackgroundImage>
+                                </Link>
                             </GridColumn>
                             <GridColumn>
-                                <BackgroundImage className="img-fluid rounded shadow filtersysteme-dark-overlay" fluid={data.image2.childImageSharp.fluid} >
-                                    <p>AQQAbag</p>
-                                </BackgroundImage>
+                                <Link to="/filtersysteme/aqqacube">
+                                    <BackgroundImage className="img-fluid rounded shadow filtersysteme-dark-overlay" fluid={data.image2.childImageSharp.fluid} >
+                                        <p>AQQAcube</p>
+                                    </BackgroundImage>
+                                </Link>
                             </GridColumn>
                         </GridRow>
                         <GridRow columns="3" className="filtersysteme-img-vertical">
                             <GridColumn>
-                                <BackgroundImage className="img-fluid rounded shadow filtersysteme-dark-overlay" fluid={data.image3.childImageSharp.fluid} >
-                                    <p>AQQAbag</p>
-                                </BackgroundImage>
+                                <Link to="/filtersysteme/aqqabag">
+                                    <BackgroundImage className="img-fluid rounded shadow filtersysteme-dark-overlay" fluid={data.image3.childImageSharp.fluid} >
+                                        <p>AQQAbag</p>
+                                    </BackgroundImage>
+                                </Link>
                             </GridColumn>
                             <GridColumn>
                                 {/* empty */}
                             </GridColumn>
                             <GridColumn className="filtersysteme-align-right">
-                                <BackgroundImage className="img-fluid rounded shadow filtersysteme-dark-overlay" fluid={data.image4.childImageSharp.fluid} >
-                                    <p>AQQAbag</p>
-                                </BackgroundImage>
+                                <Link to="/filtersysteme/aqqacube">
+                                    <BackgroundImage className="img-fluid rounded shadow filtersysteme-dark-overlay" fluid={data.image4.childImageSharp.fluid} >
+                                        <p>AQQAcube</p>
+                                    </BackgroundImage>
+                                </Link>
                             </GridColumn>
                         </GridRow>
                         <GridRow columns="2" className="filtersysteme-img-horizontal">
                             <GridColumn>
-                                <BackgroundImage className="img-fluid rounded shadow filtersysteme-dark-overlay" fluid={data.image5.childImageSharp.fluid} >
-                                    <p>AQQAbag</p>
-                                </BackgroundImage>
+                                <Link to="/filtersysteme/aqqabag">
+                                    <BackgroundImage className="img-fluid rounded shadow filtersysteme-dark-overlay" fluid={data.image5.childImageSharp.fluid} >
+                                        <p>AQQAbag</p>
+                                    </BackgroundImage>
+                                </Link>
                             </GridColumn>
                             <GridColumn>
-                                <BackgroundImage className="img-fluid rounded shadow filtersysteme-dark-overlay" fluid={data.image6.childImageSharp.fluid} >
-                                    <p>AQQAbag</p>
-                                </BackgroundImage>
+                                <Link to="/filtersysteme/aqqasystem">
+                                    <BackgroundImage className="img-fluid rounded shadow filtersysteme-dark-overlay" fluid={data.image6.childImageSharp.fluid} >
+                                        <p>AQQAsystem</p>
+                                    </BackgroundImage>
+                                </Link>
                             </GridColumn>
                         </GridRow>
                     </Grid>

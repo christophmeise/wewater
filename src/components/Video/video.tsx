@@ -46,7 +46,7 @@ const Video = () => {
                                 }
                                 span:hover{
                                     background-color: rgb(90, 190, 230, 0.8);
-                                }</style><a href=https://www.youtube.com/embed/zy1MzATrJkc?autoplay=1><img src=images/video_placeholder.webp alt='WeWater Team Video'><span class='play-icon'>
+                                }</style><a href=https://www.youtube.com/embed/zy1MzATrJkc?autoplay=1><img src=/images/video_placeholder.webp alt='WeWater Team Video'><span class='play-icon'>
                                 <svg version='1.1' id='Layer_1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' x='0px' y='0px'
 	 viewBox='0 0 330 330' style='margin-left: 5px; fill:  #ffffff;' xml:space='preserve'>
 <path id='XMLID_308_' d='M37.728,328.12c2.266,1.256,4.77,1.88,7.272,1.88c2.763,0,5.522-0.763,7.95-2.28l240-149.999
