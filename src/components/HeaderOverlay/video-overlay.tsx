@@ -1,7 +1,7 @@
 import React from 'react';
 import './video-overlay.less';
 
-const VideoOverlay = ({ sources, content, darken = false }) => {
+const VideoOverlay = ({ sources, content, darken = false, poster }) => {
     let vh = 100;
     const isSSR = typeof window === 'undefined';
     if (!isSSR) {
@@ -10,8 +10,8 @@ const VideoOverlay = ({ sources, content, darken = false }) => {
     }
 
     return (
-        <div className="header-overlay">
-            <video autoPlay loop muted playsInline>
+        <div className="header-overlay header-overlay-video">
+            <video autoPlay loop muted playsInline poster={poster}>
                 <source src={sources} type="video/mp4"></source>
             </video>
         </div>

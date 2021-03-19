@@ -68,19 +68,19 @@ const SectionFiltersysteme = () => {
                         <GridRow columns="2" className="filtersysteme-img-horizontal">
                             <GridColumn>
                                 <BackgroundImage className="img-fluid rounded shadow filtersysteme-dark-overlay" fluid={data.image1.childImageSharp.fluid}>
-                                    <p>AQQA®bag</p>
+                                    <p>AQQAbag</p>
                                 </BackgroundImage>
                             </GridColumn>
                             <GridColumn>
                                 <BackgroundImage className="img-fluid rounded shadow filtersysteme-dark-overlay" fluid={data.image2.childImageSharp.fluid} >
-                                    <p>AQQA®bag</p>
+                                    <p>AQQAbag</p>
                                 </BackgroundImage>
                             </GridColumn>
                         </GridRow>
                         <GridRow columns="3" className="filtersysteme-img-vertical">
                             <GridColumn>
                                 <BackgroundImage className="img-fluid rounded shadow filtersysteme-dark-overlay" fluid={data.image3.childImageSharp.fluid} >
-                                    <p>AQQA®bag</p>
+                                    <p>AQQAbag</p>
                                 </BackgroundImage>
                             </GridColumn>
                             <GridColumn>
@@ -88,19 +88,19 @@ const SectionFiltersysteme = () => {
                             </GridColumn>
                             <GridColumn className="filtersysteme-align-right">
                                 <BackgroundImage className="img-fluid rounded shadow filtersysteme-dark-overlay" fluid={data.image4.childImageSharp.fluid} >
-                                    <p>AQQA®bag</p>
+                                    <p>AQQAbag</p>
                                 </BackgroundImage>
                             </GridColumn>
                         </GridRow>
                         <GridRow columns="2" className="filtersysteme-img-horizontal">
                             <GridColumn>
                                 <BackgroundImage className="img-fluid rounded shadow filtersysteme-dark-overlay" fluid={data.image5.childImageSharp.fluid} >
-                                    <p>AQQA®bag</p>
+                                    <p>AQQAbag</p>
                                 </BackgroundImage>
                             </GridColumn>
                             <GridColumn>
                                 <BackgroundImage className="img-fluid rounded shadow filtersysteme-dark-overlay" fluid={data.image6.childImageSharp.fluid} >
-                                    <p>AQQA®bag</p>
+                                    <p>AQQAbag</p>
                                 </BackgroundImage>
                             </GridColumn>
                         </GridRow>
@@ -130,10 +130,10 @@ const TextContent = () => {
                 textAlign='center'
                 className="global-flex-column global-no-margin"
             >
-                <h3 className={`global-subtitle text-primary`}><Trans>Weil's an Wasser mangelt. <br /> Nicht an guten Ideen.</Trans></h3>
+                <h3 className={`global-subtitle text-primary`}><Trans>Weil's an Trinkwasser mangelt, <br /> nicht an guten Ideen.</Trans></h3>
                 <h2 className="global-headline"><Trans>Filtersysteme für jeden Anwendungsfall</Trans></h2>
             </Header>
-            <p><Trans>Dennoch leiden weltweit 844 Millionen Menschen Durst oder erkranken an verschmutztem Wasser. Unsere Mission ist es, diesen Menschen durch sauberes Trinkwasser eine existentielle Lebensgrundlage zu ermöglichen.</Trans></p>
+            <p><Trans>844 Millionen Menschen Durst oder erkranken an verschmutztem Wasser. Unsere Mission ist es, diesen Menschen durch sauberes Trinkwasser eine existentielle Lebensgrundlage zu ermöglichen.</Trans></p>
             <Link to='/filtersystem'>
                 <Button
                     primary

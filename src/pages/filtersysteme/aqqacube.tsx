@@ -3,9 +3,9 @@ import { graphql } from 'gatsby';
 import { Trans } from 'gatsby-plugin-react-i18next';
 import React from 'react';
 import { Container, Grid, GridColumn, Header, Table } from 'semantic-ui-react';
+import VideoOverlay from '../../components/HeaderOverlay/video-overlay';
 import Layout from '../../components/Layout/Layout';
 import SEO from '../../components/seo';
-import SidebarWidget from '../../components/Sidebar/sidebar';
 import { useTranslationHOC } from '../../components/useTranslationHOC/useTranslationHOC';
 
 interface Props {
@@ -72,6 +72,7 @@ class AqqacubePage extends React.Component<Props, any> {
         return (
             <Layout>
                 <SEO title={t('AqqacubeSEOTitle')} description={t('AqqacubeSEODescription')} />
+                <VideoOverlay content={<OverlayContent t={t} inverted={true} />} darken={false} sources='../videos/AQQACube.mp4' poster='../videos/aqqacubePlaceholder.JPG' />
                 <Container className="global-header-padding">
                     <Header
                         data-sal="slide-up"
@@ -81,7 +82,7 @@ class AqqacubePage extends React.Component<Props, any> {
                         textAlign='left'
                         className="global-flex-column global-no-margin"
                     >
-                        <h3 className={`global-subtitle text-primary`}>AQQA®cube</h3>
+                        <h3 className={`global-subtitle text-primary`}>AQQAcube</h3>
                         <h2 className="global-headline"><Trans>Für den Soforteinsatz in Lebensgemeinschaften</Trans></h2>
                     </Header>
                     <Grid>
@@ -115,7 +116,7 @@ class AqqacubePage extends React.Component<Props, any> {
                                     Mit welchen Arten von Schmutzwasser der AQQAcube umgehen kann, <a href="https://wewater.org/wp-content/uploads/2021/01/AQQAcube_Partikel.pdf" target="_blank">siehst du in dieser Übersicht.</a>
                                 </Trans></p>
                                 <p><Trans>
-                                    Der AQQA®cube ist ein Filterprodukt, das die Vorteile von AQQAbag und AQQAsystem verbindet. Es ist mobil und kann problemlos an den jeweiligen Einsatzort gebracht werden. Dennoch kann das Produkt aufgrund seiner Größe und der enthaltenen Filterfläche mehr als 1200 Liter Trinkwasser in 24 Stunden aufbereiten. Wir gehen stets von einer Betriebszeit von 8 Stunden aus, so ergibt sich einer Filtermenge von 400 Liter Trinkwasser.
+                                    Der AQQAcube ist ein Filterprodukt, das die Vorteile von AQQAbag und AQQAsystem verbindet. Er ist mobil und kann problemlos an den jeweiligen Einsatzort gebracht werden. Dennoch kann das Produkt aufgrund seiner Größe und der enthaltenen Filterfläche mehr als 1200 Liter Trinkwasser in 24 Stunden aufbereiten. Wir gehen stets von einer Betriebszeit von 8 Stunden aus, so ergibt sich einer Filtermenge von 400 Liter Trinkwasser.
                         </Trans></p>
                                 <p><Trans>
                                     Die Anwendung ist dabei genauso einfach wie beim AQQAbag: Es wird Wasser aus einem See oder einem Fluss in den Filterkasten hinein gegeben und mit einer Membran gefiltert. Dabei kann der AQQAcube an einem festen Einsatzort stehen oder transportiert werden. Ein Transport ist jedoch nur in leerem Zustand möglich.
@@ -129,11 +130,38 @@ class AqqacubePage extends React.Component<Props, any> {
                             </section>
                         </GridColumn>
                         <GridColumn width={4}>
-                            <SidebarWidget></SidebarWidget>
+                            {/*  <SidebarWidget></SidebarWidget> */}
                         </GridColumn>
                     </Grid>
                 </Container>
             </Layout>
+        );
+    }
+}
+
+class OverlayContent extends React.Component<any, any> {
+    constructor(props: Props) {
+        super(props);
+    }
+
+    render() {
+        const { inverted, t } = this.props;
+
+        return (
+            <div>
+                <h1
+                    className={`header-overlay-headline ${inverted ? 'header-overlay-headline-inverted' : ''}`}
+                    style={{ marginBottom: '1.5rem' }}
+                >
+                    {t('page_filtersystem:headline')}
+                </h1>
+                <h2 className={`header-overlay-subheadline ${inverted ? 'header-overlay-subheadline-inverted' : ''}`}
+                    style={{ marginBottom: '1.5rem', marginTop: '0rem' }}>
+                    <p>
+                        {t('page_filtersystem:subheadline')}
+                    </p>
+                </h2>
+            </div>
         );
     }
 }

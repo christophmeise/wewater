@@ -65,8 +65,8 @@ class ProjektePage extends React.Component<Props, any> {
                         {posts
                             .filter((post) => post.node.title.length > 0)
                             .filter((post) => this.state.filter === 0 ||
-                                this.state.filter === 1 && post.node.dt_portfolio_categories?.nodes[0].name === 'In Arbeit' ||
-                                this.state.filter === 2 && post.node.dt_portfolio_categories?.nodes[0].name !== 'In Arbeit'
+                                this.state.filter === 1 && post.node.categories?.nodes.find((categoryNode) => categoryNode.name === 'In Arbeit') != null ||
+                                this.state.filter === 2 && post.node.categories?.nodes.find((categoryNode) => categoryNode.name === 'In Arbeit') == null
                             )
                             .map(({ node: post }) => {
                                 return (
@@ -126,7 +126,59 @@ export const pageQuery = graphql`
                 }
             }
         }
-        german: allWpDtPortfolio(
+        german: allWpProjekt(
+            sort: { fields: date, order: DESC }
+        ) {
+            edges {
+                node {
+                    id
+                    title
+                    excerpt
+                    date(formatString: "MMMM DD, YYYY", locale: "de")
+                    uri
+                    slug
+                     author {
+                        node {
+                            name
+                        }
+                    }
+                    categories{
+                        nodes {
+                            name
+                        }
+                    }
+                    featuredImage {
+                        node {
+                            localFile {
+                                childImageSharp {
+                                    fluid(maxWidth: 800) {
+                                        ...GatsbyImageSharpFluid
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    blocks {
+                        name
+                        saveContent
+                            innerBlocks {
+                                name
+                                saveContent
+                                innerBlocks {
+                                    name
+                                    saveContent
+                                }
+                        }
+                    }
+                }
+            }
+        }
+    }
+`;
+
+export default useTranslationHOC(ProjektePage);
+/*
+german: allWpDtPortfolio(
             sort: { fields: date, order: DESC }
         ) {
             edges {
@@ -161,8 +213,4 @@ export const pageQuery = graphql`
                     }
                 }
             }
-        }
-    }
-`;
-
-export default useTranslationHOC(ProjektePage);
+        } */

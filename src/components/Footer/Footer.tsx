@@ -118,7 +118,7 @@ const Footer = (t) => {
                         >
                             © 2021, ExploreChristoph. All rights reserved.
                         </a>
-                        <p className="footer-link">
+                        <p className="footer-link footer-link-right">
                             <Link to={'/impressum'} language={language}><Trans>Impressum</Trans></Link>
                             <span className="footer-link-seperator">|</span>
                             <Link to={'/dataprotection'} language={language}><Trans>Datenschutz</Trans></Link>

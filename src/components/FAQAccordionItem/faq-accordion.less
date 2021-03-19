@@ -1,0 +1,63 @@
+@import '../../styles/lib.less';
+
+.accordion-item {
+    padding      : 1.5rem !important;
+    border       : 0.0625rem solid #eaedf2 !important;
+    border-radius: 0.5rem !important;
+    background   : #ffffff;
+
+    .content {
+        padding: 0rem !important;
+
+        p {
+            padding-bottom: 0rem !important;
+            padding-top   : 1rem !important;
+            word-wrap     : break-word;
+        }
+    }
+}
+
+.accordion-title {
+    font-size      : 1rem !important;
+    color          : rgba(0, 0, 0, 0.87) !important;
+    font-weight    : 400 !important;
+    display        : flex;
+    justify-content: space-between;
+    align-items    : center;
+    padding        : 0rem !important;
+}
+
+.ui.fluid.accordion>div {
+    margin-bottom: 1rem;
+}
+
+.ui.styled.accordion .title {
+    border: none !important;
+}
+
+.ui.accordion .title~.content,
+.ui.accordion .accordion .title~.content {
+    height    : 0;
+    overflow  : hidden;
+    transition: height 0.5s ease;
+    display   : block !important;
+}
+
+.ui.accordion .active.content,
+.ui.accordion .accordion .active.content {
+    display   : block !important;
+    transition: height 0.5s ease;
+}
+
+.title.accordion-title {
+    transition : all 0.2s ease;
+    user-select: none;
+}
+
+.active.title.accordion-title {
+    color: @primaryColor  !important;
+}
+
+.title.accordion-title:hover {
+    color: @primaryColor  !important;
+}

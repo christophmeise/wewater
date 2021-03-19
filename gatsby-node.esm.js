@@ -50,7 +50,7 @@ export async function createPages({ graphql, actions }) {
 
     const projektPosts = await graphql(`
         {
-            allWpDtPortfolio(
+            allWpProjekt(
                 sort: { fields: date, order: DESC }
             ) {
                 edges {
@@ -67,6 +67,18 @@ export async function createPages({ graphql, actions }) {
                         date(formatString: "MMMM DD, YYYY", locale: "de")
                         uri
                         slug
+                        blocks {
+                            name
+                            saveContent
+                                innerBlocks {
+                                    name
+                                    saveContent
+                                    innerBlocks {
+                                        name
+                                        saveContent
+                                    }
+                            }
+                        }
                     }
                 }
             }
@@ -79,7 +91,7 @@ export async function createPages({ graphql, actions }) {
         return;
     }
 
-    projektPosts.data.allWpDtPortfolio.edges.forEach(({ node }) => {
+    projektPosts.data.allWpProjekt.edges.forEach(({ node }) => {
         createPage({
             path: 'projekte/' + node.slug,
             component: path.resolve(`./src/templates/projekt-post.tsx`),

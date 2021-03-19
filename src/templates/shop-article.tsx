@@ -8,7 +8,6 @@ import Layout from '../components/Layout/Layout';
 import Lightbox from '../components/Lightbox/lightbox';
 import SEO from '../components/seo';
 import { ShopItem } from '../components/ShopCard/shop-card';
-import SidebarWidget from '../components/Sidebar/sidebar';
 import './shop-article.less';
 
 class ShopArticleTemplate extends React.Component<any, any> {
@@ -117,9 +116,9 @@ class ShopArticleTemplate extends React.Component<any, any> {
 
                             </article>
                         </section>
-                        <div className="sidebar-widget-wrapper">
+                        {/*                         <div className="sidebar-widget-wrapper">
                             <SidebarWidget></SidebarWidget>
-                        </div>
+                        </div> */}
                     </div>
                 </Container>
             </Layout>

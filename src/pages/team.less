@@ -1,9 +1,10 @@
 @import '../styles/lib.less';
 
 #team-grid {
-    .team-grid-member:nth-child(odd) {
-        flex-direction: row-reverse;
-    }
+    display              : grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    column-gap           : 40px;
+    row-gap              : 40px;
 
     .gatsby-image-wrapper>div {
         padding-bottom: 69.5% !important;
@@ -44,4 +45,8 @@
 
 .header-overlay-headline-container {
     text-align: center;
+}
+
+.mask5 {
+    clip-path: url(#my-svg-mask);
 }

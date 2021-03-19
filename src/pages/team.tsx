@@ -2,7 +2,7 @@
 import { graphql } from 'gatsby';
 import Img from 'gatsby-image';
 import React from 'react';
-import { Container, Grid, GridColumn, GridRow, Header, Icon } from 'semantic-ui-react';
+import { Container, Header, Icon } from 'semantic-ui-react';
 import HeaderOverlay from '../components/HeaderOverlay/header-overlay';
 import Layout from '../components/Layout/Layout';
 import SEO from '../components/seo';
@@ -14,7 +14,7 @@ interface Props {
     data: {
         mobileImage: any;
         desktopImage: any;
-        allWpDtTeam: any;
+        allWpTeamMember: any;
     };
 }
 
@@ -34,7 +34,7 @@ class TeamPage extends React.Component<Props, any> {
     render() {
         const { t, data } = this.props;
 
-        const teamData = shuffle(data.allWpDtTeam.edges);
+        const teamData = data.allWpTeamMember.edges.slice(3, data.allWpTeamMember.edges.length).reverse().concat(shuffle(data.allWpTeamMember.edges.slice(0, 3)));
         const headerImage = [
             data.mobileImage.childImageSharp.fluid,
             {
@@ -50,74 +50,98 @@ class TeamPage extends React.Component<Props, any> {
                 <Container>
                     <Container>
                         <div className="main-content-sections">
+                            {/*                             <svg height="0" width="0" xmlns="http://www.w3.org/2000/svg">
+                                <defs>
+                                    <clipPath id="my-svg-mask">
+                                        <path fill="#FFFFFF" d="M52.6,-49.9C68.4,-36.7,81.8,-18.4,82.5,0.7C83.2,19.9,71.4,39.7,55.6,55.7C39.7,71.8,19.9,84,0.8,83.2C-18.3,82.5,-36.7,68.8,-50.4,52.7C-64.1,36.7,-73.2,18.3,-74.3,-1.2C-75.5,-20.7,-68.8,-41.4,-55.1,-54.5C-41.4,-67.7,-20.7,-73.3,-1.2,-72.1C18.4,-70.9,36.7,-63,52.6,-49.9Z" transform="translate(100 100)" />
+                                    </clipPath>
+                                </defs>
+                            </svg> */}
                             <section id="team-grid">
-                                <Grid stackable>
-                                    {teamData
-                                        .filter((post) => post.node.title.length > 0)
-                                        .map(({ node: post }) => {
-                                            return (
-                                                <GridRow key={post.title} className="team-grid-member" columns="2">
-                                                    <GridColumn>
-                                                        <Header
-                                                            data-sal="slide-up"
-                                                            data-sal-delay="0"
-                                                            data-sal-duration="300"
-                                                            data-sal-easing="ease"
-                                                            textAlign='left'
-                                                            className="global-flex-column global-no-margin"
+                                {teamData
+                                    .filter((post) => post.node.title.length > 0)
+                                    .map(({ node: post }) => {
+                                        return (
+                                            <div key={post.title} className="team-grid-member">
+                                                <Img className="img-fluid rounded shadow mask5" fluid={post.featuredImage.node.localFile.childImageSharp.fluid} />
+
+                                                <Header
+                                                    data-sal="slide-up"
+                                                    data-sal-delay="0"
+                                                    data-sal-duration="300"
+                                                    data-sal-easing="ease"
+                                                    textAlign='left'
+                                                    className="global-flex-column global-no-margin"
+                                                >
+                                                    <h3 className={`global-subtitle text-primary`}>{post?.acf_team?.kurzbeschreibung}</h3>
+                                                    <h2 className="global-headline">{post.title}</h2>
+                                                </Header>
+                                                <p dangerouslySetInnerHTML={{ __html: post.acf_team?.description }}></p>
+                                                <div>
+                                                    {post.acf_team?.facebook != null &&
+                                                        <a
+                                                            href={post.acf_team?.facebook}
+                                                            target="_blank"
+                                                            rel="noopener"
+                                                            aria-label="Facebook"
                                                         >
-                                                            <h3 className={`global-subtitle text-primary`}>FOUNDER</h3>
-                                                            <h2 className="global-headline">{post.title}</h2>
-                                                        </Header>
-                                                        <p dangerouslySetInnerHTML={{ __html: post.excerpt }}></p>
-                                                        <div>
-                                                            <a
-                                                                href="https://www.facebook.com/wewater.org/"
-                                                                target="_blank"
-                                                                rel="noopener"
-                                                                aria-label="Facebook"
-                                                            >
-                                                                <Icon className="hover-animate" size="large" name="facebook"></Icon>
-                                                            </a>
-                                                            <a
-                                                                href="https://www.instagram.com/wewater_org/"
-                                                                target="_blank"
-                                                                rel="noopener"
-                                                                aria-label="Instagram"
-                                                            >
-                                                                <Icon className="hover-animate" size="large" name="instagram"></Icon>
-                                                            </a>
-                                                            <a
-                                                                href="https://www.youtube.com/channel/UC3zOjWWL5drSnoxzcj3-jqw"
-                                                                target="_blank"
-                                                                rel="noopener"
-                                                                aria-label="Youtube"
-                                                            >
-                                                                <Icon className="hover-animate" size="large" name="youtube"></Icon>
-                                                            </a>
-                                                        </div>
-                                                    </GridColumn>
-                                                    <GridColumn>
-                                                        <Img className="img-fluid rounded shadow" fluid={post.featuredImage.node.localFile.childImageSharp.fluid} />
-
-                                                    </GridColumn>
-                                                </GridRow>
-
-                                            );
-                                        })}
-                                </Grid>
-
-                                {/*   <Grid style={{ paddingTop: '2em' }} stackable centered columns={3}>
-                                    <Grid.Column data-sal="slide-up" data-sal-delay="0" data-sal-duration="300" data-sal-easing="ease">
-                                        {teamData
-                                            .filter((post) => post.node.title.length > 0)
-                                            .map(({ node: post }) => {
-                                                return (
-                                                    <div>{post.title}</div>
-                                                );
-                                            })}
-                                    </Grid.Column>
-                                </Grid> */}
+                                                            <Icon className="hover-animate" size="large" name="facebook"></Icon>
+                                                        </a>
+                                                    }
+                                                    {post.acf_team?.instagram != null &&
+                                                        <a
+                                                            href={post.acf_team?.instagram}
+                                                            target="_blank"
+                                                            rel="noopener"
+                                                            aria-label="Instagram"
+                                                        >
+                                                            <Icon className="hover-animate" size="large" name="instagram"></Icon>
+                                                        </a>
+                                                    }
+                                                    {post.acf_team?.linkedin != null &&
+                                                        <a
+                                                            href={post.acf_team?.linkedin}
+                                                            target="_blank"
+                                                            rel="noopener"
+                                                            aria-label="LinkedIn"
+                                                        >
+                                                            <Icon className="hover-animate" size="large" name="linkedin"></Icon>
+                                                        </a>
+                                                    }
+                                                    {post.acf_team?.email != null &&
+                                                        <a
+                                                            href={'mailto:' + post.acf_team?.email}
+                                                            target="_blank"
+                                                            rel="noopener"
+                                                            aria-label="Email"
+                                                        >
+                                                            <Icon className="hover-animate" size="large" name="mail outline"></Icon>
+                                                        </a>
+                                                    }
+                                                    {post.acf_team?.website != null &&
+                                                        <a
+                                                            href={post.acf_team?.website}
+                                                            target="_blank"
+                                                            rel="noopener"
+                                                            aria-label="Website"
+                                                        >
+                                                            <Icon className="hover-animate" size="large" name="globe"></Icon>
+                                                        </a>
+                                                    }
+                                                    {post.acf_team?.twitter != null &&
+                                                        <a
+                                                            href={post.acf_team?.twitter}
+                                                            target="_blank"
+                                                            rel="noopener"
+                                                            aria-label="Twitter"
+                                                        >
+                                                            <Icon className="hover-animate" size="large" name="twitter"></Icon>
+                                                        </a>
+                                                    }
+                                                </div>
+                                            </div>
+                                        );
+                                    })}
                             </section>
                         </div>
                     </Container>
@@ -153,25 +177,36 @@ export const pageQuery = graphql`
         locales: allLocale(filter: {language: {eq: $language}}) {
           ...GetTranslations
         }
-        desktopImage: file(relativePath: { eq: "images/team/banner.jpeg" }) {
+        desktopImage: file(relativePath: { eq: "images/team/banner.jpg" }) {
             childImageSharp {
                 fluid(maxWidth: 1600, quality: 100) {
                     ...GatsbyImageSharpFluid_withWebp
                 }
             }
         }
-        mobileImage: file(relativePath: { eq: "images/team/banner-mobile.jpeg" }) {
+        mobileImage: file(relativePath: { eq: "images/team/banner-mobile.jpg" }) {
             childImageSharp {
                 fluid(maxWidth: 1200, quality: 100) {
                     ...GatsbyImageSharpFluid_withWebp
                 }
             }
         }
-        allWpDtTeam {
+        allWpTeamMember {
             edges {
                 node {
                     title
-                    excerpt
+                    acf_team {
+                        email
+                        fieldGroupName
+                        kurzbeschreibung
+                        facebook
+                        description
+                        instagram
+                        linkedin
+                        twitter
+                        website
+                    }
+                    content
                     featuredImage {
                         node {
                             localFile {

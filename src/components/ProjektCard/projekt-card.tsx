@@ -14,7 +14,7 @@ type Post = {
     date: string;
     uri: string;
     slug: string;
-    dt_portfolio_categories: {
+    categories: {
         nodes: any[];
     }
     featuredImage: {
@@ -27,7 +27,8 @@ type Post = {
 };
 
 export default function ProjektCard({ post }: Props) {
-    const imageUrl = post.dt_portfolio_categories?.nodes[0].name === 'In Arbeit' ? 'gears' : 'thumb';
+    const imageUrl = post.categories?.nodes.find((categoryNode) => categoryNode.name === 'In Arbeit') != null ? 'gears' : 'thumb';
+
     return (
         <Link to={`/projekte/` + post.slug}>
             <div className="hover-animate rounded-small shadow project-card">
@@ -38,7 +39,7 @@ export default function ProjektCard({ post }: Props) {
                 >
                     <div className="project-card-progress-circle-wrapper">
                         <div className="project-card-progress-circle">
-                            <LordIcon src={'/images/projekte/' + imageUrl + '.json'} delay={(3000 * Math.random()).toString()}></LordIcon>
+                            <LordIcon src={'/images/projekte/' + imageUrl + '.json'} delay={(3000 + 10000 * Math.random()).toString()}></LordIcon>
                         </div>
                     </div>
                     <div className="project-card-background-text-wrapper">

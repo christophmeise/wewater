@@ -25,7 +25,7 @@ const Innovation = () => {
                     textAlign='left'
                     className="global-flex-column global-no-margin"
                 >
-                    <h3 className={`global-subtitle text-primary`}><Trans>Weil’s an Wasser mangelt. Nicht an guten Ideen.</Trans></h3>
+                    <h3 className={`global-subtitle text-primary`}><Trans>Weil’s an Trinkwasser mangelt, nicht an guten Ideen.</Trans></h3>
                     <h2 className="global-headline"><Trans>Unsere Innovation auf einem Blick</Trans></h2>
                 </Header>
                 <Grid columns="4" stackable centered>

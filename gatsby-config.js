@@ -16,7 +16,7 @@ module.exports = {
   },
   plugins: [
     {
-      resolve: `gatsby-source-wordpress-experimental`,
+      resolve: `gatsby-source-wordpress`,
       options: {
         url: process.env.WPGRAPHQL_URL || 'https://www.wewaterbackend.works/graphql',
         verbose: true,
@@ -153,7 +153,7 @@ module.exports = {
           // https://purgecss.com/configuration.html#options
           safelist: {
             deep: [/transition$/, /visible$/],
-            greedy: [/menu$/, /link$/, /item$/, /grid$/, /container$/, /flag$/, /input$/, /selection$/, /dropdown$/]
+            greedy: [/menu$/, /link$/, /item$/, /grid$/, /container$/, /flag$/, /input$/, /selection$/, /dropdown$/, /table$/, /accordion$/]
           }
         },
       },
