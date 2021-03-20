@@ -20,7 +20,7 @@ const HeaderOverlay = ({ sources, inverted, content, darken = false, width = 8, 
                     <Image
                         fluid={sources}
                         className={`header-overlay-center-cropped ${darken && 'dark-overlay-blog'}`}
-                        alt="Gatsby Docs are awesome"
+                        alt="Header Intro Image"
                         critical={true}
                     >
                         {/*                     <BackgroundImage

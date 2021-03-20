@@ -1,7 +1,8 @@
 import { graphql } from 'gatsby';
 import React from 'react';
-import { Container } from 'semantic-ui-react';
+import { Container, Grid, GridColumn } from 'semantic-ui-react';
 import Layout from '../components/Layout/Layout';
+import SidebarWidget from '../components/Sidebar/sidebar';
 import HeaderOverlayBlog from './../components/HeaderOverlay/header-overlay-blog';
 import SEO from './../components/seo';
 import './blog-post.less';
@@ -22,9 +23,17 @@ function BlogPostTemplate({ data, t }) {
             />
             <Container>
                 <div className="blog-content-sections">
-                    <section className="blog-post">
-                        <article dangerouslySetInnerHTML={{ __html: post.content }}></article>
-                    </section>
+                    <Grid columns="2" stackable>
+                        <GridColumn width={12}>
+                            <section className="blog-post">
+                                <article dangerouslySetInnerHTML={{ __html: post.content }}></article>
+                            </section>
+                        </GridColumn>
+                        <GridColumn width={4}>
+                            <SidebarWidget></SidebarWidget>
+                        </GridColumn>
+                    </Grid>
+
                 </div>
             </Container>
         </Layout>

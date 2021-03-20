@@ -1,10 +1,12 @@
 // i18next-extract-mark-ns-start page_aqqabag
 import { graphql } from 'gatsby';
+import Image from 'gatsby-image';
 import { Trans } from 'gatsby-plugin-react-i18next';
 import React from 'react';
 import { Container, Grid, GridColumn, Header, Table } from 'semantic-ui-react';
 import VideoOverlay from '../../components/HeaderOverlay/video-overlay';
 import Layout from '../../components/Layout/Layout';
+import ProjektCard from '../../components/ProjektCard/projekt-card';
 import SEO from '../../components/seo';
 import { useTranslationHOC } from '../../components/useTranslationHOC/useTranslationHOC';
 
@@ -18,6 +20,10 @@ interface Props {
                 description: string;
             };
         };
+        aqqabag1: any;
+        aqqabag2: any;
+        aqqabag3: any;
+        projekte: any;
     };
 }
 
@@ -27,7 +33,9 @@ class AqqabagPage extends React.Component<Props, any> {
     }
 
     render() {
-        const { t } = this.props;
+        const { t, data } = this.props;
+
+        const posts = data.projekte.edges;
 
         const tableData = [
             {
@@ -85,10 +93,9 @@ class AqqabagPage extends React.Component<Props, any> {
                         <h3 className={`global-subtitle text-primary`}>AQQAbag</h3>
                         <h2 className="global-headline"><Trans>Die Lösung für den Soforteinsatz und Einzelpersonen</Trans></h2>
                     </Header>
-                    <Grid>
-                        <GridColumn width={12}>
+                    <Grid stackable>
+                        <GridColumn width={11}>
                             <section>
-
                                 <Table color="teal">
                                     <Table.Header>
                                         <Table.Row>
@@ -116,10 +123,36 @@ class AqqabagPage extends React.Component<Props, any> {
                         </Trans></p>
                             </section>
                         </GridColumn>
-                        <GridColumn width={4}>
-                            {/*  <SidebarWidget></SidebarWidget> */}
+                        <GridColumn width={5}>
+                            <Image fluid={data.aqqabag1.childImageSharp.fluid}
+                                className="img-fluid rounded shadow"
+                                style={{ marginBottom: '2rem' }}
+                                alt="aqqabag1"></Image>
+                            <Image fluid={data.aqqabag2.childImageSharp.fluid}
+                                className="img-fluid rounded shadow"
+                                style={{ marginBottom: '2rem' }}
+                                alt="aqqabag2"></Image>
+                            <Image fluid={data.aqqabag3.childImageSharp.fluid}
+                                className="img-fluid rounded shadow"
+                                style={{ marginBottom: '2rem' }}
+                                alt="aqqabag3"></Image>
                         </GridColumn>
                     </Grid>
+                    <section className="global-header-padding">
+                        <h2><Trans>Der AQQAbag ist u.a. im Einsatz in...</Trans></h2>
+                        <div className="projekt-card-grid">
+                            {posts
+                                .filter((post) => post.node.title.length > 0)
+                                .slice(0, 4)
+                                .map(({ node: post }) => {
+                                    return (
+                                        <div key={post.id} className="projekt-post-card-wrapper">
+                                            <ProjektCard post={post} ></ProjektCard>
+                                        </div>
+                                    );
+                                })}
+                        </div>
+                    </section>
 
                 </Container>
             </Layout>
@@ -157,10 +190,73 @@ class OverlayContent extends React.Component<any, any> {
 
 export const pageQuery = graphql`
     query($language: String!) {
-                locales: allLocale(filter: {language: {eq: $language}}) {
+            locales: allLocale(filter: {language: {eq: $language}}) {
                 ...GetTranslations
             }
-    }
+            aqqabag1: file(relativePath: { eq: "images/filtersysteme/aqqabag.jpg" }) {
+                childImageSharp {
+                    fluid(maxWidth: 600, quality: 100) {
+                        ...GatsbyImageSharpFluid_withWebp
+                    }
+                }
+            }
+            aqqabag2: file(relativePath: { eq: "images/filtersysteme/image5.jpg" }) {
+                childImageSharp {
+                    fluid(maxWidth: 600, quality: 100) {
+                        ...GatsbyImageSharpFluid_withWebp
+                    }
+                }
+            }
+            aqqabag3: file(relativePath: { eq: "images/filtersysteme/aqqabag3.jpg" }) {
+                childImageSharp {
+                    fluid(maxWidth: 600, quality: 100) {
+                        ...GatsbyImageSharpFluid_withWebp
+                    }
+                }
+            }
+            projekte: allWpProjekt(
+                sort: { fields: date, order: DESC }
+            ) {
+                edges {
+                    node {
+                        id
+                        title
+                        excerpt
+                        date(formatString: "MMMM DD, YYYY", locale: "de")
+                        uri
+                        slug
+                        author {
+                            node {
+                                name
+                            }
+                        }
+                        featuredImage {
+                            node {
+                                localFile {
+                                    childImageSharp {
+                                        fluid(maxWidth: 800) {
+                                            ...GatsbyImageSharpFluid
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                        blocks {
+                            name
+                            saveContent
+                                innerBlocks {
+                                    name
+                                    saveContent
+                                    innerBlocks {
+                                        name
+                                        saveContent
+                                    }
+                            }
+                        }
+                    }
+                }
+            }
+        }
 `;
 
 export default useTranslationHOC(AqqabagPage);

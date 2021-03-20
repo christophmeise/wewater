@@ -142,11 +142,6 @@ export const pageQuery = graphql`
                             name
                         }
                     }
-                    categories{
-                        nodes {
-                            name
-                        }
-                    }
                     featuredImage {
                         node {
                             localFile {
