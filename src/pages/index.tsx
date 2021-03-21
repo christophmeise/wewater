@@ -88,7 +88,7 @@ class Index extends React.Component<Props, State> {
           sources={sources}
           inverted={false}
           content={<OverlayContent />}
-          darken={true}
+          darken={shouldHideForm}
           width={10}
           floatTop={true}
         />
