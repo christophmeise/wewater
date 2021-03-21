@@ -2,7 +2,7 @@
   position        : absolute !important;
   top             : 0;
   width           : 100%;
-  z-index         : 1000;
+  z-index         : 100;
   padding         : 0em 0em;
   margin-bottom   : 1em;
   border          : none;
@@ -23,16 +23,16 @@
 }
 
 .mobile-menu {
-  height    : 0vh;
-  position  : absolute;
-  top       : 50px;
-  z-index   : 100;
-  width     : 100% !important;
-  overflow  : hidden;
-  transition: all 0.56s cubic-bezier(0.52, 0.16, 0.24, 1);
-  border    : none !important;
-  box-shadow: none !important;
-  z-index   : 999;
+  height       : 0vh;
+  position     : absolute;
+  top          : 50px;
+  width        : 100% !important;
+  overflow     : hidden;
+  transition   : all 0.56s cubic-bezier(0.52, 0.16, 0.24, 1);
+  border       : none !important;
+  box-shadow   : none !important;
+  z-index      : 100000 !important;
+  border-radius: 0 !important;
 }
 
 @supports ((-webkit-backdrop-filter: blur(40px)) or (backdrop-filter: blur(40px))) {

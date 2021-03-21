@@ -3,7 +3,7 @@ import React from 'react';
 import { Container, Grid, GridColumn } from 'semantic-ui-react';
 import './header-overlay.less';
 
-const HeaderOverlay = ({ sources, inverted, content, darken = false, width = 8, floatRight = false }) => {
+const HeaderOverlay = ({ sources, inverted, content, darken = false, width = 8, floatRight = false, floatTop = false }) => {
     let vh = 100;
     const isSSR = typeof window === 'undefined';
     if (!isSSR) {
@@ -44,7 +44,7 @@ const HeaderOverlay = ({ sources, inverted, content, darken = false, width = 8, 
                                 </div>
                             </GridColumn>
                         </Grid>
-                        <div className="header-overlay-container-mobile responsive-mobile-container">
+                        <div className={`responsive-mobile-container ${floatTop ? 'header-overlay-container-mobile-top' : 'header-overlay-container-mobile'}`}>
                             <div
                                 data-sal="slide-down"
                                 data-sal-delay="0"

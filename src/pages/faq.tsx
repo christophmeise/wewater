@@ -70,28 +70,25 @@ class FAQPage extends React.Component<Props, any> {
                 <SEO title={t('FAQSEOTitle')} description={t('FAQSEODescription')} />
                 <Container className="global-header-padding">
                     <PlainHeader content={HeaderContent(t)} />
-                    <Container>
-                        <div className="main-content-sections">
-                            <Grid columns={2}>
-                                <GridColumn width={12}>
-                                    <section>
-                                        {contents.map((entry: FAQContent, index: any) => {
-                                            return (
-                                                <div key={index}>
-                                                    <h4>{entry.headline}</h4>
-                                                    <FAQAccordion t={t} faqContent={entry.accordion}></FAQAccordion>
-                                                </div>
-                                            );
-                                        })}
-                                    </section>
-                                </GridColumn>
-                                <GridColumn width={4}>
-                                    <SidebarWidget></SidebarWidget>
-                                </GridColumn>
-                            </Grid>
-
-                        </div>
-                    </Container>
+                    <div className="main-content-sections">
+                        <Grid columns={2} stackable>
+                            <GridColumn width={12}>
+                                <section>
+                                    {contents.map((entry: FAQContent, index: any) => {
+                                        return (
+                                            <div key={index}>
+                                                <h4>{entry.headline}</h4>
+                                                <FAQAccordion t={t} faqContent={entry.accordion}></FAQAccordion>
+                                            </div>
+                                        );
+                                    })}
+                                </section>
+                            </GridColumn>
+                            <GridColumn width={4}>
+                                <SidebarWidget></SidebarWidget>
+                            </GridColumn>
+                        </Grid>
+                    </div>
                 </Container>
             </Layout >
         );

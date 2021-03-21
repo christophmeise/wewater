@@ -1,6 +1,8 @@
 import { Link } from 'gatsby';
 import Img from 'gatsby-image';
+import de from 'hyphenated-de';
 import React from 'react';
+import Hyphenated from 'react-hyphen';
 import './blog-post-card.less';
 
 interface Props {
@@ -48,7 +50,9 @@ export default function BlogPostCard({ post }: Props) {
                     })}
                 </div>
                 <div className="blog-post-card-content">
-                    <h3 className="blog-post-title">{post.title}</h3>
+                    <Hyphenated language={de}>
+                        <h3 className="blog-post-title">{post.title}</h3>
+                    </Hyphenated>
                 </div>
                 <div className="blog-post-card-date">
                     <p>{post.date}</p>
@@ -66,7 +70,9 @@ export function BlogPostCardSimple({ post }: Props) {
                     <Img className="rounded-small dark-overlay-blog blog-post-card-image-simple" fluid={post?.featuredImage?.node?.localFile?.childImageSharp?.fluid} />
                 </div>
                 <div className="blog-post-card-content">
-                    <h3 className="blog-post-title">{post.title}</h3>
+                    <Hyphenated language={de}>
+                        <h3 className="blog-post-title">{post.title}</h3>
+                    </Hyphenated>
                 </div>
             </div>
         </Link>

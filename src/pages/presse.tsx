@@ -39,90 +39,88 @@ class PressePage extends React.Component<Props, any> {
                 <SEO title={t('PresseSEOTitle')} description={t('PresseSEODescription')} />
                 <HeaderOverlay content={<OverlayContent t={t} inverted={true} />} darken={true} inverted={false} sources={headerImage} width={16} />
                 <Container className="global-header-padding">
-                    <Container>
-                        <div className="main-content-sections">
-                            <Grid columns="2" stackable>
-                                <GridColumn width="8">
-                                    <section className="presse-section">
-                                        <h2><Trans>Presse</Trans></h2>
-                                        <p>
-                                            <Trans>Möchtest du mehr über unsere ehrenamtliche Arbeit erfahren? Bist du Medienschaffender und möchtest über uns berichten, brauchst Hintergrundinformationen oder hast einen Projektvorschlag?
-                                            Hier findest du Kontaktmöglichkeiten, Ansprechpartner, Pressemitteilungen sowie weitere Pressematerialien wie Logos und Fotos.
+                    <div className="main-content-sections">
+                        <Grid columns="2" stackable>
+                            <GridColumn width="8">
+                                <section className="presse-section">
+                                    <h2><Trans>Presse</Trans></h2>
+                                    <p>
+                                        <Trans>Möchtest du mehr über unsere ehrenamtliche Arbeit erfahren? Bist du Medienschaffender und möchtest über uns berichten, brauchst Hintergrundinformationen oder hast einen Projektvorschlag?
+                                        Hier findest du Kontaktmöglichkeiten, Ansprechpartner, Pressemitteilungen sowie weitere Pressematerialien wie Logos und Fotos.
                                                 </Trans>
-                                        </p>
-                                        <br />
-                                        <a href="https://www.dropbox.com/sh/hnpshh4sw3x30dq/AACy2I-sBYeIIZi4xv5huEEya?dl=0" target="_blank">
-                                            <Button
-                                                secondary
-                                                basic
-                                                inverted={false}
-                                                size="medium"
-                                                className="rounded shadow hover-animate presse-btn-icon"
-                                            >
-                                                <Icon icon={drawText24Regular} />
-                                                <Trans>Logos</Trans>
-                                            </Button>
-                                        </a>
-                                        <a href="https://www.dropbox.com/sh/nddqbymudy3x7xb/AAAkAePDC9RviQs-kPpPYwU-a?dl=0" target="_blank">
-                                            <Button
-                                                secondary
-                                                basic
-                                                inverted={false}
-                                                size="medium"
-                                                className="rounded shadow hover-animate presse-btn-icon"
-                                            >
-                                                <Icon icon={imageIcon} />
-                                                <Trans>Bildmaterial</Trans>
-                                            </Button>
-                                        </a>
-                                    </section>
-                                    <section>
-                                        <Header
-                                            data-sal="slide-up"
-                                            data-sal-delay="0"
-                                            data-sal-duration="300"
-                                            data-sal-easing="ease"
-                                            textAlign='left'
-                                            className="global-flex-column global-no-margin"
+                                    </p>
+                                    <br />
+                                    <a href="https://www.dropbox.com/sh/hnpshh4sw3x30dq/AACy2I-sBYeIIZi4xv5huEEya?dl=0" target="_blank">
+                                        <Button
+                                            secondary
+                                            basic
+                                            inverted={false}
+                                            size="medium"
+                                            className="rounded shadow hover-animate presse-btn-icon"
                                         >
-                                            <h3 className={`global-subtitle text-primary`}><Trans>WeWater in den Medien</Trans></h3>
-                                            <h2 className="global-headline"><Trans>Pressemitteilungen</Trans></h2>
-                                        </Header>
-                                        {posts
-                                            .filter((post) => post.node.title.length > 0)
-                                            .map(({ node: post }) => {
-                                                return (
-                                                    <div key={post.id} className="blog-post-card-wrapper" data-sal="slide-up" data-sal-delay="0" data-sal-duration="300" data-sal-easing="ease">
-                                                        <BlogPostCardSimple post={post}></BlogPostCardSimple>
-                                                    </div>
-                                                );
-                                            })}
-                                    </section>
-                                </GridColumn>
-                                <GridColumn width="8">
-                                    <section className="presse-section">
-                                        <Grid columns="2">
-                                            <GridColumn>
-                                                <Image fluid={sources}
-                                                    className="img-fluid rounded shadow"
-                                                    alt="Ansprechpartner"></Image>
-                                            </GridColumn>
-                                            <GridColumn>
-                                                <h3><Trans>Ansprechpartner</Trans></h3>
-                                                <p><Trans>Medienanfragen bitte an</Trans></p>
-                                                <strong>Thilo Kunz</strong>
-                                                <p>thilo.kunz[at]wewater.org</p>
-                                            </GridColumn>
-                                        </Grid>
+                                            <Icon icon={drawText24Regular} />
+                                            <Trans>Logos</Trans>
+                                        </Button>
+                                    </a>
+                                    <a href="https://www.dropbox.com/sh/nddqbymudy3x7xb/AAAkAePDC9RviQs-kPpPYwU-a?dl=0" target="_blank">
+                                        <Button
+                                            secondary
+                                            basic
+                                            inverted={false}
+                                            size="medium"
+                                            className="rounded shadow hover-animate presse-btn-icon"
+                                        >
+                                            <Icon icon={imageIcon} />
+                                            <Trans>Bildmaterial</Trans>
+                                        </Button>
+                                    </a>
+                                </section>
+                                <section>
+                                    <Header
+                                        data-sal="slide-up"
+                                        data-sal-delay="0"
+                                        data-sal-duration="300"
+                                        data-sal-easing="ease"
+                                        textAlign='left'
+                                        className="global-flex-column global-no-margin"
+                                    >
+                                        <h3 className={`global-subtitle text-primary`}><Trans>WeWater in den Medien</Trans></h3>
+                                        <h2 className="global-headline"><Trans>Pressemitteilungen</Trans></h2>
+                                    </Header>
+                                    {posts
+                                        .filter((post) => post.node.title.length > 0)
+                                        .map(({ node: post }) => {
+                                            return (
+                                                <div key={post.id} className="blog-post-card-wrapper" data-sal="slide-up" data-sal-delay="0" data-sal-duration="300" data-sal-easing="ease">
+                                                    <BlogPostCardSimple post={post}></BlogPostCardSimple>
+                                                </div>
+                                            );
+                                        })}
+                                </section>
+                            </GridColumn>
+                            <GridColumn width="8">
+                                <section className="presse-section">
+                                    <Grid columns="2" stackable>
+                                        <GridColumn>
+                                            <Image fluid={sources}
+                                                className="img-fluid rounded shadow"
+                                                alt="Ansprechpartner"></Image>
+                                        </GridColumn>
+                                        <GridColumn>
+                                            <h3><Trans>Ansprechpartner</Trans></h3>
+                                            <p><Trans>Medienanfragen bitte an</Trans></p>
+                                            <strong>Thilo Kunz</strong>
+                                            <p>thilo.kunz[at]wewater.org</p>
+                                        </GridColumn>
+                                    </Grid>
 
-                                    </section>
-                                    <section>
-                                        <p dangerouslySetInnerHTML={{ __html: pageData }}></p>
-                                    </section>
-                                </GridColumn>
-                            </Grid>
-                        </div>
-                    </Container>
+                                </section>
+                                <section>
+                                    <p dangerouslySetInnerHTML={{ __html: pageData }}></p>
+                                </section>
+                            </GridColumn>
+                        </Grid>
+                    </div>
                 </Container>
             </Layout>
         );

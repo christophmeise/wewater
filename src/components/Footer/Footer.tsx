@@ -74,9 +74,6 @@ const Footer = (t) => {
                                             <Link to={'/presse'} language={language}><Trans>Pressespiegel – WeWater in den Medien</Trans></Link>
                                         </List.Item>
                                         <List.Item>
-                                            <Link to={'/partner'} language={language}><Trans>Partner</Trans></Link>
-                                        </List.Item>
-                                        <List.Item>
                                             <Link to={'/faq'} language={language}><Trans>FAQ</Trans></Link>
                                         </List.Item>
                                         <List.Item>

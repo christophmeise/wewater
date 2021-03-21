@@ -12,6 +12,7 @@
 }
 
 .global-navbar-mobile-menu {
+  z-index         : 100000 !important;
   height          : 52px;
   top             : -2px !important;
   margin-top      : 0px !important;
@@ -24,14 +25,14 @@
 
 @supports ((-webkit-backdrop-filter: blur(20px)) or (backdrop-filter: blur(20px))) {
   .global-navbar-mobile-menu {
-    background-color       : rgba(255, 255, 255, 0.72) !important;
+    background-color       : rgba(255, 255, 255, 0.80) !important;
     -webkit-backdrop-filter: saturate(180%) blur(20px);
     backdrop-filter        : saturate(180%) blur(20px) !important;
   }
 }
 
 #header {
-  z-index: 9999999;
+  z-index: 999999;
 }
 
 .nav-popover {

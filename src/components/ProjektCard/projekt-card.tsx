@@ -1,6 +1,8 @@
 import { Link } from 'gatsby';
 import BackgroundImage from 'gatsby-background-image';
+import de from 'hyphenated-de';
 import React from 'react';
+import Hyphenated from 'react-hyphen';
 import LordIcon from '../Innovation/lordicon';
 import './projekt-card.less';
 
@@ -55,7 +57,11 @@ export default function ProjektCard({ post }: Props) {
                             })}
  */}
                         </div>
-                        <h4 className="project-card-background-text text-shadow">{post.title}</h4>
+                        <Hyphenated language={de}>
+                            <h4 className="project-card-background-text text-shadow">
+                                {post.title}
+                            </h4>
+                        </Hyphenated>
                         <p>{post.date}</p>
                     </div>
                 </BackgroundImage>

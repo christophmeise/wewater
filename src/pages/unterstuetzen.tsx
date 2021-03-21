@@ -37,42 +37,45 @@ class UnterstuetzenPage extends React.Component<Props, any> {
     render() {
         const { t } = this.props;
 
+        let fbWidth = 500;
+        if (typeof window != 'undefined' && window.innerWidth < 600) {
+            fbWidth = window.innerWidth - 30;
+        }
+
         return (
             <Layout>
                 <SEO title={t('UnterstuetzenSEOTitle')} description={t('UnterstuetzenSEODescription')} />
-                <Container className="global-header-padding">
+                <Container className="global-header-padding" text>
                     <PlainHeader content={HeaderContent(t)} />
-                    <Container text>
-                        <div className="main-content-sections">
-                            <section>
-                                <p><Trans>Manchmal ist man etwas knapp bei Kasse – wir kennen das. Doch es gibt diverse Möglichkeiten, wie du uns ohne eine finanzielle unterstützen kannst. Schau mal in diese Liste. Sicher ist etwas dabei, dass du für uns tun kannst. Vielen, vielen Dank!</Trans></p>
-                                <h4><Trans>1. Like unsere Facebook-Seite</Trans></h4>
-                                <iframe style={{ border: 'none', overflow: 'hidden' }}
-                                    src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Fwewater.org%2F&amp;tabs=timeline&amp;width=500&amp;height=300&amp;small_header=false&amp;adapt_container_width=true&amp;hide_cover=false&amp;show_facepile=true&amp;appId"
-                                    width="500" height="300" frameBorder="0" scrolling="no" loading="lazy">
-                                </iframe>
-                                <h4><Trans>2. Teile unsere Facebook-Seite</Trans></h4>
-                                <p><Trans>Nachdem du uns auf <a href="https://www.facebook.com/wewater.org/" target="_blank" rel="noopener noreferrer">unserer Facebook-Seite ein Like</a> gelassen hast, freuen wir uns sehr darüber, wenn du die Seite deinen Freunden empfiehlst, um uns mehr Aufmerksamkeit zu schenken.</Trans></p>
-                                <h4><Trans>3. Folge uns auf <a href="https://www.instagram.com/wewater_org/?hl=de" target="_blank" rel="noopener noreferrer">Instagram</a></Trans></h4>
-                                <blockquote
-                                    data-instgrm-captioned
-                                    data-instgrm-permalink="https://www.instagram.com/p/Bux-bfYHKrK/?utm_source=ig_embed&amp;utm_campaign=loading"
-                                    data-instgrm-version="12"
-                                    className="instagram-media insta-embed"
-                                ></blockquote>
-                                <h4><Trans>4. Kopiere das in deinen Whatsapp-Status</Trans></h4>
-                                <p><em><Trans>"Ich unterstütze wewater.org. Spende auch du für sauberes Trinkwasser!"</Trans></em></p>
-                                <h4><Trans>5. Liefere uns wertvolle Kontakte</Trans></h4>
-                                <p><Trans>Jeder kennt jemanden, der einen kennt, der einen kennt. Wir sind dankbar über jeden Kontakt, der uns auf unserem Weg helfen kann. Das können zum Beispiel Menschen mit Know-how sein, Menschen mit guten Beziehungen in die Medien oder Menschen, die bereit sind für unser Engagement zu spenden. Schreib uns an <a href="mailto:hi@wewater.org">hi@wewater.org</a>. Oder empfiehle uns direkt weiter. Vielen Dank!</Trans></p>
-                                <h4><Trans>6. Bring dich ein</Trans></h4>
-                                <p><Trans>Bei unserer ehrenamtlichen Arbeit für WeWater brauchen wir Designer, Programmierer, Social Media Manager und Menschen, die Lust und Spaß daran haben sich zu engagieren. Was kannst du gut? Wir können jede Hilfe und jedes Talent gebrauchen, also schreib uns an <a href="mailto:hi@wewater.org" target="_blank" rel="noopener noreferrer">hi@wewater.org</a>. Jede Hilfe ist herzlich willkommen!</Trans></p>
-                                <h4><Trans>7. Spende während du auf Amazon bestellst</Trans></h4>
-                                <p><Trans>Auf <a href="http://smile.amazon.de/">smile.amazon.de</a> bietet Amazon eine Möglichkeit, um Spenden für gemeinnützige Organisationen zu sammeln. Wählst du dort "WeWater gemeinnützige UG" unter deinem begünstigtem Empfänger aus und gehst du vor jeder Bestellung auf Amazon ab sofort immer auf <a href="http://smile.amazon.de/">smile.amazon.de</a>, so erhält WeWater 0,5% deines Bestellwertes als Spende von Amazon. Komplett ohne Aufpreis für dich.</Trans></p>
-                                <div id="amznCharityBanner">
-                                </div>
-                            </section>
-                        </div>
-                    </Container>
+                    <div className="main-content-sections">
+                        <section>
+                            <p><Trans>Manchmal ist man etwas knapp bei Kasse – wir kennen das. Doch es gibt diverse Möglichkeiten, wie du uns ohne eine finanzielle unterstützen kannst. Schau mal in diese Liste. Sicher ist etwas dabei, dass du für uns tun kannst. Vielen, vielen Dank!</Trans></p>
+                            <h4><Trans>1. Like unsere Facebook-Seite</Trans></h4>
+                            <iframe style={{ border: 'none', overflow: 'hidden', maxWidth: "100%" }}
+                                src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Fwewater.org%2F&amp;tabs=timeline&amp;small_header=false&amp;adapt_container_width=true&amp;hide_cover=false&amp;show_facepile=true&amp;appId"
+                                frameBorder="0" scrolling="no" loading="lazy" width={fbWidth} height="300">
+                            </iframe>
+                            <h4><Trans>2. Teile unsere Facebook-Seite</Trans></h4>
+                            <p><Trans>Nachdem du uns auf <a href="https://www.facebook.com/wewater.org/" target="_blank" rel="noopener noreferrer">unserer Facebook-Seite ein Like</a> gelassen hast, freuen wir uns sehr darüber, wenn du die Seite deinen Freunden empfiehlst, um uns mehr Aufmerksamkeit zu schenken.</Trans></p>
+                            <h4><Trans>3. Folge uns auf <a href="https://www.instagram.com/wewater_org/?hl=de" target="_blank" rel="noopener noreferrer">Instagram</a></Trans></h4>
+                            <blockquote
+                                data-instgrm-captioned
+                                data-instgrm-permalink="https://www.instagram.com/p/Bux-bfYHKrK/?utm_source=ig_embed&amp;utm_campaign=loading"
+                                data-instgrm-version="12"
+                                className="instagram-media insta-embed"
+                            ></blockquote>
+                            <h4><Trans>4. Kopiere das in deinen Whatsapp-Status</Trans></h4>
+                            <p><em><Trans>"Ich unterstütze wewater.org. Spende auch du für sauberes Trinkwasser!"</Trans></em></p>
+                            <h4><Trans>5. Liefere uns wertvolle Kontakte</Trans></h4>
+                            <p><Trans>Jeder kennt jemanden, der einen kennt, der einen kennt. Wir sind dankbar über jeden Kontakt, der uns auf unserem Weg helfen kann. Das können zum Beispiel Menschen mit Know-how sein, Menschen mit guten Beziehungen in die Medien oder Menschen, die bereit sind für unser Engagement zu spenden. Schreib uns an <a href="mailto:hi@wewater.org">hi@wewater.org</a>. Oder empfiehle uns direkt weiter. Vielen Dank!</Trans></p>
+                            <h4><Trans>6. Bring dich ein</Trans></h4>
+                            <p><Trans>Bei unserer ehrenamtlichen Arbeit für WeWater brauchen wir Designer, Programmierer, Social Media Manager und Menschen, die Lust und Spaß daran haben sich zu engagieren. Was kannst du gut? Wir können jede Hilfe und jedes Talent gebrauchen, also schreib uns an <a href="mailto:hi@wewater.org" target="_blank" rel="noopener noreferrer">hi@wewater.org</a>. Jede Hilfe ist herzlich willkommen!</Trans></p>
+                            <h4><Trans>7. Spende während du auf Amazon bestellst</Trans></h4>
+                            <p><Trans>Auf <a href="http://smile.amazon.de/">smile.amazon.de</a> bietet Amazon eine Möglichkeit, um Spenden für gemeinnützige Organisationen zu sammeln. Wählst du dort "WeWater gemeinnützige UG" unter deinem begünstigtem Empfänger aus und gehst du vor jeder Bestellung auf Amazon ab sofort immer auf <a href="http://smile.amazon.de/">smile.amazon.de</a>, so erhält WeWater 0,5% deines Bestellwertes als Spende von Amazon. Komplett ohne Aufpreis für dich.</Trans></p>
+                            <div id="amznCharityBanner">
+                            </div>
+                        </section>
+                    </div>
                 </Container>
             </Layout>
         );

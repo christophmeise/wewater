@@ -20,7 +20,7 @@
 
 .dark-overlay-blog {
   opacity         : 1 !important;
-  background-color: rgba(0, 6, 30, 0.55);
+  background-color: rgba(0, 6, 30, 0.3);
 }
 
 .dark-overlay-blog::after {
@@ -31,14 +31,14 @@
   top             : 0;
   bottom          : 0;
   opacity         : 1 !important;
-  background-color: rgba(0, 6, 30, 0.55);
+  background-color: rgba(0, 6, 30, 0.3);
 }
 
 .swiper-container-full {
   .dark-overlay-blog {
     cursor          : pointer;
     opacity         : 1 !important;
-    background-color: rgba(0, 6, 30, 0.55);
+    background-color: rgba(0, 6, 30, 0.3);
     transition      : background-color 0.5s ease;
   }
 
@@ -98,16 +98,16 @@
   word-break     : break-word;
   display        : flex !important;
   justify-content: center;
-  z-index        : 100;
+  z-index        : 10;
 
   div {
-    z-index: 100;
+    z-index: 10;
   }
 }
 
 .header-overlay-container-absolute {
   position: absolute;
-  z-index : 100000;
+  z-index : 10000;
   left    : 0;
   right   : 0;
 }
@@ -154,6 +154,14 @@
   display   : flex;
   align-self: center;
   text-align: left;
+  width     : 100%;
+}
+
+.header-overlay-container-mobile-top {
+  display   : flex;
+  align-self: flex-start;
+  margin-top: 85px;
+  text-align: center;
   width     : 100%;
 }
 
@@ -204,7 +212,7 @@
 
 .header-overlay-svg {
   position: absolute;
-  z-index : 10000;
+  z-index : 1000;
   bottom  : -1px;
   left    : 0;
 }
