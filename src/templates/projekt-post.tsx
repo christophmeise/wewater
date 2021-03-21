@@ -1,6 +1,10 @@
 import { graphql } from 'gatsby';
 import React from 'react';
-import { Container } from 'semantic-ui-react';
+import { Container, Table } from 'semantic-ui-react';
+import SwiperCore, { Autoplay, Navigation } from 'swiper';
+import 'swiper/components/pagination/pagination.less';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import 'swiper/swiper.less';
 import HeaderOverlayBlog from '../components/HeaderOverlay/header-overlay-blog';
 import Layout from '../components/Layout/Layout';
 import SEO from '../components/seo';
@@ -11,7 +15,11 @@ function ProjektPostTemplate({ data, t }) {
 
     const projekt = data.allWpProjekt.edges[0].node;
     const sources = projekt.featuredImage.node.localFile.childImageSharp.fluid;
-
+    let jsonBlocks = [];
+    if (projekt?.blocksJSON != null) {
+        jsonBlocks = JSON.parse(projekt.blocksJSON);
+    }
+    SwiperCore.use([Autoplay, Navigation]);
     return (
         <Layout>
             <SEO description={projekt.title} title={projekt.title} />
@@ -24,13 +32,67 @@ function ProjektPostTemplate({ data, t }) {
             <Container>
                 <div className="blog-content-sections">
                     <section className="projekt-post">
-                        {projekt.blocks.map((block) => {
-                            return <div className="wp-block" dangerouslySetInnerHTML={{ __html: block?.saveContent }}></div>
+                        {jsonBlocks.map((block) => {
+                            if (block?.name === 'core/table') {
+                                return (
+                                    <Table>
+                                        <Table.Header>
+                                            {block?.attributes?.body?.slice(0, 1).map((row, rindex) => {
+                                                return (
+                                                    <Table.Row key={'row' + rindex}>
+                                                        {row?.cells?.map((cell, cindex) => {
+                                                            return (
+                                                                <Table.HeaderCell key={'cell' + cindex}> <span dangerouslySetInnerHTML={{ __html: cell?.content }}></span></Table.HeaderCell>
+                                                            )
+                                                        })}
+                                                    </Table.Row>
+                                                );
+                                            })}
+                                        </Table.Header>
+
+                                        <Table.Body>
+                                            {block?.attributes?.body?.slice(1, block.attributes.body.length).map((row, rindex) => {
+                                                return (
+                                                    <Table.Row key={'row' + rindex}>
+                                                        {row?.cells?.map((cell, cindex) => {
+                                                            return (
+                                                                <Table.Cell key={'cell' + cindex}> <span dangerouslySetInnerHTML={{ __html: cell?.content }}></span></Table.Cell>
+                                                            )
+                                                        })}
+                                                    </Table.Row>
+                                                );
+                                            })}
+
+                                        </Table.Body>
+                                    </Table>
+                                )
+                            } else if (block?.name === 'core/gallery') {
+                                return (
+                                    <div>
+                                        <Swiper
+                                            spaceBetween={25}
+                                            slidesPerView={2}
+                                            autoplay={{ delay: 10000 }}
+                                            pagination={{ clickable: true, dynamicBullets: true }}
+                                        >
+                                            {block?.attributes?.images?.map((image) => {
+                                                return (
+                                                    <SwiperSlide key={image?.id}>
+                                                        <img src={image?.url} alt={image?.alt} />
+                                                    </SwiperSlide>
+                                                );
+                                            })}
+                                        </Swiper>
+                                    </div>
+                                );
+                            } else {
+                                return <div className="wp-block" dangerouslySetInnerHTML={{ __html: block?.saveContent }}></div>
+                            }
                         })}
                     </section>
                 </div>
             </Container>
-        </Layout>
+        </Layout >
     );
 }
 
@@ -86,18 +148,7 @@ export const pageQuery = graphql`
                             }
                         }
                     }
-                blocks {
-                    name
-                    saveContent
-                        innerBlocks {
-                            name
-                            saveContent
-                            innerBlocks {
-                                name
-                                saveContent
-                            }
-                    }
-                }
+                blocksJSON
             }
         }
     }

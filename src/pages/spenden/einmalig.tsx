@@ -39,25 +39,19 @@ class SpendenPage extends React.Component<Props, any> {
                                 <img style={{ border: "0", width: "1", height: "1", display: "none !important" }} hidden={true} src="https://www.paypal.com/de_DE/i/scr/pixel.gif" alt="" />
                             </form>
                         </div>
-                        <h4><strong>2. Du spendest via Lastschrift.</strong></h4>
-                        <div>
-                            <div className="bfs-resp-iframe">
-                                <iframe src="https://secure.spendenbank.de/form/3291?langid=1" frameBorder="0" width="800" height="800" />
-                            </div>
-                        </div>
-                        <h4><strong>3. Du spendest über unsere Projektseite auf Betterplace.</strong></h4>
-                        {typeof window !== 'undefined' && 
+                        <h4><strong>2. Du spendest über unsere Projektseite auf Betterplace.</strong></h4>
+                        {typeof window !== 'undefined' &&
                             <React.Fragment>
                                 <div id="betterplace_donation_iframe">
                                     <iframe loading="lazy" title="Spendenformular WeWater Betterplace Donation" frameBorder="0" marginHeight={0} marginWidth={0} src="https://www.betterplace.org/de/donate/iframe/projects/68773?background_color=ffffff&color=5ABEE6&donation_amount=20&bottom_logo=true&default_payment_method=&default_interval=single&utm_campaign=external_donation_forms" width="100%"></iframe>
                                 </div>
                             </React.Fragment>
-                            }
-                        <h4><strong>4. Du spendest über eine Banküberweisung an</strong></h4>
+                        }
+                        <h4><strong>3. Du spendest über eine Banküberweisung an</strong></h4>
                         <p>
-                            WeWater gUG <br/>
-                            Bank für Sozialwirtschaft <br/>
-                            IBAN: DE86 1002 0500 0001 6026 01 <br/>
+                            WeWater gUG <br />
+                            Bank für Sozialwirtschaft <br />
+                            IBAN: DE86 1002 0500 0001 6026 01 <br />
                             BIC-/SWIFT: BFSWDE33BER
                         </p>
                     </section>

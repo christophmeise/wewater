@@ -5,6 +5,7 @@ export const getBlogpostsFragment = graphql`
             edges {
                 node {
                     id
+                    databaseId
                     excerpt
                     title
                     content

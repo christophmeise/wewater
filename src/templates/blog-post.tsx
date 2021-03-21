@@ -1,6 +1,8 @@
 import { graphql } from 'gatsby';
 import React from 'react';
 import { Container, Grid, GridColumn } from 'semantic-ui-react';
+import CommentForm from '../components/Comments/comment-form';
+import CommentList from '../components/Comments/comment-list';
 import Layout from '../components/Layout/Layout';
 import SidebarWidget from '../components/Sidebar/sidebar';
 import HeaderOverlayBlog from './../components/HeaderOverlay/header-overlay-blog';
@@ -27,6 +29,10 @@ function BlogPostTemplate({ data, t }) {
                         <GridColumn width={12}>
                             <section className="blog-post">
                                 <article dangerouslySetInnerHTML={{ __html: post.content }}></article>
+                            </section>
+                            <section>
+                                <CommentForm postId={post.databaseId} />
+                                <CommentList postId={post.databaseId} />
                             </section>
                         </GridColumn>
                         <GridColumn width={4}>

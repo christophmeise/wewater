@@ -47,6 +47,9 @@ module.exports = {
         },
         excludeFieldNames: [`blocksJSON`, `saveContent`],
         type: {
+          Commenter: {
+            excludeFieldNames: [`databaseId`],
+          },
           Post: {
             limit:
               process.env.NODE_ENV === `development`

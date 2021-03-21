@@ -16,6 +16,17 @@
     }
 }
 
+@media @mobile {
+    #betterplace_donation_iframe {
+        padding: 0rem;
+
+        iframe {
+            height    : 1101px;
+            overflow-y: hidden;
+        }
+    }
+}
+
 .spenden-list {
     list-style  : none;
     padding-left: 0;
@@ -45,10 +56,11 @@
 
 .spenden-widget-container {
     h5 {
-        font-size: 18px;
+        font-size    : 18px;
         margin-bottom: 14px;
-        margin-top: 25px;
+        margin-top   : 25px;
     }
+
     .spenden-info-box {
         display       : flex;
         flex-direction: column;
