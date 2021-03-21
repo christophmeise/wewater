@@ -1,4 +1,5 @@
 import React from 'react';
+import { Container, Grid, GridColumn } from 'semantic-ui-react';
 import './video-overlay.less';
 
 const VideoOverlay = ({ sourceMP4, sourceWebm, sourceOGV, content, darken = false, poster }) => {
@@ -17,6 +18,30 @@ const VideoOverlay = ({ sourceMP4, sourceWebm, sourceOGV, content, darken = fals
                 <source src={sourceOGV} type="video/ogg; codecs=theora,vorbis"></source>
                 Video unsupported
             </video>
+            <Container className="header-overlay-container header-overlay-container-absolute">
+                <Grid className={`header-overlay-container-desktop responsive-desktop-container`}>
+                    <GridColumn width={16}>
+                        <div
+                            data-sal="slide-down"
+                            data-sal-delay="0"
+                            data-sal-duration="300"
+                            data-sal-easing="ease"
+                        >
+                            {content}
+                        </div>
+                    </GridColumn>
+                </Grid>
+                <div className={`responsive-mobile-container ${true ? 'header-overlay-container-mobile-top' : 'header-overlay-container-mobile'}`}>
+                    <div
+                        data-sal="slide-down"
+                        data-sal-delay="0"
+                        data-sal-duration="300"
+                        data-sal-easing="ease"
+                    >
+                        {content}
+                    </div>
+                </div>
+            </Container>
         </div>
     );
 };

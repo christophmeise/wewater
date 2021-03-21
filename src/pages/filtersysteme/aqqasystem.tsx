@@ -2,8 +2,11 @@
 import { graphql } from 'gatsby';
 import Image from 'gatsby-image';
 import { Trans } from 'gatsby-plugin-react-i18next';
+import de from 'hyphenated-de';
 import React from 'react';
+import Hyphenated from 'react-hyphen';
 import { Container, Grid, GridColumn, Header, Table } from 'semantic-ui-react';
+import { WeWaterLogo } from '..';
 import VideoOverlay from '../../components/HeaderOverlay/video-overlay';
 import Layout from '../../components/Layout/Layout';
 import ProjektCard from '../../components/ProjektCard/projekt-card';
@@ -73,7 +76,7 @@ class AqqasystemPage extends React.Component<Props, any> {
         return (
             <Layout>
                 <SEO title={t('AqqasystemSEOTitle')} description={t('AqqasystemSEODescription')} />
-                <VideoOverlay content={<OverlayContent t={t} inverted={true} />} darken={false}
+                <VideoOverlay content={<OverlayContent />} darken={false}
                     sourceMP4='/videos/aqqasystem/AQQASystem.mp4'
                     sourceWebm='/videos/aqqasystem/AQQASystem.webm'
                     sourceOGV='/videos/aqqasystem/AQQASystem.ogv'
@@ -88,7 +91,11 @@ class AqqasystemPage extends React.Component<Props, any> {
                         className="global-flex-column global-no-margin"
                     >
                         <h3 className={`global-subtitle text-primary`}>AQQAsystem</h3>
-                        <h2 className="global-headline"><Trans>Die Lösung für den langfristigen Einsatz</Trans></h2>
+                        <h2 className="global-headline">
+                            <Hyphenated language={de}>
+                                <Trans>Die Lösung für den langfristigen Einsatz</Trans>
+                            </Hyphenated>
+                        </h2>
                     </Header>
                     <Grid>
                         <GridColumn width={11}>
@@ -163,31 +170,17 @@ class AqqasystemPage extends React.Component<Props, any> {
     }
 }
 
-class OverlayContent extends React.Component<any, any> {
-    constructor(props: Props) {
-        super(props);
-    }
-
-    render() {
-        const { inverted, t } = this.props;
-
-        return (
-            <div>
-                <h1
-                    className={`header-overlay-headline ${inverted ? 'header-overlay-headline-inverted' : ''}`}
-                    style={{ marginBottom: '1.5rem' }}
-                >
-                    {t('page_filtersystem:headline')}
-                </h1>
-                <h2 className={`header-overlay-subheadline ${inverted ? 'header-overlay-subheadline-inverted' : ''}`}
-                    style={{ marginBottom: '1.5rem', marginTop: '0rem' }}>
-                    <p>
-                        {t('page_filtersystem:subheadline')}
-                    </p>
-                </h2>
+const OverlayContent = () => {
+    return (
+        <div className="main-overlay-content">
+            <div className="wewater-mobile-logo rounded shadow">
+                {WeWaterLogo()}
             </div>
-        );
-    }
+            <h2 className="text-shadow">
+                <Trans>Das AQQAsystem</Trans>
+            </h2>
+        </div >
+    );
 }
 
 export const pageQuery = graphql`
