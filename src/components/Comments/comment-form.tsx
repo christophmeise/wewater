@@ -1,7 +1,8 @@
 import { Mutation } from '@apollo/client/react/components';
+import { Trans } from 'gatsby-plugin-react-i18next';
 import gql from 'graphql-tag';
 import React from 'react';
-import { Input } from 'semantic-ui-react';
+import { Button, Form, FormField, FormGroup, Input, TextArea } from 'semantic-ui-react';
 
 // Create a GraphQL mutation for comment submissions.
 const commentSubmitQuery = gql`
@@ -66,7 +67,8 @@ class CommentForm extends React.Component<any, any> {
 			>
 				{(addComment) => (
 					// Render the form.
-					<form
+					<Form
+						className="global-header-padding"
 						onSubmit={(event) => {
 							// Prevent default form submit behavior.
 							event.preventDefault();
@@ -83,14 +85,31 @@ class CommentForm extends React.Component<any, any> {
 							});
 						}}
 					>
-						<label htmlFor="author">Author</label>
-						<Input name="author" value={this.state.author} onChange={this.handleInputChange} />
-						<label htmlFor="email">Email</label>
-						<Input name="email" value={this.state.email} onChange={this.handleInputChange} />
-						<label htmlFor="comment">Comment</label>
-						<textarea name="comment" value={this.state.comment} onChange={this.handleInputChange} />
-						<Input name="submit" type="submit" value="Post Comment" />
-					</form>
+						<h3><Trans>Hinterlasse eine Nachricht</Trans></h3>
+						<p><Trans>Deine Email wird nicht veröffentlicht. Notwendige Felder sind markiert *</Trans></p>
+						<FormGroup>
+							<FormField style={{ width: '100%' }}>
+								<TextArea rows={8} style={{ resize: 'none' }} name="comment" value={this.state.comment} onChange={this.handleInputChange} />
+							</FormField>
+						</FormGroup>
+						<FormGroup>
+							<FormField>
+								<label htmlFor="author"><Trans>Name</Trans>*</label>
+								<Input name="author" value={this.state.author} onChange={this.handleInputChange} />
+							</FormField>
+						</FormGroup>
+						<FormGroup>
+							<FormField>
+								<label htmlFor="email"><Trans>Email</Trans>*</label>
+								<Input name="email" value={this.state.email} onChange={this.handleInputChange} />
+							</FormField>
+						</FormGroup>
+						<FormGroup>
+							<FormField>
+								<Button name="submit" type="submit" primary className="rounded shadow"><Trans>Kommentar senden</Trans></Button>
+							</FormField>
+						</FormGroup>
+					</Form>
 				)}
 			</Mutation>
 		);

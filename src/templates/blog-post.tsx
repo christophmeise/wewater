@@ -5,6 +5,7 @@ import CommentForm from '../components/Comments/comment-form';
 import CommentList from '../components/Comments/comment-list';
 import Layout from '../components/Layout/Layout';
 import SidebarWidget from '../components/Sidebar/sidebar';
+import { useTranslationHOC } from '../components/useTranslationHOC/useTranslationHOC';
 import HeaderOverlayBlog from './../components/HeaderOverlay/header-overlay-blog';
 import SEO from './../components/seo';
 import './blog-post.less';
@@ -31,8 +32,8 @@ function BlogPostTemplate({ data, t }) {
                                 <article dangerouslySetInnerHTML={{ __html: post.content }}></article>
                             </section>
                             <section>
-                                <CommentForm postId={post.databaseId} />
                                 <CommentList postId={post.databaseId} />
+                                <CommentForm postId={post.databaseId} />
                             </section>
                         </GridColumn>
                         <GridColumn width={4}>
@@ -46,7 +47,7 @@ function BlogPostTemplate({ data, t }) {
     );
 }
 
-export default BlogPostTemplate;
+export default useTranslationHOC(BlogPostTemplate);
 
 const OverlayContent = ({ post, inverted }) => {
     const colors = ['color-primary', 'color-secondary', 'color-tertiary'];

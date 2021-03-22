@@ -1,0 +1,46 @@
+@import '../../styles/lib.less';
+
+.comment-list {
+    margin-left   : 0;
+    margin-right  : 0;
+    border        : 1px solid #eee;
+    padding       : 26px;
+    display       : flex;
+    flex-direction: column;
+    width         : 100%;
+}
+
+.comments-title {
+    padding-top  : 20px;
+    margin-bottom: 20px;
+}
+
+.comment-container {
+    display       : flex;
+    flex-direction: row;
+    align-items   : center;
+    margin-bottom : 25px;
+
+    .comment-picture-wrapper {
+        min-width: 64px;
+    }
+
+    .comment-author {
+        display      : inline-flex;
+        align-items  : center;
+        font-size    : 16px;
+        margin-bottom: 0.5rem;
+
+        pre {
+            margin: 0;
+        }
+    }
+
+    .comment-date {
+        color: @primaryColor;
+    }
+
+    .comment-content-col {
+        margin-left: 50px;
+    }
+}

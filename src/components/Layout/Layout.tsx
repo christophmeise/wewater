@@ -1,10 +1,12 @@
 import arrowSmallRight from '@iconify/icons-codicon/arrow-small-right';
 import cube20Regular from '@iconify/icons-fluent/cube-20-regular';
 import puzzleCube20Regular from '@iconify/icons-fluent/puzzle-cube-20-regular';
+import cookieBite from '@iconify/icons-la/cookie-bite';
 import bloodBag from '@iconify/icons-mdi/blood-bag';
 import { Icon } from '@iconify/react';
-import { Link } from 'gatsby-plugin-react-i18next';
+import { Link, Trans } from 'gatsby-plugin-react-i18next';
 import React, { Component } from 'react';
+import CookieConsent from 'react-cookie-consent';
 import 'semantic-ui-less/semantic.less';
 import { Container, Menu } from 'semantic-ui-react';
 import Footer from '../Footer/Footer';
@@ -224,6 +226,29 @@ class Layout extends Component<Props, any> {
                     )}
                     <main role="main">
                         {children}
+                        <CookieConsent
+                            disableStyles={true}
+                            location="bottom"
+                            buttonText="Accept"
+                            declineButtonText="Decline"
+                            cookieName="gatsby-gdpr-google-analytics"
+                            containerClasses="cookie-banner"
+                            contentClasses="cookie-banner-content"
+                            buttonClasses="ui primary button rounded"
+                            declineButtonClasses="ui primary inverted button rounded"
+                            buttonWrapperClasses="cookie-banner-button-wrapper"
+                            enableDeclineButton
+                            expires={150}
+                        >
+                            <div>
+                                <Icon icon={cookieBite} />
+                            </div>
+                            <div>
+                                <h6><Trans>Cookies policy</Trans></h6>
+                                <p><Trans>Our website uses cookies to analyze how the site is used and to ensure your experience is consistent between visits. <Link to={'/dataprotection'}>Cookies Policy</Link></Trans></p>
+
+                            </div>
+                        </CookieConsent>
                         <Footer t={t} />
                     </main>
                 </div>
