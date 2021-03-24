@@ -73,9 +73,7 @@ const SectionProjekte = () => {
                             .map(({ node: post }) => {
                                 return (
                                     posts.findIndex((entry) => entry.node.id === post.id) % 2 === 0 && (
-                                        <div key={post.id} data-sal="slide-up" data-sal-delay="0" data-sal-duration="300" data-sal-easing="ease">
-                                            <ProjektCard post={post} ></ProjektCard>
-                                        </div>
+                                        <ProjektCard key={post.id} post={post} data-sal="slide-up" data-sal-delay="0" data-sal-duration="300" data-sal-easing="ease"></ProjektCard>
                                     )
                                 );
                             })}
@@ -86,9 +84,7 @@ const SectionProjekte = () => {
                             .map(({ node: post }) => {
                                 return (
                                     posts.findIndex((entry) => entry.node.id === post.id) % 2 === 1 && (
-                                        <div key={post.id} data-sal="slide-up" data-sal-delay="0" data-sal-duration="300" data-sal-easing="ease">
-                                            <ProjektCard post={post} data-sal="slide-up" data-sal-delay="0" data-sal-duration="300" data-sal-easing="ease"></ProjektCard>
-                                        </div>
+                                        <ProjektCard key={post.id} post={post} data-sal="slide-up" data-sal-delay="0" data-sal-duration="300" data-sal-easing="ease"></ProjektCard>
                                     )
                                 );
                             })}

@@ -35,17 +35,17 @@ class CommentList extends React.Component<any, any> {
             <Query<any, any> query={commentQuery} variables={{ postId }}>
                 {({ loading, error, data }): any => {
                     // Loading and error messages.
-                    if (loading) return 'Loading comments...';
-                    if (error) return 'Error loading comments...';
-
-                    // Display message if there are no comments to show.
-                    if (data.comments.edges.length < 1) return 'This post does not have any comments.';
+                    if (loading) return '';
+                    if (error) return '';
 
                     return (
                         // Display the comment list.
                         <section className="global-header-padding">
                             <div className="comment-list">
-                                <h4 className="comments-title">{data?.comments?.edges?.length} <Trans> Kommentare</Trans></h4>
+                                {data.comments.edges.length < 1 ?
+                                    <h4 className="comments-title"><Trans>Noch keine Kommentare.</Trans></h4> :
+                                    <h4 className="comments-title">{data?.comments?.edges?.length} <Trans> Kommentare</Trans></h4>
+                                }
                                 {data.comments.edges.map((edge) => (
                                     <div className="comment-container">
                                         <div className="comment-picture-wrapper">

@@ -4,7 +4,6 @@ import { Icon as IconifyIcon } from '@iconify/react';
 import { graphql } from 'gatsby';
 import { Trans } from 'gatsby-plugin-react-i18next';
 import React from 'react';
-import CountUp from 'react-countup';
 import { Button, Icon } from 'semantic-ui-react';
 import SectionBlog from '../components/Blog/blog';
 import SectionFiltersysteme from '../components/Filtersysteme/filtersysteme';
@@ -28,25 +27,40 @@ interface Props {
 
 interface State {
   slidesPerView: number;
+  liter: number;
 }
 
 class Index extends React.Component<Props, State> {
   constructor(props: Props) {
     super(props);
+    const timeDiff = new Date().getTime() - new Date('01.03.2019').getTime();
+    const liter = timeDiff / 1000 / 30;
     this.state = {
-      slidesPerView: 5
+      slidesPerView: 5,
+      liter: liter
     };
   }
+
+  interval;
 
   componentDidMount() {
     if (typeof window !== 'undefined') {
       window.addEventListener('resize', this.calculateSlidesPerView.bind(this), false);
     }
     this.calculateSlidesPerView();
+    if (typeof window !== 'undefined' && window.innerWidth > 767) {
+      const timeDiff = new Date().getTime() - new Date('01.03.2019').getTime();
+      const liter = timeDiff / 1000 / 30;
+      this.setState({ liter: liter });
+      this.interval = setInterval(() => this.setState({ liter: this.state.liter + 0.023 }), 800);
+    }
   }
   componentWillUnmount() {
     if (typeof window !== 'undefined') {
       window.removeEventListener('resize', this.calculateSlidesPerView);
+    }
+    if (typeof window !== 'undefined' && window.innerWidth > 767) {
+      clearInterval(this.interval);
     }
   }
 
@@ -77,6 +91,8 @@ class Index extends React.Component<Props, State> {
       },
     ];
 
+    setInterval(() => { }, 1000);
+
     const slidesPerView = this.state != null ? this.state.slidesPerView : 5;
 
     const shouldHideForm = ((typeof window !== 'undefined') && window.innerWidth < 768) ? true : false;
@@ -87,7 +103,7 @@ class Index extends React.Component<Props, State> {
         <HeaderOverlay
           sources={sources}
           inverted={false}
-          content={<OverlayContent />}
+          content={<OverlayContent liter={this.state.liter} />}
           darken={shouldHideForm}
           width={10}
           floatTop={true}
@@ -105,7 +121,8 @@ class Index extends React.Component<Props, State> {
   }
 }
 
-const OverlayContent = () => {
+const OverlayContent = ({ liter }) => {
+  const format = new Intl.NumberFormat('de-DE', { minimumFractionDigits: 2 });
   return (
     <div className="main-overlay-content">
       <h1 className="wewater-description-desktop">
@@ -126,9 +143,10 @@ const OverlayContent = () => {
       {typeof window != 'undefined' && window.innerWidth > 767 &&
         <div className="main-overlay-infobox rounded">
           <div className="main-overlay-infobox-text">
-            <h3><CountUp delay={0.5} end={8100} start={0} separator="." duration={4}></CountUp></h3>
+            <h3>{format.format(liter.toFixed(2))}</h3>
+            {/* <CountUp delay={0.5} end={8100} start={0} separator="." duration={4}></CountUp> */}
           </div>
-          <p><Trans>Menschen mit Trinkwasser versorgt</Trans></p>
+          <p><Trans>Liter Trinkwasser gespendet</Trans></p>
           <div>
             <Button primary className="rounded">
               <IconifyIcon icon={tintIcon} style={{ opacity: '1', margin: '0em 0.42857143em 0em -0.21428571em' }} />

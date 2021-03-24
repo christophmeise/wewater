@@ -32,8 +32,8 @@ export default function ProjektCard({ post }: Props) {
     const imageUrl = post.categories?.nodes.find((categoryNode) => categoryNode.name === 'In Arbeit') != null ? 'gears' : 'thumb';
 
     return (
-        <Link to={`/projekte/` + post.slug}>
-            <div className="hover-animate rounded-small shadow project-card">
+        <div className="hover-animate rounded-small shadow project-card">
+            <Link to={`/projekte/` + post.slug}>
                 <BackgroundImage
                     Tag="div"
                     className="rounded-small project-card-background"
@@ -65,7 +65,7 @@ export default function ProjektCard({ post }: Props) {
                         <p>{post.date}</p>
                     </div>
                 </BackgroundImage>
-            </div>
-        </Link>
+            </Link>
+        </div>
     );
 }

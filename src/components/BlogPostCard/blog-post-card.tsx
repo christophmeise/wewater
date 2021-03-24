@@ -33,9 +33,9 @@ type Post = {
 export default function BlogPostCard({ post }: Props) {
     const colors = ['color-primary', 'color-secondary', 'color-tertiary'];
     return (
-        <Link to={`/blog/` + post.slug}>
-            <div className="rounded">
-                <Img className="rounded-small dark-overlay-blog blog-post-card-image" fluid={post?.featuredImage?.node?.localFile?.childImageSharp?.fluid} />
+        <div className="rounded">
+            <Link to={`/blog/` + post.slug}>
+                <Img className="rounded-small blog-post-card-image" fluid={post?.featuredImage?.node?.localFile?.childImageSharp?.fluid} />
                 <div className="blog-post-tag-label-group">
                     {post.categories.nodes.slice(0, 3).map((tag, index) => {
                         return (
@@ -57,8 +57,8 @@ export default function BlogPostCard({ post }: Props) {
                 <div className="blog-post-card-date">
                     <p>{post.date}</p>
                 </div>
-            </div>
-        </Link>
+            </Link>
+        </div>
     );
 }
 

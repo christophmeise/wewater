@@ -21,7 +21,7 @@ const HeaderOverlay = ({ sources, inverted, content, darken = false, width = 8, 
                         fluid={sources}
                         className={`header-overlay-center-cropped ${darken && 'dark-overlay-blog'}`}
                         alt="Header Intro Image"
-                        critical={true}
+                        loading="eager"
                     >
                         {/*                     <BackgroundImage
                         Tag="section"

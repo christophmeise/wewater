@@ -120,11 +120,11 @@ class CommentForm extends React.Component<any, any> {
 		// Check comment status from component state and display messages or form.
 		switch (this.state.commentStatus) {
 			case 'success':
-				return 'Your comment has been successfully submitted.';
+				return <p><Trans>Dein Kommentar wurde erfolgreich gespeichert.</Trans></p>;
 			case 'loading':
-				return 'Please wait. Your comment is being submitted.';
+				return <p><Trans>Dein Kommentar wird abgeschickt...</Trans></p>;
 			case 'error':
-				return 'There was an error in your submission. Please try again later.';
+				return <p><Trans>Dein Kommentar konnte leider nicht gespeichert werden, probiere es später bitte noch einmal</Trans></p>;
 			default:
 				return this.renderCommentForm();
 		}

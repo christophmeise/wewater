@@ -1,10 +1,12 @@
 import { graphql } from 'gatsby';
+import { Trans } from 'gatsby-plugin-react-i18next';
 import React from 'react';
 import { Container, Table } from 'semantic-ui-react';
-import SwiperCore, { Autoplay, Navigation } from 'swiper';
+import SwiperCore, { Autoplay, Navigation, Pagination } from 'swiper';
 import 'swiper/components/pagination/pagination.less';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/swiper.less';
+import BlogPostCard from '../components/BlogPostCard/blog-post-card';
 import HeaderOverlayBlog from '../components/HeaderOverlay/header-overlay-blog';
 import Layout from '../components/Layout/Layout';
 import SEO from '../components/seo';
@@ -15,11 +17,16 @@ function ProjektPostTemplate({ data, t }) {
 
     const projekt = data.allWpProjekt.edges[0].node;
     const sources = projekt.featuredImage.node.localFile.childImageSharp.fluid;
+    let matchingPosts = data.allWpCategory.edges
+        .filter(item => projekt.categories.nodes.map(entry => entry.name).includes(item.node.name));
+    console.log(matchingPosts);
+    matchingPosts = matchingPosts.map(entry => entry.node.posts).filter(posts => posts.nodes.length > 0);
+    console.log(matchingPosts);
     let jsonBlocks = [];
     if (projekt?.blocksJSON != null) {
         jsonBlocks = JSON.parse(projekt.blocksJSON);
     }
-    SwiperCore.use([Autoplay, Navigation]);
+    SwiperCore.use([Autoplay, Navigation, Pagination]);
     return (
         <Layout>
             <SEO description={projekt.title} title={projekt.title} />
@@ -30,8 +37,8 @@ function ProjektPostTemplate({ data, t }) {
                 content={<OverlayContent projekt={projekt} inverted={true} />}
             />
             <Container>
-                <div className="blog-content-sections">
-                    <section className="projekt-post">
+                <div className="blog-content-sections projekt-post">
+                    <section>
                         {jsonBlocks.map((block) => {
                             if (block?.name === 'core/table') {
                                 return (
@@ -68,17 +75,17 @@ function ProjektPostTemplate({ data, t }) {
                                 )
                             } else if (block?.name === 'core/gallery') {
                                 return (
-                                    <div>
+                                    <div className="gatsby-resp-image-wrapper">
                                         <Swiper
                                             spaceBetween={25}
-                                            slidesPerView={2}
-                                            autoplay={{ delay: 10000 }}
+                                            slidesPerView={3}
+                                            autoplay={{ delay: 4000 }}
                                             pagination={{ clickable: true, dynamicBullets: true }}
                                         >
                                             {block?.attributes?.images?.map((image) => {
                                                 return (
                                                     <SwiperSlide key={image?.id}>
-                                                        <img src={image?.url} alt={image?.alt} />
+                                                        <img className="shadow rounded" src={image?.url} alt={image?.alt} />
                                                     </SwiperSlide>
                                                 );
                                             })}
@@ -90,6 +97,21 @@ function ProjektPostTemplate({ data, t }) {
                             }
                         })}
                     </section>
+                    {matchingPosts?.length > 0 &&
+                        <section>
+                            <h2><Trans>Projektupdates im Blog</Trans></h2>
+                            <div className="blog-post-grid">
+                                {matchingPosts?.map((node) => {
+                                    return node?.nodes?.map((post) => {
+                                        console.log('post', post);
+                                        return (
+                                            <BlogPostCard key={post.id} post={post}></BlogPostCard>
+                                        );
+                                    })
+                                })}
+                            </div>
+                        </section>
+                    }
                 </div>
             </Container>
         </Layout >
@@ -137,6 +159,12 @@ export const pageQuery = graphql`
             node {
                 id
                 title
+                categories {
+                    nodes {
+                        id
+                        name
+                    }
+                }
                 featuredImage {
                         node {
                             localFile {
@@ -152,44 +180,50 @@ export const pageQuery = graphql`
             }
         }
     }
-  }
-`
-
-/*
-export const pageQuery = graphql`
-    query ProjektPostByPath($slug: String!) {
-        allWpDtPortfolio(
-            filter: { slug: { eq: $slug } }
-        ) {
-            edges {
-                node {
-                    id
-                    author {
-                        node {
-                            firstName
-                            lastName
+    allWpCategory {
+        edges {
+            node {
+                posts {
+                    nodes {
+                        id
+                        databaseId
+                        excerpt
+                        title
+                        content
+                        author {
+                            node {
+                                name
+                            }
                         }
-                    }
-                    excerpt
-                    title
-                    date(formatString: "MMMM DD, YYYY", locale: "de")
-                    uri
-                    slug
-                    content
-                    featuredImage {
-                        node {
-                            localFile {
-                                childImageSharp {
-                                    fluid(maxWidth: 800) {
-                                        ...GatsbyImageSharpFluid
+                        date(formatString: "MMMM DD, YYYY", locale: "de")
+                        uri
+                        slug
+                        tags {
+                            nodes {
+                                name
+                            }
+                        }
+                        categories {
+                            nodes {
+                                name
+                            }
+                        }
+                        featuredImage {
+                            node {
+                                localFile {
+                                    childImageSharp {
+                                        fluid(maxWidth: 800) {
+                                            ...GatsbyImageSharpFluid
+                                        }
                                     }
                                 }
                             }
                         }
                     }
                 }
+                name
             }
         }
     }
-`;
- */
+  }
+`
