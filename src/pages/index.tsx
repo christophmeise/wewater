@@ -2,7 +2,7 @@
 import tintIcon from '@iconify/icons-fa-solid/tint';
 import { Icon as IconifyIcon } from '@iconify/react';
 import { graphql } from 'gatsby';
-import { Trans } from 'gatsby-plugin-react-i18next';
+import { Link, Trans } from 'gatsby-plugin-react-i18next';
 import React from 'react';
 import { Button, Icon } from 'semantic-ui-react';
 import SectionBlog from '../components/Blog/blog';
@@ -148,20 +148,24 @@ const OverlayContent = ({ liter }) => {
           </div>
           <p><Trans>Liter Trinkwasser gespendet</Trans></p>
           <div>
-            <Button primary className="rounded">
-              <IconifyIcon icon={tintIcon} style={{ opacity: '1', margin: '0em 0.42857143em 0em -0.21428571em' }} />
-              <Trans>Ich will helfen!</Trans>
-            </Button>
-            <Button
-              secondary={true}
-              basic
-              inverted={true}
-              size="medium"
-              className="rounded"
-            >
-              <Icon name="newspaper outline" className="left" style={{ opacity: '1' }}></Icon>
-              <Trans>Alle News in mein Postfach</Trans>
-            </Button>
+            <Link to="/spenden">
+              <Button primary className="rounded">
+                <IconifyIcon icon={tintIcon} style={{ opacity: '1', margin: '0em 0.42857143em 0em -0.21428571em' }} />
+                <Trans>Ich will helfen!</Trans>
+              </Button>
+            </Link>
+            <a href="https://wewater.us20.list-manage.com/subscribe/post?u=24746d4c48c610cc73f27cb63&id=67239df000" target="_blank">
+              <Button
+                secondary={true}
+                basic
+                inverted={true}
+                size="medium"
+                className="rounded"
+              >
+                <Icon name="newspaper outline" className="left" style={{ opacity: '1' }}></Icon>
+                <Trans>Alle News in mein Postfach</Trans>
+              </Button>
+            </a>
           </div>
         </div>
       }
