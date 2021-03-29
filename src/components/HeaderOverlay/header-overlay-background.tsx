@@ -25,7 +25,7 @@ const HeaderOverlayBackground = ({ sources, color, inverted, content, darken = f
                         loading="eager"
                     >
                     </GatsbyImage>
-                    <Container className="header-overlay-container">
+                    <Container className="header-overlay-container header-overlay-container-background">
                         <Grid className={`header-overlay-container-desktop responsive-desktop-container ${floatRight ? 'justifyContentEnd' : ''}`}>
                             <GridColumn width={width}>
                                 <div
