@@ -1,21 +1,24 @@
 @import '../../styles/lib.less';
 
 .project-card {
-    height: 445px;
+    height  : 445px;
+    position: relative;
 }
 
 .project-card-background {
-    background-size    : cover;
-    overflow           : hidden;
-    height             : 100%;
-    cursor             : pointer;
-    display            : flex;
-    flex-direction     : column;
-    justify-content    : flex-end;
-    opacity            : 1 !important;
-    background-color   : rgba(0, 13, 62, 0.25);
-    background-position: center;
-    padding            : 30px;
+    height: 100%;
+    cursor: pointer;
+}
+
+.project-card-background::after,
+.project-card-background::before {
+    content         : '';
+    position        : absolute;
+    top             : 0;
+    bottom          : 0;
+    left            : 0;
+    right           : 0;
+    background-color: rgba(0, 13, 62, 0.25);
 }
 
 .project-card-background-text-wrapper {
@@ -104,4 +107,15 @@
     margin-top     : 20px;
     margin-bottom  : 15px;
     margin-right   : 0.75rem;
+}
+
+.project-card-content-container {
+    position      : absolute;
+    top           : 0;
+    bottom        : 0;
+    left          : 0;
+    right         : 0;
+    display       : flex;
+    flex-direction: column;
+    padding       : 30px;
 }

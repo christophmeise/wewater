@@ -107,68 +107,59 @@ class OverlayContent extends React.Component<any, any> {
     }
 }
 
-export const pageQuery = graphql`
-    query($language: String!) {
-        locales: allLocale(filter: {language: {eq: $language}}) {
-          ...GetTranslations
-        }
-        desktopImage: file(relativePath: { eq: "images/projekte/banner.jpeg" }) {
-            childImageSharp {
-                fluid(maxWidth: 1600, quality: 100) {
-                    ...GatsbyImageSharpFluid_withWebp
-                }
-            }
-        }
-        mobileImage: file(relativePath: { eq: "images/projekte/banner-mobile.jpeg" }) {
-            childImageSharp {
-                fluid(maxWidth: 1200, quality: 100) {
-                    ...GatsbyImageSharpFluid_withWebp
-                }
-            }
-        }
-        german: allWpProjekt(
-            sort: { fields: date, order: DESC }
-        ) {
-            edges {
-                node {
-                    id
-                    title
-                    excerpt
-                    date(formatString: "MMMM DD, YYYY", locale: "de")
-                    uri
-                    slug
-                     author {
-                        node {
-                            name
-                        }
-                    }
-                    featuredImage {
-                        node {
-                            localFile {
-                                childImageSharp {
-                                    fluid(maxWidth: 800) {
-                                        ...GatsbyImageSharpFluid
-                                    }
-                                }
-                            }
-                        }
-                    }
-                    blocks {
-                        name
-                        saveContent
-                            innerBlocks {
-                                name
-                                saveContent
-                                innerBlocks {
-                                    name
-                                    saveContent
-                                }
-                        }
-                    }
-                }
-            }
-        }
+export const pageQuery = graphql`query ($language: String!) {
+  locales: allLocale(filter: {language: {eq: $language}}) {
+    ...GetTranslations
+  }
+  desktopImage: file(relativePath: {eq: "images/projekte/banner.jpeg"}) {
+    childImageSharp {
+      gatsbyImageData(quality: 100, layout: FULL_WIDTH)
     }
+  }
+  mobileImage: file(relativePath: {eq: "images/projekte/banner-mobile.jpeg"}) {
+    childImageSharp {
+      gatsbyImageData(quality: 100, layout: FULL_WIDTH)
+    }
+  }
+  german: allWpProjekt(sort: {fields: date, order: DESC}) {
+    edges {
+      node {
+        id
+        title
+        excerpt
+        date(formatString: "MMMM DD, YYYY", locale: "de")
+        uri
+        slug
+        author {
+          node {
+            name
+          }
+        }
+        featuredImage {
+          node {
+            localFile {
+              childImageSharp {
+                gatsbyImageData(width: 800, layout: CONSTRAINED)
+              }
+            }
+          }
+        }
+        blocks {
+          name
+          saveContent
+          innerBlocks {
+            name
+            saveContent
+            innerBlocks {
+              name
+              saveContent
+            }
+          }
+        }
+      }
+    }
+  }
+}
 `;
 
 export default useTranslationHOC(ProjektePage);

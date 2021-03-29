@@ -58,7 +58,7 @@ class BlogPage extends React.Component<Props> {
                 <SwiperSlide key={post.node.id}>
                   <Link to={'/blog/' + post.node.slug}>
                     <HeaderOverlayBlog
-                      sources={post.node.featuredImage.node.localFile.childImageSharp.fluid}
+                      sources={post.node.featuredImage.node.localFile.childImageSharp.gatsbyImageData}
                       color="#000000"
                       inverted={true}
                       content={<OverlayContent post={post.node} inverted={true} />}
@@ -126,7 +126,7 @@ class BlogPage extends React.Component<Props> {
           </Container>
         </section>
       </Layout>
-    )
+    );
   }
 }
 
@@ -161,30 +161,23 @@ const OverlayContent = ({ post, inverted }) => {
 };
 
 
-export const pageQuery = graphql`
-    query($language: String!) {
-        locales: allLocale(filter: {language: {eq: $language}}) {
-          ...GetTranslations
-        }
-        desktopImage: file(relativePath: { eq: "images/main-banner.jpg" }) {
-            childImageSharp {
-                fluid(maxWidth: 1600, quality: 100) {
-                    ...GatsbyImageSharpFluid_withWebp
-                }
-            }
-        }
-        mobileImage: file(relativePath: { eq: "images/main-banner-mobile.jpg" }) {
-            childImageSharp {
-                fluid(maxWidth: 1200, quality: 100) {
-                    ...GatsbyImageSharpFluid_withWebp
-                }
-            }
-        }
-        german: allWpPost(
-            sort: { fields: date, order: DESC }
-        ) {
-            ...GetBlogposts
-        }
+export const pageQuery = graphql`query ($language: String!) {
+  locales: allLocale(filter: {language: {eq: $language}}) {
+    ...GetTranslations
+  }
+  desktopImage: file(relativePath: {eq: "images/main-banner.jpg"}) {
+    childImageSharp {
+      gatsbyImageData(quality: 100, layout: FULL_WIDTH)
     }
+  }
+  mobileImage: file(relativePath: {eq: "images/main-banner-mobile.jpg"}) {
+    childImageSharp {
+      gatsbyImageData(quality: 100, layout: FULL_WIDTH)
+    }
+  }
+  german: allWpPost(sort: {fields: date, order: DESC}) {
+    ...GetBlogposts
+  }
+}
 `;
 export default useTranslationHOC(BlogPage);

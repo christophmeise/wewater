@@ -1,6 +1,6 @@
 // i18next-extract-mark-ns-start page_aqqacube
 import { graphql } from 'gatsby';
-import Image from 'gatsby-image';
+import { GatsbyImage } from "gatsby-plugin-image";
 import { Trans } from 'gatsby-plugin-react-i18next';
 import de from 'hyphenated-de';
 import React from 'react';
@@ -149,18 +149,21 @@ class AqqacubePage extends React.Component<Props, any> {
                             </section>
                         </GridColumn>
                         <GridColumn width={5}>
-                            <Image fluid={data.aqqacube1.childImageSharp.fluid}
+                            <GatsbyImage
+                                image={data.aqqacube1.childImageSharp.gatsbyImageData}
                                 className="img-fluid rounded shadow"
                                 style={{ marginBottom: '2rem' }}
-                                alt="aqqacube1"></Image>
-                            <Image fluid={data.aqqacube2.childImageSharp.fluid}
+                                alt="aqqacube1" />
+                            <GatsbyImage
+                                image={data.aqqacube2.childImageSharp.gatsbyImageData}
                                 className="img-fluid rounded shadow"
                                 style={{ marginBottom: '2rem' }}
-                                alt="aqqacube2"></Image>
-                            <Image fluid={data.aqqacube3.childImageSharp.fluid}
+                                alt="aqqacube2" />
+                            <GatsbyImage
+                                image={data.aqqacube3.childImageSharp.gatsbyImageData}
                                 className="img-fluid rounded shadow"
                                 style={{ marginBottom: '2rem' }}
-                                alt="aqqacube3"></Image>
+                                alt="aqqacube3" />
                         </GridColumn>
                     </Grid>
                     <section className="global-header-padding">
@@ -197,75 +200,64 @@ const OverlayContent = () => {
     );
 }
 
-export const pageQuery = graphql`
-    query($language: String!) {
-        locales: allLocale(filter: {language: {eq: $language}}) {
-          ...GetTranslations
-        }
-            aqqacube1: file(relativePath: { eq: "images/filtersysteme/image2.jpg" }) {
-                childImageSharp {
-                    fluid(maxWidth: 600, quality: 100) {
-                        ...GatsbyImageSharpFluid_withWebp
-                    }
-                }
-            }
-            aqqacube2: file(relativePath: { eq: "images/filtersysteme/image4.jpg" }) {
-                childImageSharp {
-                    fluid(maxWidth: 600, quality: 100) {
-                        ...GatsbyImageSharpFluid_withWebp
-                    }
-                }
-            }
-            aqqacube3: file(relativePath: { eq: "images/filtersysteme/aqqacube.JPG" }) {
-                childImageSharp {
-                    fluid(maxWidth: 600, quality: 100) {
-                        ...GatsbyImageSharpFluid_withWebp
-                    }
-                }
-            }
-            projekte: allWpProjekt(
-                sort: { fields: date, order: DESC }
-            ) {
-                edges {
-                    node {
-                        id
-                        title
-                        excerpt
-                        date(formatString: "MMMM DD, YYYY", locale: "de")
-                        uri
-                        slug
-                        author {
-                            node {
-                                name
-                            }
-                        }
-                        featuredImage {
-                            node {
-                                localFile {
-                                    childImageSharp {
-                                        fluid(maxWidth: 800) {
-                                            ...GatsbyImageSharpFluid
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                        blocks {
-                            name
-                            saveContent
-                                innerBlocks {
-                                    name
-                                    saveContent
-                                    innerBlocks {
-                                        name
-                                        saveContent
-                                    }
-                            }
-                        }
-                    }
-                }
-            }
+export const pageQuery = graphql`query ($language: String!) {
+  locales: allLocale(filter: {language: {eq: $language}}) {
+    ...GetTranslations
+  }
+  aqqacube1: file(relativePath: {eq: "images/filtersysteme/image2.jpg"}) {
+    childImageSharp {
+      gatsbyImageData(width: 600, quality: 100, layout: CONSTRAINED)
     }
+  }
+  aqqacube2: file(relativePath: {eq: "images/filtersysteme/image4.jpg"}) {
+    childImageSharp {
+      gatsbyImageData(width: 600, quality: 100, layout: CONSTRAINED)
+    }
+  }
+  aqqacube3: file(relativePath: {eq: "images/filtersysteme/aqqacube.JPG"}) {
+    childImageSharp {
+      gatsbyImageData(width: 600, quality: 100, layout: CONSTRAINED)
+    }
+  }
+  projekte: allWpProjekt(sort: {fields: date, order: DESC}) {
+    edges {
+      node {
+        id
+        title
+        excerpt
+        date(formatString: "MMMM DD, YYYY", locale: "de")
+        uri
+        slug
+        author {
+          node {
+            name
+          }
+        }
+        featuredImage {
+          node {
+            localFile {
+              childImageSharp {
+                gatsbyImageData(width: 800, layout: CONSTRAINED)
+              }
+            }
+          }
+        }
+        blocks {
+          name
+          saveContent
+          innerBlocks {
+            name
+            saveContent
+            innerBlocks {
+              name
+              saveContent
+            }
+          }
+        }
+      }
+    }
+  }
+}
 `;
 
 export default useTranslationHOC(AqqacubePage);

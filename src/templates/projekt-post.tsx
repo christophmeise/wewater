@@ -16,7 +16,7 @@ import './projekt-post.less';
 function ProjektPostTemplate({ data, t }) {
 
     const projekt = data.allWpProjekt.edges[0].node;
-    const sources = projekt.featuredImage.node.localFile.childImageSharp.fluid;
+    const sources = projekt.featuredImage.node.localFile.childImageSharp.gatsbyImageData;
     let matchingPosts = data.allWpCategory.edges
         .filter(item => projekt.categories.nodes.map(entry => entry.name).includes(item.node.name));
     console.log(matchingPosts);
@@ -150,80 +150,73 @@ const OverlayContent = ({ projekt, inverted }) => {
     );
 };
 
-export const pageQuery = graphql`
-  query ProjektByPath($slug: String!) {
-    allWpProjekt(
-        filter: { slug: { eq: $slug } }
-    ) {
-        edges {
-            node {
-                id
-                title
-                categories {
-                    nodes {
-                        id
-                        name
-                    }
-                }
-                featuredImage {
-                        node {
-                            localFile {
-                                childImageSharp {
-                                    fluid(maxWidth: 1600) {
-                                        ...GatsbyImageSharpFluid
-                                    }
-                                }
-                            }
-                        }
-                    }
-                blocksJSON
-            }
+export const pageQuery = graphql`query ProjektByPath($slug: String!) {
+  allWpProjekt(filter: {slug: {eq: $slug}}) {
+    edges {
+      node {
+        id
+        title
+        categories {
+          nodes {
+            id
+            name
+          }
         }
-    }
-    allWpCategory {
-        edges {
-            node {
-                posts {
-                    nodes {
-                        id
-                        databaseId
-                        excerpt
-                        title
-                        content
-                        author {
-                            node {
-                                name
-                            }
-                        }
-                        date(formatString: "MMMM DD, YYYY", locale: "de")
-                        uri
-                        slug
-                        tags {
-                            nodes {
-                                name
-                            }
-                        }
-                        categories {
-                            nodes {
-                                name
-                            }
-                        }
-                        featuredImage {
-                            node {
-                                localFile {
-                                    childImageSharp {
-                                        fluid(maxWidth: 800) {
-                                            ...GatsbyImageSharpFluid
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-                name
+        featuredImage {
+          node {
+            localFile {
+              childImageSharp {
+                gatsbyImageData(layout: FULL_WIDTH)
+              }
             }
+          }
         }
+        blocksJSON
+      }
     }
   }
+  allWpCategory {
+    edges {
+      node {
+        posts {
+          nodes {
+            id
+            databaseId
+            excerpt
+            title
+            content
+            author {
+              node {
+                name
+              }
+            }
+            date(formatString: "MMMM DD, YYYY", locale: "de")
+            uri
+            slug
+            tags {
+              nodes {
+                name
+              }
+            }
+            categories {
+              nodes {
+                name
+              }
+            }
+            featuredImage {
+              node {
+                localFile {
+                  childImageSharp {
+                    gatsbyImageData(width: 800, layout: CONSTRAINED)
+                  }
+                }
+              }
+            }
+          }
+        }
+        name
+      }
+    }
+  }
+}
 `

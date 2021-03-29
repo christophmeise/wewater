@@ -1,10 +1,10 @@
 import shoppingCart from '@iconify/icons-jam/shopping-cart';
 import { Icon } from '@iconify/react';
 import Link from "gatsby-link";
+import { StaticImage } from "gatsby-plugin-image";
 import { Trans } from 'gatsby-plugin-react-i18next';
 import { isEmpty } from "lodash";
 import React, { useContext } from 'react';
-import { LazyLoadImage } from "react-lazy-load-image-component";
 import { Button } from 'semantic-ui-react';
 import { AppContext } from "../../context/AppContext";
 import './style.less';
@@ -41,22 +41,19 @@ const CartDropdown = ({ isDropdownOpen }) => {
 					<li className="clearfix" key={product.productId}>
 						{!isEmpty(product.image) ? (
 							<figure>
-								<LazyLoadImage
+								<img
+									src={product.image.sourceUrl}
 									alt={product.image.altText ? product.image.altText : ""}
-									src={product.image.sourceUrl} // use normal <img> attributes as props
-									effect="blur"
-									height="70"
-									width="70"
+									style={{ height: '70px', width: '70px' }}
 								/>
 							</figure>
 						) : !isEmpty(productImagePlaceholder) ? (
 							<figure>
-								<LazyLoadImage
-									alt="default"
-									height="70"
+								<StaticImage
 									src={productImagePlaceholder}
-									width="70"
-									effect="blur"
+									alt="default"
+									height={70}
+									width={70}
 								/>
 							</figure>
 						) : null}

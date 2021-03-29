@@ -1,5 +1,5 @@
 import { Link } from 'gatsby';
-import Img from 'gatsby-image';
+import { GatsbyImage } from "gatsby-plugin-image";
 import de from 'hyphenated-de';
 import React from 'react';
 import Hyphenated from 'react-hyphen';
@@ -35,7 +35,10 @@ export default function BlogPostCard({ post }: Props) {
     return (
         <div className="rounded">
             <Link to={`/blog/` + post.slug}>
-                <Img className="rounded-small blog-post-card-image" fluid={post?.featuredImage?.node?.localFile?.childImageSharp?.fluid} />
+                <GatsbyImage
+                    alt="blogpost"
+                    image={post?.featuredImage?.node?.localFile?.childImageSharp?.gatsbyImageData}
+                    className="rounded-small blog-post-card-image" />
                 <div className="blog-post-tag-label-group">
                     {post.categories.nodes.slice(0, 3).map((tag, index) => {
                         return (
@@ -67,7 +70,10 @@ export function BlogPostCardSimple({ post }: Props) {
         <Link to={`/blog/` + post.slug}>
             <div className="rounded blog-post-card-simple">
                 <div className="blog-post-card-simple-image-wrapper">
-                    <Img className="rounded-small dark-overlay-blog blog-post-card-image-simple" fluid={post?.featuredImage?.node?.localFile?.childImageSharp?.fluid} />
+                    <GatsbyImage
+                        alt="blogpost"
+                        image={post?.featuredImage?.node?.localFile?.childImageSharp?.gatsbyImageData}
+                        className="rounded-small dark-overlay-blog blog-post-card-image-simple" />
                 </div>
                 <div className="blog-post-card-content">
                     <Hyphenated language={de}>

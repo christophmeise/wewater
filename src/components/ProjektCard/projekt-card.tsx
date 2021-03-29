@@ -1,5 +1,5 @@
 import { Link } from 'gatsby';
-import BackgroundImage from 'gatsby-background-image';
+import { GatsbyImage } from 'gatsby-plugin-image';
 import de from 'hyphenated-de';
 import React from 'react';
 import Hyphenated from 'react-hyphen';
@@ -34,29 +34,17 @@ export default function ProjektCard({ post }: Props) {
     return (
         <div className="hover-animate rounded-small shadow project-card">
             <Link to={`/projekte/` + post.slug}>
-                <BackgroundImage
-                    Tag="div"
-                    className="rounded-small project-card-background"
-                    fluid={post.featuredImage.node.localFile.childImageSharp.fluid}
-                >
+                <GatsbyImage
+                    alt="blogpost"
+                    image={post?.featuredImage?.node?.localFile?.childImageSharp?.gatsbyImageData}
+                    className="rounded-small project-card-background" />
+                <div className="project-card-content-container">
                     <div className="project-card-progress-circle-wrapper">
                         <div className="project-card-progress-circle">
                             <LordIcon src={'/images/projekte/' + imageUrl + '.json'} delay={(3000 + 10000 * Math.random()).toString()}></LordIcon>
                         </div>
                     </div>
                     <div className="project-card-background-text-wrapper">
-                        <div className="project-tag-label-group">
-
-                            {/* TODO */}
-                            {/*  {post?.tags?.nodes?.map((tag) => {
-                                return (
-                                    <p className="project-tag-label">
-                                        {tag.name}
-                                    </p>
-                                );
-                            })}
- */}
-                        </div>
                         <Hyphenated language={de}>
                             <h4 className="project-card-background-text text-shadow">
                                 {post.title}
@@ -64,7 +52,8 @@ export default function ProjektCard({ post }: Props) {
                         </Hyphenated>
                         <p>{post.date}</p>
                     </div>
-                </BackgroundImage>
+                </div>
+
             </Link>
         </div>
     );

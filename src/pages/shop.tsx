@@ -2,6 +2,7 @@
 import arrowRight from '@iconify/icons-fa-solid/arrow-right';
 import { Icon } from '@iconify/react';
 import { graphql } from 'gatsby';
+import { getImage, withArtDirection } from 'gatsby-plugin-image';
 import { Link, Trans } from 'gatsby-plugin-react-i18next';
 import React from 'react';
 import { Button, Container, Grid, Header } from 'semantic-ui-react';
@@ -34,13 +35,12 @@ class ShopPage extends React.Component<Props, any> {
     render() {
         const { t, data } = this.props;
 
-        const headerImage = [
-            data.mobileImage.childImageSharp.fluid,
+        const headerImage = withArtDirection(getImage(data.mobileImage), [
             {
-                ...data.desktopImage.childImageSharp.fluid,
-                media: `(min-width: 768px)`,
+                media: "(min-width: 768px)",
+                image: getImage(data.desktopImage),
             },
-        ];
+        ])
         const backgroundColor = '#7897B5';
         const shopItems = data.german.edges
             .filter((item) => item.node.name.indexOf('Wasserspende über') < 0);
@@ -168,65 +168,56 @@ const getWasserspendeLinkByAmount = (amount: number) => {
     }
 }
 
-export const pageQuery = graphql`
-    query($language: String!) {
-        locales: allLocale(filter: {language: {eq: $language}}) {
-          ...GetTranslations
-        }
-        desktopImage: file(relativePath: { eq: "images/shop/banner1.png" }) {
-            childImageSharp {
-                fluid(maxWidth: 1600, quality: 100) {
-                    ...GatsbyImageSharpFluid_withWebp
-                }
-            }
-        }
-        mobileImage: file(relativePath: { eq: "images/shop/banner1.png" }) {
-            childImageSharp {
-                fluid(maxWidth: 1200, quality: 100) {
-                    ...GatsbyImageSharpFluid_withWebp
-                }
-            }
-        }
-        german: allWpProduct(
-            sort: { fields: date, order: DESC }
-        ) {
-            edges {
-                node {
-                    id
-                    name
-                    description
-                    shortDescription
-                    date(formatString: "MMMM DD, YYYY", locale: "de")
-                    slug
-                    onSale
-                    status
-                    averageRating
-                    databaseId
-                    ... on WpSimpleProduct {
-                        id
-                        name
-                        salePrice
-                        price
-                        regularPrice
-                    }
-                    ... on WpVariableProduct {
-                        id
-                        name
-                        price
-                    }
-                    image {
-                        localFile {
-                            childImageSharp {
-                                fluid(maxWidth: 800) {
-                                    ...GatsbyImageSharpFluid
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-        }
+export const pageQuery = graphql`query ($language: String!) {
+  locales: allLocale(filter: {language: {eq: $language}}) {
+    ...GetTranslations
+  }
+  desktopImage: file(relativePath: {eq: "images/shop/banner1.png"}) {
+    childImageSharp {
+      gatsbyImageData(quality: 100, layout: FULL_WIDTH)
     }
+  }
+  mobileImage: file(relativePath: {eq: "images/shop/banner1.png"}) {
+    childImageSharp {
+      gatsbyImageData(quality: 100, layout: FULL_WIDTH)
+    }
+  }
+  german: allWpProduct(sort: {fields: date, order: DESC}) {
+    edges {
+      node {
+        id
+        name
+        description
+        shortDescription
+        date(formatString: "MMMM DD, YYYY", locale: "de")
+        slug
+        onSale
+        status
+        averageRating
+        databaseId
+        ... on WpSimpleProduct {
+          id
+          name
+          salePrice
+          price
+          regularPrice
+        }
+        ... on WpVariableProduct {
+          id
+          name
+          price
+        }
+        image {
+          localFile {
+            childImageSharp {
+              gatsbyImageData(width: 800, layout: CONSTRAINED)
+            }
+          }
+        }
+      }
+    }
+  }
+}
 `;
 
 export default useTranslationHOC(ShopPage);

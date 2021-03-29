@@ -1,6 +1,6 @@
 // i18next-extract-mark-ns-start page_aqqasystem
 import { graphql } from 'gatsby';
-import Image from 'gatsby-image';
+import { GatsbyImage } from "gatsby-plugin-image";
 import { Trans } from 'gatsby-plugin-react-i18next';
 import de from 'hyphenated-de';
 import React from 'react';
@@ -135,18 +135,21 @@ class AqqasystemPage extends React.Component<Props, any> {
                             </section>
                         </GridColumn>
                         <GridColumn width={5}>
-                            <Image fluid={data.aqqasystem1.childImageSharp.fluid}
+                            <GatsbyImage
+                                image={data.aqqasystem1.childImageSharp.gatsbyImageData}
                                 className="img-fluid rounded shadow"
                                 style={{ marginBottom: '2rem' }}
-                                alt="aqqasystem1"></Image>
-                            <Image fluid={data.aqqasystem2.childImageSharp.fluid}
+                                alt="aqqasystem1" />
+                            <GatsbyImage
+                                image={data.aqqasystem2.childImageSharp.gatsbyImageData}
                                 className="img-fluid rounded shadow"
                                 style={{ marginBottom: '2rem' }}
-                                alt="aqqasystem2"></Image>
-                            <Image fluid={data.aqqasystem3.childImageSharp.fluid}
+                                alt="aqqasystem2" />
+                            <GatsbyImage
+                                image={data.aqqasystem3.childImageSharp.gatsbyImageData}
                                 className="img-fluid rounded shadow"
                                 style={{ marginBottom: '2rem' }}
-                                alt="aqqasystem3"></Image>
+                                alt="aqqasystem3" />
                         </GridColumn>
                     </Grid>
                     <section className="global-header-padding">
@@ -183,75 +186,64 @@ const OverlayContent = () => {
     );
 }
 
-export const pageQuery = graphql`
-    query($language: String!) {
-        locales: allLocale(filter: {language: {eq: $language}}) {
-          ...GetTranslations
-        }
-            aqqasystem1: file(relativePath: { eq: "images/filtersysteme/aqqasystem.png" }) {
-                childImageSharp {
-                    fluid(maxWidth: 600, quality: 100) {
-                        ...GatsbyImageSharpFluid_withWebp
-                    }
-                }
-            }
-            aqqasystem2: file(relativePath: { eq: "images/filtersysteme/aqqasystem2.jpg" }) {
-                childImageSharp {
-                    fluid(maxWidth: 600, quality: 100) {
-                        ...GatsbyImageSharpFluid_withWebp
-                    }
-                }
-            }
-            aqqasystem3: file(relativePath: { eq: "images/filtersysteme/image6.jpg" }) {
-                childImageSharp {
-                    fluid(maxWidth: 600, quality: 100) {
-                        ...GatsbyImageSharpFluid_withWebp
-                    }
-                }
-            }
-            projekte: allWpProjekt(
-                sort: { fields: date, order: DESC }
-            ) {
-                edges {
-                    node {
-                        id
-                        title
-                        excerpt
-                        date(formatString: "MMMM DD, YYYY", locale: "de")
-                        uri
-                        slug
-                        author {
-                            node {
-                                name
-                            }
-                        }
-                        featuredImage {
-                            node {
-                                localFile {
-                                    childImageSharp {
-                                        fluid(maxWidth: 800) {
-                                            ...GatsbyImageSharpFluid
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                        blocks {
-                            name
-                            saveContent
-                                innerBlocks {
-                                    name
-                                    saveContent
-                                    innerBlocks {
-                                        name
-                                        saveContent
-                                    }
-                            }
-                        }
-                    }
-                }
-            }
+export const pageQuery = graphql`query ($language: String!) {
+  locales: allLocale(filter: {language: {eq: $language}}) {
+    ...GetTranslations
+  }
+  aqqasystem1: file(relativePath: {eq: "images/filtersysteme/aqqasystem.png"}) {
+    childImageSharp {
+      gatsbyImageData(width: 600, quality: 100, layout: CONSTRAINED)
     }
+  }
+  aqqasystem2: file(relativePath: {eq: "images/filtersysteme/aqqasystem2.jpg"}) {
+    childImageSharp {
+      gatsbyImageData(width: 600, quality: 100, layout: CONSTRAINED)
+    }
+  }
+  aqqasystem3: file(relativePath: {eq: "images/filtersysteme/image6.jpg"}) {
+    childImageSharp {
+      gatsbyImageData(width: 600, quality: 100, layout: CONSTRAINED)
+    }
+  }
+  projekte: allWpProjekt(sort: {fields: date, order: DESC}) {
+    edges {
+      node {
+        id
+        title
+        excerpt
+        date(formatString: "MMMM DD, YYYY", locale: "de")
+        uri
+        slug
+        author {
+          node {
+            name
+          }
+        }
+        featuredImage {
+          node {
+            localFile {
+              childImageSharp {
+                gatsbyImageData(width: 800, layout: CONSTRAINED)
+              }
+            }
+          }
+        }
+        blocks {
+          name
+          saveContent
+          innerBlocks {
+            name
+            saveContent
+            innerBlocks {
+              name
+              saveContent
+            }
+          }
+        }
+      }
+    }
+  }
+}
 `;
 
 export default useTranslationHOC(AqqasystemPage);

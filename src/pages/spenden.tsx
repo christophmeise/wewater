@@ -5,6 +5,7 @@ import tintIcon from '@iconify/icons-fa-solid/tint';
 import universityIcon from '@iconify/icons-fa-solid/university';
 import { Icon } from '@iconify/react';
 import { graphql } from 'gatsby';
+import { getImage, withArtDirection } from 'gatsby-plugin-image';
 import { Trans } from 'gatsby-plugin-react-i18next';
 import React from 'react';
 import { Button, Container } from 'semantic-ui-react';
@@ -33,13 +34,12 @@ class SpendenPage extends React.Component<Props, any> {
     render() {
         const { t, data, navigate } = this.props;
 
-        const headerImage = [
-            data.mobileImage.childImageSharp.fluid,
+        const headerImage = withArtDirection(getImage(data.mobileImage), [
             {
-                ...data.desktopImage.childImageSharp.fluid,
-                media: `(min-width: 768px)`,
+                media: "(min-width: 768px)",
+                image: getImage(data.desktopImage),
             },
-        ];
+        ]);
         const backgroundColor = '#FFFFFF';
 
         return (
@@ -115,26 +115,21 @@ class OverlayContent extends React.Component<any, any> {
         );
     }
 }
-export const pageQuery = graphql`
-    query($language: String!) {
-        locales: allLocale(filter: {language: {eq: $language}}) {
-          ...GetTranslations
-        }
-        desktopImage: file(relativePath: { eq: "images/spenden/main-banner.jpg" }) {
-            childImageSharp {
-                fluid(maxWidth: 1600, quality: 100) {
-                    ...GatsbyImageSharpFluid_withWebp
-                }
-            }
-        }
-        mobileImage: file(relativePath: { eq: "images/spenden/main-banner-mobile.jpg" }) {
-            childImageSharp {
-                fluid(maxWidth: 1200, quality: 100) {
-                    ...GatsbyImageSharpFluid_withWebp
-                }
-            }
-        }
+export const pageQuery = graphql`query ($language: String!) {
+  locales: allLocale(filter: {language: {eq: $language}}) {
+    ...GetTranslations
+  }
+  desktopImage: file(relativePath: {eq: "images/spenden/main-banner.jpg"}) {
+    childImageSharp {
+      gatsbyImageData(quality: 100, layout: FULL_WIDTH)
     }
+  }
+  mobileImage: file(relativePath: {eq: "images/spenden/main-banner-mobile.jpg"}) {
+    childImageSharp {
+      gatsbyImageData(quality: 100, layout: FULL_WIDTH)
+    }
+  }
+}
 `;
 
 export default useTranslationHOC(SpendenPage);

@@ -1,4 +1,4 @@
-import Img from "gatsby-image"
+import { GatsbyImage } from "gatsby-plugin-image";
 import React from "react"
 
 const NonStretchedImage = props => {
@@ -18,6 +18,6 @@ const NonStretchedImage = props => {
     }
   }
 
-  return <Img {...normalizedProps} />
+  return <GatsbyImage {...normalizedProps} />;
 }
 export default NonStretchedImage

@@ -3,7 +3,7 @@ import imageIcon from '@iconify/icons-fa-solid/image';
 import drawText24Regular from '@iconify/icons-fluent/draw-text-24-regular';
 import { Icon } from '@iconify/react';
 import { graphql } from 'gatsby';
-import Image from 'gatsby-image';
+import { GatsbyImage } from "gatsby-plugin-image";
 import React from 'react';
 import { Trans } from 'react-i18next';
 import { Button, Container, Grid, GridColumn, Header } from 'semantic-ui-react';
@@ -29,8 +29,8 @@ class PressePage extends React.Component<Props, any> {
         const { t, data, language } = this.props;
 
         const pageData = language === 'de' ? data.german.edges[0].node.content : data.english.edges[0].node.content;
-        const sources = data.ansprechpartner.childImageSharp.fluid;
-        const headerImage = data.headerImage.childImageSharp.fluid;
+        const sources = data.ansprechpartner.childImageSharp.gatsbyImageData;
+        const headerImage = data.headerImage.childImageSharp.gatsbyImageData;
 
         let posts = data.blogposts.edges;
 
@@ -102,9 +102,10 @@ class PressePage extends React.Component<Props, any> {
                                 <section className="presse-section">
                                     <Grid columns="2" stackable>
                                         <GridColumn>
-                                            <Image fluid={sources}
+                                            <GatsbyImage
+                                                image={sources}
                                                 className="img-fluid rounded shadow"
-                                                alt="Ansprechpartner"></Image>
+                                                alt="Ansprechpartner" />
                                         </GridColumn>
                                         <GridColumn>
                                             <h3><Trans>Ansprechpartner</Trans></h3>
@@ -148,54 +149,55 @@ class OverlayContent extends React.Component<any, any> {
     }
 }
 
-export const pageQuery = graphql`
-
-    query($language: String!) {
-        locales: allLocale(filter: {language: {eq: $language}}) {
-          ...GetTranslations
-        }
-        blogposts: allWpPost(filter: {categories: {nodes: {elemMatch: {name: {eq: "Presse"}}}}}, sort: { fields: date, order: DESC }) {
-            ...GetBlogposts
-        }
-        ansprechpartner: file(relativePath: { eq: "images/team/thilo.jpg" }) {
-            childImageSharp {
-                fluid(maxWidth: 600, quality: 100) {
-                    ...GatsbyImageSharpFluid_withWebp
-                }
-            }
-        }
-        headerImage: file(relativePath: { eq: "images/presse/banner1.jpg" }) {
-            childImageSharp {
-                fluid(maxWidth: 1600, quality: 100) {
-                    ...GatsbyImageSharpFluid_withWebp
-                }
-            }
-        }
-        german: allWpPage(filter: {title: {eq: "Pressespiegel – WeWater in den Medien"}, language: {locale: {eq: "de_DE"}}}) {
-            edges {
-                node {
-                    id
-                    title
-                    content
-                    language {
-                        code
-                    }
-                }
-            }
-        }
-        english: allWpPage(filter: {title: {eq: "Press – WeWater in Media"}, language: {locale: {eq: "en_GB"}}}) {
-            edges {
-                node {
-                    id
-                    title
-                    content
-                    language {
-                        code
-                    }
-                }
-            }
-        }
+export const pageQuery = graphql`query ($language: String!) {
+  locales: allLocale(filter: {language: {eq: $language}}) {
+    ...GetTranslations
+  }
+  blogposts: allWpPost(
+    filter: {categories: {nodes: {elemMatch: {name: {eq: "Presse"}}}}}
+    sort: {fields: date, order: DESC}
+  ) {
+    ...GetBlogposts
+  }
+  ansprechpartner: file(relativePath: {eq: "images/team/thilo.jpg"}) {
+    childImageSharp {
+      gatsbyImageData(width: 600, quality: 100, layout: CONSTRAINED)
     }
+  }
+  headerImage: file(relativePath: {eq: "images/presse/banner1.jpg"}) {
+    childImageSharp {
+      gatsbyImageData(quality: 100, layout: FULL_WIDTH)
+    }
+  }
+  german: allWpPage(
+    filter: {title: {eq: "Pressespiegel – WeWater in den Medien"}, language: {locale: {eq: "de_DE"}}}
+  ) {
+    edges {
+      node {
+        id
+        title
+        content
+        language {
+          code
+        }
+      }
+    }
+  }
+  english: allWpPage(
+    filter: {title: {eq: "Press – WeWater in Media"}, language: {locale: {eq: "en_GB"}}}
+  ) {
+    edges {
+      node {
+        id
+        title
+        content
+        language {
+          code
+        }
+      }
+    }
+  }
+}
 `;
 
 export default useTranslationHOC(PressePage);

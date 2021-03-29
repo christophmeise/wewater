@@ -1,6 +1,5 @@
 import { Trans } from 'gatsby-plugin-react-i18next';
 import React, { useState } from 'react';
-import { LazyLoadImage } from "react-lazy-load-image-component";
 import { Button, Grid, Select } from 'semantic-ui-react';
 import { v4 } from "uuid";
 import isEmpty from "validator/es/lib/isEmpty";
@@ -68,11 +67,10 @@ const CartItem = ({
 	return (
 		<Grid.Row columns="2" className="cart-item-row">
 			<Grid.Column width="4">
-				<LazyLoadImage
+				<img
 					className="cart-item-product-img"
-					alt={item.image.title}
 					src={!isEmpty(item.image.sourceUrl) ? item.image.sourceUrl : ''}
-					effect="blur"
+					alt={item.image.title}
 				/>
 			</Grid.Column>
 			<Grid.Column width="12" className="cart-item-column-right">

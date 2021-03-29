@@ -47,53 +47,44 @@ class ShopPage extends React.Component<Props, any> {
     }
 }
 
-export const pageQuery = graphql`
-    query($language: String!) {
-        locales: allLocale(filter: {language: {eq: $language}}) {
-          ...GetTranslations
-        }
-        desktopImage: file(relativePath: { eq: "images/projekte/banner.jpeg" }) {
-            childImageSharp {
-                fluid(maxWidth: 1600, quality: 100) {
-                    ...GatsbyImageSharpFluid_withWebp
-                }
-            }
-        }
-        mobileImage: file(relativePath: { eq: "images/projekte/banner-mobile.jpeg" }) {
-            childImageSharp {
-                fluid(maxWidth: 1200, quality: 100) {
-                    ...GatsbyImageSharpFluid_withWebp
-                }
-            }
-        }
-        german: allWpProduct(
-            sort: { fields: date, order: DESC }
-        ) {
-            edges {
-                node {
-                    id
-                    name
-                    description
-                    shortDescription
-                    date(formatString: "MMMM DD, YYYY", locale: "de")
-                    slug
-                    onSale
-                    status
-                    averageRating
-                    databaseId
-                    image {
-                        localFile {
-                            childImageSharp {
-                                fluid(maxWidth: 800) {
-                                    ...GatsbyImageSharpFluid
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-        }
+export const pageQuery = graphql`query ($language: String!) {
+  locales: allLocale(filter: {language: {eq: $language}}) {
+    ...GetTranslations
+  }
+  desktopImage: file(relativePath: {eq: "images/projekte/banner.jpeg"}) {
+    childImageSharp {
+      gatsbyImageData(quality: 100, layout: FULL_WIDTH)
     }
+  }
+  mobileImage: file(relativePath: {eq: "images/projekte/banner-mobile.jpeg"}) {
+    childImageSharp {
+      gatsbyImageData(quality: 100, layout: FULL_WIDTH)
+    }
+  }
+  german: allWpProduct(sort: {fields: date, order: DESC}) {
+    edges {
+      node {
+        id
+        name
+        description
+        shortDescription
+        date(formatString: "MMMM DD, YYYY", locale: "de")
+        slug
+        onSale
+        status
+        averageRating
+        databaseId
+        image {
+          localFile {
+            childImageSharp {
+              gatsbyImageData(width: 800, layout: CONSTRAINED)
+            }
+          }
+        }
+      }
+    }
+  }
+}
 `;
 
 export default useTranslationHOC(ShopPage);

@@ -13,7 +13,7 @@ import './blog-post.less';
 
 function BlogPostTemplate({ data, t }) {
     const post = data.allWpPost.edges[0].node;
-    const sources = post.featuredImage.node.localFile.childImageSharp.fluid;
+    const sources = post.featuredImage.node.localFile.childImageSharp.gatsbyImageData;
 
     return (
         <Layout>

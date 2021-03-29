@@ -1,5 +1,5 @@
 import { Link } from 'gatsby';
-import BackgroundImage from 'gatsby-background-image';
+import { GatsbyImage } from 'gatsby-plugin-image';
 import React from 'react';
 import { Label } from 'semantic-ui-react';
 import './shop-card.less';
@@ -43,14 +43,12 @@ export default function ShopCard({ shopItem }: Props) {
                         <Label ribbon>
                             <h3 className="shop-card-background-text">Angebot</h3>
                         </Label>}
-                    <BackgroundImage
-                        Tag="div"
+                    <GatsbyImage
+                        image={shopItem.image.localFile.childImageSharp.gatsbyImageData}
                         className="rounded-corners-top shop-card-background"
-                        fluid={shopItem.image.localFile.childImageSharp.fluid}
+                        alt="Shop article image"
                     >
-                        <div className="shop-card-background-text-wrapper">
-                        </div>
-                    </BackgroundImage>
+                    </GatsbyImage>
                 </div>
                 <div className="shop-card-content">
                     <h3>{shopItem.name}</h3>
@@ -61,6 +59,5 @@ export default function ShopCard({ shopItem }: Props) {
                 </div>
             </div>
         </Link>
-
     );
 }

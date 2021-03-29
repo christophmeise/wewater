@@ -1,6 +1,6 @@
 // i18next-extract-mark-ns-start page_team
 import { graphql } from 'gatsby';
-import Img from 'gatsby-image';
+import { GatsbyImage, getImage, withArtDirection } from "gatsby-plugin-image";
 import React from 'react';
 import { Container, Header, Icon } from 'semantic-ui-react';
 import HeaderOverlay from '../components/HeaderOverlay/header-overlay';
@@ -35,13 +35,13 @@ class TeamPage extends React.Component<Props, any> {
         const { t, data } = this.props;
 
         const teamData = data.allWpTeamMember.edges.slice(3, data.allWpTeamMember.edges.length).reverse().concat(shuffle(data.allWpTeamMember.edges.slice(0, 3)));
-        const headerImage = [
-            data.mobileImage.childImageSharp.fluid,
+
+        const headerImage = withArtDirection(getImage(data.mobileImage), [
             {
-                ...data.desktopImage.childImageSharp.fluid,
-                media: `(min-width: 768px)`,
+                media: "(min-width: 768px)",
+                image: getImage(data.desktopImage),
             },
-        ];
+        ]);
 
         return (
             <Layout>
@@ -50,21 +50,16 @@ class TeamPage extends React.Component<Props, any> {
                 <Container>
                     <Container>
                         <div className="main-content-sections">
-                            {/*                             <svg height="0" width="0" xmlns="http://www.w3.org/2000/svg">
-                                <defs>
-                                    <clipPath id="my-svg-mask">
-                                        <path fill="#FFFFFF" d="M52.6,-49.9C68.4,-36.7,81.8,-18.4,82.5,0.7C83.2,19.9,71.4,39.7,55.6,55.7C39.7,71.8,19.9,84,0.8,83.2C-18.3,82.5,-36.7,68.8,-50.4,52.7C-64.1,36.7,-73.2,18.3,-74.3,-1.2C-75.5,-20.7,-68.8,-41.4,-55.1,-54.5C-41.4,-67.7,-20.7,-73.3,-1.2,-72.1C18.4,-70.9,36.7,-63,52.6,-49.9Z" transform="translate(100 100)" />
-                                    </clipPath>
-                                </defs>
-                            </svg> */}
                             <section id="team-grid">
                                 {teamData
                                     .filter((post) => post.node.title.length > 0)
                                     .map(({ node: post }) => {
                                         return (
                                             <div key={post.title} className="team-grid-member">
-                                                <Img className="img-fluid rounded shadow mask5" fluid={post.featuredImage.node.localFile.childImageSharp.fluid} />
-
+                                                <GatsbyImage
+                                                    alt="Team overview picture"
+                                                    image={post.featuredImage.node.localFile.childImageSharp.gatsbyImageData}
+                                                    className="img-fluid rounded shadow" />
                                                 <Header
                                                     data-sal="slide-up"
                                                     data-sal-delay="0"
@@ -172,56 +167,49 @@ class OverlayContent extends React.Component<any, any> {
     }
 }
 
-export const pageQuery = graphql`
-    query($language: String!) {
-        locales: allLocale(filter: {language: {eq: $language}}) {
-          ...GetTranslations
-        }
-        desktopImage: file(relativePath: { eq: "images/team/banner.jpg" }) {
-            childImageSharp {
-                fluid(maxWidth: 1600, quality: 100) {
-                    ...GatsbyImageSharpFluid_withWebp
-                }
-            }
-        }
-        mobileImage: file(relativePath: { eq: "images/team/banner-mobile.jpg" }) {
-            childImageSharp {
-                fluid(maxWidth: 1200, quality: 100) {
-                    ...GatsbyImageSharpFluid_withWebp
-                }
-            }
-        }
-        allWpTeamMember {
-            edges {
-                node {
-                    title
-                    acf_team {
-                        email
-                        fieldGroupName
-                        kurzbeschreibung
-                        facebook
-                        description
-                        instagram
-                        linkedin
-                        twitter
-                        website
-                    }
-                    content
-                    featuredImage {
-                        node {
-                            localFile {
-                                childImageSharp {
-                                    fluid(maxWidth: 800) {
-                                        ...GatsbyImageSharpFluid
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-        }
+export const pageQuery = graphql`query ($language: String!) {
+  locales: allLocale(filter: {language: {eq: $language}}) {
+    ...GetTranslations
+  }
+  desktopImage: file(relativePath: {eq: "images/team/banner.jpg"}) {
+    childImageSharp {
+      gatsbyImageData(quality: 100, layout: FULL_WIDTH)
     }
+  }
+  mobileImage: file(relativePath: {eq: "images/team/banner-mobile.jpg"}) {
+    childImageSharp {
+      gatsbyImageData(quality: 100, layout: FULL_WIDTH)
+    }
+  }
+  allWpTeamMember {
+    edges {
+      node {
+        title
+        acf_team {
+          email
+          fieldGroupName
+          kurzbeschreibung
+          facebook
+          description
+          instagram
+          linkedin
+          twitter
+          website
+        }
+        content
+        featuredImage {
+          node {
+            localFile {
+              childImageSharp {
+                gatsbyImageData(width: 800, layout: CONSTRAINED)
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
 `;
 
 export default useTranslationHOC(TeamPage);

@@ -1,4 +1,4 @@
-import Image from 'gatsby-image';
+import { GatsbyImage } from 'gatsby-plugin-image';
 import React from 'react';
 import { Container, Grid, GridColumn } from 'semantic-ui-react';
 import './header-overlay.less';
@@ -13,25 +13,15 @@ const HeaderOverlay = ({ sources, inverted, content, darken = false, width = 8, 
 
     return (
         <React.Fragment>
-            <div
-                className="header-overlay"
-            >
-                <div className={`header-overlay-image-wrapper`}>
-                    <Image
-                        fluid={sources}
+            <div className="header-overlay">
+                <div className="header-overlay-image-wrapper">
+                    <GatsbyImage
+                        image={sources}
                         className={`header-overlay-center-cropped ${darken && 'dark-overlay-blog'}`}
                         alt="Header Intro Image"
                         loading="eager"
-                        critical
                     >
-                        {/*                     <BackgroundImage
-                        Tag="section"
-                        className={`header-overlay-center-cropped ${darken && 'dark-overlay-blog'}`}
-                        fluid={sources}
-
-                    > */}
-                        {/*  </BackgroundImage> */}
-                    </Image>
+                    </GatsbyImage>
                     <Container className="header-overlay-container header-overlay-container-absolute">
                         <Grid className={`header-overlay-container-desktop responsive-desktop-container ${floatRight ? 'justifyContentEnd' : ''}`}>
                             <GridColumn width={width}>

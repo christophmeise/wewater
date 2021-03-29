@@ -2,6 +2,7 @@
 import tintIcon from '@iconify/icons-fa-solid/tint';
 import { Icon as IconifyIcon } from '@iconify/react';
 import { graphql } from 'gatsby';
+import { getImage, withArtDirection } from 'gatsby-plugin-image';
 import { Link, Trans } from 'gatsby-plugin-react-i18next';
 import React from 'react';
 import { Button, Icon } from 'semantic-ui-react';
@@ -83,13 +84,12 @@ class Index extends React.Component<Props, State> {
   render() {
     const { t, data } = this.props;
 
-    const sources = [
-      data.mobileImage.childImageSharp.fluid,
+    const sources = withArtDirection(getImage(data.mobileImage), [
       {
-        ...data.desktopImage.childImageSharp.fluid,
-        media: `(min-width: 768px)`,
+        media: "(min-width: 768px)",
+        image: getImage(data.desktopImage),
       },
-    ];
+    ]);
 
     setInterval(() => { }, 1000);
 
@@ -173,26 +173,21 @@ const OverlayContent = ({ liter }) => {
   );
 }
 
-export const pageQuery = graphql`
-    query($language: String!) {
-        locales: allLocale(filter: {language: {eq: $language}}) {
-          ...GetTranslations
-        }
-        desktopImage: file(relativePath: { eq: "images/main/main-banner.jpg" }) {
-            childImageSharp {
-                fluid(maxWidth: 1600, quality: 100) {
-                    ...GatsbyImageSharpFluid_withWebp
-                }
-            }
-        }
-        mobileImage: file(relativePath: { eq: "images/main/main-banner-mobile_.jpg" }) {
-            childImageSharp {
-                fluid(maxWidth: 768, quality: 100) {
-                    ...GatsbyImageSharpFluid_withWebp
-                }
-            }
-        }
+export const pageQuery = graphql`query ($language: String!) {
+  locales: allLocale(filter: {language: {eq: $language}}) {
+    ...GetTranslations
+  }
+  desktopImage: file(relativePath: {eq: "images/main/main-banner.jpg"}) {
+    childImageSharp {
+      gatsbyImageData(quality: 100, layout: FULL_WIDTH, placeholder: BLURRED, formats: [AUTO, WEBP, AVIF])
     }
+  }
+  mobileImage: file(relativePath: {eq: "images/main/main-banner-mobile_.jpg"}) {
+    childImageSharp {
+      gatsbyImageData(width: 768, quality: 100, layout: FULL_WIDTH, placeholder: BLURRED, formats: [AUTO, WEBP, AVIF])
+    }
+  }
+}
 `;
 export default useTranslationHOC(Index);
 

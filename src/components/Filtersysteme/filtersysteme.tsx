@@ -1,5 +1,5 @@
 import { graphql, useStaticQuery } from 'gatsby';
-import BackgroundImage from 'gatsby-background-image';
+import { GatsbyImage } from 'gatsby-plugin-image';
 import { Link, Trans } from 'gatsby-plugin-react-i18next';
 import React from 'react';
 import { Button, Container, Grid, GridColumn, GridRow, Header, Icon } from 'semantic-ui-react';
@@ -7,57 +7,44 @@ import './filtersysteme.less';
 
 const SectionFiltersysteme = () => {
     const data = useStaticQuery(
-        graphql` query FiltersystemeQuery {
-            image1: file(relativePath: { eq: "images/filtersysteme/image1.jpg" }) {
-                childImageSharp {
-                    fluid(maxWidth: 600, quality: 100) {
-                        ...GatsbyImageSharpFluid_withWebp
-                    }
-                }
-            }
-            image2: file(relativePath: { eq: "images/filtersysteme/image2.jpg" }) {
-                childImageSharp {
-                    fluid(maxWidth: 600, quality: 100) {
-                        ...GatsbyImageSharpFluid_withWebp
-                    }
-                }
-            }
-            image3: file(relativePath: { eq: "images/filtersysteme/image3.jpg" }) {
-                childImageSharp {
-                    fluid(maxWidth: 600, quality: 100) {
-                        ...GatsbyImageSharpFluid_withWebp
-                    }
-                }
-            }
-            image4: file(relativePath: { eq: "images/filtersysteme/image4.jpg" }) {
-                childImageSharp {
-                    fluid(maxWidth: 600, quality: 100) {
-                        ...GatsbyImageSharpFluid_withWebp
-                    }
-                }
-            }
-            image5: file(relativePath: { eq: "images/filtersysteme/image5.jpg" }) {
-                childImageSharp {
-                    fluid(maxWidth: 600, quality: 100) {
-                        ...GatsbyImageSharpFluid_withWebp
-                    }
-                }
-            }
-            image6: file(relativePath: { eq: "images/filtersysteme/image6.jpg" }) {
-                childImageSharp {
-                    fluid(maxWidth: 600, quality: 100) {
-                        ...GatsbyImageSharpFluid_withWebp
-                    }
-                }
-            }
-            blob: file(relativePath: { eq: "images/filtersysteme/blob.png" }) {
-                childImageSharp {
-                    fluid(maxWidth: 800, quality: 100) {
-                        ...GatsbyImageSharpFluid_withWebp
-                    }
-                }
-            }
-        }`,
+        graphql`query FiltersystemeQuery {
+  image1: file(relativePath: {eq: "images/filtersysteme/image1.jpg"}) {
+    childImageSharp {
+      gatsbyImageData(width: 600, quality: 100, layout: CONSTRAINED, placeholder: BLURRED)
+    }
+  }
+  image2: file(relativePath: {eq: "images/filtersysteme/image2.jpg"}) {
+    childImageSharp {
+      gatsbyImageData(width: 600, quality: 100, layout: CONSTRAINED, placeholder: BLURRED)
+    }
+  }
+  image3: file(relativePath: {eq: "images/filtersysteme/image3.jpg"}) {
+    childImageSharp {
+      gatsbyImageData(width: 600, quality: 100, layout: CONSTRAINED, placeholder: BLURRED)
+    }
+  }
+  image4: file(relativePath: {eq: "images/filtersysteme/image4.jpg"}) {
+    childImageSharp {
+      gatsbyImageData(width: 600, quality: 100, layout: CONSTRAINED, placeholder: BLURRED)
+    }
+  }
+  image5: file(relativePath: {eq: "images/filtersysteme/image5.jpg"}) {
+    childImageSharp {
+      gatsbyImageData(width: 600, quality: 100, layout: CONSTRAINED, placeholder: BLURRED)
+    }
+  }
+  image6: file(relativePath: {eq: "images/filtersysteme/image6.jpg"}) {
+    childImageSharp {
+      gatsbyImageData(width: 600, quality: 100, layout: CONSTRAINED, placeholder: BLURRED)
+    }
+  }
+  blob: file(relativePath: {eq: "images/filtersysteme/blob.png"}) {
+    childImageSharp {
+      gatsbyImageData(width: 800, quality: 100, layout: CONSTRAINED)
+    }
+  }
+}
+`,
     );
 
     return (
@@ -68,25 +55,49 @@ const SectionFiltersysteme = () => {
                         <GridRow columns="2" className="filtersysteme-img-horizontal">
                             <GridColumn>
                                 <Link to="/filtersysteme/aqqasystem">
-                                    <BackgroundImage className="img-fluid rounded shadow filtersysteme-dark-overlay" fluid={data.image1.childImageSharp.fluid}>
-                                        <p>AQQAsystem</p>
-                                    </BackgroundImage>
+                                    <div className="background-image-wrapper filtersysteme-dark-overlay">
+                                        <GatsbyImage
+                                            image={data.image1.childImageSharp.gatsbyImageData}
+                                            className="rounded shadow"
+                                            alt="image 1"
+                                        >
+                                        </GatsbyImage>
+                                        <div className="background-text-container">
+                                            <p>AQQAsystem</p>
+                                        </div>
+                                    </div>
                                 </Link>
                             </GridColumn>
                             <GridColumn>
                                 <Link to="/filtersysteme/aqqacube">
-                                    <BackgroundImage className="img-fluid rounded shadow filtersysteme-dark-overlay" fluid={data.image2.childImageSharp.fluid} >
-                                        <p>AQQAcube</p>
-                                    </BackgroundImage>
+                                    <div className="background-image-wrapper filtersysteme-dark-overlay">
+                                        <GatsbyImage
+                                            image={data.image2.childImageSharp.gatsbyImageData}
+                                            className="rounded shadow"
+                                            alt="image 1"
+                                        >
+                                        </GatsbyImage>
+                                        <div className="background-text-container">
+                                            <p>AQQAcube</p>
+                                        </div>
+                                    </div>
                                 </Link>
                             </GridColumn>
                         </GridRow>
                         <GridRow columns="3" className="filtersysteme-img-vertical">
-                            <GridColumn>
+                            <GridColumn className="filtersysteme-align-left">
                                 <Link to="/filtersysteme/aqqabag">
-                                    <BackgroundImage className="img-fluid rounded shadow filtersysteme-dark-overlay" fluid={data.image3.childImageSharp.fluid} >
-                                        <p>AQQAbag</p>
-                                    </BackgroundImage>
+                                    <div className="background-image-wrapper filtersysteme-dark-overlay">
+                                        <GatsbyImage
+                                            image={data.image3.childImageSharp.gatsbyImageData}
+                                            className="rounded shadow"
+                                            alt="image 1"
+                                        >
+                                        </GatsbyImage>
+                                        <div className="background-text-container">
+                                            <p>AQQAbag</p>
+                                        </div>
+                                    </div>
                                 </Link>
                             </GridColumn>
                             <GridColumn>
@@ -94,34 +105,66 @@ const SectionFiltersysteme = () => {
                             </GridColumn>
                             <GridColumn className="filtersysteme-align-right">
                                 <Link to="/filtersysteme/aqqacube">
-                                    <BackgroundImage className="img-fluid rounded shadow filtersysteme-dark-overlay" fluid={data.image4.childImageSharp.fluid} >
-                                        <p>AQQAcube</p>
-                                    </BackgroundImage>
+                                    <div className="background-image-wrapper filtersysteme-dark-overlay">
+                                        <GatsbyImage
+                                            image={data.image4.childImageSharp.gatsbyImageData}
+                                            className="rounded shadow"
+                                            alt="image 1"
+                                        >
+                                        </GatsbyImage>
+                                        <div className="background-text-container">
+                                            <p>AQQAcube</p>
+                                        </div>
+                                    </div>
                                 </Link>
                             </GridColumn>
                         </GridRow>
                         <GridRow columns="2" className="filtersysteme-img-horizontal">
                             <GridColumn>
                                 <Link to="/filtersysteme/aqqabag">
-                                    <BackgroundImage className="img-fluid rounded shadow filtersysteme-dark-overlay" fluid={data.image5.childImageSharp.fluid} >
-                                        <p>AQQAbag</p>
-                                    </BackgroundImage>
+                                    <div className="background-image-wrapper filtersysteme-dark-overlay">
+                                        <GatsbyImage
+                                            image={data.image5.childImageSharp.gatsbyImageData}
+                                            className="rounded shadow"
+                                            alt="image 1"
+                                        >
+                                        </GatsbyImage>
+                                        <div className="background-text-container">
+                                            <p>AQQAbag</p>
+                                        </div>
+                                    </div>
                                 </Link>
                             </GridColumn>
                             <GridColumn>
                                 <Link to="/filtersysteme/aqqasystem">
-                                    <BackgroundImage className="img-fluid rounded shadow filtersysteme-dark-overlay" fluid={data.image6.childImageSharp.fluid} >
-                                        <p>AQQAsystem</p>
-                                    </BackgroundImage>
+                                    <div className="background-image-wrapper filtersysteme-dark-overlay">
+                                        <GatsbyImage
+                                            image={data.image6.childImageSharp.gatsbyImageData}
+                                            className="rounded shadow"
+                                            alt="image 1"
+                                        >
+                                        </GatsbyImage>
+                                        <div className="background-text-container">
+                                            <p>AQQAsystem</p>
+                                        </div>
+                                    </div>
                                 </Link>
                             </GridColumn>
                         </GridRow>
                     </Grid>
-                    <BackgroundImage
-                        className="filtersysteme-blob"
-                        fluid={data.blob.childImageSharp.fluid}>
-                        <TextContent />
-                    </BackgroundImage>
+                    <div className="filtersysteme-blob-wrapper">
+                        <div className="background-image-wrapper">
+                            <GatsbyImage
+                                image={data.blob.childImageSharp.gatsbyImageData}
+                                className="filtersysteme-blob"
+                                alt="image 1"
+                            >
+                            </GatsbyImage>
+                            <div className="background-text-container-blob">
+                                <TextContent />
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 <div className="filtersysteme-grid-mobile">
                     <TextContent />

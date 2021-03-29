@@ -1,6 +1,6 @@
 // i18next-extract-mark-ns-start page_filtersystem
 import { graphql } from 'gatsby';
-import Img from 'gatsby-image';
+import { GatsbyImage } from "gatsby-plugin-image";
 import { Link, Trans } from 'gatsby-plugin-react-i18next';
 import de from 'hyphenated-de';
 import React from 'react';
@@ -126,7 +126,10 @@ class FiltersystemPage extends React.Component<Props, any> {
                                         </Link>
                                     </GridColumn>
                                     <GridColumn width="6">
-                                        <Img className="img-fluid rounded shadow" fluid={data.image1.childImageSharp.fluid} />
+                                        <GatsbyImage
+                                            alt="image1"
+                                            image={data.image1.childImageSharp.gatsbyImageData}
+                                            className="img-fluid rounded shadow" />
                                     </GridColumn>
                                 </GridRow>
                                 <GridRow className="team-grid-member" columns="2">
@@ -164,7 +167,10 @@ class FiltersystemPage extends React.Component<Props, any> {
                                         </Link>
                                     </GridColumn>
                                     <GridColumn width="6">
-                                        <Img className="img-fluid rounded shadow" fluid={data.image2.childImageSharp.fluid} />
+                                        <GatsbyImage
+                                            alt="image2"
+                                            image={data.image2.childImageSharp.gatsbyImageData}
+                                            className="img-fluid rounded shadow" />
                                     </GridColumn>
                                 </GridRow>
                                 <GridRow className="team-grid-member" columns="2">
@@ -202,7 +208,10 @@ class FiltersystemPage extends React.Component<Props, any> {
                                         </Link>
                                     </GridColumn>
                                     <GridColumn width="6">
-                                        <Img className="img-fluid rounded shadow" fluid={data.image3.childImageSharp.fluid} />
+                                        <GatsbyImage
+                                            alt="image3"
+                                            image={data.image3.childImageSharp.gatsbyImageData}
+                                            className="img-fluid rounded shadow" />
                                     </GridColumn>
                                 </GridRow>
                             </Grid>
@@ -216,7 +225,10 @@ class FiltersystemPage extends React.Component<Props, any> {
                                             <Table.HeaderCell width={1}></Table.HeaderCell>
                                             <Table.HeaderCell width={5}>
                                                 <div className="table-header-cell-wrapper">
-                                                    <Img className="img-fluid rounded shadow" fluid={data.image1.childImageSharp.fluid} />
+                                                    <GatsbyImage
+                                                        alt="image4"
+                                                        image={data.image1.childImageSharp.gatsbyImageData}
+                                                        className="img-fluid rounded shadow" />
                                                     <Link to="/filtersysteme/aqqabag">
                                                         <h3 className="global-subtitle text-primary">AQQABag</h3>
                                                     </Link>
@@ -224,7 +236,10 @@ class FiltersystemPage extends React.Component<Props, any> {
                                             </Table.HeaderCell>
                                             <Table.HeaderCell width={5}>
                                                 <div className="table-header-cell-wrapper">
-                                                    <Img className="img-fluid rounded shadow" fluid={data.image2.childImageSharp.fluid} />
+                                                    <GatsbyImage
+                                                        alt="image5"
+                                                        image={data.image2.childImageSharp.gatsbyImageData}
+                                                        className="img-fluid rounded shadow" />
                                                     <Link to="/filtersysteme/aqqacube">
                                                         <h3 className="global-subtitle text-primary">AQQACube</h3>
                                                     </Link>
@@ -232,7 +247,10 @@ class FiltersystemPage extends React.Component<Props, any> {
                                             </Table.HeaderCell>
                                             <Table.HeaderCell width={5}>
                                                 <div className="table-header-cell-wrapper">
-                                                    <Img className="img-fluid rounded shadow" fluid={data.image3.childImageSharp.fluid} />
+                                                    <GatsbyImage
+                                                        alt="image6"
+                                                        image={data.image3.childImageSharp.gatsbyImageData}
+                                                        className="img-fluid rounded shadow" />
                                                     <Link to="/filtersysteme/aqqasystem">
                                                         <h3 className="global-subtitle text-primary">AQQASystem</h3>
                                                     </Link>
@@ -276,33 +294,26 @@ const OverlayContent = () => {
     );
 }
 
-export const pageQuery = graphql`
-    query($language: String!) {
-        locales: allLocale(filter: {language: {eq: $language}}) {
-          ...GetTranslations
-        }
-         image1: file(relativePath: { eq: "images/filtersysteme/aqqabag.jpg" }) {
-            childImageSharp {
-                fluid(maxWidth: 600, quality: 100) {
-                    ...GatsbyImageSharpFluid_withWebp
-                }
-            }
-        }
-        image2: file(relativePath: { eq: "images/filtersysteme/image2.jpg" }) {
-            childImageSharp {
-                fluid(maxWidth: 600, quality: 100) {
-                    ...GatsbyImageSharpFluid_withWebp
-                }
-            }
-        }
-        image3: file(relativePath: { eq: "images/filtersysteme/aqqasystem.png" }) {
-            childImageSharp {
-                fluid(maxWidth: 600, quality: 100) {
-                    ...GatsbyImageSharpFluid_withWebp
-                }
-            }
-        }
+export const pageQuery = graphql`query ($language: String!) {
+  locales: allLocale(filter: {language: {eq: $language}}) {
+    ...GetTranslations
+  }
+  image1: file(relativePath: {eq: "images/filtersysteme/aqqabag.jpg"}) {
+    childImageSharp {
+      gatsbyImageData(width: 600, quality: 100, layout: CONSTRAINED, placeholder: BLURRED)
     }
+  }
+  image2: file(relativePath: {eq: "images/filtersysteme/image2.jpg"}) {
+    childImageSharp {
+      gatsbyImageData(width: 600, quality: 100, layout: CONSTRAINED, placeholder: BLURRED)
+    }
+  }
+  image3: file(relativePath: {eq: "images/filtersysteme/aqqasystem.png"}) {
+    childImageSharp {
+      gatsbyImageData(width: 600, quality: 100, layout: CONSTRAINED, placeholder: BLURRED)
+    }
+  }
+}
 `;
 
 export default useTranslationHOC(FiltersystemPage);

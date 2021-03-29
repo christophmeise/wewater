@@ -1,11 +1,16 @@
 @import '../../styles/lib.less';
 
 .shop-card-background {
-    background-size: contain;
-    overflow       : hidden;
-    height         : 100%;
-    cursor         : pointer;
-    transition     : transform 0.5s ease;
+    overflow    : hidden;
+    height      : 100%;
+    width       : 100%;
+    cursor      : pointer;
+    transition  : transform 0.5s ease;
+    aspect-ratio: 4 / 3;
+
+    img {
+        object-fit: scale-down !important;
+    }
 }
 
 .shop-card-background:hover {

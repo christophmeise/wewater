@@ -6,41 +6,36 @@ import ProjektCard from '../ProjektCard/projekt-card';
 
 const SectionProjekte = () => {
     const data = useStaticQuery(
-        graphql`
-            query LatestProjectsQuery {
-                german: allWpProjekt(
-                    sort: { fields: date, order: DESC }
-                ) {
-                    edges {
-                        node {
-                            id
-                            author {
-                                node {
-                                    firstName
-                                    lastName
-                                }
-                            }
-                            excerpt
-                            title
-                            date(formatString: "MMMM DD, YYYY", locale: "de")
-                            uri
-                            slug
-                            featuredImage {
-                                node {
-                                    localFile {
-                                        childImageSharp {
-                                            fluid(maxWidth: 800) {
-                                                ...GatsbyImageSharpFluid
-                                            }
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
+        graphql`query LatestProjectsQuery {
+  german: allWpProjekt(sort: {fields: date, order: DESC}) {
+    edges {
+      node {
+        id
+        author {
+          node {
+            firstName
+            lastName
+          }
+        }
+        excerpt
+        title
+        date(formatString: "MMMM DD, YYYY", locale: "de")
+        uri
+        slug
+        featuredImage {
+          node {
+            localFile {
+              childImageSharp {
+                gatsbyImageData(width: 800, layout: CONSTRAINED)
+              }
             }
-        `,
+          }
+        }
+      }
+    }
+  }
+}
+`,
     );
 
 
