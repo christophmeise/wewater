@@ -1,7 +1,6 @@
 import shoppingCart from '@iconify/icons-jam/shopping-cart';
 import { Icon } from '@iconify/react';
 import Link from "gatsby-link";
-import { StaticImage } from "gatsby-plugin-image";
 import { Trans } from 'gatsby-plugin-react-i18next';
 import { isEmpty } from "lodash";
 import React, { useContext } from 'react';
@@ -19,8 +18,6 @@ const CartDropdown = ({ isDropdownOpen }) => {
 
 	const productsCount = cart.totalProductsCount ? cart.totalProductsCount : '';
 	const totalPrice = cart.totalProductsPrice ? cart.totalProductsPrice : '';
-
-	const productImagePlaceholder = "https://via.placeholder.com/70";
 
 	return (
 		<div className={`shopping-cart ${isDropdownOpen ? 'is-open' : ''}`}>
@@ -45,15 +42,6 @@ const CartDropdown = ({ isDropdownOpen }) => {
 									src={product.image.sourceUrl}
 									alt={product.image.altText ? product.image.altText : ""}
 									style={{ height: '70px', width: '70px' }}
-								/>
-							</figure>
-						) : !isEmpty(productImagePlaceholder) ? (
-							<figure>
-								<StaticImage
-									src={productImagePlaceholder}
-									alt="default"
-									height={70}
-									width={70}
 								/>
 							</figure>
 						) : null}

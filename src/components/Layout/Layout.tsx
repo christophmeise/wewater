@@ -40,8 +40,7 @@ class Layout extends Component<Props, any> {
     }
 
     componentDidMount() {
-        const isSSR = typeof window === 'undefined';
-        if (!isSSR) {
+        if (typeof window !== 'undefined') {
             document.addEventListener('touchstart', this.handleTouchStart.bind(this), false);
             document.addEventListener('touchmove', this.handleTouchMove.bind(this), false);
             this.setState({ location: window.location });
@@ -61,8 +60,8 @@ class Layout extends Component<Props, any> {
     }
 
     getTouches(evt) {
-        return evt.touches || // browser API
-            evt.originalEvent.touches; // jQuery
+        return evt.touches ||
+            evt.originalEvent.touches;
     }
 
     handleTouchStart(evt) {
@@ -81,20 +80,11 @@ class Layout extends Component<Props, any> {
 
         var xDiff = this.state.xDown - xUp;
         var yDiff = this.state.yDown - yUp;
-        if (Math.abs(xDiff) > Math.abs(yDiff)) {/*most significant*/
-            if (xDiff > 0) {
-                /* left swipe */
-            } else {
-                /* right swipe */
-            }
-        } else {
+        if (!(Math.abs(xDiff) > Math.abs(yDiff))) {
             if (yDiff > 0) {
                 this.setState({ sidebarOpened: false });
-            } else {
-                /* down swipe */
             }
         }
-        /* reset values */
         this.setState({ xDown: null });
         this.setState({ yDown: null });
     };

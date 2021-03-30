@@ -21,10 +21,6 @@
   "license": "0BSD",
   "dependencies": {
     "@apollo/client": "^3.3.12",
-    "@babel/cli": "^7.13.10",
-    "@babel/plugin-transform-typescript": "^7.13.0",
-    "@loadable/component": "^5.14.1",
-    "babel-plugin-i18next-extract": "^0.8.2",
     "dompurify": "^2.2.7",
     "esm": "^3.2.25",
     "gatsby": "^2.32.8",
@@ -49,7 +45,6 @@
     "gatsby-source-wordpress": "^5.0.0",
     "gatsby-transformer-sharp": "^3.1.0",
     "hyphenated-de": "^1.2.0",
-    "hyphenated-en-us": "^1.2.0",
     "i18next": "^19.9.2",
     "isomorphic-fetch": "^3.0.0",
     "less": "^4.1.1",
@@ -70,6 +65,8 @@
     "validator": "^13.5.2"
   },
   "devDependencies": {
+    "@babel/cli": "^7.13.10",
+    "@babel/plugin-transform-typescript": "^7.13.0",
     "@iconify/icons-bi": "^1.1.2",
     "@iconify/icons-codicon": "^1.1.11",
     "@iconify/icons-fa-brands": "^1.1.0",
@@ -79,6 +76,7 @@
     "@iconify/icons-la": "^1.1.0",
     "@iconify/icons-mdi": "^1.1.12",
     "@iconify/react": "^1.1.4",
+    "@types/loadable__component": "^5.13.3",
     "@types/node": "^14.14.35",
     "@types/react": "^17.0.3",
     "@types/react-dom": "^17.0.2",
@@ -86,9 +84,9 @@
     "@types/react-i18next": "^8.1.0",
     "@types/react-lazy-load-image-component": "^1.5.1",
     "@types/react-lottie": "^1.2.5",
-    "@types/loadable__component": "^5.13.3",
     "@typescript-eslint/eslint-plugin": "^4.18.0",
     "@typescript-eslint/parser": "^4.18.0",
+    "babel-plugin-i18next-extract": "^0.8.2",
     "babel-plugin-root-import": "^6.6.0",
     "eslint": "^7.22.0",
     "eslint-config-airbnb": "^18.2.1",
@@ -98,6 +96,7 @@
     "eslint-plugin-jsx-a11y": "^6.4.1",
     "eslint-plugin-react": "^7.22.0",
     "eslint-plugin-react-hooks": "^4.2.0",
+    "gatsby-plugin-webpack-bundle-analyser-v2": "^1.1.21",
     "typescript": "^4.2.3"
   }
 }

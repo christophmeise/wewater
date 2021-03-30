@@ -91,6 +91,7 @@ module.exports = {
     "gatsby-transformer-sharp",
     "gatsby-plugin-netlify",
     "gatsby-plugin-instagram-embed",
+    "gatsby-plugin-webpack-bundle-analyser-v2",
     {
       resolve: 'gatsby-plugin-react-svg',
       options: {
