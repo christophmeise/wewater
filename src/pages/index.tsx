@@ -91,8 +91,6 @@ class Index extends React.Component<Props, State> {
       },
     ]);
 
-    setInterval(() => { }, 1000);
-
     const slidesPerView = this.state != null ? this.state.slidesPerView : 5;
 
     const shouldHideForm = ((typeof window !== 'undefined') && window.innerWidth < 768) ? true : false;
@@ -144,7 +142,6 @@ const OverlayContent = ({ liter }) => {
         <div className="main-overlay-infobox rounded">
           <div className="main-overlay-infobox-text">
             <h3>{format.format(liter.toFixed(2))}</h3>
-            {/* <CountUp delay={0.5} end={8100} start={0} separator="." duration={4}></CountUp> */}
           </div>
           <p><Trans>Liter Trinkwasser gespendet</Trans></p>
           <div>
@@ -184,7 +181,7 @@ export const pageQuery = graphql`query ($language: String!) {
   }
   mobileImage: file(relativePath: {eq: "images/main/main-banner-mobile_.jpg"}) {
     childImageSharp {
-      gatsbyImageData(width: 768, quality: 100, layout: FULL_WIDTH, placeholder: BLURRED, formats: [AUTO, WEBP, AVIF])
+      gatsbyImageData(quality: 85, layout: FULL_WIDTH, placeholder: BLURRED, formats: [AUTO, WEBP, AVIF])
     }
   }
 }
