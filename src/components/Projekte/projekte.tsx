@@ -17,6 +17,11 @@ const SectionProjekte = () => {
             lastName
           }
         }
+        categories {
+          nodes {
+            name
+          }
+        }
         excerpt
         title
         date(formatString: "MMMM DD, YYYY", locale: "de")

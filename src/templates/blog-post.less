@@ -4,9 +4,31 @@
 
 .blog-post {
 
+    article {
+        display       : flex;
+        flex-direction: column;
+    }
+
+    .wp-block-image,
+    .wp-block-gallery {
+        figure {
+            margin: 0;
+        }
+    }
+
+    .wp-block-gallery {
+        margin-left: 0;
+        margin-top : 2rem;
+
+        ul {
+            list-style  : none;
+            padding-left: 0;
+        }
+    }
+
     .gatsby-image-wrapper {
-        border-radius: 25px !important;
-        box-shadow   : 0 5px 12px 0 rgb(0 13 62 / 15%), 0 10px 30px 0 rgb(0 13 62 / 9%) !important;
+        /*  border-radius: 25px !important; */
+        box-shadow: 0 5px 12px 0 rgba(0, 13, 62, 0.15), 0 10px 30px 0 rgba(0, 13, 62, 0.09) !important;
     }
 
     .gatsby-resp-image-wrapper {

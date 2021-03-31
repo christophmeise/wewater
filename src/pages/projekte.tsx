@@ -135,6 +135,11 @@ export const pageQuery = graphql`query ($language: String!) {
             name
           }
         }
+        categories {
+          nodes {
+            name
+          }
+        }
         featuredImage {
           node {
             localFile {
@@ -163,40 +168,3 @@ export const pageQuery = graphql`query ($language: String!) {
 `;
 
 export default useTranslationHOC(ProjektePage);
-/*
-german: allWpDtPortfolio(
-            sort: { fields: date, order: DESC }
-        ) {
-            edges {
-                node {
-                    id
-                    author {
-                        node {
-                            firstName
-                            lastName
-                        }
-                    }
-                    excerpt
-                    title
-                    date(formatString: "MMMM DD, YYYY", locale: "de")
-                    uri
-                    slug
-                    dt_portfolio_categories{
-                        nodes {
-                            name
-                        }
-                    }
-                    featuredImage {
-                        node {
-                            localFile {
-                                childImageSharp {
-                                    fluid(maxWidth: 800) {
-                                        ...GatsbyImageSharpFluid
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-        } */

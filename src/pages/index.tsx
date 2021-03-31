@@ -131,7 +131,7 @@ const OverlayContent = ({ liter }) => {
       <h1 className="wewater-description-desktop">
         WeWater
       </h1>
-      <div className="wewater-description-mobile wewater-mobile-logo rounded shadow">
+      <div className="wewater-description-mobile wewater-mobile-logo shadow">
         {WeWaterLogo()}
       </div>
       <h2>

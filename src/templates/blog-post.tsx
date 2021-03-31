@@ -27,7 +27,7 @@ function BlogPostTemplate({ data, t }) {
             <Container>
                 <div className="blog-content-sections">
                     <Grid columns="2" stackable>
-                        <GridColumn width={12}>
+                        <GridColumn width={10}>
                             <section className="blog-post">
                                 <article dangerouslySetInnerHTML={{ __html: post.content }}></article>
                             </section>
@@ -36,7 +36,7 @@ function BlogPostTemplate({ data, t }) {
                                 <CommentForm postId={post.databaseId} />
                             </section>
                         </GridColumn>
-                        <GridColumn width={4}>
+                        <GridColumn width={6}>
                             <SidebarWidget></SidebarWidget>
                         </GridColumn>
                     </Grid>

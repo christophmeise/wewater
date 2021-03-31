@@ -173,7 +173,7 @@ class AqqabagPage extends React.Component<Props, any> {
 const OverlayContent = () => {
     return (
         <div className="main-overlay-content">
-            <div className="wewater-mobile-logo rounded shadow">
+            <div className="wewater-mobile-logo shadow">
                 {WeWaterLogo()}
             </div>
             <h2 className="text-shadow">
@@ -202,7 +202,7 @@ export const pageQuery = graphql`query ($language: String!) {
       gatsbyImageData(width: 600, quality: 100, layout: CONSTRAINED)
     }
   }
-  projekte: allWpProjekt(sort: {fields: date, order: DESC}) {
+  projekte: allWpProjekt(sort: {fields: date, order: DESC}, filter: {categories: {nodes: {elemMatch: {name: {eq: "AQQAbag-Projekt"}}}}}) {
     edges {
       node {
         id
@@ -211,6 +211,11 @@ export const pageQuery = graphql`query ($language: String!) {
         date(formatString: "MMMM DD, YYYY", locale: "de")
         uri
         slug
+        categories {
+          nodes {
+            name
+          }
+        }
         author {
           node {
             name

@@ -284,7 +284,7 @@ class FiltersystemPage extends React.Component<Props, any> {
 const OverlayContent = () => {
     return (
         <div className="main-overlay-content">
-            <div className="wewater-mobile-logo rounded shadow">
+            <div className="wewater-mobile-logo shadow">
                 {WeWaterLogo()}
             </div>
             <h2 className="text-shadow">

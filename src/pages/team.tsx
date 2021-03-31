@@ -11,6 +11,7 @@ import './team.less';
 
 interface Props {
     t: any;
+    language: any;
     data: {
         mobileImage: any;
         desktopImage: any;
@@ -33,7 +34,7 @@ class TeamPage extends React.Component<Props, any> {
     }
 
     render() {
-        const { t, data } = this.props;
+        const { t, data, language } = this.props;
 
         const teamData = data.allWpTeamMember.edges.slice(3, data.allWpTeamMember.edges.length).reverse().concat(shuffle(data.allWpTeamMember.edges.slice(0, 3)));
 
@@ -68,10 +69,19 @@ class TeamPage extends React.Component<Props, any> {
                                                 textAlign='left'
                                                 className="global-flex-column global-no-margin"
                                             >
-                                                <h3 className={`global-subtitle text-primary`}>{post?.acf_team?.kurzbeschreibung}</h3>
+                                                {language === 'de' ?
+                                                    <h3 className={`global-subtitle text-primary`}>{post?.acf_team?.kurzbeschreibung}</h3>
+                                                    :
+                                                    <h3 className={`global-subtitle text-primary`}>{post?.acf_team?.kurzbeschreibungEnglisch}</h3>
+                                                }
+
                                                 <h2 className="global-headline">{post.title}</h2>
                                             </Header>
-                                            <p dangerouslySetInnerHTML={{ __html: post.acf_team?.description }}></p>
+                                            {language === 'de' ?
+                                                <p dangerouslySetInnerHTML={{ __html: post.acf_team?.description }}></p>
+                                                :
+                                                <p dangerouslySetInnerHTML={{ __html: post.acf_team?.descriptionEnglisch }}></p>
+                                            }
                                             <div>
                                                 {post.acf_team?.facebook != null &&
                                                     <a
@@ -199,8 +209,10 @@ export const pageQuery = graphql`query ($language: String!) {
           email
           fieldGroupName
           kurzbeschreibung
+          kurzbeschreibungEnglisch
           facebook
           description
+          descriptionEnglisch
           instagram
           linkedin
           twitter
