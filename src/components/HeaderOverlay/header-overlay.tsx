@@ -3,9 +3,10 @@ import React from 'react';
 import { Container, Grid, GridColumn } from 'semantic-ui-react';
 import './header-overlay.less';
 
-const HeaderOverlay = ({ sources, inverted, content, darken = false, width = 8, floatRight = false, floatTop = false }) => {
+const HeaderOverlay = ({ sources, inverted, content, darken = false, width = 8, floatRight = false, floatTop = false, centerImage = true }) => {
     let vh = 100;
     const isSSR = typeof window === 'undefined';
+    console.log(centerImage);
     if (!isSSR) {
         vh = window.innerHeight * 0.01;
         document.documentElement.style.setProperty('--vh', `${vh}px`);
@@ -17,7 +18,7 @@ const HeaderOverlay = ({ sources, inverted, content, darken = false, width = 8, 
                 <div className="header-overlay-image-wrapper">
                     <GatsbyImage
                         image={sources}
-                        className={`header-overlay-center-cropped ${darken && 'dark-overlay-blog'}`}
+                        className={`header-overlay-center-cropped ${darken && 'dark-overlay-blog'} ${!centerImage && 'center-top'}`}
                         alt="Header Intro Image"
                         loading="eager"
                     >

@@ -5,7 +5,7 @@ import { graphql } from 'gatsby';
 import { getImage, StaticImage, withArtDirection } from 'gatsby-plugin-image';
 import { Link, Trans } from 'gatsby-plugin-react-i18next';
 import React from 'react';
-import { Button, Icon } from 'semantic-ui-react';
+import { Button, Icon, Popup } from 'semantic-ui-react';
 import SectionBlog from '../components/Blog/blog';
 import SectionFiltersysteme from '../components/Filtersysteme/filtersysteme';
 import HeaderOverlay from '../components/HeaderOverlay/header-overlay';
@@ -31,11 +31,14 @@ interface State {
   liter: number;
 }
 
+// 11,395 pro minute
+
 class Index extends React.Component<Props, State> {
   constructor(props: Props) {
     super(props);
-    const timeDiff = new Date().getTime() - new Date('01.03.2019').getTime();
-    const liter = timeDiff / 1000 / 30;
+    const timeDiff = new Date().getTime() - new Date('2019-03-01').getTime();
+    const minutes = timeDiff / 1000 / 60;
+    const liter = minutes * 11.395;
     this.state = {
       slidesPerView: 5,
       liter: liter
@@ -50,10 +53,11 @@ class Index extends React.Component<Props, State> {
     }
     this.calculateSlidesPerView();
     if (typeof window !== 'undefined' && window.innerWidth > 767) {
-      const timeDiff = new Date().getTime() - new Date('01.03.2019').getTime();
-      const liter = timeDiff / 1000 / 30;
+      const timeDiff = new Date().getTime() - new Date('2019-03-01').getTime();
+      const minutes = timeDiff / 1000 / 60;
+      const liter = minutes * 11.395;
       this.setState({ liter: liter });
-      this.interval = setInterval(() => this.setState({ liter: this.state.liter + 0.023 }), 800);
+      this.interval = setInterval(() => this.setState({ liter: this.state.liter + 0.1899 }), 1000);
     }
   }
   componentWillUnmount() {
@@ -105,6 +109,7 @@ class Index extends React.Component<Props, State> {
           darken={shouldHideForm}
           width={10}
           floatTop={true}
+          centerImage={!shouldHideForm}
         />
         <div>
           <Video></Video>
@@ -133,7 +138,7 @@ const OverlayContent = ({ liter }) => {
         <Trans>Wasser weltweit klarmachen.</Trans>
       </h2>
       <p className="wewater-description-desktop" style={{ marginBottom: '1.5rem', marginTop: '0rem' }}>
-        <Trans>Dafür haben wir eine innovative Wasserfiltertechnologie entwickelt, die ohne den Einsatz von elektrischer Energie und Chemie funktioniert und einen extrem hohen Reinheitsgrad gewährleistet.</Trans>
+        <Trans>Wir haben eine innovative Wasserfiltertechnologie entwickelt, die ohne den Einsatz von elektrischer Energie und Chemie funktioniert und einen extrem hohen Reinheitsgrad gewährleistet.</Trans>
       </p>
       <p className="wewater-description-mobile" style={{ marginBottom: '1.5rem', marginTop: '0rem' }}>
         <Trans>Eine innovative Wasserfiltertechnologie ohne elektrische Energie, ohne Chemie, aber maximaler Reinheitsgrad.</Trans>
@@ -143,7 +148,19 @@ const OverlayContent = ({ liter }) => {
           <div className="main-overlay-infobox-text">
             <h3>{format.format(liter.toFixed(2))}</h3>
           </div>
-          <p><Trans>Liter Trinkwasser gespendet</Trans></p>
+          <div>
+            <p><Trans>Liter Trinkwasser werden pro Jahr gespendet</Trans></p>
+            <Popup
+              style={{ zIndex: 99999999999 }}
+              trigger={
+                <Button secondary basic inverted className="rounded popup-infotext-trigger" size="tiny" icon='info' />
+              }
+            >
+              <Popup.Content>
+                <Trans>Basierend auf der durchschnittlichen Filterleistung unserer sich im Einsatz befindenden Wasserfilter. Die Filterleistung unserer Systeme ist am Anfang ihrer Lebenszyklen bis zu doppelt so hoch. Die Zahl ist bewusst konservativ angegeben, im Realbetrieb kann die Filterleistung noch höher ausfallen.</Trans>
+              </Popup.Content>
+            </Popup>
+          </div>
           <div>
             <Link to="/spenden">
               <Button primary className="rounded">
@@ -175,13 +192,13 @@ export const pageQuery = graphql`query ($language: String!) {
     ...GetTranslations
   }
   desktopImage: file(relativePath: {eq: "images/main/main-banner.jpg"}) {
-    childImageSharp {
-      gatsbyImageData(quality: 100, layout: FULL_WIDTH, placeholder: BLURRED, formats: [AUTO, WEBP, AVIF])
+            childImageSharp {
+            gatsbyImageData(quality: 100, layout: FULL_WIDTH, placeholder: BLURRED, formats: [AUTO, WEBP, AVIF])
     }
   }
   mobileImage: file(relativePath: {eq: "images/main/main-banner-mobile_.jpg"}) {
-    childImageSharp {
-      gatsbyImageData(quality: 85, layout: FULL_WIDTH, placeholder: BLURRED, formats: [AUTO, WEBP, AVIF])
+            childImageSharp {
+            gatsbyImageData(quality: 85, layout: FULL_WIDTH, placeholder: BLURRED, formats: [AUTO, WEBP, AVIF])
     }
   }
 }

@@ -185,10 +185,10 @@ const TextContent = () => {
                 textAlign='center'
                 className="global-flex-column global-no-margin"
             >
-                <h3 className={`global-subtitle text-primary`}><Trans>Weil's an Trinkwasser mangelt, <br /> nicht an guten Ideen.</Trans></h3>
+                <h3 className={`global-subtitle text-primary`}><Trans>Innovative Technik, die sich bewährt hat</Trans></h3>
                 <h2 className="global-headline"><Trans>Filtersysteme für jeden Anwendungsfall</Trans></h2>
             </Header>
-            <p><Trans>844 Millionen Menschen Durst oder erkranken an verschmutztem Wasser. Unsere Mission ist es, diesen Menschen durch sauberes Trinkwasser eine existentielle Lebensgrundlage zu ermöglichen.</Trans></p>
+            <p><Trans>Seit unserer Gründung 2018 setzen wir unsere Filtersysteme in eigenen Spendenprojekten sowie zusammen mit NGO-Partnern ein. 8300 Menschen in 8 Dörfern, Schulen und Krankenhäusern haben damit inzwischen eine Lebensgrundlage geschaffen, auf die sie aufbauen können.</Trans></p>
             <Link to='/filtersystem'>
                 <Button
                     primary
@@ -197,7 +197,7 @@ const TextContent = () => {
                     className="rounded shadow hover-animate"
                 >
                     <Icon name="grid layout" className="left" style={{ opacity: '1' }}></Icon>
-                    <Trans>Alle Filtersysteme entdecken</Trans>
+                    <Trans>Entdecke alle Filtersysteme</Trans>
                 </Button>
             </Link>
         </Container>

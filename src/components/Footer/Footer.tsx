@@ -92,8 +92,8 @@ const Footer = (t) => {
                                         Bank für Sozialwirtschaft <br />
                                         IBAN: DE86 1002 0500 0001 6026 01 <br />
                                         BIC-/SWIFT: BFSWDE33BER <br />
-
-                                        <Trans>Gib bitte Vor- und Nachnamen sowie den Verwendungszweck deiner Spende (z.B. monatliche Spende, einmalige Spende oder Projektspende) an.</Trans>
+                                        <br />
+                                        <Trans>Gib bitte Vor- und Nachnamen sowie die Art deiner Spende (z.B. monatliche Spende oder einmalige Spende oder Projektspende) an.</Trans>
                                     </p>
                                 </Grid.Column>
                             </GridRow>

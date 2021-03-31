@@ -174,7 +174,7 @@ module.exports = {
           // https://purgecss.com/configuration.html#options
           safelist: {
             deep: [/transition$/, /visible$/],
-            greedy: [/menu$/, /link$/, /item$/, /grid$/, /container$/, /flag$/, /input$/, /selection$/, /dropdown$/, /table$/, /accordion$/]
+            greedy: [/menu$/, /link$/, /item$/, /grid$/, /container$/, /flag$/, /input$/, /selection$/, /dropdown$/, /table$/, /accordion$/, /popup$/, /tiny$/]
           }
         },
       },

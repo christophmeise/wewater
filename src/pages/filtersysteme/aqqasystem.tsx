@@ -53,7 +53,7 @@ class AqqasystemPage extends React.Component<Props, any> {
             },
             {
                 key: 'Innovation',
-                value: 'Membranfilter und Sonnenlichtkatalysator'
+                value: 'Membranfilter'
             },
             {
                 key: 'Kosten',
@@ -77,9 +77,9 @@ class AqqasystemPage extends React.Component<Props, any> {
             <Layout>
                 <SEO title={t('AqqasystemSEOTitle')} description={t('AqqasystemSEODescription')} />
                 <VideoOverlay content={<OverlayContent />} darken={false}
-                    sourceMP4='/videos/aqqasystem/AQQASystem.mp4'
-                    sourceWebm='/videos/aqqasystem/AQQASystem.webm'
-                    sourceOGV='/videos/aqqasystem/AQQASystem.ogv'
+                    sourceMP4='/videos/aqqasystem/AQQAsystem.mp4'
+                    sourceWebm='/videos/aqqasystem/AQQAsystem.webm'
+                    sourceOGV='/videos/aqqasystem/AQQAsystem.ogv'
                     poster='/videos/aqqasystem/aqqasystemPlaceholder.webp' />
                 <Container className="global-header-padding">
                     <Header
@@ -153,7 +153,7 @@ class AqqasystemPage extends React.Component<Props, any> {
                         </GridColumn>
                     </Grid>
                     <section className="global-header-padding">
-                        <h2><Trans>Das AQQASystem ist u.a. im Einsatz in...</Trans></h2>
+                        <h2><Trans>Das AQQAsystem ist u.a. im Einsatz in...</Trans></h2>
                         <div className="projekt-card-grid">
                             {posts
                                 .filter((post) => post.node.title.length > 0)

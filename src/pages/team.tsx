@@ -15,6 +15,7 @@ interface Props {
         mobileImage: any;
         desktopImage: any;
         allWpTeamMember: any;
+        teamImage: any;
     };
 }
 
@@ -48,98 +49,102 @@ class TeamPage extends React.Component<Props, any> {
                 <SEO title={t('TeamSEOTitle')} description={t('TeamSEODescription')} />
                 <HeaderOverlay content={<OverlayContent t={t} inverted={true} />} darken={true} inverted={false} sources={headerImage} width={16} />
                 <Container>
-                    <Container>
-                        <div className="main-content-sections">
-                            <section id="team-grid">
-                                {teamData
-                                    .filter((post) => post.node.title.length > 0)
-                                    .map(({ node: post }) => {
-                                        return (
-                                            <div key={post.title} className="team-grid-member">
-                                                <GatsbyImage
-                                                    alt="Team overview picture"
-                                                    image={post.featuredImage.node.localFile.childImageSharp.gatsbyImageData}
-                                                    className="img-fluid rounded shadow" />
-                                                <Header
-                                                    data-sal="slide-up"
-                                                    data-sal-delay="0"
-                                                    data-sal-duration="300"
-                                                    data-sal-easing="ease"
-                                                    textAlign='left'
-                                                    className="global-flex-column global-no-margin"
-                                                >
-                                                    <h3 className={`global-subtitle text-primary`}>{post?.acf_team?.kurzbeschreibung}</h3>
-                                                    <h2 className="global-headline">{post.title}</h2>
-                                                </Header>
-                                                <p dangerouslySetInnerHTML={{ __html: post.acf_team?.description }}></p>
-                                                <div>
-                                                    {post.acf_team?.facebook != null &&
-                                                        <a
-                                                            href={post.acf_team?.facebook}
-                                                            target="_blank"
-                                                            rel="noopener"
-                                                            aria-label="Facebook"
-                                                        >
-                                                            <Icon className="hover-animate" size="large" name="facebook"></Icon>
-                                                        </a>
-                                                    }
-                                                    {post.acf_team?.instagram != null &&
-                                                        <a
-                                                            href={post.acf_team?.instagram}
-                                                            target="_blank"
-                                                            rel="noopener"
-                                                            aria-label="Instagram"
-                                                        >
-                                                            <Icon className="hover-animate" size="large" name="instagram"></Icon>
-                                                        </a>
-                                                    }
-                                                    {post.acf_team?.linkedin != null &&
-                                                        <a
-                                                            href={post.acf_team?.linkedin}
-                                                            target="_blank"
-                                                            rel="noopener"
-                                                            aria-label="LinkedIn"
-                                                        >
-                                                            <Icon className="hover-animate" size="large" name="linkedin"></Icon>
-                                                        </a>
-                                                    }
-                                                    {post.acf_team?.email != null &&
-                                                        <a
-                                                            href={'mailto:' + post.acf_team?.email}
-                                                            target="_blank"
-                                                            rel="noopener"
-                                                            aria-label="Email"
-                                                        >
-                                                            <Icon className="hover-animate" size="large" name="mail outline"></Icon>
-                                                        </a>
-                                                    }
-                                                    {post.acf_team?.website != null &&
-                                                        <a
-                                                            href={post.acf_team?.website}
-                                                            target="_blank"
-                                                            rel="noopener"
-                                                            aria-label="Website"
-                                                        >
-                                                            <Icon className="hover-animate" size="large" name="globe"></Icon>
-                                                        </a>
-                                                    }
-                                                    {post.acf_team?.twitter != null &&
-                                                        <a
-                                                            href={post.acf_team?.twitter}
-                                                            target="_blank"
-                                                            rel="noopener"
-                                                            aria-label="Twitter"
-                                                        >
-                                                            <Icon className="hover-animate" size="large" name="twitter"></Icon>
-                                                        </a>
-                                                    }
-                                                </div>
+                    <div className="main-content-sections">
+                        <section id="team-grid">
+                            {teamData
+                                .filter((post) => post.node.title.length > 0)
+                                .map(({ node: post }) => {
+                                    return (
+                                        <div key={post.title} className="team-grid-member">
+                                            <GatsbyImage
+                                                alt="Team overview picture"
+                                                image={post.featuredImage.node.localFile.childImageSharp.gatsbyImageData}
+                                                className="img-fluid rounded shadow" />
+                                            <Header
+                                                data-sal="slide-up"
+                                                data-sal-delay="0"
+                                                data-sal-duration="300"
+                                                data-sal-easing="ease"
+                                                textAlign='left'
+                                                className="global-flex-column global-no-margin"
+                                            >
+                                                <h3 className={`global-subtitle text-primary`}>{post?.acf_team?.kurzbeschreibung}</h3>
+                                                <h2 className="global-headline">{post.title}</h2>
+                                            </Header>
+                                            <p dangerouslySetInnerHTML={{ __html: post.acf_team?.description }}></p>
+                                            <div>
+                                                {post.acf_team?.facebook != null &&
+                                                    <a
+                                                        href={post.acf_team?.facebook}
+                                                        target="_blank"
+                                                        rel="noopener"
+                                                        aria-label="Facebook"
+                                                    >
+                                                        <Icon className="hover-animate" size="large" name="facebook"></Icon>
+                                                    </a>
+                                                }
+                                                {post.acf_team?.instagram != null &&
+                                                    <a
+                                                        href={post.acf_team?.instagram}
+                                                        target="_blank"
+                                                        rel="noopener"
+                                                        aria-label="Instagram"
+                                                    >
+                                                        <Icon className="hover-animate" size="large" name="instagram"></Icon>
+                                                    </a>
+                                                }
+                                                {post.acf_team?.linkedin != null &&
+                                                    <a
+                                                        href={post.acf_team?.linkedin}
+                                                        target="_blank"
+                                                        rel="noopener"
+                                                        aria-label="LinkedIn"
+                                                    >
+                                                        <Icon className="hover-animate" size="large" name="linkedin"></Icon>
+                                                    </a>
+                                                }
+                                                {post.acf_team?.email != null &&
+                                                    <a
+                                                        href={'mailto:' + post.acf_team?.email}
+                                                        target="_blank"
+                                                        rel="noopener"
+                                                        aria-label="Email"
+                                                    >
+                                                        <Icon className="hover-animate" size="large" name="mail outline"></Icon>
+                                                    </a>
+                                                }
+                                                {post.acf_team?.website != null &&
+                                                    <a
+                                                        href={post.acf_team?.website}
+                                                        target="_blank"
+                                                        rel="noopener"
+                                                        aria-label="Website"
+                                                    >
+                                                        <Icon className="hover-animate" size="large" name="globe"></Icon>
+                                                    </a>
+                                                }
+                                                {post.acf_team?.twitter != null &&
+                                                    <a
+                                                        href={post.acf_team?.twitter}
+                                                        target="_blank"
+                                                        rel="noopener"
+                                                        aria-label="Twitter"
+                                                    >
+                                                        <Icon className="hover-animate" size="large" name="twitter"></Icon>
+                                                    </a>
+                                                }
                                             </div>
-                                        );
-                                    })}
-                            </section>
-                        </div>
-                    </Container>
+                                        </div>
+                                    );
+                                })}
+                        </section>
+                        <section className="global-header-padding">
+                            <GatsbyImage
+                                alt="Team overview picture"
+                                image={data.teamImage.childImageSharp.gatsbyImageData}
+                                className="img-fluid rounded shadow" />
+                        </section>
+                    </div>
                 </Container>
             </Layout>
         );
@@ -177,6 +182,11 @@ export const pageQuery = graphql`query ($language: String!) {
     }
   }
   mobileImage: file(relativePath: {eq: "images/team/banner-mobile.jpg"}) {
+    childImageSharp {
+      gatsbyImageData(quality: 100, layout: FULL_WIDTH)
+    }
+  }
+  teamImage: file(relativePath: {eq: "images/team/team.JPG"}) {
     childImageSharp {
       gatsbyImageData(quality: 100, layout: FULL_WIDTH)
     }

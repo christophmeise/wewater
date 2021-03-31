@@ -73,8 +73,9 @@
         }
 
         .wewater-description-mobile {
-            display   : flex !important;
-            visibility: visible;
+            display    : flex !important;
+            visibility : visible;
+            text-shadow: 2px 2px 2px rgba(0, 1, 62, 0.35);
         }
 
         .wewater-description-desktop {
@@ -109,10 +110,11 @@
             margin-bottom: 0px;
         }
 
-        div {
+        div:nth-child(2) {
             display       : flex;
             flex-direction: row;
             align-items   : baseline;
+            margin-bottom : 1.5rem;
         }
 
         h3 {
@@ -128,7 +130,12 @@
         p {
             font-size    : 18px;
             font-weight  : 300;
-            margin-bottom: 2rem;
+            margin-bottom: 0rem;
         }
     }
+}
+
+.popup-infotext-trigger {
+    margin-left: 0.5rem !important;
+    padding    : 0.68571429em !important;
 }

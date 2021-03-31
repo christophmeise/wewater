@@ -71,12 +71,12 @@ const Video = () => {
                             textAlign='left'
                             className="global-flex-column global-no-margin"
                         >
-                            <h3 className={`global-subtitle text-primary`}><Trans>Jeder kann einen Beitrag leisten</Trans></h3>
+                            <h3 className={`global-subtitle text-primary`}><Trans>Für einen fairen Zugang zu Wasser</Trans></h3>
                             <h2 className="global-headline"><Trans>Trinkwasser ist ein Menschenrecht.</Trans></h2>
                         </Header>
                         <h4>
                             <Trans>
-                                Dennoch leiden weltweit 844 Millionen Menschen Durst oder erkranken an verschmutztem Wasser.
+                                Dennoch leiden weltweit 2,2 Milliarden Menschen Durst oder erkranken an verschmutztem Wasser.
                                 Unsere Mission ist es, diesen Menschen durch sauberes Trinkwasser eine existentielle Lebensgrundlage zu ermöglichen.
                             </Trans>
                         </h4>

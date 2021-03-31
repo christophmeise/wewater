@@ -47,7 +47,7 @@ class AqqacubePage extends React.Component<Props, any> {
             },
             {
                 key: 'Anwender',
-                value: 'Lebensgemeinschaften, Dörfer, Flüchtlingsunterkünfte'
+                value: 'z.B. Dorfgemeinschaften, Flüchtlingsunterkünfte, Schulen'
             },
             {
                 key: 'Filtermenge',
@@ -84,9 +84,9 @@ class AqqacubePage extends React.Component<Props, any> {
             <Layout>
                 <SEO title={t('AqqacubeSEOTitle')} description={t('AqqacubeSEODescription')} />
                 <VideoOverlay content={<OverlayContent />} darken={false}
-                    sourceMP4='/videos/aqqacube/AQQACube.mp4'
-                    sourceWebm='/videos/aqqacube/AQQACube.webm'
-                    sourceOGV='/videos/aqqacube/AQQACube.ogv'
+                    sourceMP4='/videos/aqqacube/AQQAcube.mp4'
+                    sourceWebm='/videos/aqqacube/AQQAcube.webm'
+                    sourceOGV='/videos/aqqacube/AQQAcube.ogv'
                     poster='/videos/aqqacube/aqqacubePlaceholder.webp' />
                 <Container className="global-header-padding">
                     <Header
@@ -167,7 +167,7 @@ class AqqacubePage extends React.Component<Props, any> {
                         </GridColumn>
                     </Grid>
                     <section className="global-header-padding">
-                        <h2><Trans>Der AQQACube ist u.a. im Einsatz in...</Trans></h2>
+                        <h2><Trans>Der AQQAcube ist u.a. im Einsatz in...</Trans></h2>
                         <div className="projekt-card-grid">
                             {posts
                                 .filter((post) => post.node.title.length > 0)

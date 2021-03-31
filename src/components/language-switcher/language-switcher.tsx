@@ -3,7 +3,7 @@ import React from 'react';
 import { Flag, FlagNameValues, Menu } from 'semantic-ui-react';
 import './language-switcher.less';
 
-const LanguageSwitcher = ({ mobile }) => {
+const LanguageSwitcher = ({ mobile, t }) => {
 
     function switchLanguage(language, path, changeLanguage, navigate) {
         if (language === 'de') {
@@ -14,7 +14,7 @@ const LanguageSwitcher = ({ mobile }) => {
         navigate(path);
     }
 
-    const { language, originalPath, changeLanguage, navigate, t } = useI18next();
+    const { language, originalPath, changeLanguage, navigate } = useI18next();
 
     return (
         <Menu.Item onClick={switchLanguage.bind(this, language, originalPath, changeLanguage, navigate)}>
@@ -25,13 +25,15 @@ const LanguageSwitcher = ({ mobile }) => {
 
 const LanuageSwitcherMobile = (language, t: any) => {
     let flagCode: FlagNameValues = 'de';
+    let languageName = 'Deutsch';
     if (language === 'en') {
         flagCode = 'us';
+        languageName = 'English'
     }
     return (
         <span className="language-switcher-mobile">
             <Flag name={flagCode} />
-            {t('current-language')}
+            {languageName}
         </span>
     );
 };

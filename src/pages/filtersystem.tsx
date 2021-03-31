@@ -49,7 +49,7 @@ class FiltersystemPage extends React.Component<Props, any> {
                 key: 'Innovation',
                 bag: 'Membranfilter mit hoher Rückhalterate',
                 cube: 'Membranfilter mit hoher Rückhalterate',
-                system: 'Membranfilter und Sonnenlichtkatalysator'
+                system: 'Membranfilter'
             },
             {
                 key: 'Kosten',
@@ -230,7 +230,7 @@ class FiltersystemPage extends React.Component<Props, any> {
                                                         image={data.image1.childImageSharp.gatsbyImageData}
                                                         className="img-fluid rounded shadow" />
                                                     <Link to="/filtersysteme/aqqabag">
-                                                        <h3 className="global-subtitle text-primary">AQQABag</h3>
+                                                        <h3 className="global-subtitle text-primary">AQQAbag</h3>
                                                     </Link>
                                                 </div>
                                             </Table.HeaderCell>
@@ -241,7 +241,7 @@ class FiltersystemPage extends React.Component<Props, any> {
                                                         image={data.image2.childImageSharp.gatsbyImageData}
                                                         className="img-fluid rounded shadow" />
                                                     <Link to="/filtersysteme/aqqacube">
-                                                        <h3 className="global-subtitle text-primary">AQQACube</h3>
+                                                        <h3 className="global-subtitle text-primary">AQQAcube</h3>
                                                     </Link>
                                                 </div>
                                             </Table.HeaderCell>
@@ -252,7 +252,7 @@ class FiltersystemPage extends React.Component<Props, any> {
                                                         image={data.image3.childImageSharp.gatsbyImageData}
                                                         className="img-fluid rounded shadow" />
                                                     <Link to="/filtersysteme/aqqasystem">
-                                                        <h3 className="global-subtitle text-primary">AQQASystem</h3>
+                                                        <h3 className="global-subtitle text-primary">AQQAsystem</h3>
                                                     </Link>
                                                 </div>
                                             </Table.HeaderCell>

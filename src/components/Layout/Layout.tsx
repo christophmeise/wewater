@@ -263,14 +263,6 @@ const Popover = ({ language }) => {
                                 </div>
                             </Link>
                         </li>
-                        <li className="navlist-primary-entry">
-                            <Link to={'/filtersysteme/tutorials'} language={language}>
-                                <div className="navlist-menu-entry">
-                                    <h4>Zu den Tutorials <Icon className="icon-filtersysteme" icon={arrowSmallRight} color='#5ABEE6' /></h4>
-                                    <p>Wir erklären unsere Lösungen</p>
-                                </div>
-                            </Link>
-                        </li>
                         <li className="navlist-primary-bag two-col">
                             <Link to={'/filtersysteme/aqqabag'} language={language}>
                                 <div className="navlist-circle">
@@ -301,6 +293,14 @@ const Popover = ({ language }) => {
                                 <div className="navlist-menu-entry">
                                     <h4>AQQAsystem</h4>
                                     <p>Lösung für den langfristigen Einsatz</p>
+                                </div>
+                            </Link>
+                        </li>
+                        <li className="navlist-primary-entry">
+                            <Link to={'/filtersysteme/tutorials'} language={language}>
+                                <div className="navlist-menu-entry">
+                                    <h4>Zu den Tutorials <Icon className="icon-filtersysteme" icon={arrowSmallRight} color='#5ABEE6' /></h4>
+                                    <p>Wir erklären unsere Lösungen</p>
                                 </div>
                             </Link>
                         </li>

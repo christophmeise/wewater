@@ -47,6 +47,7 @@ class Navbar extends Component<NavbarProps, NavbarState> {
               content={t('Filtersysteme')}
               link
               active={location.pathname === '/filtersystem'}
+              onClick={navigate.bind(this, '/filtersystem')}
               onMouseEnter={onHoverMenuItem?.bind(this, 'Filtersysteme')}
               data-nav='Filtersysteme'
               className="navlinkdropdown"
@@ -115,7 +116,7 @@ class Navbar extends Component<NavbarProps, NavbarState> {
                 </Button>
               </Link>
             </Menu.Item>
-            <LanguageSwitcher mobile={mobile}></LanguageSwitcher>
+            <LanguageSwitcher mobile={mobile} t={t}></LanguageSwitcher>
           </Menu.Menu>
         )}
         {mobile && (
@@ -127,7 +128,7 @@ class Navbar extends Component<NavbarProps, NavbarState> {
               active={location.pathname === '/warenkorb'}
               onClick={navigate.bind(this, '/warenkorb')}>
             </Menu.Item>
-            <LanguageSwitcher mobile={mobile}></LanguageSwitcher>
+            <LanguageSwitcher mobile={mobile} t={t}></LanguageSwitcher>
             <Menu.Item>
               <Link to={'/spenden'} language={language}>
                 <Button primary inverted={false} size="small" className="rounded" fluid>
