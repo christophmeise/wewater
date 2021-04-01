@@ -98,6 +98,7 @@ class Index extends React.Component<Props, State> {
     const slidesPerView = this.state != null ? this.state.slidesPerView : 5;
 
     const shouldHideForm = ((typeof window !== 'undefined') && window.innerWidth < 768) ? true : false;
+    const tabletOrMobile = ((typeof window !== 'undefined') && window.innerWidth < 1024) ? true : false;
 
     return (
       <Layout>
@@ -107,7 +108,7 @@ class Index extends React.Component<Props, State> {
           inverted={false}
           content={<OverlayContent liter={this.state.liter} />}
           darken={shouldHideForm}
-          width={shouldHideForm ? 12 : 10}
+          width={tabletOrMobile ? 12 : 10}
           floatTop={true}
           centerImage={!shouldHideForm}
         />
