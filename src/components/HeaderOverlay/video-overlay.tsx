@@ -16,13 +16,14 @@ const VideoOverlay = ({ sourceMP4, sourceWebm, sourceOGV, content, darken = fals
         if (videoParentRef.current) {
             // obtain reference to the video element
             videoParentRef.current.setAttribute("muted", "");
+            videoParentRef.current.defaultMuted = true;
         }
     }, []);
 
 
     return (
         <div className="header-overlay header-overlay-video">
-            <video autoPlay loop muted={true} playsInline poster={poster} preload="auto" ref={videoParentRef}>
+            <video autoPlay loop muted={true} playsInline poster={poster} preload="meta" ref={videoParentRef}>
                 <source src={sourceWebm} type="video/webm; codecs=vp8,vorbis"></source>
                 <source src={sourceMP4} type="video/mp4; codecs=avc1.42E01E,mp4a.40.2"></source>
                 <source src={sourceOGV} type="video/ogg; codecs=theora,vorbis"></source>
