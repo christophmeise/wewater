@@ -14,6 +14,26 @@
         width              : 100%;
         border-bottom-width: 1px;
     }
+
+    ul {
+        list-style  : none;
+        padding-left: 2rem;
+    }
+
+    ul li::before {
+        content       : "\2022";
+        /* Add content: \2022 is the CSS Code/unicode for a bullet */
+        color         : @primaryColor;
+        /* Change the color */
+        font-weight   : 900;
+        /* If you want it to be bold */
+        display       : inline-block;
+        /* Needed to add space between the bullet and the text */
+        width         : 1em;
+        /* Also needed for space (tweak if needed) */
+        margin-left   : -1em;
+        /* Also needed for space (tweak if needed) */
+    }
 }
 
 .author-section {
@@ -203,24 +223,4 @@
     button {
         margin-bottom: 10px !important;
     }
-}
-
-ul {
-    list-style  : none;
-    padding-left: 2rem;
-}
-
-ul li::before {
-    content       : "\2022";
-    /* Add content: \2022 is the CSS Code/unicode for a bullet */
-    color         : @primaryColor;
-    /* Change the color */
-    font-weight   : 900;
-    /* If you want it to be bold */
-    display       : inline-block;
-    /* Needed to add space between the bullet and the text */
-    width         : 1em;
-    /* Also needed for space (tweak if needed) */
-    margin-left   : -1em;
-    /* Also needed for space (tweak if needed) */
 }
