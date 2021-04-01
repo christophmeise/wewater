@@ -9,6 +9,12 @@ const VideoOverlay = ({ sourceMP4, sourceWebm, sourceOGV, content, darken = fals
     if (!isSSR) {
         vh = window.innerHeight * 0.01;
         document.documentElement.style.setProperty('--vh', `${vh}px`);
+
+        if (window.innerWidth <= 768) {
+            sourceMP4 = sourceMP4 + '-mobile';
+            sourceWebm = sourceWebm + '-mobile';
+            sourceOGV = sourceOGV + '-mobile';
+        }
     }
 
     useEffect(() => {
@@ -24,9 +30,9 @@ const VideoOverlay = ({ sourceMP4, sourceWebm, sourceOGV, content, darken = fals
     return (
         <div className="header-overlay header-overlay-video">
             <video autoPlay loop muted={true} playsInline poster={poster} preload="meta" ref={videoParentRef}>
-                <source src={sourceWebm} type="video/webm; codecs=vp8,vorbis"></source>
-                <source src={sourceMP4} type="video/mp4; codecs=avc1.42E01E,mp4a.40.2"></source>
-                <source src={sourceOGV} type="video/ogg; codecs=theora,vorbis"></source>
+                <source src={sourceWebm + '.webm'} type="video/webm; codecs=vp8,vorbis"></source>
+                <source src={sourceMP4 + '.mp4'} type="video/mp4; codecs=avc1.42E01E,mp4a.40.2"></source>
+                <source src={sourceOGV + '.ogv'} type="video/ogg; codecs=theora,vorbis"></source>
                 Video unsupported
             </video>
             <Container className="header-overlay-container header-overlay-container-absolute">

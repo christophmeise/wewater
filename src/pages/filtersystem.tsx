@@ -83,9 +83,9 @@ class FiltersystemPage extends React.Component<Props, any> {
             <Layout>
                 <SEO title={t('FiltersystemeSEOTitle')} description={t('FiltersystemeSEODescription')} />
                 <VideoOverlay content={<OverlayContent />} darken={false}
-                    sourceMP4='/videos/AlleFilter.mp4'
-                    sourceWebm='/videos/AlleFilter.webm'
-                    sourceOGV='/videos/AlleFilter.ogv'
+                    sourceMP4='/videos/AlleFilter'
+                    sourceWebm='/videos/AlleFilter'
+                    sourceOGV='/videos/AlleFilter'
                     poster='/videos/AlleFilterPlaceholder.JPG' />
                 <Container className="global-header-padding">
                     <div className="main-content-sections">

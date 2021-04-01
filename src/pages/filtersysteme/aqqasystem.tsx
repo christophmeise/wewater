@@ -77,9 +77,9 @@ class AqqasystemPage extends React.Component<Props, any> {
             <Layout>
                 <SEO title={t('AqqasystemSEOTitle')} description={t('AqqasystemSEODescription')} />
                 <VideoOverlay content={<OverlayContent />} darken={false}
-                    sourceMP4='/videos/aqqasystem/AQQAsystem.mp4'
-                    sourceWebm='/videos/aqqasystem/AQQAsystem.webm'
-                    sourceOGV='/videos/aqqasystem/AQQAsystem.ogv'
+                    sourceMP4='/videos/aqqasystem/AQQAsystem'
+                    sourceWebm='/videos/aqqasystem/AQQAsystem'
+                    sourceOGV='/videos/aqqasystem/AQQAsystem'
                     poster='/videos/aqqasystem/aqqasystemPlaceholder.webp' />
                 <Container className="global-header-padding">
                     <Header

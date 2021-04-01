@@ -84,9 +84,9 @@ class AqqacubePage extends React.Component<Props, any> {
             <Layout>
                 <SEO title={t('AqqacubeSEOTitle')} description={t('AqqacubeSEODescription')} />
                 <VideoOverlay content={<OverlayContent />} darken={false}
-                    sourceMP4='/videos/aqqacube/AQQAcube.mp4'
-                    sourceWebm='/videos/aqqacube/AQQAcube.webm'
-                    sourceOGV='/videos/aqqacube/AQQAcube.ogv'
+                    sourceMP4='/videos/aqqacube/AQQAcube'
+                    sourceWebm='/videos/aqqacube/AQQAcube'
+                    sourceOGV='/videos/aqqacube/AQQAcube'
                     poster='/videos/aqqacube/aqqacubePlaceholder.webp' />
                 <Container className="global-header-padding">
                     <Header
