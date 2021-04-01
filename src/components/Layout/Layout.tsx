@@ -163,8 +163,8 @@ class Layout extends Component<Props, any> {
         const { children, t, language, navigate } = this.props;
         const { sidebarOpened, location } = this.state;
 
-        const isMobileBrowser = typeof window !== 'undefined' && window.innerWidth < 768;
-        const isDesktopBrowser = typeof window !== 'undefined' && window.innerWidth >= 768;
+        const isMobileBrowser = typeof window !== 'undefined' && window.innerWidth < 1024;
+        const isDesktopBrowser = typeof window !== 'undefined' && window.innerWidth >= 1024;
 
         return (
             <React.Fragment>
@@ -172,7 +172,7 @@ class Layout extends Component<Props, any> {
 
                 <div className="flex-container">
                     <Menu
-                        className="mobile-menu responsive-mobile-container"
+                        className="mobile-menu responsive-mobile-or-tablet-container"
                         style={{
                             minHeight: sidebarOpened ? '100vh' : '0vh',
                             background: sidebarOpened ? '#FFFFFF' : 'rgba(255, 255, 255, 0.5)',

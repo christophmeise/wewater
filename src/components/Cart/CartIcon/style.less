@@ -1,10 +1,16 @@
 @import '../../../semantic/site/globals/site.variables';
+@import '../../../styles/lib.less';
 
 .woo-menu-cart-icon {
   display   : inline-block;
   border    : 0;
   background: transparent;
   cursor    : pointer;
+
+  svg {
+    height: 28px;
+    width : 28px;
+  }
 }
 
 .woo-menu-cart-icon:focus {
@@ -36,4 +42,22 @@
 
 .woo-next-view-cart-btn {
   margin-left: 10px;
+}
+
+@media @desktopLarge {
+  .cart-text {
+    visibility: visible !important;
+    display   : block !important;
+  }
+}
+
+.cart-text {
+  visibility: hidden;
+  display   : none;
+}
+
+.cart-wrapper {
+  display       : flex;
+  flex-direction: row;
+  align-items   : flex-end;
 }

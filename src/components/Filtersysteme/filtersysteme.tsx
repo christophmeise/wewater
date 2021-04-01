@@ -10,37 +10,37 @@ const SectionFiltersysteme = () => {
         graphql`query FiltersystemeQuery {
   image1: file(relativePath: {eq: "images/filtersysteme/image1.jpg"}) {
     childImageSharp {
-      gatsbyImageData(width: 600, quality: 100, layout: CONSTRAINED, placeholder: BLURRED)
+      gatsbyImageData(width: 600, quality: 90, layout: CONSTRAINED, placeholder: NONE)
     }
   }
   image2: file(relativePath: {eq: "images/filtersysteme/image2.jpg"}) {
     childImageSharp {
-      gatsbyImageData(width: 600, quality: 100, layout: CONSTRAINED, placeholder: BLURRED)
+      gatsbyImageData(width: 600, quality: 90, layout: CONSTRAINED, placeholder: NONE)
     }
   }
   image3: file(relativePath: {eq: "images/filtersysteme/image3.jpg"}) {
     childImageSharp {
-      gatsbyImageData(width: 600, quality: 100, layout: CONSTRAINED, placeholder: BLURRED)
+      gatsbyImageData(width: 600, quality: 90, layout: CONSTRAINED, placeholder: NONE)
     }
   }
   image4: file(relativePath: {eq: "images/filtersysteme/image4.jpg"}) {
     childImageSharp {
-      gatsbyImageData(width: 600, quality: 100, layout: CONSTRAINED, placeholder: BLURRED)
+      gatsbyImageData(width: 600, quality: 90, layout: CONSTRAINED, placeholder: NONE)
     }
   }
   image5: file(relativePath: {eq: "images/filtersysteme/image5.jpg"}) {
     childImageSharp {
-      gatsbyImageData(width: 600, quality: 100, layout: CONSTRAINED, placeholder: BLURRED)
+      gatsbyImageData(width: 600, quality: 90, layout: CONSTRAINED, placeholder: NONE)
     }
   }
   image6: file(relativePath: {eq: "images/filtersysteme/image6.jpg"}) {
     childImageSharp {
-      gatsbyImageData(width: 600, quality: 100, layout: CONSTRAINED, placeholder: BLURRED)
+      gatsbyImageData(width: 600, quality: 90, layout: CONSTRAINED, placeholder: NONE)
     }
   }
   blob: file(relativePath: {eq: "images/filtersysteme/blob.png"}) {
     childImageSharp {
-      gatsbyImageData(width: 800, quality: 100, layout: CONSTRAINED)
+      gatsbyImageData(width: 800, quality: 90, layout: CONSTRAINED, placeholder: NONE)
     }
   }
 }

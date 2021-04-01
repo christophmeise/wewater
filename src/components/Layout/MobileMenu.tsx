@@ -12,7 +12,7 @@ const MobileMenu = ({
 
     return (
         <Menu
-            className="responsive-mobile-container global-navbar-mobile-menu"
+            className="responsive-mobile-or-tablet-container global-navbar-mobile-menu"
             fixed="top"
             size="large"
             borderless

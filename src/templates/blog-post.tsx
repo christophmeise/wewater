@@ -26,17 +26,37 @@ function BlogPostTemplate({ data, t }) {
             />
             <Container>
                 <div className="blog-content-sections">
-                    <Grid columns="2" stackable>
+                    <Grid columns="2" stackable centered>
+                        {/*                         <GridColumn width={2} className="blog-social-col">
+                            <Button className="blog-button-social" color='facebook' icon='facebook' size="large" />
+                            <Button className="blog-button-social" color='twitter' icon='twitter' size="large" />
+                            <Button className="blog-button-social" color='linkedin' icon='linkedin' size="large" />
+                            <Button className="blog-button-social" color='google plus' icon='google plus' size="large" />
+                        </GridColumn> */}
                         <GridColumn width={10}>
                             <section className="blog-post">
                                 <article dangerouslySetInnerHTML={{ __html: post.content }}></article>
+                            </section>
+                            <section className="author-section">
+                                <hr />
+                                <div className="author-card">
+                                    <div className="author-img">
+                                        <img src={post.author.node.avatar.url} width="90" height="90" alt="Avatar" className="author-avatar" />
+                                    </div>
+                                    <div className="author-content">
+                                        <h3>{post.author.node.name}</h3>
+                                        <h6>ÜBER DEN AUTOR</h6>
+                                        <p>{post.author.node.description}</p>
+                                    </div>
+                                </div>
+                                <hr />
                             </section>
                             <section>
                                 <CommentList postId={post.databaseId} />
                                 <CommentForm postId={post.databaseId} />
                             </section>
                         </GridColumn>
-                        <GridColumn width={6}>
+                        <GridColumn width={4}>
                             <SidebarWidget></SidebarWidget>
                         </GridColumn>
                     </Grid>

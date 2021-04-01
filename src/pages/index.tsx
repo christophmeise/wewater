@@ -107,7 +107,7 @@ class Index extends React.Component<Props, State> {
           inverted={false}
           content={<OverlayContent liter={this.state.liter} />}
           darken={shouldHideForm}
-          width={10}
+          width={shouldHideForm ? 12 : 10}
           floatTop={true}
           centerImage={!shouldHideForm}
         />
@@ -128,16 +128,16 @@ const OverlayContent = ({ liter }) => {
   const format = new Intl.NumberFormat('de-DE', { minimumFractionDigits: 2 });
   return (
     <div className="main-overlay-content">
-      <h1 className="wewater-description-desktop">
+      <h1 className="wewater-description-desktop text-shadow-lg">
         WeWater
       </h1>
       <div className="wewater-description-mobile wewater-mobile-logo shadow">
         {WeWaterLogo()}
       </div>
-      <h2>
+      <h2 className="text-shadow-lg">
         <Trans>Wasser weltweit klarmachen.</Trans>
       </h2>
-      <p className="wewater-description-desktop" style={{ marginBottom: '1.5rem', marginTop: '0rem' }}>
+      <p className="wewater-description-desktop text-shadow" style={{ marginBottom: '1.5rem', marginTop: '0rem' }}>
         <Trans>Wir haben eine innovative Wasserfiltertechnologie entwickelt, die ohne den Einsatz von elektrischer Energie und Chemie funktioniert und einen extrem hohen Reinheitsgrad gewährleistet.</Trans>
       </p>
       <p className="wewater-description-mobile" style={{ marginBottom: '1.5rem', marginTop: '0rem' }}>
@@ -191,7 +191,7 @@ export const pageQuery = graphql`query ($language: String!) {
   locales: allLocale(filter: {language: {eq: $language}}) {
     ...GetTranslations
   }
-  desktopImage: file(relativePath: {eq: "images/main/main-banner.jpg"}) {
+  desktopImage: file(relativePath: {eq: "images/main/new.jpg"}) {
             childImageSharp {
             gatsbyImageData(quality: 100, layout: FULL_WIDTH, placeholder: BLURRED, formats: [AUTO, WEBP, AVIF])
     }

@@ -3,52 +3,6 @@
 @import 'swiper/components/pagination/pagination.less';
 @import 'swiper/swiper.less';
 
-/* @font-face {
-  font-family: 'Poppins';
-  font-style : normal;
-  src        : local('Poppins Light'), local('Poppins-Light'),
-    url('../../static/fonts/Poppins/Poppins-Light.ttf') format('truetype');
-  font-weight : 300;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Poppins';
-  font-style : normal;
-  src        : local('Poppins'), local('Poppins-Regular'),
-    url('../../static/fonts/Poppins/Poppins-Regular.ttf') format('truetype');
-  font-weight : 400;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Poppins';
-  font-style : normal;
-  src        : local('Poppins Medium'), local('Poppins-Medium'),
-    url('../../static/fonts/Poppins/Poppins-Medium.ttf') format('truetype');
-  font-weight : 500;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Poppins';
-  font-style : normal;
-  src        : local('Poppins SemiBold'), local('Poppins-SemiBold'),
-    url('../../static/fonts/Poppins/Poppins-SemiBold.ttf') format('truetype');
-  font-weight : 600;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Poppins';
-  font-style : normal;
-  src        : local('Poppins Bold'), local('Poppins-Bold'),
-    url('../../static/fonts/Poppins/Poppins-Bold.ttf') format('truetype');
-  font-weight : 700;
-  font-display: swap;
-} */
-
-
 /* poppins-300 - latin */
 @font-face {
   font-family: 'Poppins';
@@ -218,7 +172,7 @@ h2&.global-headline {
   }
 }
 
-@media @desktop {
+@media @notMobile {
   .responsive-desktop-container {
     display: block;
   }
@@ -239,8 +193,37 @@ h2&.global-headline {
 }
 
 
+@media @notMobile {
+  .responsive-desktop-container {
+    display: block;
+  }
+
+  .responsive-mobile-container {
+    display: none !important;
+  }
+}
+
+@media @mobileOrTablet {
+  .responsive-mobile-or-tablet-container {
+    display: block;
+  }
+}
+
+@media @desktop {
+  .responsive-mobile-or-tablet-container {
+    display: none !important;
+  }
+}
+
+
+
+
 .text-shadow {
   text-shadow: 2px 2px 2px fade(@primaryFontColorDark, 10);
+}
+
+.text-shadow-lg {
+  text-shadow: 2px 2px 2px fade(@primaryFontColorDark, 40);
 }
 
 .shadow {

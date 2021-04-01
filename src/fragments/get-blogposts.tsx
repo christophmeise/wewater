@@ -11,6 +11,10 @@ export const getBlogpostsFragment = graphql`fragment GetBlogposts on WpPostConne
       author {
         node {
           name
+          description
+          avatar {
+              url
+            }
         }
       }
       date(formatString: "MMMM DD, YYYY", locale: "de")

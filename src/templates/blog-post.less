@@ -1,8 +1,53 @@
+@import '../styles/lib.less';
+
 .blog-content-sections {
     padding: 4rem 0rem;
+    color  : @primaryFontColorDark;
+
+    hr {
+        border-top         : 1px solid #e0dede;
+        border-bottom      : none;
+        max-width          : none;
+        margin-bottom      : 20px;
+        margin-left        : auto;
+        margin-right       : auto;
+        width              : 100%;
+        border-bottom-width: 1px;
+    }
 }
 
+.author-section {
+    margin-top: 60px;
+}
+
+.author-card {
+    margin-top           : 40px;
+    margin-bottom        : 40px;
+    display              : grid;
+    grid-template-columns: 90px 1fr;
+    column-gap           : 40px;
+
+    .author-img {
+        display        : flex;
+        align-items    : center;
+        justify-content: center;
+
+        .author-avatar {
+            border-radius: 50%;
+        }
+    }
+}
+
+
+
 .blog-post {
+
+    h3 {
+        font-size    : 24px;
+        color        : @primaryFontColorDark;
+        margin-top   : 30px;
+        margin-bottom: 28px;
+    }
 
     article {
         display       : flex;
@@ -21,8 +66,13 @@
         margin-top : 2rem;
 
         ul {
-            list-style  : none;
+            list-style  : none !important;
             padding-left: 0;
+        }
+
+        ul li::before {
+            content: "";
+            width  : 0em;
         }
     }
 
@@ -54,7 +104,7 @@
         white-space: normal !important;
 
         li {
-            color                 : #0f131a;
+            color                 : @primaryFontColorDark;
             font-weight           : 400;
             -webkit-font-smoothing: antialiased;
             text-rendering        : optimizelegibility;
@@ -65,7 +115,7 @@
     }
 
     blockquote {
-        color                 : #0f131a;
+        color                 : @primaryFontColorDark;
         font-weight           : 400;
         -webkit-font-smoothing: antialiased;
         text-rendering        : optimizelegibility;
@@ -74,6 +124,35 @@
 
         h6 {
             margin: 0;
+        }
+    }
+
+    figcaption {
+        text-align   : center;
+        margin-top   : 0.75rem;
+        margin-bottom: 1.25rem;
+    }
+
+    .size-full {
+        margin-top   : 1.25rem;
+        margin-bottom: 0.75rem;
+    }
+
+    .gatsby-resp-image-wrapper {
+        max-width    : unset !important;
+        width        : 100vw;
+        margin-top   : 2rem;
+        margin-bottom: 2rem;
+        border-radius: 0 !important;
+
+        .gatsby-resp-image-link {
+            pointer-events : none;
+            cursor         : default;
+            text-decoration: none;
+
+            .gatsby-resp-image-image {
+                object-fit: cover;
+            }
         }
     }
 
@@ -110,4 +189,38 @@
     p {
         color: #FFFFFF;
     }
+}
+
+.blog-button-social {
+    border-radius: 50% !important;
+}
+
+.blog-social-col {
+    display       : flex;
+    flex-direction: column;
+    align-items   : center;
+
+    button {
+        margin-bottom: 10px !important;
+    }
+}
+
+ul {
+    list-style  : none;
+    padding-left: 2rem;
+}
+
+ul li::before {
+    content       : "\2022";
+    /* Add content: \2022 is the CSS Code/unicode for a bullet */
+    color         : @primaryColor;
+    /* Change the color */
+    font-weight   : 900;
+    /* If you want it to be bold */
+    display       : inline-block;
+    /* Needed to add space between the bullet and the text */
+    width         : 1em;
+    /* Also needed for space (tweak if needed) */
+    margin-left   : -1em;
+    /* Also needed for space (tweak if needed) */
 }

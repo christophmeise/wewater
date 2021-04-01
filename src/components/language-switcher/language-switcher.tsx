@@ -33,7 +33,7 @@ const LanuageSwitcherMobile = (language, t: any) => {
     return (
         <span className="language-switcher-mobile">
             <Flag name={flagCode} />
-            {languageName}
+            <span className="current-language">{languageName}</span>
         </span>
     );
 };

@@ -1,5 +1,7 @@
 import { Trans } from 'gatsby-plugin-react-i18next';
+import de from 'hyphenated-de';
 import React from 'react';
+import Hyphenated from 'react-hyphen';
 import { Container, Grid, GridColumn, Header } from 'semantic-ui-react';
 import './video.less';
 
@@ -72,7 +74,11 @@ const Video = () => {
                             className="global-flex-column global-no-margin"
                         >
                             <h3 className={`global-subtitle text-primary`}><Trans>Für einen fairen Zugang zu Wasser</Trans></h3>
-                            <h2 className="global-headline"><Trans>Trinkwasser ist ein Menschenrecht.</Trans></h2>
+                            <h2 className="global-headline">
+                                <Hyphenated language={de}>
+                                    <Trans>Trinkwasser ist ein Menschenrecht.</Trans>
+                                </Hyphenated>
+                            </h2>
                         </Header>
                         <h4>
                             <Trans>
