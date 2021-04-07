@@ -19,8 +19,9 @@ const CartIcon = ({ t }) => {
 				<div>
 					{totalPrice ? <span className="woo-next-cart-price mr-2">{totalPrice}</span> : ''}
 					<span className="woo-next-cart-icon-container">
-						<span className="cart-wrapper" role="img" aria-label="cart-icon"><Icon icon={shoppingCart} /> <span className="cart-text">{t('Einkaufswagen')}</span></span>
-						{productsCount ? <span className="woo-next-cart-count">{productsCount}</span> : ''}
+						<span className="cart-wrapper" role="img" aria-label="cart-icon"><Icon icon={shoppingCart} /> <span className="cart-text">{t('Einkaufswagen')}</span>
+							{productsCount ? <span className="woo-next-cart-count">{productsCount}</span> : ''}
+						</span>
 					</span>
 				</div>
 			</button>

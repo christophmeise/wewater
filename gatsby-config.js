@@ -146,7 +146,7 @@ module.exports = {
       resolve: `gatsby-plugin-react-i18next`,
       options: {
         localeJsonSourceName: `locale`, // name given to `gatsby-source-filesystem` plugin.
-        languages: [`en`, `de`],
+        languages: [`en`, `de`, `fr`],
         defaultLanguage: `de`,
         // if you are using Helmet, you must include siteUrl, and make sure you add http:https
         siteUrl: siteUrl,
@@ -171,7 +171,7 @@ module.exports = {
       resolve: `gatsby-plugin-purgecss`,
       options: {
         printRejected: true, // Print removed selectors and processed file names
-        develop: true, // Enable while using `gatsby develop`
+        develop: false, // Enable while using `gatsby develop`
         // tailwind: true, // Enable tailwindcss support
         // ignore: ['/ignored.css', 'prismjs/', 'docsearch.js/'], // Ignore files/folders
         purgeOnly: ['semantic-ui-less/'], // Purge only these files/folders

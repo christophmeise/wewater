@@ -1,5 +1,5 @@
 import { Mutation } from '@apollo/client/react/components';
-import { Trans } from 'gatsby-plugin-react-i18next';
+import { Link, Trans } from 'gatsby-plugin-react-i18next';
 import gql from 'graphql-tag';
 import React from 'react';
 import { Button, Form, FormField, FormGroup, Input, TextArea } from 'semantic-ui-react';
@@ -32,6 +32,7 @@ class CommentForm extends React.Component<any, any> {
 			author: '',
 			email: '',
 			url: '',
+			dsgvo: false
 		};
 
 		// Bind input changes.
@@ -41,13 +42,19 @@ class CommentForm extends React.Component<any, any> {
 	// Handles input change events.
 	handleInputChange(event) {
 		const target = event.target;
-		const value = event.type === 'checkbox' ? target.checked : target.value;
+		const value = event.target.type === 'checkbox' ? target.checked : target.value;
 		const name = target.name;
-
 		// Sets the state of the input field.
 		this.setState({
 			[name]: value,
 		});
+	}
+
+	isDisabled(): boolean {
+		return this.state.dsgvo !== true ||
+			this.state.comment?.length === 0 ||
+			this.state.email?.length === 0 ||
+			this.state.author?.length === 0;
 	}
 
 	// Renders the comment form elements.
@@ -104,9 +111,15 @@ class CommentForm extends React.Component<any, any> {
 								<Input name="email" value={this.state.email} onChange={this.handleInputChange} />
 							</FormField>
 						</FormGroup>
+						<FormGroup inline className="dsgvo-checkbox-wrapper-wrapper">
+							<FormField inline className="dsgvo-checkbox-wrapper">
+								<input className="ui checkbox" name="dsgvo" type="checkbox" value={this.state.dsgvo} onChange={this.handleInputChange}></input>
+								<label htmlFor="dsgvo"><Trans>Mit der Nutzung dieses Formulars erklären Sie sich mit der Speicherung und Verarbeitung Ihrer Daten durch diese Website einverstanden. Weitere Informationen erfahren Sie in der <Link to="/dataprotection">Datenschutzerklärung</Link></Trans>*</label>
+							</FormField>
+						</FormGroup>
 						<FormGroup>
 							<FormField>
-								<Button name="submit" type="submit" primary className="rounded shadow"><Trans>Kommentar senden</Trans></Button>
+								<Button name="submit" type="submit" disabled={this.isDisabled()} primary className="rounded shadow"><Trans>Kommentar senden</Trans></Button>
 							</FormField>
 						</FormGroup>
 					</Form>
