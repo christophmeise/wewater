@@ -23,7 +23,6 @@ class ShopArticleTemplate extends React.Component<any, any> {
   handleChange = (e, { value }) => this.setState({ variationId: value });
 
   handleOpen = (i) => {
-    console.log('AAAH');
     this.setState({ showLightbox: true, selectedImage: i });
   }
 

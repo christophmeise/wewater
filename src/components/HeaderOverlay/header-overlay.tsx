@@ -6,7 +6,6 @@ import './header-overlay.less';
 const HeaderOverlay = ({ sources, inverted, content, darken = false, width = 8, floatRight = false, floatTop = false, centerImage = true }) => {
     let vh = 100;
     const isSSR = typeof window === 'undefined';
-    console.log(centerImage);
     if (!isSSR) {
         vh = window.innerHeight * 0.01;
         document.documentElement.style.setProperty('--vh', `${vh}px`);
