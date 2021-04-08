@@ -21,7 +21,8 @@ const VideoOverlay = ({ sourceMP4, sourceWebm, sourceOGV, content, darken = fals
         // check if user agent is safari and we have the ref to the container <div />
         if (videoParentRef.current) {
             // obtain reference to the video element
-            videoParentRef.current.setAttribute("muted", "");
+            videoParentRef.current.setAttribute("muted", "muted");
+            videoParentRef.current.play();
             videoParentRef.current.defaultMuted = true;
         }
     }, []);
