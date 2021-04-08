@@ -48,7 +48,7 @@ function BlogPostTemplate({ data, t }) {
                 <Container>
                     <div className="blog-content-sections">
                         <Grid columns="2" stackable centered>
-                            <GridColumn width={10}>
+                            <GridColumn width={11} style={{ paddingRight: '50px' }}>
                                 <section className="blog-post">
                                     <article dangerouslySetInnerHTML={{ __html: post.content }}></article>
                                 </section>
@@ -71,7 +71,7 @@ function BlogPostTemplate({ data, t }) {
                                     <CommentForm postId={post.databaseId} />
                                 </section>
                             </GridColumn>
-                            <GridColumn width={4}>
+                            <GridColumn width={5} style={{ paddingLeft: '50px' }}>
                                 <SidebarWidget></SidebarWidget>
                             </GridColumn>
                         </Grid>
