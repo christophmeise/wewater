@@ -29,7 +29,7 @@ const VideoOverlay = ({ sourceMP4, sourceWebm, sourceOGV, content, darken = fals
 
     return (
         <div className="header-overlay header-overlay-video"> {/* poster={poster} */}
-            <video autoPlay loop muted={true} playsInline ref={videoParentRef}>
+            <video autoPlay loop muted={true} playsInline ref={videoParentRef} preload="none">
                 <source src={sourceMP4 + '.mp4'} type="video/mp4"></source>
                 <source src={sourceWebm + '.webm'} type="video/webm"></source>
                 <source src={sourceOGV + '.ogv'} type="video/ogg"></source>
