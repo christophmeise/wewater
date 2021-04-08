@@ -8,6 +8,7 @@ export const getBlogpostsFragment = graphql`fragment GetBlogposts on WpPostConne
       excerpt
       title
       content
+      commentCount
       author {
         node {
           name
