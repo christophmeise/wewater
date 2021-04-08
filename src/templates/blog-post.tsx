@@ -2,7 +2,9 @@ import { gql } from '@apollo/client/core';
 import commentOutlined from '@iconify/icons-ant-design/comment-outlined';
 import { Icon } from '@iconify/react';
 import { graphql } from 'gatsby';
+import de from 'hyphenated-de';
 import React from 'react';
+import Hyphenated from 'react-hyphen';
 import { Button, Container, Grid, GridColumn } from 'semantic-ui-react';
 import CommentForm from '../components/Comments/comment-form';
 import CommentList from '../components/Comments/comment-list';
@@ -110,7 +112,9 @@ const OverlayContent = ({ post, inverted }) => {
                     className={`text-shadow header-overlay-headline ${inverted ? 'header-overlay-headline-inverted' : null
                         }`}
                 >
-                    {post.title}
+                    <Hyphenated language={de}>
+                        {post.title}
+                    </Hyphenated>
                 </h1>
                 <div className="blog-post-author-box">
                     <p>Von {post.author.node.name}</p>

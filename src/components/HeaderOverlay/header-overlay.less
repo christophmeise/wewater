@@ -19,6 +19,12 @@
   justify-content: center;
 }
 
+@media @mobile {
+  .header-overlay-blog {
+    max-height: 70vh !important;
+  }
+}
+
 .header-overlay-blog-post {
   position       : relative;
   height         : 500px;
@@ -29,6 +35,15 @@
   .header-overlay-headline {
     font-size  : 40px;
     line-height: 53px;
+  }
+
+  @media @mobile {
+    .header-overlay-headline {
+      font-size    : 28px;
+      line-height  : 40px;
+      margin-bottom: 1rem;
+    }
+
   }
 }
 
@@ -197,6 +212,10 @@
   align-self: center;
   text-align: left;
   width     : 100%;
+
+  .column {
+    padding: 0 !important;
+  }
 }
 
 .header-overlay-container-mobile-top {
@@ -238,8 +257,8 @@
 
 @media @mobile {
   .header-overlay-headline {
-    font-size    : 32px;
-    line-height  : 46px;
+    font-size    : 27px;
+    line-height  : 40px;
     margin-bottom: 0.5rem;
   }
 
