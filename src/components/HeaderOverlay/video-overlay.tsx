@@ -31,9 +31,9 @@ const VideoOverlay = ({ sourceMP4, sourceWebm, sourceOGV, content, darken = fals
     return (
         <div className="header-overlay header-overlay-video">
             <video autoPlay loop muted={true} playsInline poster={poster} ref={videoParentRef}>
-                <source src={sourceMP4 + '.mp4'} type="video/mp4; codecs=avc1.42E01E,mp4a.40.2"></source>
-                <source src={sourceWebm + '.webm'} type="video/webm; codecs=vp8,vorbis"></source>
-                <source src={sourceOGV + '.ogv'} type="video/ogg; codecs=theora,vorbis"></source>
+                <source src={sourceMP4 + '.mp4'} type="video/mp4"></source>
+                <source src={sourceWebm + '.webm'} type="video/webm"></source>
+                <source src={sourceOGV + '.ogv'} type="video/ogg"></source>
                 Video unsupported
             </video>
             <Container className="header-overlay-container header-overlay-container-absolute">
