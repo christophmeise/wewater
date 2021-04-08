@@ -127,18 +127,22 @@ const OverlayContent = ({ post, inverted }) => {
                         </p>
                     </span>
                     <div className="blog-post-social-buttons">
-                        <a href={'https://facebook.com/sharer/sharer.php?u=' + location?.href} target="_blank" rel="noopener">
-                            <Button className="blog-button-social" color='facebook' icon='facebook' size="medium" />
-                        </a>
-                        <a href={'https://twitter.com/intent/tweet/?url=' + location?.href} target="_blank" rel="noopener">
-                            <Button className="blog-button-social" color='twitter' icon='twitter' size="medium" />
-                        </a>
-                        <a href={'https://www.linkedin.com/shareArticle?mini=true&amp;url=' + location?.href} target="_blank" rel="noopener">
-                            <Button className="blog-button-social" color='linkedin' icon='linkedin' size="medium" />
-                        </a>
-                        <a href={'https://pinterest.com/pin/create/button/?url=' + location?.href} target="_blank" rel="noopener">
-                            <Button className="blog-button-social" color='pinterest' icon='pinterest' size="medium" />
-                        </a>
+                        {typeof window !== 'undefined' &&
+                            <>
+                                <a href={'https://facebook.com/sharer/sharer.php?u=' + location?.href} target="_blank" rel="noopener">
+                                    <Button className="blog-button-social" color='facebook' icon='facebook' size="medium" />
+                                </a>
+                                <a href={'https://twitter.com/intent/tweet/?url=' + location?.href} target="_blank" rel="noopener">
+                                    <Button className="blog-button-social" color='twitter' icon='twitter' size="medium" />
+                                </a>
+                                <a href={'https://www.linkedin.com/shareArticle?mini=true&amp;url=' + location?.href} target="_blank" rel="noopener">
+                                    <Button className="blog-button-social" color='linkedin' icon='linkedin' size="medium" />
+                                </a>
+                                <a href={'https://pinterest.com/pin/create/button/?url=' + location?.href} target="_blank" rel="noopener">
+                                    <Button className="blog-button-social" color='pinterest' icon='pinterest' size="medium" />
+                                </a>
+                            </>
+                        }
                     </div>
                 </div>
             </div>
