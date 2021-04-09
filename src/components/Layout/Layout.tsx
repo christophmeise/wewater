@@ -265,7 +265,7 @@ const Popover = ({ language }) => {
                                 <div className="navlist-circle">
                                     <svg version="1.0" xmlns="http://www.w3.org/2000/svg"
                                         width="100%" height="100%" viewBox="0 0 6000 6000"
-                                        preserveAspectRatio="xMinYMin meet" className="custom-drawn" fill="#FFFFFF" transform="scale(1,-1)">
+                                        preserveAspectRatio="xMinYMin meet" className="custom-drawn" fill="#FFFFFF">
                                         <path fillRule="evenodd" clipRule="evenodd" d="M2947 5879 c-25 -15 -32 -30 -180 -415 -147 -379 -158 -425 -137
 -530 49 -236 270 -363 500 -288 180 59 291 282 235 472 -9 29 -74 204 -146
 390 -93 243 -137 343 -155 360 -27 24 -85 30 -117 11z m186 -469 c70 -181 130
@@ -310,7 +310,7 @@ c0 -213 -1 -211 103 -211 l67 0 0 -523 c0 -495 1 -525 18 -540 21 -19 45 -21
                                 <div className="navlist-circle">
                                     <svg version="1.0" xmlns="http://www.w3.org/2000/svg"
                                         width="100%" height="100%" viewBox="0 0 6420 6420"
-                                        preserveAspectRatio="xMidYMid meet" className="custom-drawn" fill="#FFFFFF" transform="scale(1,-1)">
+                                        preserveAspectRatio="xMidYMid meet" className="custom-drawn" fill="#FFFFFF">
                                         <path d="M4938 6345 c-180 -44 -350 -182 -433 -350 -51 -103 -69 -183 -69
 -305 0 -126 19 -203 75 -311 78 -149 213 -264 378 -323 79 -28 97 -30 216 -30
 114 0 139 3 206 26 174 61 315 181 389 331 55 112 73 191 73 312 0 190 -58
@@ -368,7 +368,7 @@ c0 -213 -1 -211 103 -211 l67 0 0 -523 c0 -495 1 -525 18 -540 21 -19 45 -21
                                 <div className="navlist-circle">
                                     <svg version="1.0" xmlns="http://www.w3.org/2000/svg"
                                         width="100%" height="100%" viewBox="224.02 185.85 218.62 294.96"
-                                        preserveAspectRatio="xMinYMin meet" className="custom-drawn-small" fill="#FFFFFF" transform="scale(1,-1)">
+                                        preserveAspectRatio="xMinYMin meet" className="custom-drawn-small" fill="#FFFFFF">
                                         <g id="g10" transform="matrix(1.3333333,0,0,-1.3333333,0,666.66667)">
                                             <g id="g12" transform="scale(0.1)">
                                                 <path d="m3299.8 1509.4v20h-1490.2v2036.7h1470.2v-2056.7h20v20-20h20v2076.7c0 5.26-2.14 10.42-5.86 14.14-3.73 3.72-8.88 5.86-14.14 5.86h-1510.2c-5.27 0-10.42-2.14-14.14-5.86-3.73-3.72-5.86-8.88-5.86-14.14v-2076.7c0-5.27 2.13-10.42 5.86-14.14 3.72-3.73 8.87-5.86 14.14-5.86h1510.2c5.26 0 10.41 2.13 14.14 5.86 3.72 3.72 5.86 8.87 5.86 14.14h-20" /><path d="m3299.8 1509.4v20h-1490.2v2036.7h1470.2v-2056.7h20v20-20h20v2076.7c0 5.26-2.14 10.42-5.86 14.14-3.73 3.72-8.88 5.86-14.14 5.86h-1510.2c-5.27 0-10.42-2.14-14.14-5.86-3.73-3.72-5.86-8.88-5.86-14.14v-2076.7c0-5.27 2.13-10.42 5.86-14.14 3.72-3.73 8.87-5.86 14.14-5.86h1510.2c5.26 0 10.41 2.13 14.14 5.86 3.72 3.72 5.86 8.87 5.86 14.14h-20" />
