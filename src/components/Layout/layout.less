@@ -147,11 +147,27 @@
   display        : flex;
   align-items    : center;
   justify-content: center;
+  position       : relative;
 }
 
-.navlist-circle>svg {
-  height: 25px;
-  width : 25px;
+.navlist-circle>.custom-drawn {
+  height: 32px;
+  width : 32px;
+}
+
+.navlist-circle>.custom-drawn-small {
+  height: 32px;
+  width : 24px;
+}
+
+.navlist-circle>.custom-drawn path {
+  stroke      : #FFFFFF;
+  stroke-width: 75px;
+}
+
+.navlist-circle>.custom-drawn-small path {
+  stroke      : #FFFFFF;
+  stroke-width: 25px;
 }
 
 .navlist-primary-entry {
