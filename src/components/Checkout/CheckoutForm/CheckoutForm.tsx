@@ -131,13 +131,21 @@ const CheckoutForm = () => {
             <GridColumn>
               <h4 className="mb-4"><Trans>Bestelldetails</Trans></h4>
               <Billing input={input} handleOnChange={handleOnChange} />
+              <PaymentModes input={input} handleOnChange={handleOnChange} />
+              {input.paymentMethod === 'bacs' &&
+                <p><Trans>Überweise direkt an unsere Bankverbindung. Bitte nutze die Bestellnummer als Verwendungszweck. Deine Bestellung wird erst nach Geldeingang auf unserem Konto versandt.</Trans></p>
+              }
+              {input.paymentMethod === 'paypal' &&
+                <p><Trans>Wir verwenden deine personenbezogenen Daten, um deine Bestellung durchführen zu können, eine möglichst gute Benutzererfahrung auf dieser Website zu ermöglichen und für weitere Zwecke, die in unserer Datenschutzerklärung beschrieben sind.</Trans></p>
+              }
+              <p><Trans></Trans></p>
             </GridColumn>
             <GridColumn>
               <h4 className="mb-4"><Trans>Dein Warenkorb</Trans></h4>
               <YourOrder cart={cart} />
             </GridColumn>
           </Grid>
-          <PaymentModes input={input} handleOnChange={handleOnChange} />
+
           <Button primary className="rounded" type="submit" onClick={handleFormSubmit}>
             <Trans>Jetzt kaufen</Trans>
           </Button>
@@ -146,8 +154,8 @@ const CheckoutForm = () => {
           {requestError && <CheckoutError requestError={requestError} />}
         </Form>
       ) : (
-          ""
-        )
+        ""
+      )
       }
 
       {/*Show message if Order Success*/}

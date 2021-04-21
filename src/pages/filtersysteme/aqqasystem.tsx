@@ -9,7 +9,6 @@ import { Container, Grid, GridColumn, Header, Table } from 'semantic-ui-react';
 import { WeWaterLogo } from '..';
 import VideoOverlay from '../../components/HeaderOverlay/video-overlay';
 import Layout from '../../components/Layout/Layout';
-import ProjektCard from '../../components/ProjektCard/projekt-card';
 import SEO from '../../components/seo';
 import { useTranslationHOC } from '../../components/useTranslationHOC/useTranslationHOC';
 
@@ -120,10 +119,6 @@ class AqqasystemPage extends React.Component<Props, any> {
                                     </Table.Body>
                                 </Table>
                                 <p><Trans>
-                                    Um kurzfristig den Bedarf an Trinkwasser zu decken, kann der AQQAbag eine Person ein halbes Jahr lang mit vier Litern Trinkwasser pro Tag versorgen.
-                                    <a href="https://wewater.org/wp-content/uploads/2019/09/WW09232019-BCS-1909302-303p.pdf" target="_blank"> Das Zertifikat für den AQQAbag haben wir hier hochgeladen.</a>
-                                </Trans></p>
-                                <p><Trans>
                                     Das AQQAsystem basiert auf der Idee des AQQAbag. Es macht in größerem Maßstab aus Oberflächenwasser hygienisch sicheres Trinkwasser. Dabei kann es direkt an eine Wasserquelle oder einen Flußlauf installiert werden.
                         </Trans></p>
                                 <p><Trans>
@@ -152,7 +147,7 @@ class AqqasystemPage extends React.Component<Props, any> {
                                 alt="aqqasystem3" />
                         </GridColumn>
                     </Grid>
-                    <section className="global-header-padding">
+                    {/*                     <section className="global-header-padding">
                         <h2><Trans>Das AQQAsystem ist u.a. im Einsatz in...</Trans></h2>
                         <div className="projekt-card-grid">
                             {posts
@@ -166,7 +161,7 @@ class AqqasystemPage extends React.Component<Props, any> {
                                     );
                                 })}
                         </div>
-                    </section>
+                    </section> */}
                 </Container>
             </Layout>
         );

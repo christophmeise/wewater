@@ -133,24 +133,6 @@ const Billing = ({ input, handleOnChange }) => {
         <Error errors={input.errors} fieldName={"city"} />
       </Form.Field>
       <Form.Field>
-        <label htmlFor="state">
-          <Trans>Bundesland/Staat</Trans>
-          <abbr className="required" title="required">
-            *
-            </abbr>
-        </label>
-        <input
-          onChange={handleOnChange}
-          value={input.state}
-          type="text"
-          name="state"
-          className="form-control woo-next-checkout-input"
-          id="state"
-          autoComplete="state"
-        />
-        <Error errors={input.errors} fieldName={"state"} />
-      </Form.Field>
-      <Form.Field>
         <label htmlFor="post-code">
           <Trans>Postleitzahl</Trans>
           <abbr className="required" title="required">

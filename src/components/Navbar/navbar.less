@@ -77,3 +77,22 @@ div.right.menu {
   }
 
 }
+
+.menu-level-2 {
+  padding-left: 50px !important;
+
+  span {
+    position: relative;
+  }
+}
+
+.menu-level-2>span::before {
+  content         : '';
+  position        : absolute;
+  left            : -15px;
+  top             : 7px;
+  height          : 7px;
+  width           : 7px;
+  background-color: #5ABEE6;
+  border-radius   : 50%;
+}

@@ -55,13 +55,42 @@ class Navbar extends Component<NavbarProps, NavbarState> {
           </>
         )}
         {mobile && (
-          <Menu.Item
-            name="/filtersystem"
-            content={t('Filtersysteme')}
-            link
-            active={location.pathname === '/filtersystem'}
-            onClick={navigate.bind(this, '/filtersystem')}
-          ></Menu.Item>
+          <>
+            <Menu.Item
+              name="/filtersystem"
+              content={t('Filtersysteme')}
+              link
+              active={location.pathname === '/filtersystem'}
+              onClick={navigate.bind(this, '/filtersystem')}
+            ></Menu.Item>
+            <Menu.Item
+              className="menu-level-2"
+              name="/filtersysteme/aqqabag"
+              link
+              active={location.pathname === '/filtersysteme/aqqabag'}
+              onClick={navigate.bind(this, '/filtersysteme/aqqabag')}
+            >
+              <span>{t('AQQAbag')}</span>
+            </Menu.Item>
+            <Menu.Item
+              className="menu-level-2"
+              name="/filtersysteme/aqqacube"
+              link
+              active={location.pathname === '/filtersysteme/aqqacube'}
+              onClick={navigate.bind(this, '/filtersysteme/aqqacube')}
+            >
+              <span>{t('AQQAcube')}</span>
+            </Menu.Item>
+            <Menu.Item
+              className="menu-level-2"
+              name="/filtersysteme/aqqasystem"
+              link
+              active={location.pathname === '/filtersysteme/aqqasystem'}
+              onClick={navigate.bind(this, '/filtersysteme/aqqasystem')}
+            >
+              <span>{t('AQQAsystem')}</span>
+            </Menu.Item>
+          </>
         )}
         <Menu.Item
           name="/spenden"
@@ -123,10 +152,13 @@ class Navbar extends Component<NavbarProps, NavbarState> {
           <React.Fragment>
             <Menu.Item
               name="/warenkorb"
-              content={t('Warenkorb')}
               link
               active={location.pathname === '/warenkorb'}
               onClick={navigate.bind(this, '/warenkorb')}>
+              <div style={{ display: 'flex', alignItems: 'center' }}>
+                {t('Warenkorb')}
+                <CartIcon t={t}></CartIcon>
+              </div>
             </Menu.Item>
             <LanguageSwitcher mobile={mobile} t={t}></LanguageSwitcher>
             <Menu.Item>

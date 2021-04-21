@@ -1,7 +1,7 @@
 // i18next-extract-mark-ns-start page_aqqacube
 import { graphql } from 'gatsby';
 import { GatsbyImage } from "gatsby-plugin-image";
-import { Trans } from 'gatsby-plugin-react-i18next';
+import { Link, Trans } from 'gatsby-plugin-react-i18next';
 import de from 'hyphenated-de';
 import React from 'react';
 import Hyphenated from 'react-hyphen';
@@ -144,7 +144,7 @@ class AqqacubePage extends React.Component<Props, any> {
                                     Der AQQAcube kostet nur 1273,3 Euro brutto. Rechnet man diesen Betrag auf die enorme Filterleistung um, kostet ein Liter hygienisch sauberes Wasser weniger als einen Cent. Zum Vergleich: Trinkwasser wird in Ostafrika in Plastikflaschen zu je 1,5 Liter für ca. einen Euro verkauft. Damit bietet das Produkt sauberes Trinkwasser bei hoher Geldersparnis und Einsparung von Plastikmüll.
                         </Trans></p>
                                 <p><Trans>
-                                    Nach 6 Monaten im Dauerbetrieb muss der AQQAcube gereinigt werden. Eine Anleitung dafür haben wir hier hochgeladen. Die Kosten für die halbjährliche Reinigung betragen etwa 100 Euro.
+                                    Nach 6 Monaten im Dauerbetrieb muss der AQQAcube gereinigt werden. <Link to="/filtersysteme/tutorials">Eine Anleitung dafür haben wir hier hochgeladen.</Link> Die Kosten für die halbjährliche Reinigung betragen etwa 100 Euro.
                         </Trans></p>
                             </section>
                         </GridColumn>
