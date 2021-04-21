@@ -9,6 +9,7 @@ import HeaderOverlay from '../components/HeaderOverlay/header-overlay';
 import Innovation from '../components/Innovation/innovation';
 import Layout from '../components/Layout/Layout';
 import LiterCounter from '../components/LiterCounter/LiterCounter';
+import MobileLandingHero from '../components/MobileLandingHero/MobileLandingHero';
 import SectionProjekte from '../components/Projekte/projekte';
 import SEO from '../components/seo';
 import SpendenWidget from '../components/SpendenWidget/spenden-widget';
@@ -74,7 +75,7 @@ class Index extends React.Component<Props, State> {
   render() {
     const { t, data } = this.props;
 
-    const sources = withArtDirection(getImage(data.mobileImage), [
+    const sources = withArtDirection(getImage(data.desktopImage), [
       {
         media: "(min-width: 768px)",
         image: getImage(data.desktopImage),
@@ -82,27 +83,31 @@ class Index extends React.Component<Props, State> {
     ]);
 
     const slidesPerView = this.state != null ? this.state.slidesPerView : 5;
-
-    const shouldHideForm = ((typeof window !== 'undefined') && window.innerWidth < 768) ? true : false;
+    const isMobile = ((typeof window !== 'undefined') && window.innerWidth < 768) ? true : false;
     const tabletOrMobile = ((typeof window !== 'undefined') && window.innerWidth < 1024) ? true : false;
 
     return (
       <Layout>
         <SEO title={t('LandingpageSEOTitle')} description={t('LandingpageSEODescription')} />
-        <HeaderOverlay
-          sources={sources}
-          inverted={false}
-          content={<OverlayContent />}
-          darken={shouldHideForm}
-          width={tabletOrMobile ? 12 : 10}
-          floatTop={true}
-          centerImage={!shouldHideForm}
-        />
+        <div className="responsive-desktop-container">
+          <HeaderOverlay
+            sources={sources}
+            inverted={false}
+            content={<OverlayContent />}
+            darken={isMobile}
+            width={tabletOrMobile ? 12 : 10}
+            floatTop={true}
+            centerImage={!isMobile}
+          />
+        </div>
+        <div className="responsive-mobile-container">
+          <MobileLandingHero />
+        </div>
         <div>
           <Video></Video>
           <Innovation></Innovation>
           <SectionFiltersysteme></SectionFiltersysteme>
-          <SpendenWidget fullMode={false} hideForm={shouldHideForm}></SpendenWidget>
+          <SpendenWidget fullMode={false} hideForm={isMobile}></SpendenWidget>
           <SectionBlog slidesPerView={slidesPerView}></SectionBlog>
           <SectionProjekte></SectionProjekte>
         </div>
@@ -126,9 +131,6 @@ const OverlayContent = () => {
       <p className="wewater-description-desktop text-shadow" style={{ marginBottom: '1.5rem', marginTop: '0rem' }}>
         <Trans>Wir haben eine innovative Wasserfiltertechnologie entwickelt, die ohne den Einsatz von elektrischer Energie und Chemie funktioniert und einen extrem hohen Reinheitsgrad gewährleistet.</Trans>
       </p>
-      <p className="wewater-description-mobile" style={{ marginBottom: '1.5rem', marginTop: '0rem' }}>
-        <Trans>Eine innovative Wasserfiltertechnologie ohne elektrische Energie, ohne Chemie, aber maximaler Reinheitsgrad.</Trans>
-      </p>
       {typeof window != 'undefined' && window.innerWidth > 767 &&
         <LiterCounter></LiterCounter>
       }
@@ -141,13 +143,8 @@ export const pageQuery = graphql`query ($language: String!) {
     ...GetTranslations
   }
   desktopImage: file(relativePath: {eq: "images/main/new.jpg"}) {
-            childImageSharp {
-            gatsbyImageData(quality: 100, layout: FULL_WIDTH, placeholder: BLURRED, formats: [AUTO, WEBP, AVIF])
-    }
-  }
-  mobileImage: file(relativePath: {eq: "images/main/main-banner-mobile_.jpg"}) {
-            childImageSharp {
-            gatsbyImageData(quality: 85, layout: FULL_WIDTH, placeholder: BLURRED, formats: [AUTO, WEBP, AVIF])
+    childImageSharp {
+      gatsbyImageData(quality: 100, layout: FULL_WIDTH, placeholder: BLURRED, formats: [AUTO, WEBP, AVIF])
     }
   }
 }
