@@ -5,7 +5,7 @@ import { AppContext } from "../../context/AppContext";
 import CartDropdown from "../CartDropdown/CartDropdown";
 import './style.less';
 
-const CartIcon = ({ t }) => {
+const CartIcon = ({ t, mobile = false }) => {
 
 	const [cart]: any = useContext(AppContext);
 	const [isDropdownOpen, setIsDropdownOpen] = useState(false);
@@ -15,7 +15,7 @@ const CartIcon = ({ t }) => {
 
 	return (
 		<>
-			<button className="woo-menu-cart-icon" onClick={() => setIsDropdownOpen(!isDropdownOpen)}>
+			<button className="woo-menu-cart-icon" onClick={() => !mobile && setIsDropdownOpen(!isDropdownOpen)}>
 				<div>
 					{totalPrice ? <span className="woo-next-cart-price mr-2">{totalPrice}</span> : ''}
 					<span className="woo-next-cart-icon-container">

@@ -42,35 +42,35 @@ class AqqabagPage extends React.Component<Props, any> {
 
         const tableData = [
             {
-                key: 'Anwendung',
-                value: 'Sofortlösung (z.B. nach einer Umweltkatastrophe)'
+                key: t('Anwendung'),
+                value: t('Sofortlösung (z.B. nach einer Umweltkatastrophe)')
             },
             {
-                key: 'Anwender',
-                value: 'Einzelperson, Reisende'
+                key: t('Anwender'),
+                value: t('Einzelperson, Reisende')
             },
             {
-                key: 'Filtermenge',
-                value: '4 Liter Trinkwasser mindestens bei 8 Std. Betriebszeit am Tag'
+                key: t('Filtermenge'),
+                value: t('4 Liter Trinkwasser mindestens bei 8 Std. Betriebszeit am Tag')
             },
             {
-                key: 'Innovation',
-                value: 'Membranfilter mit hoher Rückhalterate'
+                key: t('Innovation'),
+                value: t('Membranfilter mit hoher Rückhalterate')
             },
             {
-                key: 'Kosten',
-                value: '41,65 Euro brutto pro Stück (bei kleiner Auflage, ab Auflage von 1.000 Stück sinken die Kosten pro Stück)'
+                key: t('Kosten'),
+                value: t('41,65 Euro brutto pro Stück (bei kleiner Auflage, ab Auflage von 1.000 Stück sinken die Kosten pro Stück)')
             },
             {
-                key: 'Rückhalterate Bakterien',
-                value: '99,9999 Prozent <a href="https://wewater.org/wp-content/uploads/2019/09/WW09232019-BCS-1909302-303p.pdf" target="_blank">(zertifiziert von BCS, Florida, USA)</a>'
+                key: t('Rückhalterate Bakterien'),
+                value: t('99,9999 Prozent <a href="https://wewater.org/wp-content/uploads/2019/09/WW09232019-BCS-1909302-303p.pdf" target="_blank">(zertifiziert von BCS, Florida, USA)</a>')
             },
             {
-                key: 'Haltbarkeit',
-                value: '6 Monate im Dauerbetrieb (gelegentlich muss der AQQAbag mit klarem Wasser ausgespült werden)'
+                key: t('Haltbarkeit'),
+                value: t('6 Monate im Dauerbetrieb (gelegentlich muss der AQQAbag mit klarem Wasser ausgespült werden)')
             },
             {
-                key: 'Bedienungsanleitung',
+                key: t('Bedienungsanleitung'),
                 value: `<a href="https://wewater.org/wp-content/uploads/2019/09/anleitung_aqqabag.pdf" target="_blank">Deutsch</a>/
                     <a href="https://wewater.org/wp-content/uploads/2019/09/aqqabag_instructions.pdf" target="_blank">Englisch</a> (PDF)`
             },

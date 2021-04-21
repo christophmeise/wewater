@@ -39,36 +39,36 @@ class AqqasystemPage extends React.Component<Props, any> {
         const posts = data.projekte.edges;
         const tableData = [
             {
-                key: 'Anwendung',
-                value: 'Langfristige Lösung'
+                key: t('Anwendung'),
+                value: t('Langfristige Lösung')
             },
             {
-                key: 'Anwender',
-                value: 'Dorfgemeinschaften, an Orten mit hohem Trinkwasserbedarf'
+                key: t('Anwender'),
+                value: t('Dorfgemeinschaften, an Orten mit hohem Trinkwasserbedarf')
             },
             {
-                key: 'Filtermenge',
-                value: '500 bis 30.000 Liter Trinkwasser pro Tag'
+                key: t('Filtermenge'),
+                value: t('500 bis 30.000 Liter Trinkwasser pro Tag')
             },
             {
-                key: 'Innovation',
-                value: 'Membranfilter'
+                key: t('Innovation'),
+                value: t('Membranfilter')
             },
             {
-                key: 'Kosten',
-                value: 'Abhängig von der Größe des Filtersystems'
+                key: t('Kosten'),
+                value: t('Abhängig von der Größe des Filtersystems')
             },
             {
-                key: 'Leergewicht',
-                value: 'Abhängig von der Größe des Filtersystems'
+                key: t('Leergewicht'),
+                value: t('Abhängig von der Größe des Filtersystems')
             },
             {
-                key: 'Rückhalterate Bakterien',
-                value: '99,9999 Prozent <a href="https://wewater.org/wp-content/uploads/2019/09/WW09232019-BCS-1909302-303p.pdf" target="_blank">(zertifiziert von BCS, Florida, USA)</a>'
+                key: t('Rückhalterate Bakterien'),
+                value: t('99,9999 Prozent <a href="https://wewater.org/wp-content/uploads/2019/09/WW09232019-BCS-1909302-303p.pdf" target="_blank">(zertifiziert von BCS, Florida, USA)</a>')
             },
             {
-                key: 'Haltbarkeit',
-                value: '5 Jahre (halbjährlich muss das AQQAsystem mit klarem Wasser gespült werden)'
+                key: t('Haltbarkeit'),
+                value: t('5 Jahre (halbjährlich muss das AQQAsystem mit klarem Wasser gespült werden)')
             }
         ];
 

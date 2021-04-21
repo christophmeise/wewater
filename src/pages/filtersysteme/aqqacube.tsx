@@ -42,39 +42,39 @@ class AqqacubePage extends React.Component<Props, any> {
 
         const tableData = [
             {
-                key: 'Anwendung',
-                value: 'Sofortlösung'
+                key: t('Anwendung'),
+                value: t('Sofortlösung')
             },
             {
-                key: 'Anwender',
-                value: 'z.B. Dorfgemeinschaften, Flüchtlingsunterkünfte, Schulen'
+                key: t('Anwender'),
+                value: t('z.B. Dorfgemeinschaften, Flüchtlingsunterkünfte, Schulen')
             },
             {
-                key: 'Filtermenge',
-                value: 'min. 400 Liter Trinkwasser pro Tag bei 8 Std. Betriebszeit'
+                key: t('Filtermenge'),
+                value: t('min. 400 Liter Trinkwasser pro Tag bei 8 Std. Betriebszeit')
             },
             {
-                key: 'Innovation',
-                value: 'Membranfilter mit hoher Rückhalterate'
+                key: t('Innovation'),
+                value: t('Membranfilter mit hoher Rückhalterate')
             },
             {
-                key: 'Kosten',
-                value: '1273,30 Euro brutto pro Stück'
+                key: t('Kosten'),
+                value: t('1273,30 Euro brutto pro Stück')
             },
             {
-                key: 'Leergewicht',
-                value: '30 kg'
+                key: t('Leergewicht'),
+                value: t('30 kg')
             },
             {
-                key: 'Rückhalterate Bakterien',
-                value: '99,9999 Prozent <a href="https://wewater.org/wp-content/uploads/2019/09/WW09232019-BCS-1909302-303p.pdf" target="_blank">(zertifiziert von BCS, Florida, USA)</a>'
+                key: t('Rückhalterate Bakterien'),
+                value: t('99,9999 Prozent <a href="https://wewater.org/wp-content/uploads/2019/09/WW09232019-BCS-1909302-303p.pdf" target="_blank">(zertifiziert von BCS, Florida, USA)</a>')
             },
             {
-                key: 'Haltbarkeit',
-                value: '6 Monate im Dauerbetrieb (gelegentlich muss der AQQAcube mit klarem Wasser ausgespült werden, nach 6 Monaten muss er gereinigt werden)'
+                key: t('Haltbarkeit'),
+                value: t('6 Monate im Dauerbetrieb (gelegentlich muss der AQQAcube mit klarem Wasser ausgespült werden, nach 6 Monaten muss er gereinigt werden)')
             },
             {
-                key: 'Bedienungsanleitung',
+                key: t('Bedienungsanleitung'),
                 value: `<a href="https://wewater.org/wp-content/uploads/2020/03/reinigung_aqqacube_DE.pdf" target="_blank">Deutsch</a>/
                         <a href="https://wewater.org/wp-content/uploads/2020/03/disinfection_aqqacube_EN.pdf" target="_blank">Englisch</a> (PDF)`
             },

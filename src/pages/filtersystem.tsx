@@ -28,49 +28,49 @@ class FiltersystemPage extends React.Component<Props, any> {
 
         const tableData = [
             {
-                key: 'Anwendung',
-                bag: 'Sofortlösung (z.B. nach einer Umweltkatastrophe)',
-                cube: 'Sofortlösung',
-                system: 'Langfristige Lösung'
+                key: t('Anwendung'),
+                bag: t('Sofortlösung (z.B. nach einer Umweltkatastrophe)'),
+                cube: t('Sofortlösung'),
+                system: t('Langfristige Lösung')
             },
             {
-                key: 'Anwender',
-                bag: 'Einzelperson, Reisende',
-                cube: 'Lebensgemeinschaften, Dörfer, Flüchtlingsunterkünfte',
-                system: 'Dorfgemeinschaften, an Orten mit hohem Trinkwasserbedarf'
+                key: t('Anwender'),
+                bag: t('Einzelperson, Reisende'),
+                cube: t('Lebensgemeinschaften, Dörfer, Flüchtlingsunterkünfte'),
+                system: t('Dorfgemeinschaften, an Orten mit hohem Trinkwasserbedarf')
             },
             {
-                key: 'Filtermenge',
-                bag: '4 Liter Trinkwasser mindestens bei 8 Std. Betriebszeit am Tag',
-                cube: 'min. 400 Liter Trinkwasser pro Tag bei 8 Std. Betriebszeit',
-                system: '500 bis 30.000 Liter Trinkwasser pro Tag'
+                key: t('Filtermenge'),
+                bag: t('4 Liter Trinkwasser mindestens bei 8 Std. Betriebszeit am Tag'),
+                cube: t('min. 400 Liter Trinkwasser pro Tag bei 8 Std. Betriebszeit'),
+                system: t('500 bis 30.000 Liter Trinkwasser pro Tag')
             },
             {
-                key: 'Innovation',
-                bag: 'Membranfilter mit hoher Rückhalterate',
-                cube: 'Membranfilter mit hoher Rückhalterate',
-                system: 'Membranfilter'
+                key: t('Innovation'),
+                bag: t('Membranfilter mit hoher Rückhalterate'),
+                cube: t('Membranfilter mit hoher Rückhalterate'),
+                system: t('Membranfilter')
             },
             {
-                key: 'Kosten',
-                bag: '41,65 Euro brutto pro Stück (bei kleiner Auflage, ab Auflage von 1.000 Stück sinken die Kosten pro Stück)',
-                cube: '1273,30 Euro brutto pro Stück',
-                system: 'Abhängig von der Größe des Filtersystems',
+                key: t('Kosten'),
+                bag: t('41,65 Euro brutto pro Stück (bei kleiner Auflage, ab Auflage von 1.000 Stück sinken die Kosten pro Stück)'),
+                cube: t('1273,30 Euro brutto pro Stück'),
+                system: t('Abhängig von der Größe des Filtersystems')
             },
             {
-                key: 'Rückhalterate Bakterien',
-                bag: '99,9999 Prozent <a href="https://wewater.org/wp-content/uploads/2019/09/WW09232019-BCS-1909302-303p.pdf" target="_blank">(zertifiziert von BCS, Florida, USA)</a>',
-                cube: '99,9999 Prozent <a href="https://wewater.org/wp-content/uploads/2019/09/WW09232019-BCS-1909302-303p.pdf" target="_blank">(zertifiziert von BCS, Florida, USA)</a>',
-                system: '99,9999 Prozent <a href="https://wewater.org/wp-content/uploads/2019/09/WW09232019-BCS-1909302-303p.pdf" target="_blank">(zertifiziert von BCS, Florida, USA)</a>',
+                key: t('Rückhalterate Bakterien'),
+                bag: t('99,9999 Prozent <a href="https://wewater.org/wp-content/uploads/2019/09/WW09232019-BCS-1909302-303p.pdf" target="_blank">(zertifiziert von BCS, Florida, USA)</a>'),
+                cube: t('99,9999 Prozent <a href="https://wewater.org/wp-content/uploads/2019/09/WW09232019-BCS-1909302-303p.pdf" target="_blank">(zertifiziert von BCS, Florida, USA)</a>'),
+                system: t('99,9999 Prozent <a href="https://wewater.org/wp-content/uploads/2019/09/WW09232019-BCS-1909302-303p.pdf" target="_blank">(zertifiziert von BCS, Florida, USA)</a>')
             },
             {
-                key: 'Haltbarkeit',
-                bag: '6 Monate im Dauerbetrieb (gelegentlich muss der AQQAbag mit klarem Wasser ausgespült werden)',
-                cube: '6 Monate im Dauerbetrieb (gelegentlich muss der AQQAcube mit klarem Wasser ausgespült werden, nach 6 Monaten muss er gereinigt werden)',
-                system: '5 Jahre (halbjährlich muss das AQQAsystem mit klarem Wasser gespült werden)',
+                key: t('Haltbarkeit'),
+                bag: t('6 Monate im Dauerbetrieb (gelegentlich muss der AQQAbag mit klarem Wasser ausgespült werden)'),
+                cube: t('6 Monate im Dauerbetrieb (gelegentlich muss der AQQAcube mit klarem Wasser ausgespült werden, nach 6 Monaten muss er gereinigt werden)'),
+                system: t('5 Jahre (halbjährlich muss das AQQAsystem mit klarem Wasser gespült werden)')
             },
             {
-                key: 'Bedienungsanleitung',
+                key: t('Bedienungsanleitung'),
                 bag: `<a href="https://wewater.org/wp-content/uploads/2019/09/anleitung_aqqabag.pdf" target="_blank">Deutsch</a>/
                     <a href="https://wewater.org/wp-content/uploads/2019/09/aqqabag_instructions.pdf" target="_blank">Englisch</a> (PDF)`,
                 cube: `<a href="https://wewater.org/wp-content/uploads/2020/03/reinigung_aqqacube_DE.pdf" target="_blank">Deutsch</a>/

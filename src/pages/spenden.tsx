@@ -70,47 +70,33 @@ class OverlayContent extends React.Component<any, any> {
                 >
                     {t('page_spenden:headline')}
                 </h1>
-                {typeof window != 'undefined' && window.innerWidth > 767 &&
-                    <div className="spenden-banner-container">
-                        <div className="spenden-banner-box rounded shadow">
-                            <h3><Trans>Du spendest monatlich einen Geldbetrag deiner Wahl</Trans></h3>
-                            <Button size="large" primary inverted className="rounded" onClick={() => navigate('/spenden/monatlich')}>
-                                <Icon icon={tintIcon} style={{ opacity: '1', margin: '0em 0.42857143em 0em -0.21428571em' }} />
-                                <Trans>Monatlich Spenden</Trans>
-                            </Button>
-                            <div className="spenden-banner-payment-logos">
-                                <Icon icon={paypalIcon} style={{ opacity: '1' }} />
-                                <Icon icon={universityIcon} style={{ opacity: '1' }} />
-                            </div>
+                <div className="spenden-banner-container">
+                    <div className="spenden-banner-box rounded shadow">
+                        <h3><Trans>Du spendest monatlich einen Geldbetrag deiner Wahl</Trans></h3>
+                        <Button size="large" primary inverted className="rounded" onClick={() => navigate('/spenden/monatlich')}>
+                            <Icon icon={tintIcon} style={{ opacity: '1', margin: '0em 0.42857143em 0em -0.21428571em' }} />
+                            <Trans>Monatlich Spenden</Trans>
+                        </Button>
+                        <div className="spenden-banner-payment-logos">
+                            <Icon icon={paypalIcon} style={{ opacity: '1' }} />
+                            <Icon icon={creditCard} style={{ opacity: '1' }} />
+                            <Icon icon={universityIcon} style={{ opacity: '1' }} />
                         </div>
-
-                        <div className="spenden-banner-box rounded shadow">
-                            <h3><Trans>Du spendest einmalig einen Geldbetrag deiner Wahl</Trans></h3>
-                            <Button size="large" primary inverted className="rounded" onClick={() => navigate('/spenden/einmalig')}>
-                                <Icon icon={tintIcon} style={{ opacity: '1', margin: '0em 0.42857143em 0em -0.21428571em' }} />
-                                <Trans>Einmalig Spenden</Trans>
-                            </Button>
-                            <div className="spenden-banner-payment-logos">
-                                <Icon icon={paypalIcon} style={{ opacity: '1' }} />
-                                <Icon icon={creditCard} style={{ opacity: '1' }} />
-                                <Icon icon={universityIcon} style={{ opacity: '1' }} />
-                            </div>
-                        </div>
-
-
-                        {/* <div className="spenden-banner-box rounded shadow">
-                            <h3><Trans>Du spendest projektbezogen einen Geldbetrag deiner Wahl</Trans></h3>
-                            <Button size="large" primary inverted className="rounded" onClick={() => navigate('/spenden/projektbezogen')}>
-                                <Icon icon={tintIcon} style={{ opacity: '1', margin: '0em 0.42857143em 0em -0.21428571em' }} />
-                                <Trans>Projektbezogen Spenden</Trans>
-                            </Button>
-                            <div className="spenden-banner-payment-logos">
-                                <Icon icon={paypalIcon} style={{ opacity: '1' }} />
-                                <Icon icon={universityIcon} style={{ opacity: '1' }} />
-                            </div>
-                        </div> */}
                     </div>
-                }
+
+                    <div className="spenden-banner-box rounded shadow">
+                        <h3><Trans>Du spendest einmalig einen Geldbetrag deiner Wahl</Trans></h3>
+                        <Button size="large" primary inverted className="rounded" onClick={() => navigate('/spenden/einmalig')}>
+                            <Icon icon={tintIcon} style={{ opacity: '1', margin: '0em 0.42857143em 0em -0.21428571em' }} />
+                            <Trans>Einmalig Spenden</Trans>
+                        </Button>
+                        <div className="spenden-banner-payment-logos">
+                            <Icon icon={paypalIcon} style={{ opacity: '1' }} />
+                            <Icon icon={creditCard} style={{ opacity: '1' }} />
+                            <Icon icon={universityIcon} style={{ opacity: '1' }} />
+                        </div>
+                    </div>
+                </div>
             </div >
         );
     }

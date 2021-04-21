@@ -157,7 +157,7 @@ class Navbar extends Component<NavbarProps, NavbarState> {
               onClick={navigate.bind(this, '/warenkorb')}>
               <div style={{ display: 'flex', alignItems: 'center' }}>
                 {t('Warenkorb')}
-                <CartIcon t={t}></CartIcon>
+                <CartIcon t={t} mobile={true}></CartIcon>
               </div>
             </Menu.Item>
             <LanguageSwitcher mobile={mobile} t={t}></LanguageSwitcher>
