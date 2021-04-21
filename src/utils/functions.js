@@ -274,11 +274,10 @@ export const getFormattedCart = (data) => {
     const variation = givenProducts[i].variation;
     const product = {};
     const total = getFloatVal(givenProducts[i].total);
-    const cleanName = givenProduct?.node?.name.substring(givenProduct?.node?.name.indexOf(']') + 1, givenProduct?.node?.name.substring(1, givenProduct?.node?.name.length - 1).indexOf('[') + 1);
     product.variation = variation;
     product.productId = givenProduct?.node?.databaseId;
     product.cartKey = givenProducts[i].key;
-    product.name = cleanName;
+    product.name = givenProduct?.node?.name;
     product.qty = givenProducts[i].quantity;
     product.totalPrice = givenProducts[i].total;
 

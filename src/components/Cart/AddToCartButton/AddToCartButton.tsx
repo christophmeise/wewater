@@ -77,7 +77,7 @@ const AddToCartButton = (props) => {
 
   return (
     <div className="add-to-card-wrapper">
-      <Button primary className={`shadow rounded hover-animate ${addToCartLoading && 'loading'}`} onClick={handleAddToCartClick}>
+      <Button primary disabled={product.variations?.nodes != null && !variationId} className={`shadow rounded hover-animate ${addToCartLoading && 'loading'}`} onClick={handleAddToCartClick}>
         <Button.Content><Trans>In den Warenkorb</Trans></Button.Content>
       </Button>
       {showViewCart && (
