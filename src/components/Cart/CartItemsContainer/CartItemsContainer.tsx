@@ -217,7 +217,7 @@ const CartItemsContainer = () => {
               <p><Trans>Oben genannte Preise verstehen sich inklusive Mehrwertsteuer.</Trans></p>
               <div className="cart-checkout-overview-row-button">
                 <Link to="/checkout">
-                  <Button primary size="large" className="shadow rounded hover-animate">
+                  <Button primary size="huge" className="shadow rounded hover-animate">
                     <Button.Content> <Trans>Zur Kasse gehen</Trans></Button.Content>
                   </Button>
                 </Link>

@@ -147,7 +147,7 @@ const CheckoutForm = () => {
               {input.paymentMethod === 'paypal' &&
                 <p><Trans>Wir verwenden deine personenbezogenen Daten, um deine Bestellung durchführen zu können, eine möglichst gute Benutzererfahrung auf dieser Website zu ermöglichen und für weitere Zwecke, die in unserer Datenschutzerklärung beschrieben sind.</Trans></p>
               }
-              <Button fluid primary disabled={input.paymentMethod === null || input.paymentMethod === ''} className="rounded" type="submit" onClick={handleFormSubmit}>
+              <Button size="huge" fluid primary disabled={input.paymentMethod === null || input.paymentMethod === ''} className="rounded" type="submit" onClick={handleFormSubmit}>
                 <Trans>Jetzt kaufen</Trans>
               </Button>
             </GridColumn>
