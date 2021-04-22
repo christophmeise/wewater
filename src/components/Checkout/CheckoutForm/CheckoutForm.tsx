@@ -28,7 +28,8 @@ const CheckoutForm = () => {
     email: '',
     customerNote: '',
     paymentMethod: '',
-    errors: null
+    errors: null,
+    shipToDifferentAddress: 'false'
   };
 
   // Use this for testing purposes, so you dont have to fill the checkout form over an over again.
@@ -101,6 +102,9 @@ const CheckoutForm = () => {
   };
 
   const handleOnChange = (event) => {
+    if (event.target.type === 'checkbox') {
+      event.target.value = event.target.checked;
+    }
     const newState = { ...input, [event.target.name]: event.target.value };
     setInput(newState);
   };
@@ -126,11 +130,16 @@ const CheckoutForm = () => {
         <h2 className="global-headline"><Trans>Bestellung abschließen</Trans></h2>
       </Header>
       {cart ? (
-        <Form className="woo-next-checkout-form">
+        <Form>
           <Grid columns="2" stackable>
-            <GridColumn>
-              <h4 className="mb-4"><Trans>Bestelldetails</Trans></h4>
+            <GridColumn width={10}>
+              <h4><Trans>Versandadresse</Trans></h4>
               <Billing input={input} handleOnChange={handleOnChange} />
+            </GridColumn>
+            <GridColumn width={6}>
+              <h4><Trans>Dein Warenkorb</Trans></h4>
+              <YourOrder cart={cart} />
+              <h4><Trans>Zahlungsart</Trans></h4>
               <PaymentModes input={input} handleOnChange={handleOnChange} />
               {input.paymentMethod === 'bacs' &&
                 <p><Trans>Überweise direkt an unsere Bankverbindung. Bitte nutze die Bestellnummer als Verwendungszweck. Deine Bestellung wird erst nach Geldeingang auf unserem Konto versandt.</Trans></p>
@@ -138,17 +147,12 @@ const CheckoutForm = () => {
               {input.paymentMethod === 'paypal' &&
                 <p><Trans>Wir verwenden deine personenbezogenen Daten, um deine Bestellung durchführen zu können, eine möglichst gute Benutzererfahrung auf dieser Website zu ermöglichen und für weitere Zwecke, die in unserer Datenschutzerklärung beschrieben sind.</Trans></p>
               }
-              <p><Trans></Trans></p>
-            </GridColumn>
-            <GridColumn>
-              <h4 className="mb-4"><Trans>Dein Warenkorb</Trans></h4>
-              <YourOrder cart={cart} />
+              <Button fluid primary disabled={input.paymentMethod === null || input.paymentMethod === ''} className="rounded" type="submit" onClick={handleFormSubmit}>
+                <Trans>Jetzt kaufen</Trans>
+              </Button>
             </GridColumn>
           </Grid>
 
-          <Button primary className="rounded" type="submit" onClick={handleFormSubmit}>
-            <Trans>Jetzt kaufen</Trans>
-          </Button>
 
           {checkoutLoading && <p>Processing Order...</p>}
           {requestError && <CheckoutError requestError={requestError} />}

@@ -311,6 +311,7 @@ export const getFormattedCart = (data) => {
 };
 
 export const createCheckoutData = (order) => {
+  const shipToDifferentAddress = order.shipToDifferentAddress === 'true' || order.shipToDifferentAddress === true;
   const checkoutData = {
     clientMutationId: v4(),
     billing: {
@@ -327,19 +328,19 @@ export const createCheckoutData = (order) => {
       company: order.company,
     },
     shipping: {
-      firstName: order.firstName,
-      lastName: order.lastName,
-      address1: order.address1,
-      address2: order.address2,
-      city: order.city,
-      country: order.country,
-      state: order.state,
-      postcode: order.postcode,
+      firstName: shipToDifferentAddress ? order.firstName2 : order.firstName,
+      lastName: shipToDifferentAddress ? order.lastName2 : order.lastName,
+      address1: shipToDifferentAddress ? order.address12 : order.address1,
+      address2: shipToDifferentAddress ? order.address22 : order.address2,
+      city: shipToDifferentAddress ? order.city2 : order.city,
+      country: shipToDifferentAddress ? order.country2 : order.country,
+      state: shipToDifferentAddress ? order.state2 : order.state,
+      postcode: shipToDifferentAddress ? order.postcode2 : order.postcode,
       email: order.email,
-      phone: order.phone,
-      company: order.company,
+      phone: shipToDifferentAddress ? order.phone2 : order.phone,
+      company: shipToDifferentAddress ? order.company2 : order.company,
     },
-    shipToDifferentAddress: false,
+    shipToDifferentAddress: shipToDifferentAddress,
     paymentMethod: order.paymentMethod,
     isPaid: false,
     transactionId: "hjkhjkhsdsdiui",

@@ -2,6 +2,9 @@ import { Trans } from 'gatsby-plugin-react-i18next';
 import React, { PureComponent } from 'react';
 
 export default class LiterCounterMobile extends PureComponent<any, any> {
+
+    literInterval;
+
     constructor(props: any) {
         super(props);
         const timeDiff = new Date().getTime() - new Date('2019-03-01').getTime();
@@ -12,7 +15,13 @@ export default class LiterCounterMobile extends PureComponent<any, any> {
         }
 
         if (typeof window !== 'undefined') {
-            setInterval(() => this.setState({ liter: this.state.liter + 0.1899 }), 1000);
+            this.literInterval = setInterval(() => this.setState({ liter: this.state.liter + 0.1899 }), 1000);
+        }
+    }
+
+    componentWillUnmount() {
+        if (this.literInterval != null) {
+            clearInterval(this.literInterval);
         }
     }
 

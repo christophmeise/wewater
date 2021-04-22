@@ -5,6 +5,9 @@ import React, { PureComponent } from 'react';
 import { Button, Icon, Popup } from 'semantic-ui-react';
 
 export default class LiterCounter extends PureComponent<any, any> {
+
+    literInterval;
+
     constructor(props: any) {
         super(props);
         const timeDiff = new Date().getTime() - new Date('2019-03-01').getTime();
@@ -15,7 +18,13 @@ export default class LiterCounter extends PureComponent<any, any> {
         }
 
         if (typeof window !== 'undefined' && window.innerWidth > 767) {
-            setInterval(() => this.setState({ liter: this.state.liter + 0.1899 }), 1000);
+            this.literInterval = setInterval(() => this.setState({ liter: this.state.liter + 0.1899 }), 1000);
+        }
+    }
+
+    componentWillUnmount() {
+        if (this.literInterval != null) {
+            clearInterval(this.literInterval);
         }
     }
 

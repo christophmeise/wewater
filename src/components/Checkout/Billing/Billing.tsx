@@ -21,7 +21,6 @@ const Billing = ({ input, handleOnChange }) => {
             value={input.firstName}
             type="text"
             name="firstName"
-            className="form-control woo-next-checkout-input"
             id="first-name"
             autoComplete="given-name"
           />
@@ -39,7 +38,6 @@ const Billing = ({ input, handleOnChange }) => {
             value={input.lastName}
             type="text"
             name="lastName"
-            className="form-control woo-next-checkout-input"
             id="last-name"
             autoComplete="family-name"
           />
@@ -103,6 +101,7 @@ const Billing = ({ input, handleOnChange }) => {
         />
         <Error errors={input.errors} fieldName={"address-line1"} />
         <br />
+        <br />
         <input
           type="text"
           onChange={handleOnChange}
@@ -163,7 +162,6 @@ const Billing = ({ input, handleOnChange }) => {
             value={input.phone}
             type="text"
             name="phone"
-            className="form-control woo-next-checkout-input"
             id="phone"
             autoComplete="tel"
           />
@@ -181,7 +179,6 @@ const Billing = ({ input, handleOnChange }) => {
             value={input.email}
             type="email"
             name="email"
-            className="form-control woo-next-checkout-input"
             id="email"
             autoComplete="email"
           />
@@ -197,6 +194,169 @@ const Billing = ({ input, handleOnChange }) => {
           className="form-control woo-next-checkout-textarea" id="order-notes" rows={4} />
         <Error errors={input.errors} fieldName={'customerNote'} />
       </Form.Field>
+      <Form.Field>
+        <div className="ui checkbox">
+          <input type="checkbox" name="shipToDifferentAddress" onChange={handleOnChange} />
+          <label><Trans>Abweichende Lieferadresse</Trans></label>
+        </div>
+      </Form.Field>
+
+      {input.shipToDifferentAddress === 'true' ?
+        <>
+          <Form.Group widths='equal'>
+            <Form.Field>
+              <label htmlFor="first-name2">
+                <Trans>Vorname</Trans>
+                <abbr className="required" title="required">
+                  *
+              </abbr>
+              </label>
+              <input
+                onChange={handleOnChange}
+                value={input.firstName}
+                type="text"
+                name="firstName2"
+                id="first-name2"
+                autoComplete="given-name"
+              />
+              <Error errors={input.errors} fieldName={"fname2"} />
+            </Form.Field>
+            <Form.Field>
+              <label htmlFor="last-name2">
+                <Trans>Nachname</Trans>
+                <abbr className="required" title="required">
+                  *
+              </abbr>
+              </label>
+              <input
+                onChange={handleOnChange}
+                value={input.lastName}
+                type="text"
+                name="lastName2"
+                id="last-name2"
+                autoComplete="family-name"
+              />
+              <Error errors={input.errors} fieldName={"lname2 "} />
+            </Form.Field>
+
+          </Form.Group>
+          <Form.Field>
+            <label htmlFor="company-name"><Trans>Firma</Trans></label>
+            <input
+              onChange={handleOnChange}
+              value={input.company}
+              type="text"
+              name="company2"
+              id="company-name2"
+            />
+            <Error errors={input.errors} fieldName={"company2"} />
+          </Form.Field>
+          <Form.Field>
+            <label htmlFor="country-select">
+              <Trans>Land / Region</Trans>
+              <abbr className="required" title="required">
+                *
+            </abbr>
+            </label>
+            <select
+              onChange={handleOnChange}
+              value={input.country}
+              name="country2"
+              id="country-select2"
+              autoComplete="country"
+            >
+              <option value="">Bitte wählen...</option>
+              {countryList.length &&
+                countryList.map((country, index) => (
+                  <option key={`${country}-${index}`} value={country.countryCode}>
+                    {country.countryName}
+                  </option>
+                ))}
+            </select>
+            <Error errors={input.errors} fieldName={"country2"} />
+          </Form.Field>
+          <Form.Field>
+            <label htmlFor="street-address">
+              <Trans>Straße</Trans>
+              <abbr className="required" title="required">
+                *
+            </abbr>
+            </label>
+            <input
+              type="text"
+              onChange={handleOnChange}
+              value={input.address1}
+              name="address12"
+              placeholder="Straßenname und Hausnummer"
+              id="street-address"
+              autoComplete="address-line12"
+            />
+            <Error errors={input.errors} fieldName={"address-line12"} />
+            <br />
+            <br />
+            <input
+              type="text"
+              onChange={handleOnChange}
+              value={input.address2}
+              name="address22"
+              placeholder="Wohnung, Suite, Zimmer usw (optional)"
+              id="address-22"
+              autoComplete="address-line22"
+            />
+          </Form.Field>
+          <Form.Field>
+            <label htmlFor="city">
+              <Trans>Stadt</Trans>
+              <abbr className="required" title="required">
+                *
+            </abbr>
+            </label>
+            <input
+              onChange={handleOnChange}
+              value={input.city}
+              type="text"
+              name="city2"
+              id="city2"
+              autoComplete="city"
+            />
+            <Error errors={input.errors} fieldName={"city2"} />
+          </Form.Field>
+          <Form.Field>
+            <label htmlFor="post-code">
+              <Trans>Postleitzahl</Trans>
+              <abbr className="required" title="required">
+                *
+            </abbr>
+            </label>
+            <input
+              onChange={handleOnChange}
+              value={input.postcode}
+              type="text"
+              name="postcode2"
+              id="post-code2"
+              autoComplete="postal-code"
+            />
+            <Error errors={input.errors} fieldName={"postal2"} />
+          </Form.Field>
+          <Form.Field>
+            <label htmlFor="phone">
+              <Trans>Telefon</Trans>
+              <abbr className="required" title="required">
+                *
+              </abbr>
+            </label>
+            <input
+              onChange={handleOnChange}
+              value={input.phone}
+              type="text"
+              name="phone2"
+              id="phone2"
+              autoComplete="tel"
+            />
+            <Error errors={input.errors} fieldName={"phone2"} />
+          </Form.Field>
+        </> : ''
+      }
     </React.Fragment >
   );
 };

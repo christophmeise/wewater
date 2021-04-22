@@ -150,9 +150,9 @@ const CartItemsContainer = () => {
             <GridColumn width="10">
               <Grid>
                 {cart.products.length &&
-                  cart.products.map((item) => (
+                  cart.products.map((item, index) => (
                     <CartItem
-                      key={item.productId}
+                      key={item.productId + index}
                       item={item}
                       updateCartProcessing={updateCartProcessing}
                       products={cart.products}

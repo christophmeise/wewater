@@ -1,41 +1,38 @@
+import { Trans } from 'gatsby-plugin-react-i18next';
 import React from 'react';
+import { Table, TableBody, TableCell, TableHeader, TableHeaderCell, TableRow } from 'semantic-ui-react';
 
 const YourOrder = ({ cart }) => {
 
 	return (
 		<>
 			{ cart ? (
-				<>
-					{/*Product Listing*/}
-					<table className="table table-hover">
-						<thead>
-							{ /* eslint-disable */}
-							<tr className="woo-next-cart-head-container">
-								<th className="woo-next-cart-heading-el" />
-								<th className="woo-next-cart-heading-el">Product</th>
-								<th className="woo-next-cart-heading-el">Total</th>
-							</tr>
-						</thead>
-						<tbody>
-							{cart.products.length && (
-								cart.products.map(item => (
-									<CheckoutCartItem key={item.productId} item={item} />
-								))
-							)}
-							{/*Total*/}
-							<tr className="">
-								<td className="" />
-								<td className="woo-next-checkout-total">Subtotal</td>
-								<td className="woo-next-checkout-total">{cart.totalProductsPrice}</td>
-							</tr>
-							<tr className="">
-								<td className="" />
-								<td className="woo-next-checkout-total">Total</td>
-								<td className="woo-next-checkout-total">{cart.totalProductsPrice}</td>
-							</tr>
-						</tbody>
-					</table>
-				</>
+				<Table>
+					<TableHeader>
+						<TableRow>
+							<TableHeaderCell />
+							<TableHeaderCell />
+							<TableHeaderCell><Trans>Preis</Trans></TableHeaderCell>
+						</TableRow>
+					</TableHeader>
+					<TableBody>
+						{cart.products.length && (
+							cart.products.map((item, index) => (
+								<CheckoutCartItem key={item.productId + index} item={item} />
+							))
+						)}
+						<TableRow textAlign="right">
+							<TableCell />
+							<TableCell><Trans>Verpackung & Versand</Trans></TableCell>
+							<TableCell>{cart.shippingTotal}</TableCell>
+						</TableRow>
+						<TableRow textAlign="right">
+							<TableCell />
+							<TableCell><Trans>Summe ({cart?.products?.length.toString()} Artikel)</Trans></TableCell>
+							<TableCell><strong>{cart.totalProductsPrice}</strong></TableCell>
+						</TableRow>
+					</TableBody>
+				</Table>
 			) : ''}
 		</>
 	)
@@ -44,16 +41,18 @@ const YourOrder = ({ cart }) => {
 const CheckoutCartItem = ({ item }) => {
 
 	return (
-		<tr className="woo-next-cart-item" key={item.productId}>
-			<td className="woo-next-cart-element">
-				<img width="64" src={item.image.sourceUrl} srcSet={item.image.srcSet} alt={item.image.title} />
-			</td>
-			{item?.variation?.node?.name != null ?
-				<td className="woo-next-cart-element">{item?.variation?.node?.name}</td> :
-				<td className="woo-next-cart-element">{item.name}</td>
-			}
-			<td className="woo-next-cart-element">{item.totalPrice}</td>
-		</tr>
+		<TableRow>
+			<TableCell>
+				<img width="80" src={item.image.sourceUrl} srcSet={item.image.srcSet} alt={item.image.title} />
+			</TableCell>
+			<TableCell>
+				{item?.variation?.node?.name != null ?
+					item?.variation?.node?.name :
+					item.name
+				}
+			</TableCell>
+			<TableCell><strong>{item.totalPrice}</strong></TableCell>
+		</TableRow>
 	)
 };
 

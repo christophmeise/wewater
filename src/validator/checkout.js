@@ -29,6 +29,18 @@ const validateAndSanitizeCheckoutForm = (data) => {
 	data.email = (!isEmpty(data.email)) ? data.email : '';
 	data.customerNote = (!isEmpty(data.customerNote)) ? data.customerNote : '';
 	data.paymentMethod = (!isEmpty(data.paymentMethod)) ? data.paymentMethod : '';
+	if (data.shipToDifferentAddress === 'true') {
+		data.firstName2 = (!isEmpty(data.firstName2)) ? data.firstName : '';
+		data.lastName2 = (!isEmpty(data.lastName2)) ? data.lastName : '';
+		data.company2 = (!isEmpty(data.company2)) ? data.company : '';
+		data.country2 = (!isEmpty(data.country2)) ? data.country : '';
+		data.address12 = (!isEmpty(data.address12)) ? data.address1 : '';
+		data.address22 = (!isEmpty(data.address22)) ? data.address2 : '';
+		data.city2 = (!isEmpty(data.city2)) ? data.city : '';
+		data.state2 = (!isEmpty(data.state2)) ? data.state : '';
+		data.postcode2 = (!isEmpty(data.postcode2)) ? data.postcode : '';
+		data.phone2 = (!isEmpty(data.phone2)) ? data.phone : '';
+	}
 
 	/**
 	 * Checks for error if required is true
@@ -90,6 +102,18 @@ const validateAndSanitizeCheckoutForm = (data) => {
 	addErrorAndSanitizedData('postcode', 'Post code', 2, 9, 'postcode', true);
 	addErrorAndSanitizedData('phone', 'Phone number', 9, 15, 'phone', true);
 	addErrorAndSanitizedData('email', 'Email', 7, 254, 'email', true);
+	if (data.shipToDifferentAddress === 'true') {
+		addErrorAndSanitizedData('firstName2', 'First name', 2, 35, 'string', true);
+		addErrorAndSanitizedData('lastName2', 'Last name', 2, 35, 'string', true);
+		addErrorAndSanitizedData('company2', 'Company Name', 0, 35, 'string', false);
+		addErrorAndSanitizedData('country2', 'Country name', 2, 55, 'string', true);
+		addErrorAndSanitizedData('address12', 'Street address line 1', 5, 100, 'string', true);
+		addErrorAndSanitizedData('address22', '', 0, 254, 'string', false);
+		addErrorAndSanitizedData('city2', 'City field', 3, 25, 'string', true);
+		addErrorAndSanitizedData('state2', 'State/County', 0, 254, 'string', true);
+		addErrorAndSanitizedData('postcode2', 'Post code', 2, 9, 'postcode', true);
+		addErrorAndSanitizedData('phone2', 'Phone number', 9, 15, 'phone', true);
+	}
 
 	addErrorAndSanitizedData('customerNote', '', 0, 254, 'string', false);
 	addErrorAndSanitizedData('paymentMethod', 'Payment mode field', 2, 50, 'string', true);

@@ -26,8 +26,8 @@ const CartDropdown = ({ isDropdownOpen }) => {
 				</div>
 			</div>
 			<ul className="shopping-cart-items">
-				{cart?.products.map(product => (
-					<li className="clearfix" key={product.productId}>
+				{cart?.products.map((product, index) => (
+					<li className="clearfix" key={product.productId + index}>
 						{!isEmpty(product.image) ? (
 							<figure>
 								<img
