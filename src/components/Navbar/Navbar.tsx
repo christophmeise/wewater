@@ -16,6 +16,7 @@ interface NavbarProps {
   location: any
   mobile: boolean
   onHoverMenuItem?: any;
+  translations: any;
 }
 
 interface NavbarState {
@@ -34,7 +35,7 @@ class Navbar extends Component<NavbarProps, NavbarState> {
   }
 
   render() {
-    const { location, mobile, t, onHoverMenuItem, navigate, language } = this.props
+    const { location, mobile, t, onHoverMenuItem, navigate, language, translations } = this.props
     return (
       <React.Fragment>
         {!mobile && (
@@ -145,7 +146,7 @@ class Navbar extends Component<NavbarProps, NavbarState> {
                 </Button>
               </Link>
             </Menu.Item>
-            <LanguageSwitcher mobile={mobile} t={t}></LanguageSwitcher>
+            <LanguageSwitcher mobile={mobile} t={t} translations={translations}></LanguageSwitcher>
           </Menu.Menu>
         )}
         {mobile && (
@@ -160,7 +161,7 @@ class Navbar extends Component<NavbarProps, NavbarState> {
                 <CartIcon t={t} mobile={true}></CartIcon>
               </div>
             </Menu.Item>
-            <LanguageSwitcher mobile={mobile} t={t}></LanguageSwitcher>
+            <LanguageSwitcher mobile={mobile} t={t} translations={translations}></LanguageSwitcher>
             <Menu.Item>
               <Link to={'/spenden'} language={language}>
                 <Button primary inverted={false} size="small" className="rounded" fluid>

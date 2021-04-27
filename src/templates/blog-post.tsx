@@ -34,14 +34,19 @@ const commentQuery: any = gql`
     }
 `;
 
+class BlogPostTemplate extends React.Component<any> {
+    constructor(props) {
+        super(props);
+    }
 
-function BlogPostTemplate({ data, t }) {
-    const post = data.allWpPost.edges[0].node;
-    const sources = post.featuredImage.node.localFile.childImageSharp.gatsbyImageData;
-    return (
-        <Layout>
+    render() {
+        const { data, language, t, i18n } = this.props;
+        const post = data.allWpPost.edges[0].node;
+        const sources = post.featuredImage.node.localFile.childImageSharp.gatsbyImageData;
 
-            <>
+        const translations = post?.translations;
+        return (
+            <Layout translations={translations}>
                 <SEO description={post.title} title={post.title} />
                 <HeaderOverlayBlogPost
                     sources={sources}
@@ -80,9 +85,10 @@ function BlogPostTemplate({ data, t }) {
 
                     </div>
                 </Container>
-            </>
-        </Layout>
-    );
+            </Layout>
+        );
+    }
+
 }
 
 export default useTranslationHOC(BlogPostTemplate);
@@ -154,8 +160,10 @@ const OverlayContent = ({ post, inverted }) => {
     );
 };
 
-export const pageQuery = graphql`
-    query BlogPostByPath($slug: String!) {
+export const pageQuery = graphql` query ($language: String!, $slug: String!) {
+        locales: allLocale(filter: {language: {eq: $language}}) {
+            ...GetTranslations
+        }
         allWpPost(filter: { slug: { eq: $slug } }) {
             ...GetBlogposts
         }

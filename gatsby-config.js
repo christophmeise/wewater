@@ -160,6 +160,10 @@ module.exports = {
           nsSeparator: false
         },
         pages: [
+          /*           {
+                      matchPath: '/:lang?/blog/:uid',
+                      getLanguageFromPath: true,
+                    } */
           /*          {
                      matchPath: '/shop/*',
                      languages: ['de']

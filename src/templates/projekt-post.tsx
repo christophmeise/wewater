@@ -38,8 +38,10 @@ function ProjektPostTemplate({ data, t }) {
         }
     }
 
+    const translations = projekt?.translations;
+
     return (
-        <Layout>
+        <Layout translations={translations}>
             <SEO description={projekt.title} title={projekt.title} />
             <HeaderOverlayBlog
                 sources={sources}
@@ -161,7 +163,10 @@ const OverlayContent = ({ projekt, inverted }) => {
     );
 };
 
-export const pageQuery = graphql`query ProjektByPath($slug: String!) {
+export const pageQuery = graphql`query ($language: String!, $slug: String!) {
+locales: allLocale(filter: {language: {eq: $language}}) {
+    ...GetTranslations
+}
   allWpProjekt(filter: {slug: {eq: $slug}}) {
     edges {
       node {
@@ -172,6 +177,12 @@ export const pageQuery = graphql`query ProjektByPath($slug: String!) {
             id
             name
           }
+        }
+        translations {
+            slug
+            language {
+                slug
+            }
         }
         featuredImage {
           node {

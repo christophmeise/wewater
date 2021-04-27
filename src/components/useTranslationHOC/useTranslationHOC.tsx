@@ -4,7 +4,7 @@ import React from 'react';
 export function useTranslationHOC(Component) {
     return function WrappedComponent(props) {
         const { t } = useTranslation();
-        const { navigate, language } = useI18next();
-        return <Component {...props} t={t} navigate={navigate} language={language} />;
+        const { navigate, language, i18n } = useI18next();
+        return <Component {...props} t={t} navigate={navigate} language={language} i18n={i18n} />;
     }
 }

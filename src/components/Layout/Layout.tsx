@@ -18,6 +18,7 @@ interface Props {
     language: string;
     children?: any;
     headerOverlay?: any;
+    translations?: any;
 }
 
 class Layout extends Component<Props, any> {
@@ -159,6 +160,7 @@ class Layout extends Component<Props, any> {
     render() {
         const { children, t, language, navigate } = this.props;
         const { sidebarOpened, location } = this.state;
+        const translations = this.props.translations;
 
         const isMobileBrowser = typeof window !== 'undefined' && window.innerWidth < 1024;
         const isDesktopBrowser = typeof window !== 'undefined' && window.innerWidth >= 1024;
@@ -184,6 +186,7 @@ class Layout extends Component<Props, any> {
                                 inverted={true}
                                 mobile={true}
                                 t={t}
+                                translations={translations}
                             />
                         )}
                     </Menu>
@@ -204,6 +207,7 @@ class Layout extends Component<Props, any> {
                                             mobile={false}
                                             t={t}
                                             onHoverMenuItem={this.onHoverMenuItem.bind(this)}
+                                            translations={translations}
                                         />
                                     </Container>
                                 </Menu>

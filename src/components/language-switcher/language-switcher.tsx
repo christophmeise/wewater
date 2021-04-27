@@ -3,26 +3,39 @@ import React from 'react';
 import { Dropdown, FlagNameValues, Menu } from 'semantic-ui-react';
 import './language-switcher.less';
 
-const LanguageSwitcher = ({ mobile, t }) => {
+const LanguageSwitcher = ({ mobile, t, translations }) => {
     return (
         <Menu.Item>
-            {LanuageSwitcherMobile(t)}
+            {LanuageSwitcherMobile(t, translations)}
         </Menu.Item>
     );
 }
 
-const LanuageSwitcherMobile = (t: any) => {
+const LanuageSwitcherMobile = (t: any, translations?: any) => {
     const { language, originalPath, changeLanguage, navigate } = useI18next();
 
-    function switchLanguage(event, lang) {
+    function switchLanguage(event, lang, translations?) {
+        let langCode = 'de';
         if (event.target.innerText === 'Deutsch') {
-            changeLanguage('de');
+            langCode = 'de'
         } else if (event.target.innerText === 'English') {
-            changeLanguage('en');
+            langCode = 'en'
         } else {
-            changeLanguage('fr');
+            langCode = 'fr'
         }
-        navigate(originalPath);
+        if (translations != null) {
+            const match = translations.filter(translation => translation?.language?.slug === langCode);
+            if (match[0]?.slug != null) {
+                changeLanguage(langCode, '/' + originalPath.split('/')[1] + '/' + match[0].slug);
+            } else {
+                changeLanguage(langCode, originalPath);
+
+            }
+        } else {
+            changeLanguage(langCode, originalPath);
+        }
+
+
     }
 
     let flagCode: FlagNameValues = 'de';
@@ -47,7 +60,7 @@ const LanuageSwitcherMobile = (t: any) => {
                 options={countryOptions}
                 defaultValue={flagCode}
                 closeOnChange
-                onChange={($event) => switchLanguage($event, language)}
+                onChange={($event) => switchLanguage($event, language, translations)}
             />
         </span>
     );

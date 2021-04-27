@@ -1,10 +1,11 @@
-import { Link } from 'gatsby';
 import { GatsbyImage } from 'gatsby-plugin-image';
+import { Link } from 'gatsby-plugin-react-i18next';
 import de from 'hyphenated-de';
 import React from 'react';
 import Hyphenated from 'react-hyphen';
 import LordIcon from '../Innovation/lordicon';
 import './projekt-card.less';
+;
 
 interface Props {
     post: Post;

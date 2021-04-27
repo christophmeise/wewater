@@ -1,14 +1,14 @@
 import { graphql } from "gatsby";
 
-export const getBlogpostsFragment = graphql`fragment GetBlogposts on WpPostConnection {
+export const getProjectsFragment = graphql`fragment GetProjects on WpProjektConnection {
   edges {
     node {
       id
-      databaseId
-      excerpt
       title
-      content
-      commentCount
+      excerpt
+      date(formatString: "MMMM DD, YYYY", locale: "de")
+      uri
+      slug
       translations {
         slug
         language {
@@ -17,18 +17,6 @@ export const getBlogpostsFragment = graphql`fragment GetBlogposts on WpPostConne
       }
       author {
         node {
-          name
-          description
-          avatar {
-              url
-            }
-        }
-      }
-      date(formatString: "MMMM DD, YYYY", locale: "de")
-      uri
-      slug
-      tags {
-        nodes {
           name
         }
       }
@@ -46,7 +34,18 @@ export const getBlogpostsFragment = graphql`fragment GetBlogposts on WpPostConne
           }
         }
       }
-      blocksJSON
+      blocks {
+        name
+        saveContent
+        innerBlocks {
+          name
+          saveContent
+          innerBlocks {
+            name
+            saveContent
+          }
+        }
+      }
     }
   }
 }

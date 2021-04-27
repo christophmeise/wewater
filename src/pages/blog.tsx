@@ -1,6 +1,6 @@
 // i18next-extract-mark-ns-start page_blog
-import { graphql, Link } from 'gatsby';
-import { Trans } from 'gatsby-plugin-react-i18next';
+import { graphql } from 'gatsby';
+import { Link, Trans } from 'gatsby-plugin-react-i18next';
 import React from 'react';
 import { Container, Grid, Header } from 'semantic-ui-react';
 import SwiperCore, { Autoplay, Navigation } from 'swiper';
