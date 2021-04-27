@@ -14,6 +14,7 @@ import './blog.less';
 
 interface Props {
   t: any;
+  language: any;
   pageContext: any;
   data: {
     site: {
@@ -25,6 +26,8 @@ interface Props {
     mobileImage: any;
     desktopImage: any;
     german: any;
+    english: any;
+    frensh: any;
   };
 }
 
@@ -34,12 +37,22 @@ class BlogPage extends React.Component<Props> {
   }
 
   render() {
-    const { t } = this.props;
+    const { t, language } = this.props;
     const data = this.props.data;
 
     SwiperCore.use([Autoplay, Navigation]);
 
-    const posts = data.german.edges
+    let posts;
+
+    if (language === 'de') {
+      posts = data.german.edges;
+    } else if (language === 'en') {
+      posts = data.english.edges;
+    } else if (language === 'fr') {
+      posts = data.frensh.edges;
+    }
+
+    posts = posts
       .filter((post) => new Date(post.node.date) <= new Date())
 
     return (
@@ -175,7 +188,13 @@ export const pageQuery = graphql`query ($language: String!) {
       gatsbyImageData(quality: 100, layout: FULL_WIDTH)
     }
   }
-  german: allWpPost(sort: {fields: date, order: DESC}) {
+  german: allWpPost(sort: {fields: date, order: DESC}, filter: {language: {locale: {eq: "de_DE"}}}) {
+    ...GetBlogposts
+  }
+  english: allWpPost(sort: {fields: date, order: DESC}, filter: {language: {locale: {eq: "en_GB"}}}) {
+    ...GetBlogposts
+  }
+  frensh: allWpPost(sort: {fields: date, order: DESC}, filter: {language: {locale: {eq: "fr_FR"}}}) {
     ...GetBlogposts
   }
 }
