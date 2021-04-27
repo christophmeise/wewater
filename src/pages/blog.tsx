@@ -52,9 +52,6 @@ class BlogPage extends React.Component<Props> {
       posts = data.frensh.edges;
     }
 
-    posts = posts
-      .filter((post) => new Date(post.node.date) <= new Date())
-
     return (
       <Layout>
         <SEO title={t('BlogSEOTitle')} description={t('BlogSEODescription')} />
