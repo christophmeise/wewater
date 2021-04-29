@@ -27,7 +27,7 @@ class PressePage extends React.Component<Props, any> {
     render() {
         const { t, data } = this.props;
 
-        const pageData = data.pageContent.edges[0].node.content;
+        const pageData = data.pageContent?.edges[0]?.node?.content;
         const sources = data.ansprechpartner.childImageSharp.gatsbyImageData;
         const headerImage = data.headerImage.childImageSharp.gatsbyImageData;
 
