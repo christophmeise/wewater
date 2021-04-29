@@ -16,9 +16,7 @@ interface Props {
   data: {
     mobileImage: any;
     desktopImage: any;
-    german: any;
-    english: any;
-    frensh: any;
+    blogposts: any;
   };
 }
 
@@ -31,17 +29,10 @@ class ProjektePage extends React.Component<Props, any> {
   }
 
   render() {
-    const { data, t, language } = this.props;
+    const { data, t } = this.props;
 
-    let posts;
+    let posts = data.blogposts.edges;
 
-    if (language === 'de') {
-      posts = data.german.edges;
-    } else if (language === 'en') {
-      posts = data.english.edges;
-    } else if (language === 'fr') {
-      posts = data.frensh.edges;
-    }
 
     return (
       <Layout>
@@ -59,16 +50,16 @@ class ProjektePage extends React.Component<Props, any> {
             <h2 className="global-headline"><Trans>Projektübersicht</Trans></h2>
           </Header>
           <div className="projekt-filter-wrapper">
-            <h4>Projekte filtern</h4>
+            <h4><Trans>Projekte filtern</Trans></h4>
             <div className="projekt-tag-wrapper">
               <div className={`projekt-tag-label ${this.state.filter === 0 && 'projekt-tag-label-selected'}`}>
-                <span className="label-text" onClick={() => this.setState({ filter: 0 })}>Alle Projekte</span>
+                <span className="label-text" onClick={() => this.setState({ filter: 0 })}><Trans>Alle Projekte</Trans></span>
               </div>
               <div className={`projekt-tag-label ${this.state.filter === 1 && 'projekt-tag-label-selected'}`}>
-                <span className="label-text" onClick={() => this.setState({ filter: 1 })}>In Arbeit</span>
+                <span className="label-text" onClick={() => this.setState({ filter: 1 })}><Trans>In Arbeit</Trans></span>
               </div>
               <div className={`projekt-tag-label ${this.state.filter === 2 && 'projekt-tag-label-selected'}`}>
-                <span className="label-text" onClick={() => this.setState({ filter: 2 })}>Abgeschlossen</span>
+                <span className="label-text" onClick={() => this.setState({ filter: 2 })}><Trans>Abgeschlossen</Trans></span>
               </div>
             </div>
 
@@ -133,13 +124,7 @@ export const pageQuery = graphql`query ($language: String!) {
       gatsbyImageData(quality: 100, layout: FULL_WIDTH)
     }
   }
-  german: allWpProjekt(sort: {fields: date, order: DESC}, filter: {language: {locale: {eq: "de_DE"}}}) {
-    ...GetProjects
-  }
-  english: allWpProjekt(sort: {fields: date, order: DESC}, filter: {language: {locale: {eq: "en_GB"}}}) {
-    ...GetProjects
-  }
-  frensh: allWpProjekt(sort: {fields: date, order: DESC}, filter: {language: {locale: {eq: "fr_FR"}}}) {
+  blogposts: allWpProjekt(sort: {fields: date, order: DESC}, filter: {language: {slug: {eq: $language}}}) {
     ...GetProjects
   }
 }

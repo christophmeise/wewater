@@ -17,7 +17,6 @@ import './presse.less';
 interface Props {
     t: any;
     data: any;
-    language: any;
 }
 
 class PressePage extends React.Component<Props, any> {
@@ -26,13 +25,13 @@ class PressePage extends React.Component<Props, any> {
     }
 
     render() {
-        const { t, data, language } = this.props;
+        const { t, data } = this.props;
 
-        const pageData = language === 'de' ? data.german.edges[0].node.content : data.english.edges[0].node.content;
+        const pageData = data.pageContent.edges[0].node.content;
         const sources = data.ansprechpartner.childImageSharp.gatsbyImageData;
         const headerImage = data.headerImage.childImageSharp.gatsbyImageData;
 
-        let posts = data.blogposts.edges;
+        let posts = data.blogposts?.edges;
 
         return (
             <Layout>
@@ -154,7 +153,7 @@ export const pageQuery = graphql`query ($language: String!) {
     ...GetTranslations
   }
   blogposts: allWpPost(
-    filter: {categories: {nodes: {elemMatch: {name: {eq: "Presse"}}}}}
+    filter: {categories: {nodes: {elemMatch: {name: {in: ["Presse", "Press"]}}}}, language: {slug: {eq: $language}}}
     sort: {fields: date, order: DESC}
   ) {
     ...GetBlogposts
@@ -169,22 +168,8 @@ export const pageQuery = graphql`query ($language: String!) {
       gatsbyImageData(quality: 100, layout: FULL_WIDTH)
     }
   }
-  german: allWpPage(
-    filter: {title: {eq: "Pressespiegel – WeWater in den Medien"}, language: {locale: {eq: "de_DE"}}}
-  ) {
-    edges {
-      node {
-        id
-        title
-        content
-        language {
-          code
-        }
-      }
-    }
-  }
-  english: allWpPage(
-    filter: {title: {eq: "Press – WeWater in Media"}, language: {locale: {eq: "en_GB"}}}
+  pageContent: allWpPage(
+    filter: {title: {in: ["Pressespiegel – WeWater in den Medien", "Press – WeWater in Media"]}, language: {slug: {eq: $language}}}
   ) {
     edges {
       node {

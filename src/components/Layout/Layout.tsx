@@ -220,8 +220,8 @@ class Layout extends Component<Props, any> {
                         <CookieConsent
                             disableStyles={true}
                             location="bottom"
-                            buttonText="Accept"
-                            declineButtonText="Decline"
+                            buttonText={t('Accept')}
+                            declineButtonText={t('Decline')}
                             cookieName="gatsby-gdpr-google-analytics"
                             containerClasses="cookie-banner"
                             contentClasses="cookie-banner-content"

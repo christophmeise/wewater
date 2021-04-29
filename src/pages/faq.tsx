@@ -27,8 +27,8 @@ class FAQPage extends React.Component<Props, any> {
     }
 
     render() {
-        const { t, data, language } = this.props;
-        const pageData = language === 'de' ? data?.german?.edges[0]?.node?.blocksJSON : data?.english?.edges[0]?.node?.blocksJSON;
+        const { t, data } = this.props;
+        const pageData = data?.faq?.edges[0]?.node?.blocksJSON;
         const blocksJSON: any[] = pageData != null ? JSON.parse(pageData) : [];
         const faqContentBlock = blocksJSON?.filter((blocksJSON) => blocksJSON.name === 'yoast/faq-block');
 
@@ -65,6 +65,9 @@ class FAQPage extends React.Component<Props, any> {
             contents.push(JSON.parse(JSON.stringify(faqContent)));
         }
 
+        let posts = data.blogposts?.edges;
+        posts = posts.slice(0, 3);
+
         return (
             <Layout>
                 <SEO title={t('FAQSEOTitle')} description={t('FAQSEODescription')} />
@@ -85,7 +88,7 @@ class FAQPage extends React.Component<Props, any> {
                                 </section>
                             </GridColumn>
                             <GridColumn width={4}>
-                                <SidebarWidget></SidebarWidget>
+                                <SidebarWidget posts={posts}></SidebarWidget>
                             </GridColumn>
                         </Grid>
                     </div>
@@ -109,7 +112,7 @@ export const pageQuery = graphql`
         locales: allLocale(filter: {language: {eq: $language}}) {
           ...GetTranslations
         }
-        german: allWpPage(filter: {title: {eq: "FAQ1"}, language: {locale: {eq: "de_DE"}}}) {
+        faq: allWpPage(filter: {title: {eq: "FAQ1"}, language: {slug: {eq: $language}}}) {
             edges {
                 node {
                     id
@@ -122,18 +125,8 @@ export const pageQuery = graphql`
                 }
             }
         }
-        english: allWpPage(filter: {title: {eq: "FAQ1"}, language: {locale: {eq: "en_GB"}}}) {
-            edges {
-                node {
-                    id
-                    title
-                    language {
-                        code
-                        locale
-                    }
-                    blocksJSON
-                }
-            }
+        blogposts: allWpPost(sort: {fields: date, order: DESC}, filter: {language: {slug: {eq: $language}}}) {
+            ...GetBlogposts
         }
     }
 `;

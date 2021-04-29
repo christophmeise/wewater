@@ -19,9 +19,12 @@ import './index.less';
 
 interface Props {
   t: any;
+  language: any;
   data: {
     mobileImage: any;
     desktopImage: any;
+    blogposts: any;
+    projects: any;
   };
 }
 
@@ -86,6 +89,10 @@ class Index extends React.Component<Props, State> {
     const isMobile = ((typeof window !== 'undefined') && window.innerWidth < 768) ? true : false;
     const tabletOrMobile = ((typeof window !== 'undefined') && window.innerWidth < 1024) ? true : false;
 
+    let posts = data.blogposts?.edges;
+    let projekte = data.projects?.edges;
+
+
     return (
       <Layout>
         <SEO title={t('LandingpageSEOTitle')} description={t('LandingpageSEODescription')} />
@@ -108,8 +115,8 @@ class Index extends React.Component<Props, State> {
           <Innovation></Innovation>
           <SectionFiltersysteme></SectionFiltersysteme>
           <SpendenWidget fullMode={false} hideForm={isMobile}></SpendenWidget>
-          <SectionBlog slidesPerView={slidesPerView}></SectionBlog>
-          <SectionProjekte></SectionProjekte>
+          <SectionBlog slidesPerView={slidesPerView} posts={posts}></SectionBlog>
+          <SectionProjekte projekte={projekte}></SectionProjekte>
         </div>
       </Layout>
     )
@@ -147,6 +154,13 @@ export const pageQuery = graphql`query ($language: String!) {
       gatsbyImageData(quality: 100, layout: FULL_WIDTH, placeholder: BLURRED, formats: [AUTO, WEBP, AVIF])
     }
   }
+  blogposts: allWpPost(sort: {fields: date, order: DESC}, filter: {language: {slug: {eq: $language}}}) {
+      ...GetBlogposts
+  }
+  projects: allWpProjekt(sort: {fields: date, order: DESC}, filter: {language: {slug: {eq: $language}}}) {
+    ...GetProjects
+  }
+
 }
 `;
 export default useTranslationHOC(Index);

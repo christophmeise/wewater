@@ -71,7 +71,7 @@ const Footer = (t) => {
                                     <Header className="footer-nav-header" as="h3" content="Informationen" />
                                     <List link>
                                         <List.Item>
-                                            <Link to={'/presse'} language={language}><Trans>Pressespiegel – WeWater in den Medien</Trans></Link>
+                                            <Link to={'/presse'} language={language}><Trans>Presse</Trans></Link>
                                         </List.Item>
                                         <List.Item>
                                             <Link to={'/faq'} language={language}><Trans>FAQ</Trans></Link>

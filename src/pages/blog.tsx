@@ -25,9 +25,7 @@ interface Props {
     };
     mobileImage: any;
     desktopImage: any;
-    german: any;
-    english: any;
-    frensh: any;
+    blogposts: any;
   };
 }
 
@@ -37,20 +35,11 @@ class BlogPage extends React.Component<Props> {
   }
 
   render() {
-    const { t, language } = this.props;
-    const data = this.props.data;
+    const { t, data } = this.props;
 
     SwiperCore.use([Autoplay, Navigation]);
 
-    let posts;
-
-    if (language === 'de') {
-      posts = data.german.edges;
-    } else if (language === 'en') {
-      posts = data.english.edges;
-    } else if (language === 'fr') {
-      posts = data.frensh.edges;
-    }
+    let posts = data.blogposts.edges;
 
     return (
       <Layout>
@@ -185,13 +174,7 @@ export const pageQuery = graphql`query ($language: String!) {
       gatsbyImageData(quality: 100, layout: FULL_WIDTH)
     }
   }
-  german: allWpPost(sort: {fields: date, order: DESC}, filter: {language: {locale: {eq: "de_DE"}}}) {
-    ...GetBlogposts
-  }
-  english: allWpPost(sort: {fields: date, order: DESC}, filter: {language: {locale: {eq: "en_GB"}}}) {
-    ...GetBlogposts
-  }
-  frensh: allWpPost(sort: {fields: date, order: DESC}, filter: {language: {locale: {eq: "fr_FR"}}}) {
+  blogposts: allWpPost(sort: {fields: date, order: DESC}, filter: {language: {slug: {eq: $language}}}) {
     ...GetBlogposts
   }
 }

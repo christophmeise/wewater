@@ -30,7 +30,8 @@ type Post = {
 };
 
 export default function ProjektCard({ post }: Props) {
-    const imageUrl = post.categories?.nodes.find((categoryNode) => categoryNode.name === 'In Arbeit') != null ? 'gears' : 'thumb';
+    const imageUrl = post.categories?.nodes
+        .find((categoryNode) => categoryNode.name === 'Abgeschlossen' || categoryNode.name === 'Completed' || categoryNode.name === 'Achevé') != null ? 'thumb' : 'gears';
 
     return (
         <div className="hover-animate rounded-small shadow project-card">

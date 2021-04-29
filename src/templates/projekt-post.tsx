@@ -212,7 +212,7 @@ locales: allLocale(filter: {language: {eq: $language}}) {
                 name
               }
             }
-            date(formatString: "MMMM DD, YYYY", locale: "de")
+            date(formatString: "MMMM DD, YYYY", locale: $language)
             uri
             slug
             tags {

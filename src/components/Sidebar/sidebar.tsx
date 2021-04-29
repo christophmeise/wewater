@@ -1,23 +1,10 @@
-import { graphql, useStaticQuery } from 'gatsby';
 import { Trans } from 'gatsby-plugin-react-i18next';
 import React from 'react';
 import { Button, Input } from 'semantic-ui-react';
 import { BlogPostCardSimple } from '../BlogPostCard/blog-post-card';
 import './sidebar.less';
 
-const SidebarWidget = () => {
-    const data = useStaticQuery(
-        graphql` query SidebarQuery {
-            german: allWpPost(sort: { fields: date, order: DESC }) {
-                    ...GetBlogposts
-                }
-        }`,
-    );
-
-    let posts = data.german.edges
-        .filter((post) => new Date(post.node.date) <= new Date());
-    posts = posts.splice(0, 3);
-
+const SidebarWidget = ({ posts }) => {
     return (
         <aside id="sidebar-widget" className="sidebar-widget">
             <h6><Trans>Spende jetzt</Trans></h6>

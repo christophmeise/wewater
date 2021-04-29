@@ -40,9 +40,13 @@ class BlogPostTemplate extends React.Component<any> {
     }
 
     render() {
-        const { data, language, t, i18n } = this.props;
-        const post = data.allWpPost.edges[0].node;
+        const { data } = this.props;
+        const post = data.allWpPost?.edges[0].node;
         const sources = post.featuredImage.node.localFile.childImageSharp.gatsbyImageData;
+
+        let posts = data.blogposts?.edges;
+
+        posts = posts.slice(0, 3);
 
         const translations = post?.translations;
         return (
@@ -79,7 +83,7 @@ class BlogPostTemplate extends React.Component<any> {
                                 </section>
                             </GridColumn>
                             <GridColumn width={5} style={{ paddingLeft: '50px' }}>
-                                <SidebarWidget></SidebarWidget>
+                                <SidebarWidget posts={posts}></SidebarWidget>
                             </GridColumn>
                         </Grid>
 
@@ -165,6 +169,12 @@ export const pageQuery = graphql` query ($language: String!, $slug: String!) {
             ...GetTranslations
         }
         allWpPost(filter: { slug: { eq: $slug } }) {
+            ...GetBlogposts
+        }
+        blogposts: allWpPost(
+            filter: {language: {slug: {eq: $language}}},
+            sort: {fields: date, order: DESC}
+        ) {
             ...GetBlogposts
         }
     }

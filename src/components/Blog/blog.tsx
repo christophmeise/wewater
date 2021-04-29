@@ -1,4 +1,4 @@
-import { graphql, Link, useStaticQuery } from 'gatsby';
+import { Link } from 'gatsby';
 import { Trans } from 'gatsby-plugin-react-i18next';
 import React from 'react';
 import { Button, Container, Header, Icon } from 'semantic-ui-react';
@@ -9,21 +9,7 @@ import 'swiper/swiper.less';
 import BlogPostCard from '../BlogPostCard/blog-post-card';
 import './blog.less';
 
-const SectionBlog = ({ slidesPerView }) => {
-    const data = useStaticQuery(
-        graphql`
-            query LatestBlogQuery {
-                german: allWpPost(
-                    sort: { fields: date, order: DESC }
-                ) {
-                    ...GetBlogposts
-                }
-            }
-        `,
-    );
-
-    let posts = data.german.edges
-        .filter((post) => new Date(post.node.date) <= new Date())
+const SectionBlog = ({ slidesPerView, posts }) => {
 
     posts = posts.slice(0, 10);
 

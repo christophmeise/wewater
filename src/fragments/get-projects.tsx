@@ -6,7 +6,7 @@ export const getProjectsFragment = graphql`fragment GetProjects on WpProjektConn
       id
       title
       excerpt
-      date(formatString: "MMMM DD, YYYY", locale: "de")
+      date(formatString: "MMMM DD, YYYY", locale: $language)
       uri
       slug
       translations {

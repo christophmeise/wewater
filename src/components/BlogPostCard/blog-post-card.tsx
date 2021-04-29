@@ -46,7 +46,7 @@ export default function BlogPostCard({ post }: Props) {
                                 key={"tag-" + index + post.uri}
                                 className="blog-post-tag-label"
                             >
-                                <span className={`label-dot ` + colors[index]}></span>
+                                <span style={{ backgroundColor: tag?.description != null && tag.description }} className={`label-dot ${tag?.description == null ? colors[index] : ''}`}></span>
                                 <span className="label-text"> {tag?.name}</span>
                             </div>
                         );

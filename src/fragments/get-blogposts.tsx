@@ -24,7 +24,7 @@ export const getBlogpostsFragment = graphql`fragment GetBlogposts on WpPostConne
             }
         }
       }
-      date(formatString: "MMMM DD, YYYY", locale: "de")
+      date(formatString: "MMMM DD, YYYY", locale: $language)
       uri
       slug
       tags {
@@ -35,6 +35,7 @@ export const getBlogpostsFragment = graphql`fragment GetBlogposts on WpPostConne
       categories {
         nodes {
           name
+          description
         }
       }
       featuredImage {

@@ -11,6 +11,7 @@ const HeaderOverlayBlog = ({ sources, color, inverted, content }) => {
             <div className="header-overlay-image-wrapper">
                 <GatsbyImage
                     image={sources}
+                    objectPosition="top"
                     className="header-overlay-center-cropped dark-overlay-blog"
                     alt="Blog Hero Image"
                     loading="eager"

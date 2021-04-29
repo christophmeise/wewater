@@ -10,6 +10,8 @@ import { useTranslationHOC } from '../components/useTranslationHOC/useTranslatio
 
 interface Props {
     t: any;
+    language: any;
+    data: any;
 }
 
 class VersandPage extends React.Component<Props, any> {
@@ -18,7 +20,11 @@ class VersandPage extends React.Component<Props, any> {
     }
 
     render() {
-        const { t } = this.props;
+        const { t, data } = this.props;
+
+        let posts = data.blogposts?.edges;
+
+        posts = posts.slice(0, 3);
 
         return (
             <Layout>
@@ -58,7 +64,7 @@ class VersandPage extends React.Component<Props, any> {
                             </div>
                         </GridColumn>
                         <GridColumn width={4}>
-                            <SidebarWidget></SidebarWidget>
+                            <SidebarWidget posts={posts}></SidebarWidget>
                         </GridColumn>
                     </Grid>
                 </Container >
@@ -73,6 +79,9 @@ export const pageQuery = graphql`
         locales: allLocale(filter: {language: {eq: $language}}) {
           ...GetTranslations
         }
+        blogposts: allWpPost(sort: {fields: date, order: DESC}, filter: {language: {slug: {eq: $language}}}) {
+        ...GetBlogposts
+      }
     }
 `;
 

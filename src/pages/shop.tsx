@@ -19,7 +19,7 @@ interface Props {
     data: {
         mobileImage: any;
         desktopImage: any;
-        german: {
+        products: {
             edges: [
                 { node: ShopItem }
             ]
@@ -42,7 +42,7 @@ class ShopPage extends React.Component<Props, any> {
             },
         ])
         const backgroundColor = '#7897B5';
-        const shopItems = data.german.edges
+        const shopItems = data.products.edges
             .filter((item) => item.node.name.indexOf('Wasserspende über') < 0);
 
 
@@ -162,9 +162,9 @@ class OverlayContent extends React.Component<any, any> {
 
 const getWasserspendeLinkByAmount = (amount: number) => {
     if (amount === 10) {
-        return 'wasserspende-10-euro';
+        return '/shop/wasserspende-10-euro';
     } else {
-        return 'wasserspende-ueber-' + amount + '-euro'
+        return '/shop/wasserspende-ueber-' + amount + '-euro'
     }
 }
 
@@ -182,14 +182,14 @@ export const pageQuery = graphql`query ($language: String!) {
       gatsbyImageData(quality: 100, layout: FULL_WIDTH)
     }
   }
-  german: allWpProduct(sort: {fields: date, order: DESC}) {
+  products: allWpProduct(sort: {fields: date, order: DESC}) {
     edges {
       node {
         id
         name
         description
         shortDescription
-        date(formatString: "MMMM DD, YYYY", locale: "de")
+        date(formatString: "MMMM DD, YYYY", locale: $language)
         slug
         onSale
         status
