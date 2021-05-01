@@ -43,7 +43,7 @@ export default class LiterCounter extends PureComponent<any, any> {
                         <Popup
                             style={{ zIndex: 99999999999 }}
                             trigger={
-                                <Button secondary basic inverted className="rounded popup-infotext-trigger" size="tiny" icon='info' />
+                                <Button secondary basic inverted className="rounded popup-infotext-trigger" size="tiny" icon='info' aria-label="Infotext Litercounter" />
                             }
                         >
                             <Popup.Content>

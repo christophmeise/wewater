@@ -54,8 +54,8 @@ const LanuageSwitcherMobile = (t: any, translations?: any) => {
     ]
     return (
         <span className="language-switcher-mobile">
-
             <Dropdown
+                aria-label="lanugage switcher"
                 inline
                 options={countryOptions}
                 defaultValue={flagCode}
