@@ -94,6 +94,7 @@ function ProjektPostTemplate({ data, t }) {
                                             slidesPerView={slidesPerView}
                                             autoplay={{ delay: 4000 }}
                                             pagination={{ clickable: true, dynamicBullets: true }}
+                                            className="swiper-container-blog"
                                         >
                                             {block?.attributes?.images?.map((image) => {
                                                 return (

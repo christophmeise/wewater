@@ -6,7 +6,7 @@ import { graphql } from 'gatsby';
 import { GatsbyImage } from "gatsby-plugin-image";
 import React from 'react';
 import { Trans } from 'react-i18next';
-import { Button, Container, Grid, GridColumn, Header } from 'semantic-ui-react';
+import { Button, Container, Grid, GridColumn } from 'semantic-ui-react';
 import { BlogPostCardSimple } from '../components/BlogPostCard/blog-post-card';
 import HeaderOverlay from '../components/HeaderOverlay/header-overlay';
 import Layout from '../components/Layout/Layout';
@@ -75,17 +75,7 @@ class PressePage extends React.Component<Props, any> {
                                     </a>
                                 </section>
                                 <section>
-                                    <Header
-                                        data-sal="slide-up"
-                                        data-sal-delay="0"
-                                        data-sal-duration="300"
-                                        data-sal-easing="ease"
-                                        textAlign='left'
-                                        className="global-flex-column global-no-margin"
-                                    >
-                                        <h3 className={`global-subtitle text-primary`}><Trans>WeWater in den Medien</Trans></h3>
-                                        <h2 className="global-headline"><Trans>Pressemitteilungen</Trans></h2>
-                                    </Header>
+                                    <h2><Trans>Pressemitteilungen</Trans></h2>
                                     {posts
                                         .filter((post) => post.node.title.length > 0)
                                         .map(({ node: post }) => {
@@ -116,6 +106,7 @@ class PressePage extends React.Component<Props, any> {
 
                                 </section>
                                 <section>
+                                    <h2><Trans>WeWater in den Medien</Trans></h2>
                                     <p dangerouslySetInnerHTML={{ __html: pageData }}></p>
                                 </section>
                             </GridColumn>

@@ -155,7 +155,7 @@ class TeamPage extends React.Component<Props, any> {
                                 alt="Team overview picture"
                                 image={data.teamImage.childImageSharp.gatsbyImageData}
                                 className="img-fluid rounded shadow" />
-                            <p><Trans>Das WeWater-Team bei einem Meeting prä-Corona. Von links nach rechts: Thilo Kunz, Hannes Schwessinger, Josi Lins und Mina Schmidt. Foto: Steven Hille</Trans></p>
+                            <p style={{ marginTop: '1rem', width: '80%', textAlign: 'center', marginLeft: 'auto', marginRight: 'auto' }}><Trans>Das WeWater-Team bei einem Meeting prä-Corona. Von links nach rechts: Thilo Kunz, Hannes Schwessinger, Josi Lins und Mina Schmidt. Foto: Steven Hille</Trans></p>
                         </section>
                     </div>
                 </Container>

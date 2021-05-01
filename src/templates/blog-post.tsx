@@ -2,10 +2,12 @@ import { gql } from '@apollo/client/core';
 import commentOutlined from '@iconify/icons-ant-design/comment-outlined';
 import { Icon } from '@iconify/react';
 import { graphql } from 'gatsby';
+import { Trans } from 'gatsby-plugin-react-i18next';
 import de from 'hyphenated-de';
 import React from 'react';
 import Hyphenated from 'react-hyphen';
 import { Button, Container, Grid, GridColumn } from 'semantic-ui-react';
+import BlogPostCard from '../components/BlogPostCard/blog-post-card';
 import CommentForm from '../components/Comments/comment-form';
 import CommentList from '../components/Comments/comment-list';
 import HeaderOverlayBlogPost from '../components/HeaderOverlay/header-overlay-blog-post';
@@ -86,7 +88,16 @@ class BlogPostTemplate extends React.Component<any> {
                                 <SidebarWidget posts={posts}></SidebarWidget>
                             </GridColumn>
                         </Grid>
-
+                        <section style={{ marginTop: '5rem' }}>
+                            <h2><Trans>Neuigkeiten von WeWater</Trans></h2>
+                            <div className="blog-post-grid">
+                                {posts?.map(({ node: post }) => {
+                                    return (
+                                        <BlogPostCard key={post.id} post={post}></BlogPostCard>
+                                    );
+                                })}
+                            </div>
+                        </section>
                     </div>
                 </Container>
             </Layout>

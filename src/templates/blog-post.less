@@ -38,6 +38,24 @@
     padding: 4rem 0rem;
     color  : @primaryFontColorDark;
 
+    .blog-post-grid {
+        margin-top           : 3rem;
+        display              : grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        column-gap           : 20px;
+        row-gap              : 4rem;
+    }
+
+    @media only screen and (max-width: 767px) {
+        .blog-post-grid {
+            margin-top           : 2rem;
+            display              : grid;
+            grid-template-columns: 1fr;
+            column-gap           : 0px;
+            row-gap              : 0px;
+        }
+    }
+
     hr {
         border-top         : 1px solid #e0dede;
         border-bottom      : none;
@@ -95,7 +113,6 @@
 
 
 .blog-post {
-
 
 
     h3 {

@@ -36,6 +36,7 @@ const SectionBlog = ({ slidesPerView, posts }) => {
                     slidesPerView={slidesPerView}
                     autoplay={{ delay: 10000 }}
                     pagination={{ clickable: true, dynamicBullets: true }}
+                    className="swiper-container-blog"
                 >
                     {posts.map((post) => {
                         return (

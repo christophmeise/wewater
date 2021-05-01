@@ -104,7 +104,7 @@ class AqqacubePage extends React.Component<Props, any> {
                             </Hyphenated>
                         </h2>
                     </Header>
-                    <Grid>
+                    <Grid stackable>
                         <GridColumn width={11}>
                             <section>
                                 <Table color="teal">
@@ -219,7 +219,7 @@ export const pageQuery = graphql`query ($language: String!) {
       gatsbyImageData(width: 600, quality: 100, layout: CONSTRAINED)
     }
   }
-  projekte: allWpProjekt(sort: {fields: date, order: DESC}) {
+  projekte: allWpProjekt(sort: {fields: date, order: DESC}, filter: {categories: {nodes: {elemMatch: {name: {in: ["AQQAcube-Projekt", "AQQAcube-project", "Projet AQQAcube"]}}}}, language: {slug: {eq: $language}}}) {
     edges {
       node {
         id

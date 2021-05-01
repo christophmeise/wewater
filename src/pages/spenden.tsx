@@ -8,7 +8,7 @@ import { graphql } from 'gatsby';
 import { getImage, withArtDirection } from 'gatsby-plugin-image';
 import { Trans } from 'gatsby-plugin-react-i18next';
 import React from 'react';
-import { Button, Container } from 'semantic-ui-react';
+import { Button } from 'semantic-ui-react';
 import HeaderOverlayFlexend from '../components/HeaderOverlay/header-overlay-flexend';
 import Layout from '../components/Layout/Layout';
 import SEO from '../components/seo';
@@ -46,9 +46,9 @@ class SpendenPage extends React.Component<Props, any> {
             <Layout>
                 <SEO title={t('SpendenSEOTitle')} description={t('SpendenSEODescription')} />
                 <HeaderOverlayFlexend content={<OverlayContent t={t} navigate={navigate} inverted={true} />} color={backgroundColor} darken={false} inverted={false} sources={headerImage} width={16} />
-                <Container className="global-header-padding">
+                <div className="global-header-padding">
                     <SpendenWidget fullMode={true} hideForm={false}></SpendenWidget>
-                </Container>
+                </div>
             </Layout>
         );
     }

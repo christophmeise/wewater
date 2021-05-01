@@ -96,7 +96,7 @@ class AqqasystemPage extends React.Component<Props, any> {
                             </Hyphenated>
                         </h2>
                     </Header>
-                    <Grid>
+                    <Grid stackable>
                         <GridColumn width={11}>
                             <section>
                                 <Table color="teal">
@@ -206,7 +206,7 @@ export const pageQuery = graphql`query ($language: String!) {
         id
         title
         excerpt
-        date(formatString: "MMMM DD, YYYY", locale: "de")
+        date(formatString: "MMMM DD, YYYY", locale: $language)
         uri
         slug
         author {

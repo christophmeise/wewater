@@ -202,13 +202,13 @@ export const pageQuery = graphql`query ($language: String!) {
       gatsbyImageData(width: 600, quality: 100, layout: CONSTRAINED)
     }
   }
-  projekte: allWpProjekt(sort: {fields: date, order: DESC}, filter: {categories: {nodes: {elemMatch: {name: {eq: "AQQAbag-Projekt"}}}}}) {
+  projekte: allWpProjekt(sort: {fields: date, order: DESC}, filter: {categories: {nodes: {elemMatch: {name: {in: ["AQQAbag-Projekt", "AQQAbag project", "Projet AQQAbag"]}}}}, language: {slug: {eq: $language}}}) {
     edges {
       node {
         id
         title
         excerpt
-        date(formatString: "MMMM DD, YYYY", locale: "de")
+        date(formatString: "MMMM DD, YYYY", locale: $language)
         uri
         slug
         categories {
