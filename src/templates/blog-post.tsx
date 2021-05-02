@@ -1,4 +1,3 @@
-import { gql } from '@apollo/client/core';
 import commentOutlined from '@iconify/icons-ant-design/comment-outlined';
 import { Icon } from '@iconify/react';
 import { graphql } from 'gatsby';
@@ -16,26 +15,6 @@ import SidebarWidget from '../components/Sidebar/sidebar';
 import { useTranslationHOC } from '../components/useTranslationHOC/useTranslationHOC';
 import SEO from './../components/seo';
 import './blog-post.less';
-
-const commentQuery: any = gql`
-    query($postId: ID!) {
-        comments(where: { contentId: $postId, contentStatus: PUBLISH }) {
-            edges {
-                node {
-                    id
-                    content
-                    date
-                    author {
-                        node {
-                            name
-                        }
-                    }
-                }
-            }
-        }
-    }
-`;
-
 class BlogPostTemplate extends React.Component<any> {
     constructor(props) {
         super(props);
