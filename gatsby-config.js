@@ -16,15 +16,6 @@ module.exports = {
   },
   plugins: [
     {
-      resolve: `gatsby-plugin-subfont`,
-      options: {
-        silent: false,
-        fallbacks: false,
-        inlineFonts: true,
-        fontDisplay: "block"
-      },
-    },
-    {
       resolve: `gatsby-source-wordpress`,
       options: {
         url: process.env.WPGRAPHQL_URL || 'https://www.wewaterbackend.works/graphql',

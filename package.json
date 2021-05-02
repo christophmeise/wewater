@@ -41,7 +41,6 @@
     "gatsby-plugin-scroll-reveal": "^0.0.7",
     "gatsby-plugin-sharp": "^3.1.2",
     "gatsby-plugin-sitemap": "^3.0.0",
-    "gatsby-plugin-subfont": "^3.4.0",
     "gatsby-source-filesystem": "^3.1.0",
     "gatsby-source-wordpress": "^5.0.0",
     "gatsby-transformer-sharp": "^3.1.0",
