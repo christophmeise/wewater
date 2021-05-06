@@ -32,6 +32,8 @@ export default class LiterCounter extends PureComponent<any, any> {
 
     render() {
 
+        const { language } = this.props;
+
         return (
             <div>
                 <div className="main-overlay-infobox rounded">
@@ -58,18 +60,34 @@ export default class LiterCounter extends PureComponent<any, any> {
                                 <Trans>Ich will helfen!</Trans>
                             </Button>
                         </Link>
-                        <a href="https://wewater.us20.list-manage.com/subscribe/post?u=24746d4c48c610cc73f27cb63&id=67239df000" target="_blank">
-                            <Button
-                                secondary={true}
-                                basic
-                                inverted={true}
-                                size="medium"
-                                className="rounded"
-                            >
-                                <Icon name="newspaper outline" className="left" style={{ opacity: '1' }}></Icon>
-                                <Trans>Alle News in mein Postfach</Trans>
-                            </Button>
-                        </a>
+                        {language === 'de' ?
+                            <a href="https://wewater.us20.list-manage.com/subscribe/post?u=24746d4c48c610cc73f27cb63&id=67239df000" target="_blank">
+                                <Button
+                                    secondary={true}
+                                    basic
+                                    inverted={true}
+                                    size="medium"
+                                    className="rounded"
+                                >
+                                    <Icon name="newspaper outline" className="left" style={{ opacity: '1' }}></Icon>
+                                    <Trans>Alle News in mein Postfach</Trans>
+                                </Button>
+                            </a>
+                            :
+                            <Link to="/projekte">
+                                <Button
+                                    secondary={true}
+                                    basic
+                                    inverted={true}
+                                    size="medium"
+                                    className="rounded"
+                                >
+                                    <Icon name="grid layout" className="left" style={{ opacity: '1' }}></Icon>
+                                    <Trans>Discover our projects</Trans>
+                                </Button>
+                            </Link>
+                        }
+
                     </div>
                 </div>
             </div>

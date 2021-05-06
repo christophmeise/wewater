@@ -76,7 +76,7 @@ class Index extends React.Component<Props, State> {
 
 
   render() {
-    const { t, data } = this.props;
+    const { t, data, language } = this.props;
 
     const sources = withArtDirection(getImage(data.desktopImage), [
       {
@@ -100,7 +100,7 @@ class Index extends React.Component<Props, State> {
           <HeaderOverlay
             sources={sources}
             inverted={false}
-            content={<OverlayContent />}
+            content={<OverlayContent language={language} />}
             darken={isMobile}
             width={tabletOrMobile ? 12 : 10}
             floatTop={true}
@@ -123,7 +123,7 @@ class Index extends React.Component<Props, State> {
   }
 }
 
-const OverlayContent = () => {
+const OverlayContent = ({ language }) => {
   return (
     <div className="main-overlay-content">
       <h1 className="wewater-description-desktop text-shadow-lg">
@@ -139,7 +139,7 @@ const OverlayContent = () => {
         <Trans>Wir haben eine innovative Wasserfiltertechnologie entwickelt, die ohne den Einsatz von elektrischer Energie und Chemie funktioniert und einen extrem hohen Reinheitsgrad gewährleistet.</Trans>
       </p>
       {typeof window != 'undefined' && window.innerWidth > 767 &&
-        <LiterCounter></LiterCounter>
+        <LiterCounter language={language}></LiterCounter>
       }
     </div >
   );
