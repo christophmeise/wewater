@@ -226,7 +226,7 @@ module.exports = {
           purpose: `any maskable`,
         },
       },
-    }
-/*     'gatsby-plugin-offline' */
+    },
+    'gatsby-plugin-offline' 
   ],
 };

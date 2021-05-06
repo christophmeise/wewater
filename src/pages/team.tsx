@@ -38,7 +38,7 @@ class TeamPage extends React.Component<Props, any> {
     render() {
         const { t, data, language } = this.props;
 
-        const teamData = data.allWpTeamMember.edges.slice(3, data.allWpTeamMember.edges.length).reverse().concat(shuffle(data.allWpTeamMember.edges.slice(0, 3)));
+        const teamData = data.allWpTeamMember.edges;
 
         const headerImage = withArtDirection(getImage(data.mobileImage), [
             {
