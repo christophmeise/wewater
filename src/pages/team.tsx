@@ -38,7 +38,7 @@ class TeamPage extends React.Component<Props, any> {
     render() {
         const { t, data, language } = this.props;
 
-        const teamData = data.allWpTeamMember.edges;
+        const teamData = data.allWpTeamMember.edges.reverse();
 
         const headerImage = withArtDirection(getImage(data.mobileImage), [
             {
