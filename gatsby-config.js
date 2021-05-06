@@ -18,7 +18,7 @@ module.exports = {
     {
       resolve: `gatsby-source-wordpress`,
       options: {
-        url: process.env.WPGRAPHQL_URL || 'https://www.wewaterbackend.works/graphql',
+        url: process.env.WPGRAPHQL_URL || 'https://www.wewaterbackend.org/graphql',
         verbose: true,
         //'https://wewater.org/graphql',
         // allows a fallback url if WPGRAPHQL_URL is not set in the env, this may be a local or remote WP instance.
@@ -226,7 +226,7 @@ module.exports = {
           purpose: `any maskable`,
         },
       },
-    },
-    'gatsby-plugin-offline'
+    }
+/*     'gatsby-plugin-offline' */
   ],
 };
