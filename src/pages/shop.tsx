@@ -16,6 +16,7 @@ import './shop.less';
 interface Props {
     pageContext: any;
     t: any;
+    language: any;
     data: {
         mobileImage: any;
         desktopImage: any;
@@ -33,7 +34,7 @@ class ShopPage extends React.Component<Props, any> {
     }
 
     render() {
-        const { t, data } = this.props;
+        const { t, data, language } = this.props;
 
         const headerImage = withArtDirection(getImage(data.mobileImage), [
             {
@@ -49,7 +50,7 @@ class ShopPage extends React.Component<Props, any> {
         return (
             <Layout>
                 <SEO title={t('ShopSEOTitle')} description={t('ShopSEODescription')} />
-                <HeaderOverlayBackground content={<OverlayContent t={t} inverted={true} />} color={backgroundColor} darken={false} inverted={false} sources={headerImage} width={8} floatRight={true} />
+                <HeaderOverlayBackground content={<OverlayContent t={t} inverted={true} language={language} />} color={backgroundColor} darken={false} inverted={false} sources={headerImage} width={8} floatRight={true} />
                 <Container className="global-header-padding">
                     <Header
                         data-sal="slide-up"
@@ -118,7 +119,7 @@ class OverlayContent extends React.Component<any, any> {
     }
 
     render() {
-        const { inverted, t } = this.props;
+        const { inverted, t, language } = this.props;
 
         const state = this.state;
 
@@ -149,7 +150,7 @@ class OverlayContent extends React.Component<any, any> {
                     <div className={`shop-spenden-amount-selector ${state.selected === 100 ? 'shop-spenden-amount-selector-selected' : ''}`} onClick={() => this.setState({ selected: 100 })}>100€</div>
                     <div className={`shop-spenden-amount-selector ${state.selected === 200 ? 'shop-spenden-amount-selector-selected' : ''}`} onClick={() => this.setState({ selected: 200 })}>200€</div>
                 </div>
-                <Link to={getWasserspendeLinkByAmount(state.selected)}>
+                <Link to={getWasserspendeLinkByAmount(state.selected, language)}>
                     <Button primary basic inverted className="rounded">
                         <Trans>Wasserspende für {state.selected.toString()}€ schenken</Trans>
                         <Icon icon={arrowRight} style={{ opacity: '1', margin: '0em -0.21428571em 0em 0.42857143em' }} />
@@ -160,12 +161,8 @@ class OverlayContent extends React.Component<any, any> {
     }
 }
 
-const getWasserspendeLinkByAmount = (amount: number) => {
-    if (amount === 10) {
-        return '/shop/wasserspende-10-euro';
-    } else {
-        return '/shop/wasserspende-ueber-' + amount + '-euro'
-    }
+const getWasserspendeLinkByAmount = (amount: number, language: string) => {
+    return '/shop/wasserspende-ueber-' + amount + '-euro-' + language
 }
 
 export const pageQuery = graphql`query ($language: String!) {
@@ -182,7 +179,7 @@ export const pageQuery = graphql`query ($language: String!) {
       gatsbyImageData(quality: 100, layout: FULL_WIDTH)
     }
   }
-  products: allWpProduct(sort: {fields: date, order: DESC}) {
+  products: allWpProduct(sort: {fields: date, order: DESC}, filter: {acf_product_lang: {language: {eq: $language}}}) {
     edges {
       node {
         id

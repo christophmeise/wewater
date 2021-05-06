@@ -27,6 +27,8 @@ module.exports = {
           typePrefix: `Wp`,
           requestConcurrency: 5, // currently set to undefined
           previewRequestConcurrency: 2, // currently set to undefined
+          perPage: 30,
+          timeout: 60000
         },
         develop: {
           nodeUpdateInterval: 3000,
@@ -227,6 +229,6 @@ module.exports = {
         },
       },
     },
-    'gatsby-plugin-offline' 
+    'gatsby-plugin-offline'
   ],
 };
