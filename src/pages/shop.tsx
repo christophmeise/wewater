@@ -44,7 +44,9 @@ class ShopPage extends React.Component<Props, any> {
         ])
         const backgroundColor = '#7897B5';
         const shopItems = data.products.edges
-            .filter((item) => item.node.name.indexOf('Wasserspende über') < 0);
+            .filter((item) => item.node.name.indexOf('Wasserspende über') < 0
+                && item.node.name.indexOf('Don d\'eau') < 0
+                && item.node.name.indexOf('Water donation of') < 0);
 
 
         return (
