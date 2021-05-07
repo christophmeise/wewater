@@ -1,9 +1,10 @@
-import { Trans } from 'gatsby-plugin-react-i18next';
+import { Trans, useI18next } from 'gatsby-plugin-react-i18next';
 import React from 'react';
 import { Table, TableBody, TableCell, TableHeader, TableHeaderCell, TableRow } from 'semantic-ui-react';
+import { useTranslationHOC } from '../../useTranslationHOC/useTranslationHOC';
 
 const YourOrder = ({ cart }) => {
-
+	const { t } = useI18next();
 	return (
 		<>
 			{ cart ? (
@@ -28,7 +29,7 @@ const YourOrder = ({ cart }) => {
 						</TableRow>
 						<TableRow textAlign="right">
 							<TableCell />
-							<TableCell><Trans>Summe ({cart?.products?.length.toString()} Artikel)</Trans></TableCell>
+							<TableCell>{t('SummeArtikel_plural', { count: cart?.products?.length })}</TableCell>
 							<TableCell><strong>{cart.totalProductsPrice}</strong></TableCell>
 						</TableRow>
 					</TableBody>
@@ -57,4 +58,4 @@ const CheckoutCartItem = ({ item }) => {
 };
 
 
-export default YourOrder;
+export default useTranslationHOC(YourOrder);

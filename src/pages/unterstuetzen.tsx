@@ -85,8 +85,8 @@ class UnterstuetzenPage extends React.Component<Props, any> {
 const HeaderContent = (t) => {
     return (
         <div>
-            <h1 className="header-overlay-headline"><Trans>Dein 7-Punkte-Plan</Trans></h1>
-            <h2 className="header-overlay-subheadline"><Trans>So kannst du uns auch ohne eine finanzielle Spende unterstützen</Trans></h2>
+            <h1 className="header-overlay-headline">{t('Dein 7-Punkte-Plan')}</h1>
+            <h2 className="header-overlay-subheadline">{t('So kannst du uns auch ohne eine finanzielle Spende unterstützen')}</h2>
         </div>
     );
 };

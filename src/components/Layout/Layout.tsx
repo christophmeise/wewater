@@ -240,7 +240,7 @@ class Layout extends Component<Props, any> {
 
                             </div>
                         </CookieConsent>
-                        <Footer t={t} />
+                        <Footer />
                     </main>
                 </div>
             </React.Fragment >
@@ -259,8 +259,8 @@ const Popover = ({ language }) => {
                         <li className="navlist-primary-entry">
                             <Link to={'/filtersystem'} language={language}>
                                 <div className="navlist-menu-entry">
-                                    <h4>Alle Filtersysteme <Icon className="icon-filtersysteme" icon={arrowSmallRight} color='#5ABEE6' /></h4>
-                                    <p>Übersicht aller Entwicklungen</p>
+                                    <h4><Trans>Alle Filtersysteme</Trans> <Icon className="icon-filtersysteme" icon={arrowSmallRight} color='#5ABEE6' /></h4>
+                                    <p><Trans>Übersicht aller Entwicklungen</Trans></p>
                                 </div>
                             </Link>
                         </li>
@@ -305,7 +305,7 @@ c0 -213 -1 -211 103 -211 l67 0 0 -523 c0 -495 1 -525 18 -540 21 -19 45 -21
                                 </div>
                                 <div className="navlist-menu-entry">
                                     <h4>AQQAbag</h4>
-                                    <p>Lösung für Einzelpersonen</p>
+                                    <p><Trans>Lösung für Einzelpersonen</Trans></p>
                                 </div>
                             </Link>
                         </li>
@@ -363,7 +363,7 @@ c0 -213 -1 -211 103 -211 l67 0 0 -523 c0 -495 1 -525 18 -540 21 -19 45 -21
                                 </div>
                                 <div className="navlist-menu-entry">
                                     <h4>AQQAcube</h4>
-                                    <p>Sofortlösung für Lebensgemeinschaften</p>
+                                    <p><Trans>Sofortlösung für Lebensgemeinschaften</Trans></p>
                                 </div>
                             </Link>
                         </li>
@@ -559,15 +559,15 @@ c0 -213 -1 -211 103 -211 l67 0 0 -523 c0 -495 1 -525 18 -540 21 -19 45 -21
                                 </div>
                                 <div className="navlist-menu-entry">
                                     <h4>AQQAsystem</h4>
-                                    <p>Lösung für den langfristigen Einsatz</p>
+                                    <p><Trans>Lösung für den langfristigen Einsatz</Trans></p>
                                 </div>
                             </Link>
                         </li>
                         <li className="navlist-primary-entry">
                             <Link to={'/filtersysteme/tutorials'} language={language}>
                                 <div className="navlist-menu-entry">
-                                    <h4>Zu den Tutorials <Icon className="icon-filtersysteme" icon={arrowSmallRight} color='#5ABEE6' /></h4>
-                                    <p>Wir erklären unsere Lösungen</p>
+                                    <h4><Trans>Zu den Tutorials</Trans> <Icon className="icon-filtersysteme" icon={arrowSmallRight} color='#5ABEE6' /></h4>
+                                    <p><Trans>Wir erklären unsere Lösungen</Trans></p>
                                 </div>
                             </Link>
                         </li>

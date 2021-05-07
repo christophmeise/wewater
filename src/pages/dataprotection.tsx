@@ -1,6 +1,5 @@
 // i18next-extract-mark-ns-start page_dataprotection
 import { graphql } from 'gatsby';
-import { Trans } from 'gatsby-plugin-react-i18next';
 import React from 'react';
 import { Container } from 'semantic-ui-react';
 import Layout from '../components/Layout/Layout';
@@ -32,7 +31,7 @@ class DataProtection extends React.Component<Props, any> {
             <Layout>
                 <SEO title={t('DataprotectionSEOTitle')} description={t('DataprotectionSEODescription')} />
                 <Container className="global-header-padding">
-                    <PlainHeader content={HeaderContent()} />
+                    <PlainHeader content={HeaderContent(t)} />
                     <Container>
                         <h4>Datenschutzerklärung</h4>
                         <p>Wir freuen uns sehr über Ihr Interesse an unserem Unternehmen. Datenschutz hat einen besonders hohen Stellenwert für die Geschäftsleitung der WeWater gUG. Eine Nutzung der Internetseiten der WeWater gUG ist grundsätzlich ohne jede Angabe personenbezogener Daten möglich. Sofern eine betroffene Person besondere Services unseres Unternehmens über unsere Internetseite in Anspruch nehmen möchte, könnte jedoch eine Verarbeitung personenbezogener Daten erforderlich werden. Ist die Verarbeitung personenbezogener Daten erforderlich und besteht für eine solche Verarbeitung keine gesetzliche Grundlage, holen wir generell eine Einwilligung der betroffenen Person ein.</p>
@@ -314,10 +313,10 @@ class DataProtection extends React.Component<Props, any> {
     }
 }
 
-const HeaderContent = () => {
+const HeaderContent = (t) => {
     return (
         <div>
-            <h1 className="header-overlay-headline"><Trans>Dataprotection</Trans></h1>
+            <h1 className="header-overlay-headline">{t('Dataprotection')}</h1>
             <h2 className="header-overlay-subheadline"></h2>
         </div>
     );

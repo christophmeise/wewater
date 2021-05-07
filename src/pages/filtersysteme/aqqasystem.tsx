@@ -92,7 +92,7 @@ class AqqasystemPage extends React.Component<Props, any> {
                         <h3 className={`global-subtitle text-primary`}>AQQAsystem</h3>
                         <h2 className="global-headline">
                             <Hyphenated language={de}>
-                                <Trans>Die Lösung für den langfristigen Einsatz</Trans>
+                                {t('Die Lösung für den langfristigen Einsatz')}
                             </Hyphenated>
                         </h2>
                     </Header>

@@ -152,7 +152,8 @@ class OverlayContent extends React.Component<any, any> {
                 </div>
                 <Link to={getWasserspendeLinkByAmount(state.selected, language)}>
                     <Button primary basic inverted className="rounded">
-                        <Trans>Wasserspende für {state.selected.toString()}€ schenken</Trans>
+                        {t('Wasserspende in Euro', { count: state.selected })}
+                        {/* <Trans>Wasserspende für {state.selected.toString()}€ schenken</Trans> */}
                         <Icon icon={arrowRight} style={{ opacity: '1', margin: '0em -0.21428571em 0em 0.42857143em' }} />
                     </Button>
                 </Link>

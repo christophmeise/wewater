@@ -1,6 +1,5 @@
 // i18next-extract-mark-ns-start page_faq
 import { graphql } from 'gatsby';
-import { Trans } from 'gatsby-plugin-react-i18next';
 import React from 'react';
 import { Container, Grid, GridColumn } from 'semantic-ui-react';
 import FAQAccordion from '../components/FAQAccordionItem/faq-accordion';
@@ -101,8 +100,8 @@ class FAQPage extends React.Component<Props, any> {
 const HeaderContent = (t) => {
     return (
         <div>
-            <h1 className="header-overlay-headline"><Trans>FAQ</Trans></h1>
-            <h2 className="header-overlay-subheadline"><Trans>Häufig gestellte Fragen</Trans></h2>
+            <h1 className="header-overlay-headline">{t('FAQ')}</h1>
+            <h2 className="header-overlay-subheadline">{t('Häufig gestellte Fragen')}</h2>
         </div>
     );
 };

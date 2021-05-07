@@ -81,8 +81,8 @@ class TutorialsPage extends React.Component<Props, any> {
 const HeaderContent = (t) => {
     return (
         <div>
-            <h1 className="header-overlay-headline"><Trans>Tutorials</Trans></h1>
-            <h2 className="header-overlay-subheadline"><Trans>Installation, Inbetriebnahme, Wartung und Desinfektion</Trans></h2>
+            <h1 className="header-overlay-headline">{t('Tutorials')}</h1>
+            <h2 className="header-overlay-subheadline">{t('Installation, Inbetriebnahme, Wartung und Desinfektion')}</h2>
         </div>
     );
 };

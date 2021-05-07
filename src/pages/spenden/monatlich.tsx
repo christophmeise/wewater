@@ -28,7 +28,7 @@ class SpendenPage extends React.Component<Props, any> {
             <Layout>
                 <SEO title={t('SpendenMonatlichSEOTitle')} description={t('SpendenMonatlichSEODescription')} />
                 <Container text className="global-header-padding">
-                    <PlainHeader content={HeaderContent()} />
+                    <PlainHeader content={HeaderContent(t)} />
                     <section>
                         <h3><Trans>Wenn du gerne regelmäßig an uns spenden möchtest, dann gibt es zwei Möglichkeiten.</Trans></h3>
                         <h4><strong><Trans>1. Du spendest monatlich via PayPal.</Trans></strong></h4>
@@ -64,10 +64,10 @@ class SpendenPage extends React.Component<Props, any> {
     }
 }
 
-const HeaderContent = () => {
+const HeaderContent = (t) => {
     return (
         <div>
-            <h1 className="header-overlay-headline"><Trans>Monatlich Spenden</Trans></h1>
+            <h1 className="header-overlay-headline">{t('Monatlich Spenden')}</h1>
         </div>
     );
 };

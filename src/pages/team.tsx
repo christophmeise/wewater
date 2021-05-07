@@ -38,7 +38,7 @@ class TeamPage extends React.Component<Props, any> {
     render() {
         const { t, data, language } = this.props;
 
-        const teamData = data.allWpTeamMember.edges.reverse();
+        const teamData = data.allWpTeamMember.edges;
 
         const headerImage = withArtDirection(getImage(data.mobileImage), [
             {
@@ -204,7 +204,7 @@ export const pageQuery = graphql`query ($language: String!) {
       gatsbyImageData(quality: 100, layout: FULL_WIDTH)
     }
   }
-  allWpTeamMember {
+  allWpTeamMember( sort: { fields: [date] order: ASC }) {
     edges {
       node {
         title

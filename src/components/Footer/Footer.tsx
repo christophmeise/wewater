@@ -4,8 +4,8 @@ import { Container, Grid, GridRow, Header, Icon, List } from 'semantic-ui-react'
 import Logo from './../Logo/Logo';
 import './footer.less';
 
-const Footer = (t) => {
-    const { language } = useI18next();
+const Footer = () => {
+    const { language, t } = useI18next();
     return (
         <footer>
             <svg className="footer-overlay-svg" viewBox="0 0 1440 130" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -47,7 +47,7 @@ const Footer = (t) => {
                         <Grid.Column>
                             <GridRow columns="1">
                                 <Grid.Column className="footer-column">
-                                    <Header className="footer-nav-header" as="h3" content="Hilf uns" />
+                                    <Header className="footer-nav-header" as="h3" content={t('Hilf uns')} />
                                     <List link>
                                         <List.Item>
                                             <Link to={'/spenden'} language={language}><Trans>So kannst du spenden</Trans></Link>
@@ -68,7 +68,7 @@ const Footer = (t) => {
                         <Grid.Column>
                             <GridRow>
                                 <Grid.Column className="footer-column">
-                                    <Header className="footer-nav-header" as="h3" content="Informationen" />
+                                    <Header className="footer-nav-header" as="h3" content={t('Informationen')} />
                                     <List link>
                                         <List.Item>
                                             <Link to={'/presse'} language={language}><Trans>Presse</Trans></Link>
@@ -86,7 +86,7 @@ const Footer = (t) => {
                         <Grid.Column>
                             <GridRow>
                                 <Grid.Column className="footer-column">
-                                    <Header className="footer-nav-header" as="h3" content="Du willst direkt handeln? Spende jetzt!" />
+                                    <Header className="footer-nav-header" as="h3" content={t('Du willst direkt handeln? Spende jetzt!')} />
                                     <p>
                                         WeWater gUG <br />
                                         Bank für Sozialwirtschaft <br />
@@ -107,14 +107,9 @@ const Footer = (t) => {
                         <Link to={'/'} language={language} aria-label="WeWater">
                             <Logo />
                         </Link>
-                        <a
-                            className="footer-trademark-link footer-link"
-                            href="https://explorechristoph.com"
-                            target="_blank"
-                            rel="noopener"
-                        >
-                            © 2021, ExploreChristoph. All rights reserved.
-                        </a>
+                        <p className="footer-trademark-link footer-link">
+                            © 2021, WeWater gUG. All rights reserved.
+                        </p>
                         <p className="footer-link footer-link-right">
                             <Link to={'/impressum'} language={language}><Trans>Impressum</Trans></Link>
                             <span className="footer-link-seperator">|</span>

@@ -111,7 +111,7 @@ class Index extends React.Component<Props, State> {
           <MobileLandingHero />
         </div>
         <div>
-          <Video></Video>
+          <Video t={t}></Video>
           <Innovation></Innovation>
           <SectionFiltersysteme></SectionFiltersysteme>
           <SpendenWidget fullMode={false} hideForm={isMobile}></SpendenWidget>

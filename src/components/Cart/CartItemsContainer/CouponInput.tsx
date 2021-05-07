@@ -28,7 +28,7 @@ class CouponInput extends Component<Props, any> {
 
         return (
             <>
-                <h4>Gutschein- oder Aktionscode eingeben</h4>
+                <h4><Trans>Gutschein- oder Aktionscode eingeben</Trans></h4>
                 <div className="ui action input">
                     <Input name="apply-coupon-input" required={false} type="text" placeholder={t('Code eingeben')} value={this.state.couponCode} onChange={this.handleChange} />
                     <Button primary basic onClick={handleApplyCoupon.bind(this, this.state.couponCode)} className={`${applyCouponProcessing && 'loading'}`}>

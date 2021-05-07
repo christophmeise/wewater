@@ -97,7 +97,7 @@ class AqqabagPage extends React.Component<Props, any> {
 
                         <h2 className="global-headline">
                             <Hyphenated language={de}>
-                                <Trans>Die Lösung für den Soforteinsatz und Einzelpersonen</Trans>
+                                {t('Die Lösung für den Soforteinsatz und Einzelpersonen')}
                             </Hyphenated>
                         </h2>
                     </Header>

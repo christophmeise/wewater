@@ -7,5 +7,6 @@
   "ShopSEODescription": "WeWater Wasserfilter und Geschenke für den guten Zweck. Jetzt einkaufen und damit Trinkwasser spenden. 🛒",
   "ShopSEOTitle": "WeWater Shop - WeWater.org",
   "Spendenhöhe": "Spendenhöhe",
-  "Wasserspende für € schenken": "Wasserspende für € schenken"
+  "Wasserspende in Euro": "Wasserspende in Euro",
+  "Wasserspende in Euro_plural": "Wasserspende für {{count}}€ schenken"
 }

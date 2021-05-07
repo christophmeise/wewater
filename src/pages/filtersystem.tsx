@@ -104,7 +104,7 @@ class FiltersystemPage extends React.Component<Props, any> {
                                             <h3 className={`global-subtitle text-primary`}>AQQAbag</h3>
                                             <h2 className="global-headline">
                                                 <Hyphenated language={de}>
-                                                    <Trans>Die Lösung für den Soforteinsatz und Einzelpersonen</Trans>
+                                                    {t('Die Lösung für den Soforteinsatz und Einzelpersonen')}
                                                 </Hyphenated>
                                             </h2>
                                         </Header>
@@ -145,7 +145,7 @@ class FiltersystemPage extends React.Component<Props, any> {
                                             <h3 className={`global-subtitle text-primary`}>AQQAcube</h3>
                                             <h2 className="global-headline">
                                                 <Hyphenated language={de}>
-                                                    <Trans>Für den Soforteinsatz in Lebensgemeinschaften</Trans>
+                                                    {t('Für den Soforteinsatz in Lebensgemeinschaften')}
                                                 </Hyphenated>
                                             </h2>
                                         </Header>
@@ -186,7 +186,7 @@ class FiltersystemPage extends React.Component<Props, any> {
                                             <h3 className={`global-subtitle text-primary`}>AQQAsystem</h3>
                                             <h2 className="global-headline">
                                                 <Hyphenated language={de}>
-                                                    <Trans>Die Lösung für den langfristigen Einsatz</Trans>
+                                                    {t('Die Lösung für den langfristigen Einsatz')}
                                                 </Hyphenated>
                                             </h2>
                                         </Header>

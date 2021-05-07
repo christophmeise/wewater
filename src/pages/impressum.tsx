@@ -60,7 +60,9 @@ bedürfen der schriftlichen Zustimmung des jeweiligen Autors bzw. Erstellers. Do
                                 “https://unsplash.com”
                                 Hannes Schwessinger, Thilo Kunz, Steven Hille, Ulrich Weise
                                 Insofern hier nicht angegeben wird die Quelle unter dem Bild genannt.
-Quelle Impressum: eRecht24</p>
+                                Quelle Impressum: eRecht24
+                                Quelle Icons AQQABag, AQQACube, AQQASystem: Biedermann und Brandstift
+</p>
                             </section>
                         </div>
                     </Container>

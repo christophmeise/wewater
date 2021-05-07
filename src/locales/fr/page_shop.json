@@ -7,5 +7,6 @@
   "ShopSEODescription": "Filtres à eau WeWater et cadeaux pour une bonne cause. Faites un don d’eau potable grâce à votre achat. 🛒",
   "ShopSEOTitle": "Shop WeWater - WeWater.org",
   "Spendenhöhe": "Montant du don",
-  "Wasserspende für € schenken": "Faites un don d'eau pour € "
+  "Wasserspende in Euro": "Wasserspende in Euro",
+  "Wasserspende in Euro_plural": "Faites un don d'eau pour {{count}}€"
 }

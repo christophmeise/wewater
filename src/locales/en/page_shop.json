@@ -1,11 +1,12 @@
 {
   "Der Shop von WeWater": "WeWater shop",
-  "Entdecke Einzigartiges": "Discover our susatinable products",
+  "Entdecke Einzigartiges": "Discover our sustainable products",
   "Geschenkidee": "Gift idea",
   "Individuelle Wasserspende": "Individual water donation",
   "Mit unserer Wasserspende hast du immer ein ideales Geschenk parat. Denn damit spendest du lebensnotwendiges Trinkwasser und widmest diese Wasserspende zeitgleich einem lieben Menschen.": "With our water donation you always have an ideal gift at hand. You donate vital drinking water while dedicating this water donation to a friend, a colleague or a loved one.",
   "ShopSEODescription": "WeWater water filters and gifts for a good cause. Shop now and donate drinking water drinking water while doing so! 🛒",
   "ShopSEOTitle": "WeWater Shop - WeWater.org",
   "Spendenhöhe": "Donation amount",
-  "Wasserspende für € schenken": "Gift a water donation in the amount of € "
+  "Wasserspende in Euro": "Wasserspende in Euro",
+  "Wasserspende in Euro_plural": "Gift a water donation in the amount of {{count}}€"
 }

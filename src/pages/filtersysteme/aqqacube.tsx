@@ -100,7 +100,7 @@ class AqqacubePage extends React.Component<Props, any> {
                         <h3 className={`global-subtitle text-primary`}>AQQAcube</h3>
                         <h2 className="global-headline">
                             <Hyphenated language={de}>
-                                <Trans>Für den Soforteinsatz in Lebensgemeinschaften</Trans>
+                                {t('Für den Soforteinsatz in Lebensgemeinschaften')}
                             </Hyphenated>
                         </h2>
                     </Header>

@@ -28,7 +28,7 @@ class SpendenPage extends React.Component<Props, any> {
             <Layout>
                 <SEO title={t('SpendenEinmaligSEOTitle')} description={t('SpendenEinmaligSEODescription')} />
                 <Container text className="global-header-padding">
-                    <PlainHeader content={HeaderContent()} />
+                    <PlainHeader content={HeaderContent(t)} />
                     <section>
                         <h3><Trans>Vielen Dank, dass du an uns spenden möchtest. Für eine einmalige Spende gibt es vier Möglichkeiten.</Trans></h3>
                         <h4><strong><Trans>1. Du spendest via Paypal.</Trans></strong></h4>
@@ -39,7 +39,7 @@ class SpendenPage extends React.Component<Props, any> {
                                 <img style={{ border: "0", width: "1", height: "1", display: "none !important" }} hidden={true} src="https://www.paypal.com/de_DE/i/scr/pixel.gif" alt="" />
                             </form>
                         </div>
-                        <h4><strong>2. Du spendest über unsere Projektseite auf Betterplace.</strong></h4>
+                        <h4><strong><Trans>2. Du spendest über unsere Projektseite auf Betterplace.</Trans></strong></h4>
                         {typeof window !== 'undefined' &&
                             <React.Fragment>
                                 <div id="betterplace_donation_iframe">
@@ -47,7 +47,7 @@ class SpendenPage extends React.Component<Props, any> {
                                 </div>
                             </React.Fragment>
                         }
-                        <h4><strong>3. Du spendest über eine Banküberweisung an</strong></h4>
+                        <h4><strong><Trans>3. Du spendest über eine Banküberweisung an</Trans></strong></h4>
                         <p>
                             WeWater gUG <br />
                             Bank für Sozialwirtschaft <br />
@@ -61,10 +61,10 @@ class SpendenPage extends React.Component<Props, any> {
     }
 }
 
-const HeaderContent = () => {
+const HeaderContent = (t) => {
     return (
         <div>
-            <h1 className="header-overlay-headline"><Trans>Einmalig Spenden</Trans></h1>
+            <h1 className="header-overlay-headline">{t('Einmalig Spenden')}</h1>
         </div>
     );
 };
