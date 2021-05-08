@@ -264,10 +264,10 @@ class FiltersystemPage extends React.Component<Props, any> {
                                     {tableData.map((row) => {
                                         return (
                                             <Table.Row key={row.key}>
-                                                <Table.Cell><Trans>{row.key}</Trans></Table.Cell>
-                                                <Table.Cell><Trans><span dangerouslySetInnerHTML={{ __html: row.bag }}></span></Trans></Table.Cell>
-                                                <Table.Cell><Trans><span dangerouslySetInnerHTML={{ __html: row.cube }}></span></Trans></Table.Cell>
-                                                <Table.Cell><Trans><span dangerouslySetInnerHTML={{ __html: row.system }}></span></Trans></Table.Cell>
+                                                <Table.Cell><span className="table-cell-key-mobile"><Trans>{row.key}</Trans></span><span className="table-cell-key-desktop"><Trans>{row.key}</Trans></span></Table.Cell>
+                                                <Table.Cell><strong className="table-cell-strong-mobile text-primary">AQQABag</strong><Trans><span dangerouslySetInnerHTML={{ __html: row.bag }}></span></Trans></Table.Cell>
+                                                <Table.Cell><strong className="table-cell-strong-mobile text-primary">AQQACube</strong><Trans><span dangerouslySetInnerHTML={{ __html: row.cube }}></span></Trans></Table.Cell>
+                                                <Table.Cell><strong className="table-cell-strong-mobile text-primary">AQQASystem</strong><Trans><span dangerouslySetInnerHTML={{ __html: row.system }}></span></Trans></Table.Cell>
                                             </Table.Row>
                                         );
                                     })}

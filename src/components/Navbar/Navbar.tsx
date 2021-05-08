@@ -91,6 +91,15 @@ class Navbar extends Component<NavbarProps, NavbarState> {
             >
               <span>{t('AQQAsystem')}</span>
             </Menu.Item>
+            <Menu.Item
+              className="menu-level-2"
+              name="/filtersysteme/tutorials"
+              link
+              active={location.pathname === '/filtersysteme/tutorials'}
+              onClick={navigate.bind(this, '/filtersysteme/tutorials')}
+            >
+              <span>{t('Zu den Tutorials')}</span>
+            </Menu.Item>
           </>
         )}
         <Menu.Item

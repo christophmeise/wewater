@@ -21,3 +21,43 @@
 .filtersystem-table-overview {
     padding-top: 80px;
 }
+
+
+.table-cell-strong-mobile {
+    display   : none;
+    visibility: hidden;
+}
+
+@media @mobile {
+    .table-cell-strong-mobile {
+        display   : block;
+        visibility: visible;
+    }
+}
+
+.table-cell-key-mobile {
+    display   : none;
+    visibility: hidden;
+}
+
+@media @mobile {
+    .table-cell-key-mobile {
+        display      : block;
+        visibility   : visible;
+        font-size    : 1.2rem;
+        padding-left : 0rem !important;
+        margin-bottom: 0.25rem;
+    }
+}
+
+.table-cell-key-desktop {
+    display   : block;
+    visibility: visible;
+}
+
+@media @mobile {
+    .table-cell-key-desktop {
+        display   : none;
+        visibility: hidden;
+    }
+}
