@@ -21,6 +21,7 @@ function ProjektPostTemplate({ data, t }) {
     let matchingPosts = data.allWpCategory.edges
         .filter(item => projekt.categories.nodes.map(entry => entry.name).includes(item.node.name));
     matchingPosts = matchingPosts.map(entry => entry.node.posts).filter(posts => posts.nodes.length > 0);
+    // todo filter by name unique
     let jsonBlocks = [];
     if (projekt?.blocksJSON != null) {
         jsonBlocks = JSON.parse(projekt.blocksJSON);
@@ -198,7 +199,7 @@ locales: allLocale(filter: {language: {eq: $language}}) {
       }
     }
   }
-  allWpCategory {
+  allWpCategory (filter: {language: {slug: {eq: $language}}}) {
     edges {
       node {
         posts {
