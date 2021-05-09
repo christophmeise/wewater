@@ -22,10 +22,18 @@ const CheckoutForm = () => {
     address1: '',
     address2: '',
     city: '',
-    state: '',
     postcode: '',
     phone: '',
     email: '',
+    firstName2: '',
+    lastName2: '',
+    company2: '',
+    country2: '',
+    address12: '',
+    address22: '',
+    city2: '',
+    postcode2: '',
+    phone2: '',
     customerNote: '',
     paymentMethod: '',
     errors: null,
@@ -92,6 +100,7 @@ const CheckoutForm = () => {
   const handleFormSubmit = (event) => {
     event.preventDefault();
     const result = validateAndSanitizeCheckoutForm(input);
+    console.log(result);
     if (!result.isValid) {
       setInput({ ...input, errors: result.errors });
       return;

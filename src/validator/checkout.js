@@ -23,7 +23,6 @@ const validateAndSanitizeCheckoutForm = (data) => {
 	data.address1 = (!isEmpty(data.address1)) ? data.address1 : '';
 	data.address2 = (!isEmpty(data.address2)) ? data.address2 : '';
 	data.city = (!isEmpty(data.city)) ? data.city : '';
-	data.state = (!isEmpty(data.state)) ? data.state : '';
 	data.postcode = (!isEmpty(data.postcode)) ? data.postcode : '';
 	data.phone = (!isEmpty(data.phone)) ? data.phone : '';
 	data.email = (!isEmpty(data.email)) ? data.email : '';
@@ -37,7 +36,6 @@ const validateAndSanitizeCheckoutForm = (data) => {
 		data.address12 = (!isEmpty(data.address12)) ? data.address1 : '';
 		data.address22 = (!isEmpty(data.address22)) ? data.address2 : '';
 		data.city2 = (!isEmpty(data.city2)) ? data.city : '';
-		data.state2 = (!isEmpty(data.state2)) ? data.state : '';
 		data.postcode2 = (!isEmpty(data.postcode2)) ? data.postcode : '';
 		data.phone2 = (!isEmpty(data.phone2)) ? data.phone : '';
 	}
@@ -98,7 +96,6 @@ const validateAndSanitizeCheckoutForm = (data) => {
 	addErrorAndSanitizedData('address1', 'Street address line 1', 5, 100, 'string', true);
 	addErrorAndSanitizedData('address2', '', 0, 254, 'string', false);
 	addErrorAndSanitizedData('city', 'City field', 3, 25, 'string', true);
-	addErrorAndSanitizedData('state', 'State/County', 0, 254, 'string', true);
 	addErrorAndSanitizedData('postcode', 'Post code', 2, 9, 'postcode', true);
 	addErrorAndSanitizedData('phone', 'Phone number', 9, 15, 'phone', true);
 	addErrorAndSanitizedData('email', 'Email', 7, 254, 'email', true);
@@ -110,7 +107,6 @@ const validateAndSanitizeCheckoutForm = (data) => {
 		addErrorAndSanitizedData('address12', 'Street address line 1', 5, 100, 'string', true);
 		addErrorAndSanitizedData('address22', '', 0, 254, 'string', false);
 		addErrorAndSanitizedData('city2', 'City field', 3, 25, 'string', true);
-		addErrorAndSanitizedData('state2', 'State/County', 0, 254, 'string', true);
 		addErrorAndSanitizedData('postcode2', 'Post code', 2, 9, 'postcode', true);
 		addErrorAndSanitizedData('phone2', 'Phone number', 9, 15, 'phone', true);
 	}

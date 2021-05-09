@@ -213,7 +213,7 @@ const Billing = ({ input, handleOnChange }) => {
               </label>
               <input
                 onChange={handleOnChange}
-                value={input.firstName}
+                value={input.firstName2}
                 type="text"
                 name="firstName2"
                 id="first-name2"
@@ -230,7 +230,7 @@ const Billing = ({ input, handleOnChange }) => {
               </label>
               <input
                 onChange={handleOnChange}
-                value={input.lastName}
+                value={input.lastName2}
                 type="text"
                 name="lastName2"
                 id="last-name2"
@@ -244,7 +244,7 @@ const Billing = ({ input, handleOnChange }) => {
             <label htmlFor="company-name"><Trans>Firma</Trans></label>
             <input
               onChange={handleOnChange}
-              value={input.company}
+              value={input.company2}
               type="text"
               name="company2"
               id="company-name2"
@@ -252,7 +252,7 @@ const Billing = ({ input, handleOnChange }) => {
             <Error errors={input.errors} fieldName={"company2"} />
           </Form.Field>
           <Form.Field>
-            <label htmlFor="country-select">
+            <label htmlFor="country-select2">
               <Trans>Land / Region</Trans>
               <abbr className="required" title="required">
                 *
@@ -260,7 +260,7 @@ const Billing = ({ input, handleOnChange }) => {
             </label>
             <select
               onChange={handleOnChange}
-              value={input.country}
+              value={input.country2}
               name="country2"
               id="country-select2"
               autoComplete="country"
@@ -285,7 +285,7 @@ const Billing = ({ input, handleOnChange }) => {
             <input
               type="text"
               onChange={handleOnChange}
-              value={input.address1}
+              value={input.address12}
               name="address12"
               placeholder="Straßenname und Hausnummer"
               id="street-address"
@@ -297,7 +297,7 @@ const Billing = ({ input, handleOnChange }) => {
             <input
               type="text"
               onChange={handleOnChange}
-              value={input.address2}
+              value={input.address22}
               name="address22"
               placeholder="Wohnung, Suite, Zimmer usw (optional)"
               id="address-22"
@@ -313,7 +313,7 @@ const Billing = ({ input, handleOnChange }) => {
             </label>
             <input
               onChange={handleOnChange}
-              value={input.city}
+              value={input.city2}
               type="text"
               name="city2"
               id="city2"
@@ -330,7 +330,7 @@ const Billing = ({ input, handleOnChange }) => {
             </label>
             <input
               onChange={handleOnChange}
-              value={input.postcode}
+              value={input.postcode2}
               type="text"
               name="postcode2"
               id="post-code2"
@@ -347,7 +347,7 @@ const Billing = ({ input, handleOnChange }) => {
             </label>
             <input
               onChange={handleOnChange}
-              value={input.phone}
+              value={input.phone2}
               type="text"
               name="phone2"
               id="phone2"
