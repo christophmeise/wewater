@@ -29,7 +29,7 @@ const YourOrder = ({ cart }) => {
 						</TableRow>
 						<TableRow textAlign="right">
 							<TableCell />
-							<TableCell>{t('SummeArtikel_plural', { count: cart?.products?.length })}</TableCell>
+							<TableCell>{t('SummeArtikel_plural', { count: cart?.totalProductsCount })}</TableCell>
 							<TableCell><strong>{cart.totalProductsPrice}</strong></TableCell>
 						</TableRow>
 					</TableBody>
@@ -47,6 +47,7 @@ const CheckoutCartItem = ({ item }) => {
 				<img width="80" src={item.image.sourceUrl} srcSet={item.image.srcSet} alt={item.image.title} />
 			</TableCell>
 			<TableCell>
+				{item?.qty + 'x '}
 				{item?.variation?.node?.name != null ?
 					item?.variation?.node?.name :
 					item.name

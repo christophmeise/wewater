@@ -33,12 +33,15 @@ const AddToCartButton = (props) => {
       // console.warn( 'completed GET_CART' );
 
       // Update cart in the localStorage.
-      const updatedCart = getFormattedCart(data);
+      const updatedCart: any = getFormattedCart(data);
 
       localStorage.setItem("woo-next-cart", JSON.stringify(updatedCart));
 
       // Update cart data in React Context.
       setCart(updatedCart);
+      if (updatedCart?.products?.length > 0) {
+        setShowViewCart(true);
+      }
     }
   });
 
@@ -59,9 +62,6 @@ const AddToCartButton = (props) => {
       // On Success:
       // 1. Make the GET_CART query to update the cart with new values in React context.
       refetch();
-
-      // 2. Show View Cart Button
-      setShowViewCart(true);
     },
     onError: (error) => {
       if (error) {
