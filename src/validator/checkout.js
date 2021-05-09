@@ -29,15 +29,15 @@ const validateAndSanitizeCheckoutForm = (data) => {
 	data.customerNote = (!isEmpty(data.customerNote)) ? data.customerNote : '';
 	data.paymentMethod = (!isEmpty(data.paymentMethod)) ? data.paymentMethod : '';
 	if (data.shipToDifferentAddress === 'true') {
-		data.firstName2 = (!isEmpty(data.firstName2)) ? data.firstName : '';
-		data.lastName2 = (!isEmpty(data.lastName2)) ? data.lastName : '';
-		data.company2 = (!isEmpty(data.company2)) ? data.company : '';
-		data.country2 = (!isEmpty(data.country2)) ? data.country : '';
-		data.address12 = (!isEmpty(data.address12)) ? data.address1 : '';
-		data.address22 = (!isEmpty(data.address22)) ? data.address2 : '';
-		data.city2 = (!isEmpty(data.city2)) ? data.city : '';
-		data.postcode2 = (!isEmpty(data.postcode2)) ? data.postcode : '';
-		data.phone2 = (!isEmpty(data.phone2)) ? data.phone : '';
+		data.firstName2 = (!isEmpty(data.firstName2)) ? data.firstName2 : '';
+		data.lastName2 = (!isEmpty(data.lastName2)) ? data.lastName2 : '';
+		data.company2 = (!isEmpty(data.company2)) ? data.company2 : '';
+		data.country2 = (!isEmpty(data.country2)) ? data.country2 : '';
+		data.address12 = (!isEmpty(data.address12)) ? data.address12 : '';
+		data.address22 = (!isEmpty(data.address22)) ? data.address22 : '';
+		data.city2 = (!isEmpty(data.city2)) ? data.city2 : '';
+		data.postcode2 = (!isEmpty(data.postcode2)) ? data.postcode2 : '';
+		data.phone2 = (!isEmpty(data.phone2)) ? data.phone2 : '';
 	}
 
 	/**

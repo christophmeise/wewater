@@ -1,3 +1,4 @@
+import { Trans } from 'gatsby-plugin-react-i18next';
 import React from 'react';
 
 const OrderSuccess = (props) => {
@@ -9,7 +10,7 @@ const OrderSuccess = (props) => {
 	}
 
 	const responseData = response.checkout;
-	const isPayPal = !(responseData.redirect.indexOf('kasse/order-received') > 0);
+	const isPayPal = !(responseData.redirect.indexOf('order-received') > 0);
 	if (isPayPal) {
 		window.location.href = responseData.redirect;
 	} else {
@@ -21,6 +22,7 @@ const OrderSuccess = (props) => {
 			{ 'success' === responseData.result && !isPayPal ? (
 				<div>
 					<h4>Bestellnummer: {responseData.order.orderKey} </h4>
+					<p><Trans>Überweise direkt an unsere Bankverbindung. Bitte nutze die Bestellnummer als Verwendungszweck. Deine Bestellung wird erst nach Geldeingang auf unserem Konto versandt.</Trans></p>
 					<p>WeWater gUG <br />
 					Bank für Sozialwirtschaft <br />
 					IBAN: DE86 1002 0500 0001 6026 01 <br />
