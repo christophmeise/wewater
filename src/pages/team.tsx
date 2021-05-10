@@ -71,18 +71,32 @@ class TeamPage extends React.Component<Props, any> {
                                                 textAlign='left'
                                                 className="global-flex-column global-no-margin"
                                             >
-                                                {language === 'de' ?
+                                                {
+                                                    language === 'de' &&
                                                     <h3 className={`global-subtitle text-primary`}>{post?.acf_team?.kurzbeschreibung}</h3>
-                                                    :
+                                                }
+                                                {
+                                                    language === 'en' &&
                                                     <h3 className={`global-subtitle text-primary`}>{post?.acf_team?.kurzbeschreibungEnglisch}</h3>
+                                                }
+                                                {
+                                                    language === 'fr' &&
+                                                    <h3 className={`global-subtitle text-primary`}>{post?.acf_team?.kurzbeschreibungFr}</h3>
                                                 }
 
                                                 <h2 className="global-headline">{post.title}</h2>
                                             </Header>
-                                            {language === 'de' ?
+                                            {
+                                                language === 'de' &&
                                                 <p dangerouslySetInnerHTML={{ __html: post.acf_team?.description }}></p>
-                                                :
+                                            }
+                                            {
+                                                language === 'en' &&
                                                 <p dangerouslySetInnerHTML={{ __html: post.acf_team?.descriptionEnglisch }}></p>
+                                            }
+                                            {
+                                                language === 'fr' &&
+                                                <p dangerouslySetInnerHTML={{ __html: post.acf_team?.descriptionFr }}></p>
                                             }
                                             <div>
                                                 {post.acf_team?.facebook != null &&
@@ -213,9 +227,11 @@ export const pageQuery = graphql`query ($language: String!) {
           fieldGroupName
           kurzbeschreibung
           kurzbeschreibungEnglisch
+          kurzbeschreibungFr
           facebook
           description
           descriptionEnglisch
+          descriptionFr
           instagram
           linkedin
           twitter

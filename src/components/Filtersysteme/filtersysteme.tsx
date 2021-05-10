@@ -85,7 +85,7 @@ const SectionFiltersysteme = () => {
                             </GridColumn>
                         </GridRow>
                         <GridRow columns="3" className="filtersysteme-img-vertical">
-                            <GridColumn className="filtersysteme-align-left">
+                            <GridColumn className="filtersysteme-align-left" width="4">
                                 <Link to="/filtersysteme/aqqabag">
                                     <div className="background-image-wrapper filtersysteme-dark-overlay">
                                         <GatsbyImage
@@ -100,10 +100,10 @@ const SectionFiltersysteme = () => {
                                     </div>
                                 </Link>
                             </GridColumn>
-                            <GridColumn>
+                            <GridColumn width="8">
                                 {/* empty */}
                             </GridColumn>
-                            <GridColumn className="filtersysteme-align-right">
+                            <GridColumn className="filtersysteme-align-right" width="4">
                                 <Link to="/filtersysteme/aqqacube">
                                     <div className="background-image-wrapper filtersysteme-dark-overlay">
                                         <GatsbyImage

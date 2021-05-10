@@ -65,7 +65,7 @@ class OverlayContent extends React.Component<any, any> {
             <div>
                 <h1
                     className={`header-overlay-headline ${inverted ? 'header-overlay-headline-inverted' : ''}`}
-                    style={{ marginBottom: '20%', textAlign: 'center' }}
+                    style={{ marginBottom: '16vh', textAlign: 'center' }}
                 >
                     {t('page_spenden:headline')}
                 </h1>
