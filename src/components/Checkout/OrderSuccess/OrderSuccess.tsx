@@ -10,7 +10,7 @@ const OrderSuccess = (props) => {
 	}
 
 	const responseData = response.checkout;
-	const isPayPal = !(responseData.redirect.indexOf('order-received') > 0);
+	const isPayPal = (responseData.redirect.indexOf('paypal.com/') > 0);
 	if (isPayPal) {
 		window.location.href = responseData.redirect;
 	} else {
