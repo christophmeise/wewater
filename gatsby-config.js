@@ -67,16 +67,17 @@ module.exports = {
       resolve: `gatsby-plugin-gdpr-cookies`,
       options: {
         googleAnalytics: {
-          trackingId: '', // leave empty if you want to disable the tracker
+          trackingId: 'UA-135467862-1', // leave empty if you want to disable the tracker
           cookieName: 'gatsby-gdpr-google-analytics', // default
           anonymize: true, // default
           allowAdFeatures: false // default
         },
-        /*         googleTagManager: {
-                  trackingId: 'YOUR_GOOGLE_TAG_MANAGER_TRACKING_ID', // leave empty if you want to disable the tracker
-                  cookieName: 'gatsby-gdpr-google-tagmanager', // default
-                  dataLayerName: 'dataLayer', // default
-                },
+        googleTagManager: {
+          trackingId: 'UA-135467862-1', // leave empty if you want to disable the tracker
+          cookieName: 'gatsby-gdpr-google-tagmanager', // default
+          dataLayerName: 'dataLayer', // default
+        },
+        /*
                 facebookPixel: {
                   pixelId: 'YOUR_FACEBOOK_PIXEL_ID', // leave empty if you want to disable the tracker
                   cookieName: 'gatsby-gdpr-facebook-pixel', // default
