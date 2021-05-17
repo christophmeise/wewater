@@ -182,7 +182,7 @@ export const pageQuery = graphql`query ($language: String!) {
       gatsbyImageData(quality: 100, layout: FULL_WIDTH)
     }
   }
-  products: allWpProduct(sort: {fields: date, order: DESC}, filter: {acf_product_lang: {language: {eq: $language}}}) {
+  products: allWpProduct(sort: {fields: date, order: DESC}, filter: {acf_product_lang: {language: {eq: "de"}}}) {
     edges {
       node {
         id
