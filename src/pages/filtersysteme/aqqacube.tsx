@@ -67,7 +67,7 @@ class AqqacubePage extends React.Component<Props, any> {
             },
             {
                 key: t('Rückhalterate Bakterien'),
-                value: t('99,9999 Prozent <a href="https://wewater.org/wp-content/uploads/2019/09/WW09232019-BCS-1909302-303p.pdf" target="_blank">(zertifiziert von BCS, Florida, USA)</a>')
+                value: t('99,9999 Prozent <a href="https://wewaterbackend.org/wp-content/uploads/2019/09/WW09232019-BCS-1909302-303p.pdf" target="_blank">(zertifiziert von BCS, Florida, USA)</a>')
             },
             {
                 key: t('Haltbarkeit'),
@@ -75,8 +75,8 @@ class AqqacubePage extends React.Component<Props, any> {
             },
             {
                 key: t('Bedienungsanleitung'),
-                value: `<a href="https://wewater.org/wp-content/uploads/2020/03/reinigung_aqqacube_DE.pdf" target="_blank">Deutsch</a>/
-                        <a href="https://wewater.org/wp-content/uploads/2020/03/disinfection_aqqacube_EN.pdf" target="_blank">Englisch</a> (PDF)`
+                value: `<a href="https://wewaterbackend.org/wp-content/uploads/2020/03/reinigung_aqqacube_DE.pdf" target="_blank">Deutsch</a>/
+                        <a href="https://wewaterbackend.org/wp-content/uploads/2020/03/disinfection_aqqacube_EN.pdf" target="_blank">Englisch</a> (PDF)`
             },
         ];
 
@@ -129,10 +129,10 @@ class AqqacubePage extends React.Component<Props, any> {
 
                                 <p><Trans>
                                     Die Rückhalterate für Bakterien wurde von BCS, Florida, USA für den AQQAbag zertifiziert. Der AQQAcube funktioniert nach dem gleichen Prinzip. Das Herzstück ist unsere Filtermembran.
-                            <a href="https://wewater.org/wp-content/uploads/2019/09/WW09232019-BCS-1909302-303p.pdf" target="_blank">Das Zertifikat für den AQQAbag haben wir hier hochgeladen.</a>
+                            <a href="https://wewaterbackend.org/wp-content/uploads/2019/09/WW09232019-BCS-1909302-303p.pdf" target="_blank">Das Zertifikat für den AQQAbag haben wir hier hochgeladen.</a>
                                 </Trans></p>
                                 <p><Trans>
-                                    Mit welchen Arten von Schmutzwasser der AQQAcube umgehen kann, <a href="https://wewater.org/wp-content/uploads/2021/01/AQQAcube_Partikel.pdf" target="_blank">siehst du in dieser Übersicht.</a>
+                                    Mit welchen Arten von Schmutzwasser der AQQAcube umgehen kann, <a href="https://wewaterbackend.org/wp-content/uploads/2021/01/AQQAcube_Partikel.pdf" target="_blank">siehst du in dieser Übersicht.</a>
                                 </Trans></p>
                                 <p><Trans>
                                     Der AQQAcube ist ein Filterprodukt, das die Vorteile von AQQAbag und AQQAsystem verbindet. Er ist mobil und kann problemlos an den jeweiligen Einsatzort gebracht werden. Dennoch kann das Produkt aufgrund seiner Größe und der enthaltenen Filterfläche mehr als 1200 Liter Trinkwasser in 24 Stunden aufbereiten. Wir gehen stets von einer Betriebszeit von 8 Stunden aus, so ergibt sich einer Filtermenge von 400 Liter Trinkwasser.

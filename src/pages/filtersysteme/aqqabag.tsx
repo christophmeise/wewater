@@ -63,7 +63,7 @@ class AqqabagPage extends React.Component<Props, any> {
             },
             {
                 key: t('Rückhalterate Bakterien'),
-                value: t('99,9999 Prozent <a href="https://wewater.org/wp-content/uploads/2019/09/WW09232019-BCS-1909302-303p.pdf" target="_blank">(zertifiziert von BCS, Florida, USA)</a>')
+                value: t('99,9999 Prozent <a href="https://wewaterbackend.org/wp-content/uploads/2019/09/WW09232019-BCS-1909302-303p.pdf" target="_blank">(zertifiziert von BCS, Florida, USA)</a>')
             },
             {
                 key: t('Haltbarkeit'),
@@ -71,8 +71,8 @@ class AqqabagPage extends React.Component<Props, any> {
             },
             {
                 key: t('Bedienungsanleitung'),
-                value: `<a href="https://wewater.org/wp-content/uploads/2019/09/anleitung_aqqabag.pdf" target="_blank">Deutsch</a>/
-                    <a href="https://wewater.org/wp-content/uploads/2019/09/aqqabag_instructions.pdf" target="_blank">Englisch</a> (PDF)`
+                value: `<a href="https://wewaterbackend.org/wp-content/uploads/2019/09/anleitung_aqqabag.pdf" target="_blank">Deutsch</a>/
+                    <a href="https://wewaterbackend.org/wp-content/uploads/2019/09/aqqabag_instructions.pdf" target="_blank">Englisch</a> (PDF)`
             },
         ];
 
