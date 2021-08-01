@@ -23,8 +23,11 @@ interface Props {
 
 class Layout extends Component<Props, any> {
 
+    myRef: any;
+
     constructor(props) {
         super(props);
+        this.myRef = React.createRef();
         this.state = {
             sections: ['Filtersysteme'],
             Filtersysteme: { width: 490, height: 400, x: 0, navwidth: 0 },
@@ -46,6 +49,7 @@ class Layout extends Component<Props, any> {
                 window.addEventListener('resize', this.calculatePopoverPosition.bind(this), false);
                 this.calculatePopoverPosition();
             }
+            document.body.addEventListener("scroll", this.handleScroll, { passive: true });
         }
     }
 
@@ -54,6 +58,26 @@ class Layout extends Component<Props, any> {
             document.removeEventListener('touchstart', this.handleTouchStart);
             document.removeEventListener('touchmove', this.handleTouchMove);
             window.removeEventListener('resize', this.calculatePopoverPosition);
+            document.body.removeEventListener("scroll", this.handleScroll);
+        }
+    }
+
+    handleScroll() {
+        var rootNode = document.documentElement,
+            body = document.body,
+            top = "scrollTop",
+            height = "scrollHeight";
+
+        var percentage =
+            ((body[top]) /
+                ((body[height]) - rootNode.clientHeight)) * 100;
+
+        if (percentage > 10) {
+            const acceptButton = document.getElementById('rcc-confirm-button')
+            if (acceptButton) {
+                document.getElementById('rcc-confirm-button').click();
+            }
+            document.body.removeEventListener("scroll", this.handleScroll);
         }
     }
 
@@ -215,9 +239,11 @@ class Layout extends Component<Props, any> {
                             <Popover language={language}></Popover>
                         </header>
                     )}
-                    <main role="main">
+                    <main role="main" ref={this.myRef}>
                         {children}
                         <CookieConsent
+                            acceptOnScroll={true}
+                            acceptOnScrollPercentage={50}
                             disableStyles={true}
                             location="bottom"
                             buttonText={t('Accept')}
@@ -230,6 +256,7 @@ class Layout extends Component<Props, any> {
                             buttonWrapperClasses="cookie-banner-button-wrapper"
                             enableDeclineButton
                             expires={150}
+                            onAccept={() => { console.log('accepted') }}
                         >
                             <div>
                                 <Icon icon={cookieBite} />

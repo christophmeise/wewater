@@ -52,7 +52,7 @@
     "lord-icon-element": "^2.0.2",
     "lottie-web": "^5.7.6",
     "react": "^17.0.1",
-    "react-cookie-consent": "^6.2.3",
+    "react-cookie-consent": "5.2.0",
     "react-dom": "^17.0.1",
     "react-helmet": "^6.1.0",
     "react-hyphen": "^1.4.0",
