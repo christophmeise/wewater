@@ -101,14 +101,14 @@ module.exports = {
     "gatsby-plugin-sitemap",
     "gatsby-plugin-sharp",
     "gatsby-transformer-sharp",
-    {
-      resolve: `gatsby-plugin-netlify`,
-      options: {
-        mergeLinkHeaders: false,
-      },
-    },
+    /*     {
+          resolve: `gatsby-plugin-netlify`,
+          options: {
+            mergeLinkHeaders: false,
+          },
+        }, */
     "gatsby-plugin-instagram-embed",
-    "gatsby-plugin-webpack-bundle-analyser-v2",
+    /*     "gatsby-plugin-webpack-bundle-analyser-v2", */
     {
       resolve: 'gatsby-plugin-react-svg',
       options: {
