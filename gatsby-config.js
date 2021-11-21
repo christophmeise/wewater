@@ -18,8 +18,9 @@ module.exports = {
     {
       resolve: `gatsby-source-wordpress`,
       options: {
-        url: process.env.WPGRAPHQL_URL || 'https://www.wewaterbackend.org/graphql',
+        url: 'https://www.wewaterbackend.org/graphql',
         verbose: true,
+        // url: process.env.WPGRAPHQL_URL || 'https://www.wewaterbackend.org/graphql',
         //'https://wewater.org/graphql',
         // allows a fallback url if WPGRAPHQL_URL is not set in the env, this may be a local or remote WP instance.
         schema: {
@@ -61,11 +62,12 @@ module.exports = {
           },
           Post: {
             limit:
-              process.env.NODE_ENV === `development`
-                ? // Lets just pull 50 posts in development to make it easy on ourselves (aka. faster).
-                50
-                : // and we don't actually need more than 5000 in production for this particular site
-                5000,
+              5000
+            // process.env.NODE_ENV === `development`
+            //  ? // Lets just pull 50 posts in development to make it easy on ourselves (aka. faster).
+            //  50
+            //  : // and we don't actually need more than 5000 in production for this particular site
+            //  5000,
           }
         }
       }
