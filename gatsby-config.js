@@ -183,23 +183,23 @@ module.exports = {
         ]
       }
     },
-    {
-      resolve: `gatsby-plugin-purgecss`,
-      options: {
-        printRejected: true, // Print removed selectors and processed file names
-        develop: false, // Enable while using `gatsby develop`
-        // tailwind: true, // Enable tailwindcss support
-        // ignore: ['/ignored.css', 'prismjs/', 'docsearch.js/'], // Ignore files/folders
-        purgeOnly: ['semantic-ui-less/'], // Purge only these files/folders
-        purgeCSSOptions: {
-          // https://purgecss.com/configuration.html#options
-          safelist: {
-            deep: [/transition$/, /visible$/],
-            greedy: [/menu$/, /link$/, /item$/, /grid$/, /container$/, /flag$/, /input$/, /selection$/, /dropdown$/, /table$/, /accordion$/, /popup$/, /tiny$/]
-          }
-        },
-      },
-    },
+    /*     {
+          resolve: `gatsby-plugin-purgecss`,
+          options: {
+            printRejected: true, // Print removed selectors and processed file names
+            develop: false, // Enable while using `gatsby develop`
+            // tailwind: true, // Enable tailwindcss support
+            // ignore: ['/ignored.css', 'prismjs/', 'docsearch.js/'], // Ignore files/folders
+            purgeOnly: ['semantic-ui-less/'], // Purge only these files/folders
+            purgeCSSOptions: {
+              // https://purgecss.com/configuration.html#options
+              safelist: {
+                deep: [/transition$/, /visible$/],
+                greedy: [/menu$/, /link$/, /item$/, /grid$/, /container$/, /flag$/, /input$/, /selection$/, /dropdown$/, /table$/, /accordion$/, /popup$/, /tiny$/]
+              }
+            },
+          },
+        }, */
     {
       resolve: 'gatsby-plugin-robots-txt',
       options: {
