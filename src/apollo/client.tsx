@@ -19,7 +19,7 @@ export const middleware = new ApolloLink((operation, forward) => {
 	/**
 	 * If session data exist in local storage, set value as session header.
 	 */
-	const session = (process['browser']) ? localStorage.getItem("woo-session") : null;
+	const session = window != null ? localStorage.getItem("woo-session") : null;
 
 	if (!isEmpty(session)) {
 		headersData = {
@@ -30,7 +30,7 @@ export const middleware = new ApolloLink((operation, forward) => {
 	/**
 	 * If auth token exist in local storage, set value as authorization header.
 	 */
-	const auth = (process['browser']) ? JSON.parse(localStorage.getItem("auth")) : null;
+	const auth = window != null ? JSON.parse(localStorage.getItem("auth")) : null;
 	const token = (!isEmpty(auth)) ? auth.authToken : null;
 
 	if (!isEmpty(token)) {
@@ -88,7 +88,7 @@ export const afterware = new ApolloLink((operation, forward) => {
 // Apollo GraphQL client.
 export const client = new ApolloClient({
 	link: middleware.concat(afterware.concat(createHttpLink({
-		uri: `${process.env.GATSBY_WORDPRESS_SITE_URL}/graphql`,
+		uri: `https://www.wewaterbackend.org/graphql`,
 		fetch: fetch
 	}))),
 	cache: new InMemoryCache()
