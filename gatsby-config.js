@@ -30,9 +30,16 @@ module.exports = {
           perPage: 30,
           timeout: 60000
         },
+        type: {
+          MediaItem: {
+            localFile: {
+              excludeByMimeTypes: [`video/mp4`, `video/mov`]
+            },
+          },
+        },
         develop: {
           nodeUpdateInterval: 3000,
-          hardCacheMediaFiles: true,
+          hardCacheMediaFiles: false, // true
         },
         production: {
           hardCacheMediaFiles: false,

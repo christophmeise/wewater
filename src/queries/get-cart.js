@@ -67,22 +67,10 @@ const GET_CART = gql`
           }
         }
         appliedCoupons {
-          nodes {
-            id
-            discountType
-            amount
-            dateExpiry
-            products {
-              nodes {
-                id
-              }
-            }
-            productCategories {
-              nodes {
-                id
-              }
-            }
-          }
+          code
+          description
+          discountAmount
+          discountTax
         }
         subtotal
         subtotalTax

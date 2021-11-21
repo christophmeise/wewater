@@ -195,7 +195,7 @@ const CartItemsContainer = () => {
                       : cart.shippingTotal}
                   </p>
                 </div>
-                {cart.appliedCoupons?.nodes?.length > 0 && cart.discountTotal != '€0,00' && (
+                {cart?.discountTotal != '€0,00' && (
                   <div className="cart-checkout-overview-row">
                     <p><Trans>Coupons</Trans></p>
                     <p className="font-primary">

@@ -93,3 +93,6 @@ export const client = new ApolloClient({
 	}))),
 	cache: new InMemoryCache()
 });
+/* 		fetchOptions: {
+			mode: 'no-cors'
+		} */
