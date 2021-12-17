@@ -203,12 +203,12 @@ export const pageQuery = graphql`query ($language: String!) {
   locales: allLocale(filter: {language: {eq: $language}}) {
     ...GetTranslations
   }
-  desktopImage: file(relativePath: {eq: "images/team/banner.jpg"}) {
+  desktopImage: file(relativePath: {eq: "images/team/banner2.jpg"}) {
     childImageSharp {
       gatsbyImageData(quality: 100, layout: FULL_WIDTH)
     }
   }
-  mobileImage: file(relativePath: {eq: "images/team/banner-mobile.jpg"}) {
+  mobileImage: file(relativePath: {eq: "images/team/banner2.jpg"}) {
     childImageSharp {
       gatsbyImageData(quality: 100, layout: FULL_WIDTH)
     }
