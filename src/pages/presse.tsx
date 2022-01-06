@@ -45,8 +45,8 @@ class PressePage extends React.Component<Props, any> {
                                     <h2><Trans>Presse</Trans></h2>
                                     <p>
                                         <Trans>Möchtest du mehr über unsere ehrenamtliche Arbeit erfahren? Bist du Medienschaffender und möchtest über uns berichten, brauchst Hintergrundinformationen oder hast einen Projektvorschlag?
-                                        Hier findest du Kontaktmöglichkeiten, Ansprechpartner, Pressemitteilungen sowie weitere Pressematerialien wie Logos und Fotos.
-                                                </Trans>
+                                            Hier findest du Kontaktmöglichkeiten, Ansprechpartner, Pressemitteilungen sowie weitere Pressematerialien wie Logos und Fotos.
+                                        </Trans>
                                     </p>
                                     <br />
                                     <a href="https://www.dropbox.com/sh/hnpshh4sw3x30dq/AACy2I-sBYeIIZi4xv5huEEya?dl=0" target="_blank">
@@ -107,7 +107,7 @@ class PressePage extends React.Component<Props, any> {
                                 </section>
                                 <section>
                                     <h2><Trans>WeWater in den Medien</Trans></h2>
-                                    <p dangerouslySetInnerHTML={{ __html: pageData }}></p>
+                                    <div dangerouslySetInnerHTML={{ __html: pageData }}></div>
                                 </section>
                             </GridColumn>
                         </Grid>
@@ -160,7 +160,7 @@ export const pageQuery = graphql`query ($language: String!) {
     }
   }
   pageContent: allWpPage(
-    filter: {title: {in: ["Pressespiegel – WeWater in den Medien", "Press – WeWater in Media"]}, language: {slug: {eq: $language}}}
+    filter: {title: {in: ["Pressespiegel – WeWater in den Medien", "Press – WeWater in Media", "Revue de presse – WeWater dans les médias"]}, language: {slug: {eq: $language}}}
   ) {
     edges {
       node {

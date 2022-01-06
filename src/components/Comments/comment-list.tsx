@@ -57,7 +57,7 @@ class CommentList extends React.Component<any, any> {
                                             </div>
                                             <p className="comment-date">{edge.node.date}</p>
                                             <div className="comment-content">
-                                                <p dangerouslySetInnerHTML={{ __html: edge.node.content }}></p>
+                                                <div dangerouslySetInnerHTML={{ __html: edge.node.content }}></div>
                                             </div>
                                         </div>
                                     </div>

@@ -18,6 +18,7 @@ import './spenden.less';
 
 interface Props {
     t: any;
+    language: any;
     navigate: any;
     data: {
         mobileImage: any;
@@ -31,7 +32,7 @@ class SpendenPage extends React.Component<Props, any> {
     }
 
     render() {
-        const { t, data, navigate } = this.props;
+        const { t, data, navigate, language } = this.props;
 
         const headerImage = withArtDirection(getImage(data.mobileImage), [
             {
@@ -44,7 +45,7 @@ class SpendenPage extends React.Component<Props, any> {
         return (
             <Layout>
                 <SEO title={t('SpendenSEOTitle')} description={t('SpendenSEODescription')} />
-                <HeaderOverlayFlexend content={<OverlayContent t={t} navigate={navigate} inverted={true} />} color={backgroundColor} darken={false} inverted={false} sources={headerImage} width={16} />
+                <HeaderOverlayFlexend content={<OverlayContent t={t} navigate={navigate} inverted={true} language={language} />} color={backgroundColor} darken={false} inverted={false} sources={headerImage} width={16} />
                 <div className="global-header-padding">
                     <SpendenWidget fullMode={true} hideForm={false}></SpendenWidget>
                 </div>
@@ -59,7 +60,7 @@ class OverlayContent extends React.Component<any, any> {
     }
 
     render() {
-        const { inverted, t, navigate } = this.props;
+        const { inverted, t, navigate, language } = this.props;
 
         return (
             <div>
@@ -75,6 +76,21 @@ class OverlayContent extends React.Component<any, any> {
                         <Button size="large" primary inverted className="rounded" onClick={() => navigate('/spenden/monatlich')}>
                             <Icon icon={tintIcon} style={{ opacity: '1', margin: '0em 0.42857143em 0em -0.21428571em' }} />
                             <Trans>Monatlich Spenden</Trans>
+                        </Button>
+                        <div className="spenden-banner-payment-logos">
+                            <svg xmlns="http://www.w3.org/2000/svg" focusable="false" width="0.75em" height="1em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 384 512">
+                                <path d="M111.4 295.9c-3.5 19.2-17.4 108.7-21.5 134c-.3 1.8-1 2.5-3 2.5H12.3c-7.6 0-13.1-6.6-12.1-13.9L58.8 46.6c1.5-9.6 10.1-16.9 20-16.9c152.3 0 165.1-3.7 204 11.4c60.1 23.3 65.6 79.5 44 140.3c-21.5 62.6-72.5 89.5-140.1 90.3c-43.4.7-69.5-7-75.3 24.2zM357.1 152c-1.8-1.3-2.5-1.8-3 1.3c-2 11.4-5.1 22.5-8.8 33.6c-39.9 113.8-150.5 103.9-204.5 103.9c-6.1 0-10.1 3.3-10.9 9.4c-22.6 140.4-27.1 169.7-27.1 169.7c-1 7.1 3.5 12.9 10.6 12.9h63.5c8.6 0 15.7-6.3 17.4-14.9c.7-5.4-1.1 6.1 14.4-91.3c4.6-22 14.3-19.7 29.3-19.7c71 0 126.4-28.8 142.9-112.3c6.5-34.8 4.6-71.4-23.8-92.6z" fill="currentColor"></path>
+                            </svg>
+                            <Icon icon={creditCard} style={{ opacity: '1' }} />
+                            <Icon icon={universityIcon} style={{ opacity: '1' }} />
+                        </div>
+                    </div>
+
+                    <div className="spenden-banner-box rounded shadow">
+                        <h3><Trans>Du verschenkst eine individuelle Wasserspende</Trans></h3>
+                        <Button size="large" primary inverted className="rounded" onClick={() => navigate(getWasserspendeLinkByAmount(50, language))}>
+                            <Icon icon={tintIcon} style={{ opacity: '1', margin: '0em 0.42857143em 0em -0.21428571em' }} />
+                            <Trans>Spende verschenken</Trans>
                         </Button>
                         <div className="spenden-banner-payment-logos">
                             <svg xmlns="http://www.w3.org/2000/svg" focusable="false" width="0.75em" height="1em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 384 512">
@@ -103,6 +119,10 @@ class OverlayContent extends React.Component<any, any> {
             </div >
         );
     }
+}
+
+const getWasserspendeLinkByAmount = (amount: number, language: string) => {
+    return '/shop/wasserspende-ueber-' + amount + '-euro-' + language
 }
 export const pageQuery = graphql`query ($language: String!) {
   locales: allLocale(filter: {language: {eq: $language}}) {

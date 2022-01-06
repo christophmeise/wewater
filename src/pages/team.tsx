@@ -1,7 +1,6 @@
 // i18next-extract-mark-ns-start page_team
 import { graphql } from 'gatsby';
 import { GatsbyImage, getImage, withArtDirection } from "gatsby-plugin-image";
-import { Trans } from 'gatsby-plugin-react-i18next';
 import React from 'react';
 import { Container, Header, Icon } from 'semantic-ui-react';
 import HeaderOverlay from '../components/HeaderOverlay/header-overlay';
@@ -50,9 +49,38 @@ class TeamPage extends React.Component<Props, any> {
         return (
             <Layout>
                 <SEO title={t('TeamSEOTitle')} description={t('TeamSEODescription')} />
-                <HeaderOverlay content={<OverlayContent t={t} inverted={true} />} darken={true} inverted={false} sources={headerImage} width={16} />
+                <div className="responsive-desktop-container">
+                    <HeaderOverlay content={<OverlayContent t={t} inverted={true} />} darken={false} inverted={false} sources={headerImage} width={16} />
+                </div>
                 <Container>
                     <div className="main-content-sections">
+                        <div className="responsive-mobile-container">
+                            <section className="global-header-padding">
+                                <div className="plain-header">
+                                    <div className="plain-header-container">
+                                        <div className="responsive-desktop-container plain-header-container-desktop">
+                                            <div className="plain-header-grid">
+                                                <div data-sal="slide-down" data-sal-delay="0" data-sal-duration="300" data-sal-easing="ease">
+                                                    {HeaderContent(t)}
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div className="responsive-mobile-container plain-header-container-mobile">
+                                            <div className="plain-header-grid">
+                                                <div data-sal="slide-down" data-sal-delay="0" data-sal-duration="300" data-sal-easing="ease">
+                                                    {HeaderContent(t)}
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <GatsbyImage
+                                    alt="Team overview picture"
+                                    image={data.mobileImage.childImageSharp.gatsbyImageData}
+                                    className="img-fluid rounded shadow" />
+                            </section>
+                        </div>
+
                         <section id="team-grid">
                             {teamData
                                 .filter((post) => post.node.title.length > 0)
@@ -164,19 +192,20 @@ class TeamPage extends React.Component<Props, any> {
                                     );
                                 })}
                         </section>
-                        <section className="global-header-padding">
-                            <GatsbyImage
-                                alt="Team overview picture"
-                                image={data.teamImage.childImageSharp.gatsbyImageData}
-                                className="img-fluid rounded shadow" />
-                            <p style={{ marginTop: '1rem', width: '80%', textAlign: 'center', marginLeft: 'auto', marginRight: 'auto' }}><Trans>Das WeWater-Team bei einem Meeting prä-Corona. Von links nach rechts: Thilo Kunz, Hannes Schwessinger, Josi Lins und Mina Schmidt. Foto: Steven Hille</Trans></p>
-                        </section>
                     </div>
                 </Container>
             </Layout>
         );
     }
 }
+
+const HeaderContent = (t) => {
+    return (
+        <div>
+            <h1 className="header-overlay-headline">{t('page_team:headline')}</h1>
+        </div>
+    );
+};
 
 class OverlayContent extends React.Component<any, any> {
     constructor(props: Props) {
@@ -209,11 +238,6 @@ export const pageQuery = graphql`query ($language: String!) {
     }
   }
   mobileImage: file(relativePath: {eq: "images/team/banner2.jpg"}) {
-    childImageSharp {
-      gatsbyImageData(quality: 100, layout: FULL_WIDTH)
-    }
-  }
-  teamImage: file(relativePath: {eq: "images/team/team.JPG"}) {
     childImageSharp {
       gatsbyImageData(quality: 100, layout: FULL_WIDTH)
     }

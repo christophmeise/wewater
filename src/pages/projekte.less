@@ -32,8 +32,8 @@
     flex-direction: row;
     align-items   : center;
     margin-bottom : 0;
-    margin-left   : 0rem;
-    margin-right  : 0.5rem;
+    margin-left   : 0;
+    margin-right  : 0;
     user-select   : none;
     z-index       : 10;
     border-radius : 30px;
@@ -72,10 +72,13 @@
     display        : flex;
     flex-direction : row;
     justify-content: flex-start;
+    flex-wrap      : wrap;
     z-index        : 10;
     margin-top     : 15px;
     margin-bottom  : 15px;
-    margin-right   : 0.75rem;
+    margin-right   : 0.5rem;
+    row-gap        : 0.5rem;
+    column-gap     : 0.5rem;
 }
 
 @media @mobile {

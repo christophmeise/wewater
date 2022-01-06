@@ -20,7 +20,8 @@ const HeaderOverlayBackground = ({ sources, color, inverted, content, darken = f
                 <div className="header-overlay-image-wrapper">
                     <GatsbyImage
                         image={sources}
-                        className={`header-overlay-center-cropped ${darken && 'dark-overlay-blog'}`}
+                        className={`responsive-desktop-container header-overlay-center-cropped ${darken && 'dark-overlay-blog'}`}
+                        backgroundColor={color}
                         alt="Shop Hero Image"
                         loading="eager"
                     >

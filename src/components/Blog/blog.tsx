@@ -16,7 +16,7 @@ const SectionBlog = ({ slidesPerView, posts }) => {
     SwiperCore.use([Pagination, Autoplay]);
 
     return (
-        <section className="bg-secondary main-section">
+        <section className="bg-secondary main-section-no-margin">
             <Container>
                 <Header
                     data-sal="slide-up"

@@ -110,8 +110,10 @@ class ShopArticleTemplate extends React.Component<any, any> {
                     <AddToCartButton product={shopArticle} variationId={this.state.variationId} />
                     : <strong className="sold-out-text"><Trans>Aktuell leider ausverkauft!</Trans></strong>
                   }
-                  <p dangerouslySetInnerHTML={{ __html: shopArticle.description }}>
-                  </p>
+                  {
+                    shopArticle &&
+                    <div dangerouslySetInnerHTML={{ __html: shopArticle.description }}></div>
+                  }
                 </GridColumn>
               </Grid>
 

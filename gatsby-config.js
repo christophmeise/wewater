@@ -230,7 +230,7 @@ module.exports = {
         background_color: `#FFFFFF`,
         theme_color: `#3cb9eb`,
         display: `minimal-ui`,
-        icon: `static/maskable_icon.png`, // This path is relative to the root of the site.
+        icon: `static/maskable_icon_x192.png`, // This path is relative to the root of the site.
         cache_busting_mode: 'none',
         icon_options: {
           // For all the options available,

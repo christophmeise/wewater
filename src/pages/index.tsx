@@ -6,12 +6,14 @@ import React from 'react';
 import SectionBlog from '../components/Blog/blog';
 import SectionFiltersysteme from '../components/Filtersysteme/filtersysteme';
 import HeaderOverlay from '../components/HeaderOverlay/header-overlay';
+import HeaderOverlayBackground from '../components/HeaderOverlay/header-overlay-background';
 import Innovation from '../components/Innovation/innovation';
 import Layout from '../components/Layout/Layout';
 import LiterCounter from '../components/LiterCounter/LiterCounter';
 import MobileLandingHero from '../components/MobileLandingHero/MobileLandingHero';
 import SectionProjekte from '../components/Projekte/projekte';
 import SEO from '../components/seo';
+import ShopWaterDonation from '../components/Shop/shop-water-donation';
 import SpendenWidget from '../components/SpendenWidget/spenden-widget';
 import { useTranslationHOC } from '../components/useTranslationHOC/useTranslationHOC';
 import Video from '../components/Video/video';
@@ -23,6 +25,8 @@ interface Props {
   data: {
     mobileImage: any;
     desktopImage: any;
+    shopDonationMobileImage: any;
+    shopDonationDesktopImage: any;
     blogposts: any;
     projects: any;
   };
@@ -92,6 +96,13 @@ class Index extends React.Component<Props, State> {
     let posts = data.blogposts?.edges;
     let projekte = data.projects?.edges;
 
+    const headerImage = withArtDirection(getImage(data.shopDonationMobileImage), [
+      {
+        media: "(min-width: 768px)",
+        image: getImage(data.shopDonationDesktopImage),
+      },
+    ])
+    const backgroundColor = '#7897B5';
 
     return (
       <Layout>
@@ -116,6 +127,7 @@ class Index extends React.Component<Props, State> {
           <SectionFiltersysteme></SectionFiltersysteme>
           <SpendenWidget fullMode={false} hideForm={isMobile}></SpendenWidget>
           <SectionBlog slidesPerView={slidesPerView} posts={posts}></SectionBlog>
+          <HeaderOverlayBackground content={<ShopWaterDonation t={t} inverted={true} language={language} />} color={backgroundColor} darken={false} inverted={false} sources={headerImage} width={8} floatRight={true} />
           <SectionProjekte projekte={projekte}></SectionProjekte>
         </div>
       </Layout>
@@ -152,6 +164,16 @@ export const pageQuery = graphql`query ($language: String!) {
   desktopImage: file(relativePath: {eq: "images/main/new.jpg"}) {
     childImageSharp {
       gatsbyImageData(quality: 100, layout: FULL_WIDTH, placeholder: BLURRED, formats: [AUTO, WEBP, AVIF])
+    }
+  }
+  shopDonationMobileImage: file(relativePath: {eq: "images/shop/banner1.png"}) {
+    childImageSharp {
+      gatsbyImageData(quality: 100, layout: FULL_WIDTH)
+    }
+  }
+  shopDonationDesktopImage: file(relativePath: {eq: "images/shop/banner1.png"}) {
+    childImageSharp {
+      gatsbyImageData(quality: 100, layout: FULL_WIDTH)
     }
   }
   blogposts: allWpPost(sort: {fields: date, order: DESC}, filter: {language: {slug: {eq: $language}}}) {
