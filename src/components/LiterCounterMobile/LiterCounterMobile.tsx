@@ -7,9 +7,9 @@ export default class LiterCounterMobile extends PureComponent<any, any> {
 
     constructor(props: any) {
         super(props);
-        const timeDiff = new Date().getTime() - new Date('2019-03-01').getTime();
+        const timeDiff = new Date().getTime() - new Date('2021-12-22').getTime() + 88790842706;
         const minutes = timeDiff / 1000 / 60;
-        const liter = minutes * 11.395;
+        const liter = minutes * 15.4;
         this.state = {
             liter: liter
         }
