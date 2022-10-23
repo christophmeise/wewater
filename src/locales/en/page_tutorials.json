@@ -8,5 +8,10 @@
   "TutorialsSEOTitle": "Tutorials - WeWater.org",
   "Um die Installation, Inbetriebnahme, Wartung und Desinfektion des AQQAcube zu erklären, haben wir fünf Videos produziert.": "We produced five videos to explain the installation, operation, maintenance and disinfection of the AQQAcube.",
   "Vorstellung AQQAcube": "Presentation AQQAcube",
-  "Wartung AQQAcube": "Maintenance AQQAcube"
+  "Wartung AQQAcube": "Maintenance AQQAcube",
+  "Vorstellung AQQAcube VideoSrc": "https://www.youtube.com/embed/nwO_-ws6jI4",
+  "Installation AQQAcube VideoSrc": "https://www.youtube.com/embed/vPSpFbZK7UU",
+  "Inbetriebnahme AQQAcube VideoSrc": "https://www.youtube.com/embed/ulR2C0G4Itk",
+  "Wartung AQQAcube VideoSrc": "https://www.youtube.com/embed/Vn_Cqajxy9c",
+  "Desinfektion AQQAcube VideoSrc": "https://www.youtube.com/embed/Q7i4l1sQ3bg"
 }

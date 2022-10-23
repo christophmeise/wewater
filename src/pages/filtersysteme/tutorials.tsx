@@ -35,13 +35,13 @@ class TutorialsPage extends React.Component<Props, any> {
                                         <GridColumn>
                                             <h5><Trans>Vorstellung AQQAcube</Trans></h5>
                                             <div className="yt-iframe-wrapper">
-                                                <iframe loading="lazy" src="https://www.youtube.com/embed/YhAQGvI53-0" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
+                                                <iframe loading="lazy" src={t('Vorstellung AQQAcube VideoSrc')} title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
                                             </div>
                                         </GridColumn>
                                         <GridColumn>
                                             <h5><Trans>Installation AQQAcube</Trans></h5>
                                             <div className="yt-iframe-wrapper">
-                                                <iframe loading="lazy" src="https://www.youtube.com/embed/63zYRLNKUQQ" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
+                                                <iframe loading="lazy" src={t('Installation AQQAcube VideoSrc')} title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
                                             </div>
                                         </GridColumn>
                                     </GridRow>
@@ -49,14 +49,14 @@ class TutorialsPage extends React.Component<Props, any> {
                                         <GridColumn>
                                             <h5><Trans>Inbetriebnahme AQQAcube</Trans></h5>
                                             <div className="yt-iframe-wrapper">
-                                                <iframe loading="lazy" src="https://www.youtube.com/embed/Bk2HdfRUCIo" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
+                                                <iframe loading="lazy" src={t('Inbetriebnahme AQQAcube VideoSrc')} title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
                                             </div>
                                         </GridColumn>
                                         <GridColumn>
                                             <h5><Trans>Wartung AQQAcube</Trans></h5>
                                             <div className="yt-iframe-wrapper">
 
-                                                <iframe loading="lazy" src="https://www.youtube.com/embed/20he8UjmFZs" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
+                                                <iframe loading="lazy" src={t('Wartung AQQAcube VideoSrc')} title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
                                             </div>
                                         </GridColumn>
                                     </GridRow>
@@ -64,7 +64,7 @@ class TutorialsPage extends React.Component<Props, any> {
                                         <GridColumn>
                                             <h5><Trans>Desinfektion AQQAcube</Trans></h5>
                                             <div className="yt-iframe-wrapper">
-                                                <iframe loading="lazy" src="https://www.youtube.com/embed/QgTG1h1hZMA" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
+                                                <iframe loading="lazy" src={t('Desinfektion AQQAcube VideoSrc')} title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
                                             </div>
                                         </GridColumn>
                                     </GridRow>
