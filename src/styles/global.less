@@ -1,77 +1,89 @@
-@import 'lib.less';
-@import 'swiper/components/navigation/navigation.less';
-@import 'swiper/components/pagination/pagination.less';
-@import 'swiper/swiper.less';
+@import "lib.less";
+@import "swiper/less/navigation";
+@import "swiper/less/pagination";
+@import "swiper/less";
 
 /* poppins-300 - latin */
 @font-face {
-  font-family: 'Poppins';
-  font-style : normal;
+  font-family: "Poppins";
+  font-style: normal;
   font-weight: 300;
-  src        : local(''),
-    url('../../static/fonts/Poppins/poppins-v15-latin-300.woff2') format('woff2'),
+  src: local(""),
+    url("../../static/fonts/Poppins/poppins-v15-latin-300.woff2")
+      format("woff2"),
     /* Chrome 26+, Opera 23+, Firefox 39+ */
-    url('../../static/fonts/Poppins/poppins-v15-latin-300.woff') format('woff');
+      url("../../static/fonts/Poppins/poppins-v15-latin-300.woff")
+      format("woff");
   /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
 }
 
 /* poppins-regular - latin */
 @font-face {
-  font-family: 'Poppins';
-  font-style : normal;
+  font-family: "Poppins";
+  font-style: normal;
   font-weight: 400;
-  src        : local(''),
-    url('../../static/fonts/Poppins/poppins-v15-latin-regular.woff2') format('woff2'),
+  src: local(""),
+    url("../../static/fonts/Poppins/poppins-v15-latin-regular.woff2")
+      format("woff2"),
     /* Chrome 26+, Opera 23+, Firefox 39+ */
-    url('../../static/fonts/Poppins/poppins-v15-latin-regular.woff') format('woff');
+      url("../../static/fonts/Poppins/poppins-v15-latin-regular.woff")
+      format("woff");
   /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
 }
 
 /* poppins-500 - latin */
 @font-face {
-  font-family: 'Poppins';
-  font-style : normal;
+  font-family: "Poppins";
+  font-style: normal;
   font-weight: 500;
-  src        : local(''),
-    url('../../static/fonts/Poppins/poppins-v15-latin-500.woff2') format('woff2'),
+  src: local(""),
+    url("../../static/fonts/Poppins/poppins-v15-latin-500.woff2")
+      format("woff2"),
     /* Chrome 26+, Opera 23+, Firefox 39+ */
-    url('../../static/fonts/Poppins/poppins-v15-latin-500.woff') format('woff');
+      url("../../static/fonts/Poppins/poppins-v15-latin-500.woff")
+      format("woff");
   /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
 }
 
 /* poppins-600 - latin */
 @font-face {
-  font-family: 'Poppins';
-  font-style : normal;
+  font-family: "Poppins";
+  font-style: normal;
   font-weight: 600;
-  src        : local(''),
-    url('../../static/fonts/Poppins/poppins-v15-latin-600.woff2') format('woff2'),
+  src: local(""),
+    url("../../static/fonts/Poppins/poppins-v15-latin-600.woff2")
+      format("woff2"),
     /* Chrome 26+, Opera 23+, Firefox 39+ */
-    url('../../static/fonts/Poppins/poppins-v15-latin-600.woff') format('woff');
+      url("../../static/fonts/Poppins/poppins-v15-latin-600.woff")
+      format("woff");
   /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
 }
 
 /* poppins-700 - latin */
 @font-face {
-  font-family: 'Poppins';
-  font-style : normal;
+  font-family: "Poppins";
+  font-style: normal;
   font-weight: 700;
-  src        : local(''),
-    url('../../static/fonts/Poppins/poppins-v15-latin-700.woff2') format('woff2'),
+  src: local(""),
+    url("../../static/fonts/Poppins/poppins-v15-latin-700.woff2")
+      format("woff2"),
     /* Chrome 26+, Opera 23+, Firefox 39+ */
-    url('../../static/fonts/Poppins/poppins-v15-latin-700.woff') format('woff');
+      url("../../static/fonts/Poppins/poppins-v15-latin-700.woff")
+      format("woff");
   /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
 }
 
 /* poppins-800 - latin */
 @font-face {
-  font-family: 'Poppins';
-  font-style : normal;
+  font-family: "Poppins";
+  font-style: normal;
   font-weight: 800;
-  src        : local(''),
-    url('../../static/fonts/Poppins/poppins-v15-latin-800.woff2') format('woff2'),
+  src: local(""),
+    url("../../static/fonts/Poppins/poppins-v15-latin-800.woff2")
+      format("woff2"),
     /* Chrome 26+, Opera 23+, Firefox 39+ */
-    url('../../static/fonts/Poppins/poppins-v15-latin-800.woff') format('woff');
+      url("../../static/fonts/Poppins/poppins-v15-latin-800.woff")
+      format("woff");
   /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
 }
 
@@ -86,7 +98,7 @@
 @pageBackgroundSecondary      : #F6F9FC;
 */
 
-@headline-margin : 14px;
+@headline-margin: 14px;
 
 html,
 body,
@@ -100,7 +112,7 @@ p,
 ul,
 .ui.button,
 li {
-  font-family: 'Poppins', 'Lato', 'Helvetica Neue', Arial, Helvetica, sans-serif !important;
+  font-family: "Poppins", "Lato", "Helvetica Neue", Arial, Helvetica, sans-serif !important;
   white-space: pre-line;
 }
 
@@ -110,16 +122,16 @@ html {
 
 html,
 body {
-  margin     : 0;
-  padding    : 0;
-  font-style : normal;
+  margin: 0;
+  padding: 0;
+  font-style: normal;
   font-weight: 400;
 }
 
 body {
-  display                   : block;
-  background                : @pageBackground;
-  overflow-y                : scroll;
+  display: block;
+  background: @pageBackground;
+  overflow-y: scroll;
   -webkit-overflow-scrolling: touch;
 }
 
@@ -136,14 +148,14 @@ h3&.global-subtitle {
 }
 
 h2&.global-headline {
-  margin-top   : 0rem;
+  margin-top: 0rem;
   margin-bottom: 28px !important;
 }
 
 @media @mobile {
   h2&.global-headline {
-    word-break : break-word;
-    font-size  : 32px;
+    word-break: break-word;
+    font-size: 32px;
     line-height: 40px;
   }
 }
@@ -152,7 +164,6 @@ h2&.global-headline {
   font-weight: 600 !important;
   text-shadow: 2px 2px 2px fade(@primaryFontColorDark, 25) !important;
 }
-
 
 @media @mobile {
   .global-header-padding {
@@ -168,8 +179,8 @@ h2&.global-headline {
 
 @media only screen and (min-width: 1200px) {
   .ui.container {
-    width       : 1200px !important;
-    margin-left : auto !important;
+    width: 1200px !important;
+    margin-left: auto !important;
     margin-right: auto !important;
   }
 }
@@ -194,7 +205,6 @@ h2&.global-headline {
   }
 }
 
-
 @media @notMobile {
   .responsive-desktop-container {
     display: block;
@@ -217,9 +227,6 @@ h2&.global-headline {
   }
 }
 
-
-
-
 .text-shadow {
   text-shadow: 2px 2px 2px fade(@primaryFontColorDark, 10);
 }
@@ -229,7 +236,8 @@ h2&.global-headline {
 }
 
 .shadow {
-  box-shadow: 0 5px 12px 0 fade(@primaryFontColorDark, 15), 0 10px 30px 0 fade(@primaryFontColorDark, 8.5) !important;
+  box-shadow: 0 5px 12px 0 fade(@primaryFontColorDark, 15),
+    0 10px 30px 0 fade(@primaryFontColorDark, 8.5) !important;
 }
 
 .shadow-lg {
@@ -268,13 +276,13 @@ h2&.global-headline {
 .dark-overlay::after,
 .dark-overlay::before {
   position: absolute;
-  top     : 0;
-  left    : 0;
-  width   : 100%;
-  height  : 100%;
-  content : ' ';
-  filter  : brightness(0.7);
-  z-index : 1 !important;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  content: " ";
+  filter: brightness(0.7);
+  z-index: 1 !important;
 }
 
 .hover-animate {
@@ -284,27 +292,27 @@ h2&.global-headline {
 .hover-animate:hover,
 .hover-animate:focus {
   -webkit-transform: translate3d(0, -2px, 5px);
-  transform        : translate3d(0, -2px, 5px);
+  transform: translate3d(0, -2px, 5px);
 }
 
 .ui.inverted.primary.button {
-  color     : @primaryFontColorBright  !important;
-  box-shadow: 0px 0px 0px 2px #FFFFFF inset !important;
+  color: @primaryFontColorBright !important;
+  box-shadow: 0px 0px 0px 2px #ffffff inset !important;
 }
 
 .ui.inverted.primary.button:hover {
   background-color: @pageBackgroundSecondary;
-  color           : @primaryFontColorDark  !important;
+  color: @primaryFontColorDark !important;
 }
 
 .main-section-no-margin {
   margin-bottom: 0px;
-  padding      : 3rem 0rem;
+  padding: 3rem 0rem;
 }
 
 .main-section {
   margin-bottom: 80px;
-  padding      : 3rem 0rem;
+  padding: 3rem 0rem;
 }
 
 @media @mobile {
@@ -314,9 +322,9 @@ h2&.global-headline {
 }
 
 h6 {
-  font-size    : 14px;
+  font-size: 14px;
   margin-bottom: 0.5rem;
-  margin-top   : 0rem;
+  margin-top: 0rem;
 }
 
 .main-button-container {
@@ -328,15 +336,15 @@ h6 {
 }
 
 .insta-embed {
-  background   : #FFF;
-  border       : 0;
+  background: #fff;
+  border: 0;
   border-radius: 3px;
-  box-shadow   : 0 0 1px 0 rgba(0, 0, 0, 0.5), 0 1px 10px 0 rgba(0, 0, 0, 0.15);
-  margin       : 1px;
-  max-width    : 540px;
-  min-width    : 326px;
-  padding      : 0;
-  width        : 99.375%;
-  width        : -webkit-calc(100% - 2px);
-  width        : calc(100% - 2px);
+  box-shadow: 0 0 1px 0 rgba(0, 0, 0, 0.5), 0 1px 10px 0 rgba(0, 0, 0, 0.15);
+  margin: 1px;
+  max-width: 540px;
+  min-width: 326px;
+  padding: 0;
+  width: 99.375%;
+  width: -webkit-calc(100% - 2px);
+  width: calc(100% - 2px);
 }

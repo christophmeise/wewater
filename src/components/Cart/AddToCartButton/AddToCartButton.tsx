@@ -1,6 +1,6 @@
 import { useMutation, useQuery } from "@apollo/client";
 import Link from "gatsby-link";
-import { Trans } from 'gatsby-plugin-react-i18next';
+import { Trans } from "gatsby-plugin-react-i18next";
 import React, { useContext, useState } from "react";
 import { Button } from "semantic-ui-react";
 import { v4 } from "uuid";
@@ -15,7 +15,7 @@ const AddToCartButton = (props) => {
 
   const productQtyInput: any = {
     clientMutationId: v4(), // Generate a unique id.
-    productId: product?.databaseId
+    productId: product?.databaseId,
   };
   if (variationId != null) {
     productQtyInput.variationId = variationId;
@@ -42,7 +42,7 @@ const AddToCartButton = (props) => {
       if (updatedCart?.products?.length > 0) {
         setShowViewCart(true);
       }
-    }
+    },
   });
 
   // Add to Cart Mutation.
@@ -77,13 +77,24 @@ const AddToCartButton = (props) => {
 
   return (
     <div className="add-to-card-wrapper">
-      <Button primary disabled={product.variations?.nodes != null && !variationId} className={`shadow rounded hover-animate ${addToCartLoading && 'loading'}`} onClick={handleAddToCartClick}>
-        <Button.Content><Trans>In den Warenkorb</Trans></Button.Content>
+      <Button
+        primary
+        disabled={product.variations?.nodes != null && !variationId}
+        className={`shadow rounded hover-animate ${
+          addToCartLoading && "loading"
+        }`}
+        onClick={handleAddToCartClick}
+      >
+        <Button.Content>
+          <Trans>In den Warenkorb</Trans>
+        </Button.Content>
       </Button>
       {showViewCart && (
         <Link to="/warenkorb">
           <Button secondary className="shadow rounded hover-animate">
-            <Button.Content><Trans>Zum Warenkorb</Trans></Button.Content>
+            <Button.Content>
+              <Trans>Zum Warenkorb</Trans>
+            </Button.Content>
           </Button>
         </Link>
       )}

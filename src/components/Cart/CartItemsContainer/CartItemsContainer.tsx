@@ -1,6 +1,6 @@
 import { useMutation, useQuery } from "@apollo/client";
-import Link from "gatsby-link";
-import { Trans } from 'gatsby-plugin-react-i18next';
+import { Link } from "gatsby-link";
+import { Trans } from "gatsby-plugin-react-i18next";
 import React, { useContext, useState } from "react";
 import { Button, Container, Grid, GridColumn } from "semantic-ui-react";
 import { v4 } from "uuid";
@@ -12,12 +12,12 @@ import { getFormattedCart, getUpdatedItems } from "../../../utils/functions";
 import { AppContext } from "../../context/AppContext";
 import CartItem from "../CartItem/CartItem";
 import CouponInput from "./CouponInput";
-import './style.less';
+import "./style.less";
 
 const CartItemsContainer = () => {
   const [cart, setCart]: any = useContext(AppContext);
   const [requestError, setRequestError] = useState(null);
-  const [couponCode, setCouponCode] = useState('');
+  const [couponCode, setCouponCode] = useState("");
 
   // Get Cart Data.
   const { data, refetch } = useQuery(GET_CART, {
@@ -133,7 +133,7 @@ const CartItemsContainer = () => {
       variables: {
         input: {
           clientMutationId: v4(),
-          code: coupon
+          code: coupon,
         },
       },
     });
@@ -143,8 +143,20 @@ const CartItemsContainer = () => {
     <div className="cart-items-container">
       {cart ? (
         <>
-          <Button primary basic compact size="small" onClick={(event) => handleClearCart(event)} disabled={clearCartProcessing} className={`shadow rounded hover-animate ${clearCartProcessing && 'loading'}`}>
-            <Button.Content><Trans>Warenkorb leeren</Trans></Button.Content>
+          <Button
+            primary
+            basic
+            compact
+            size="small"
+            onClick={(event) => handleClearCart(event)}
+            disabled={clearCartProcessing}
+            className={`shadow rounded hover-animate ${
+              clearCartProcessing && "loading"
+            }`}
+          >
+            <Button.Content>
+              <Trans>Warenkorb leeren</Trans>
+            </Button.Content>
           </Button>
           <Grid columns="2" stackable>
             <GridColumn width="10">
@@ -162,7 +174,10 @@ const CartItemsContainer = () => {
                   ))}
               </Grid>
               <div>
-                <CouponInput handleApplyCoupon={handleApplyCoupon} applyCouponProcessing={applyCouponProcessing} />
+                <CouponInput
+                  handleApplyCoupon={handleApplyCoupon}
+                  applyCouponProcessing={applyCouponProcessing}
+                />
               </div>
 
               {/* Display Errors if any */}
@@ -176,11 +191,15 @@ const CartItemsContainer = () => {
               )}
             </GridColumn>
             <GridColumn width="6">
-              <h3><Trans>Bestellungsübersicht</Trans></h3>
+              <h3>
+                <Trans>Bestellungsübersicht</Trans>
+              </h3>
 
               <div className="cart-checkout-overview">
                 <div className="cart-checkout-overview-row">
-                  <p><Trans>Artikel:</Trans></p>
+                  <p>
+                    <Trans>Artikel:</Trans>
+                  </p>
                   <p className="font-primary">
                     {"string" !== typeof cart.subtotal
                       ? cart.subtotal.toFixed(2)
@@ -188,37 +207,51 @@ const CartItemsContainer = () => {
                   </p>
                 </div>
                 <div className="cart-checkout-overview-row">
-                  <p><Trans>Verpackung & Versand</Trans></p>
+                  <p>
+                    <Trans>Verpackung & Versand</Trans>
+                  </p>
                   <p className="font-primary">
                     {"string" !== typeof cart?.shippingTotal
                       ? cart.shippingTotal?.toFixed(2)
                       : cart.shippingTotal}
                   </p>
                 </div>
-                {cart?.discountTotal != '€0,00' && (
+                {cart?.discountTotal != "€0,00" && (
                   <div className="cart-checkout-overview-row">
-                    <p><Trans>Coupons</Trans></p>
-                    <p className="font-primary">
-                      - {cart.discountTotal}
+                    <p>
+                      <Trans>Coupons</Trans>
                     </p>
+                    <p className="font-primary">- {cart.discountTotal}</p>
                   </div>
                 )}
               </div>
 
-
               <div className="cart-checkout-overview-row">
-                <h4><Trans>Gesamtbetrag</Trans></h4>
+                <h4>
+                  <Trans>Gesamtbetrag</Trans>
+                </h4>
                 <h4 className="font-primary">
                   {"string" !== typeof cart.totalProductsPrice
                     ? cart.totalProductsPrice.toFixed(2)
                     : cart.totalProductsPrice}
                 </h4>
               </div>
-              <p><Trans>Oben genannte Preise verstehen sich inklusive Mehrwertsteuer.</Trans></p>
+              <p>
+                <Trans>
+                  Oben genannte Preise verstehen sich inklusive Mehrwertsteuer.
+                </Trans>
+              </p>
               <div className="cart-checkout-overview-row-button">
                 <Link to="/checkout">
-                  <Button primary size="huge" className="shadow rounded hover-animate">
-                    <Button.Content> <Trans>Zur Kasse gehen</Trans></Button.Content>
+                  <Button
+                    primary
+                    size="huge"
+                    className="shadow rounded hover-animate"
+                  >
+                    <Button.Content>
+                      {" "}
+                      <Trans>Zur Kasse gehen</Trans>
+                    </Button.Content>
                   </Button>
                 </Link>
               </div>
@@ -227,10 +260,14 @@ const CartItemsContainer = () => {
         </>
       ) : (
         <Container>
-          <h2><Trans>Keine Produkte im Warenkorb</Trans></h2>
+          <h2>
+            <Trans>Keine Produkte im Warenkorb</Trans>
+          </h2>
           <Link to="/shop">
             <Button primary basic className="shadow rounded hover-animate">
-              <Button.Content><Trans>Zurück zum Shop</Trans></Button.Content>
+              <Button.Content>
+                <Trans>Zurück zum Shop</Trans>
+              </Button.Content>
             </Button>
           </Link>
         </Container>
