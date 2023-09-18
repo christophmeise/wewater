@@ -109,13 +109,6 @@ const config = {
     "gatsby-plugin-sitemap",
     "gatsby-plugin-sharp",
     "gatsby-transformer-sharp",
-    "gatsby-plugin-netlify",
-    /*     {
-          resolve: `gatsby-plugin-netlify`,
-          options: {
-            mergeLinkHeaders: false,
-          },
-        }, */
     // "gatsby-plugin-instagram-embed",
     /*     "gatsby-plugin-webpack-bundle-analyser-v2", */
     {
