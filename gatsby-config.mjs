@@ -23,6 +23,12 @@ const config = {
     {
       resolve: `gatsby-source-wordpress`,
       options: {
+        AllSettings: {
+          excludeFieldNames: ["generalSettingsEmail"],
+        },
+        GeneralSettings: {
+          excludeFieldNames: ["email"],
+        },
         url: "https://www.wewaterbackend.org/graphql",
         verbose: true,
         // url: process.env.WPGRAPHQL_URL || 'https://www.wewaterbackend.org/graphql',
