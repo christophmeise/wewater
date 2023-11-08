@@ -20,7 +20,7 @@ export async function createSchemaCustomization({ actions }) {
 
 export async function createPages({ graphql, actions }) {
   const { createPage } = actions;
-  console.error("Creating pages");
+  console.log("Creating pages");
   const blogPosts = await graphql(`
     {
       allWpPost(sort: { date: DESC }) {
@@ -39,7 +39,7 @@ export async function createPages({ graphql, actions }) {
   }
 
   blogPosts.data.allWpPost.edges.forEach(({ node }) => {
-    console.error(
+    console.log(
       "Creating pages allWpPost",
       node.slug,
       path.resolve(`./src/templates/blog-post.tsx`)
