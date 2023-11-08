@@ -37,9 +37,9 @@ const config = {
         schema: {
           //Prefixes all WP Types with "Wp" so "Post and allPost" become "WpPost and allWpPost".
           typePrefix: `Wp`,
-          requestConcurrency: 5, // currently set to undefined
-          previewRequestConcurrency: 2, // currently set to undefined
-          perPage: 30,
+          requestConcurrency: 50, // currently set to undefined
+          previewRequestConcurrency: 50, // currently set to undefined
+          perPage: 100,
           timeout: 60000,
         },
         type: {
@@ -54,14 +54,6 @@ const config = {
           BlockEditorPreview: {
             excludeFieldNames: [`databaseId`],
           },
-          Post: {
-            limit: 5000,
-            // process.env.NODE_ENV === `development`
-            //  ? // Lets just pull 50 posts in development to make it easy on ourselves (aka. faster).
-            //  50
-            //  : // and we don't actually need more than 5000 in production for this particular site
-            //  5000,
-          },
         },
         develop: {
           nodeUpdateInterval: 3000,
@@ -70,19 +62,15 @@ const config = {
         production: {
           hardCacheMediaFiles: false,
         },
-        debug: {
+        /*   debug: {
           graphql: {
             showQueryOnError: true,
             showQueryVarsOnError: true,
             copyQueryOnError: false,
             panicOnError: false,
-            // a critical error is a WPGraphQL query that returns an error and no response data. Currently WPGQL will error if we try to access private posts so if this is false it returns a lot of irrelevant errors.
             onlyReportCriticalErrors: false,
-            // copyNodeSourcingQueryAndExit: true,
-            // writeQueriesToDisk: true,
-            //printIntrospectionDiff: true,
           },
-        },
+        }, */
         excludeFieldNames: [`blocksJSON`, `saveContent`, `databaseId`],
       },
     },
