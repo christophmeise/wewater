@@ -26,10 +26,7 @@ export async function createPages({ graphql, actions }) {
       allWpPost(sort: { date: DESC }) {
         edges {
           node {
-            title
-            excerpt
             slug
-            date(formatString: "MM-DD-YYYY")
           }
         }
       }
@@ -61,30 +58,7 @@ export async function createPages({ graphql, actions }) {
       allWpProjekt(sort: { date: DESC }) {
         edges {
           node {
-            id
-            author {
-              node {
-                firstName
-                lastName
-              }
-            }
-            excerpt
-            title
-            date(formatString: "MMMM DD, YYYY", locale: "de")
-            uri
             slug
-            blocks {
-              name
-              saveContent
-              innerBlocks {
-                name
-                saveContent
-                innerBlocks {
-                  name
-                  saveContent
-                }
-              }
-            }
           }
         }
       }
