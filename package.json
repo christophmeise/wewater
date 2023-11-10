@@ -23,7 +23,6 @@
     "@apollo/client": "^3.8.3",
     "dompurify": "^3.0.5",
     "gatsby": "^5.12.4",
-    "gatsby-plugin-netlify": "^5.1.0",
     "gatsby-i18n": "^1.1.8",
     "gatsby-plugin-gdpr-cookies": "github:andrezimpel/gatsby-plugin-gdpr-cookies",
     "gatsby-plugin-google-analytics": "^5.12.0",
