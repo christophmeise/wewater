@@ -24,6 +24,7 @@
     "dompurify": "^3.0.5",
     "gatsby": "^5.12.4",
     "gatsby-i18n": "^1.1.8",
+    "gatsby-adapter-netlify": "^1.0.3",
     "gatsby-plugin-gdpr-cookies": "github:andrezimpel/gatsby-plugin-gdpr-cookies",
     "gatsby-plugin-google-analytics": "^5.12.0",
     "gatsby-plugin-image": "^3.12.0",

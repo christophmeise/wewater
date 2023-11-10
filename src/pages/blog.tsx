@@ -216,7 +216,7 @@ export const pageQuery = graphql`
       }
     }
     blogposts: allWpPost(
-      sort: { fields: date, order: DESC }
+      sort: { date: DESC }
       filter: { language: { slug: { eq: $language } } }
     ) {
       ...GetBlogposts
