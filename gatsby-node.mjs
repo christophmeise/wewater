@@ -20,7 +20,7 @@ export async function createSchemaCustomization({ actions }) {
 
 export async function createPages({ graphql, actions }) {
   const { createPage } = actions;
-  console.log("Creating pages");
+  /*   console.log("Creating pages"); */
   const blogPosts = await graphql(`
     {
       allWpPost(sort: { date: DESC }) {
@@ -38,15 +38,16 @@ export async function createPages({ graphql, actions }) {
     return;
   }
 
+  const blogPostTemplate = path.resolve(`./src/templates/blog-post.tsx`);
   blogPosts.data.allWpPost.edges.forEach(({ node }) => {
-    console.log(
+    /*     console.log(
       "Creating pages allWpPost",
       node.slug,
       path.resolve(`./src/templates/blog-post.tsx`)
-    );
+    ); */
     createPage({
       path: "blog/" + node.slug,
-      component: path.resolve(`./src/templates/blog-post.tsx`),
+      component: blogPostTemplate,
       context: {
         slug: node.slug,
       },
@@ -70,10 +71,11 @@ export async function createPages({ graphql, actions }) {
     return;
   }
 
+  const projectTemplate = path.resolve(`./src/templates/projekt-post.tsx`);
   projektPosts.data.allWpProjekt.edges.forEach(({ node }) => {
     createPage({
       path: "projekte/" + node.slug,
-      component: path.resolve(`./src/templates/projekt-post.tsx`),
+      component: projectTemplate,
       context: {
         slug: node.slug,
       },
