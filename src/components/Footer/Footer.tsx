@@ -90,9 +90,9 @@ const Footer = () => {
                       </Link>
                     </List.Item>
                     <List.Item>
-                      <Link to={"/shop"} language={language}>
+                      <a href="https://shop.wewater.org/">
                         <Trans>Hier kannst du unsere Wasserfilter kaufen</Trans>
-                      </Link>
+                      </a>
                     </List.Item>
                     <List.Item>
                       <Link to={"/spenden"} language={language}>
