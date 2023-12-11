@@ -1,7 +1,10 @@
 import { dirname } from "path";
 import { fileURLToPath } from "url";
-import pkg from "gatsby-adapter-netlify";
-const { adapter } = pkg;
+
+const require = createRequire(import.meta.url);
+
+const path = require("path");
+const adapter = require("gatsby-adapter-netlify");
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 
