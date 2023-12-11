@@ -1,5 +1,6 @@
 import { dirname } from "path";
 import { fileURLToPath } from "url";
+import { adapter } from "gatsby-adapter-netlify";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 
@@ -19,6 +20,9 @@ const config = {
     siteUrl: siteUrl,
     author: `Christoph Meise`,
   },
+  adapter: adapter({
+    excludeDatastoreFromEngineFunction: false,
+  }),
   plugins: [
     {
       resolve: `gatsby-source-wordpress`,
