@@ -141,7 +141,7 @@ class Index extends React.Component<Props, State> {
             slidesPerView={slidesPerView}
             posts={posts}
           ></SectionBlog>
-          {/*  <HeaderOverlayBackground
+          <HeaderOverlayBackground
             content={
               <ShopWaterDonation t={t} inverted={true} language={language} />
             }
@@ -151,7 +151,7 @@ class Index extends React.Component<Props, State> {
             sources={headerImage}
             width={8}
             floatRight={true}
-          /> */}
+          />
           <SectionProjekte projekte={projekte}></SectionProjekte>
         </div>
       </Layout>

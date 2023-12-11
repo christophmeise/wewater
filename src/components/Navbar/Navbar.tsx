@@ -142,13 +142,20 @@ class Navbar extends Component<NavbarProps, NavbarState> {
           active={location.pathname === "/blog"}
           onClick={navigate.bind(this, "/blog")}
         ></Menu.Item>
-        {/*  <Menu.Item
-          name="/shop"
-          content={t("Shop")}
-          link
-          active={location.pathname === "/shop"}
-          onClick={navigate.bind(this, "/shop")}
-        ></Menu.Item> */}
+
+        <a
+          href="https://shop.wewater.org/"
+          target="_blank"
+          rel="noopener"
+          style={{
+            color: "#0d0c22",
+          }}
+        >
+          <Menu.Item name="shop" link>
+            {t("Shop")}
+          </Menu.Item>
+        </a>
+
         {!mobile && (
           <Menu.Menu position="right">
             {/*             <Menu.Item

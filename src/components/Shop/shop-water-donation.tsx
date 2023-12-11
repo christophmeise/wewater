@@ -5,6 +5,7 @@ import React from "react";
 import { Trans } from "react-i18next";
 import { Button } from "semantic-ui-react";
 import "./shop-water-donation.less";
+import "./shop.less";
 
 export default class ShopWaterDonation extends React.Component<any, any> {
   constructor(props) {
@@ -99,7 +100,7 @@ export default class ShopWaterDonation extends React.Component<any, any> {
             200€
           </div>
         </div>
-        <Link to={getWasserspendeLinkByAmount(state.selected, language)}>
+        <a href={getWasserspendeLinkByAmount(state.selected)}>
           <Button primary size="large" basic inverted className="rounded">
             {t("Wasserspende in Euro", { count: state.selected })}
             {/* <Trans>Wasserspende für {state.selected.toString()}€ schenken</Trans> */}
@@ -111,12 +112,14 @@ export default class ShopWaterDonation extends React.Component<any, any> {
               }}
             />
           </Button>
-        </Link>
+        </a>
       </div>
     );
   }
 }
 
-const getWasserspendeLinkByAmount = (amount: number, language: string) => {
-  return "/shop/wasserspende-ueber-" + amount + "-euro-" + language;
+const getWasserspendeLinkByAmount = (amount: number) => {
+  return (
+    "https://shop.wewater.org/products/wasserspende-uber-" + amount + "-euro"
+  );
 };

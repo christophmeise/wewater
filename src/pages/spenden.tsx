@@ -154,10 +154,7 @@ const HeaderContent = (t, language) => {
           <h3>
             <Trans>Du verschenkst eine individuelle Wasserspende</Trans>
           </h3>
-          <a
-            href="mailto:hi@wewater.org?subject=Bestellung%20Wasserspende&body=Hallo%20zusammen%2C%0Aich%20habe%20auf%20eurer%20Website%20von%20der%20Wasserspende%20erfahren.%20Ich%20m%C3%B6chte%20gerne%20ein%20solche%20Wasserspende%20bestellen.%0AArt%3A%20Gedruckte%20Karte%20%2F%20PDF%20%28bitte%20nicht%20zutreffendes%20l%C3%B6schen%29%0ABetrag%3A%2010%E2%82%AC%2025%E2%82%AC%2050%E2%82%AC%20100%E2%82%AC%20200%E2%82%AC%20%20%28bitte%20nicht%20zutreffendes%20l%C3%B6schen%29%0ASchenkender%20ist%3A%0AEmpf%C3%A4nger%20ist%3A%0A%0AIch%20spende%20den%20Betrag%20an%20folgendes%20Bankkonto%3A%0AWeWater%20gUG%0ABank%20f%C3%BCr%20Sozialwirtschaft%0AIBAN%3A%20DE90%203702%200500%200001%206026%2001%0ABIC-%2FSWIFT%3A%20BFSWDE33XXX%0A%0AHerzlichen%20Dank%20und%20viele%20Gr%C3%BC%C3%9Fe%21"
-            rel="noopener noreferrer"
-          >
+          <a href="https://shop.wewater.org/" rel="noopener noreferrer">
             <Button size="large" primary className="rounded">
               <Icon
                 icon={tintIcon}
@@ -292,10 +289,8 @@ class OverlayContent extends React.Component<any, any> {
             <h3>
               <Trans>Du verschenkst eine individuelle Wasserspende</Trans>
             </h3>
-            <a
-              href="mailto:hi@wewater.org?subject=Bestellung%20Wasserspende&body=Hallo%20zusammen%2C%0Aich%20habe%20auf%20eurer%20Website%20von%20der%20Wasserspende%20erfahren.%20Ich%20m%C3%B6chte%20gerne%20ein%20solche%20Wasserspende%20bestellen.%0AArt%3A%20Gedruckte%20Karte%20%2F%20PDF%20%28bitte%20nicht%20zutreffendes%20l%C3%B6schen%29%0ABetrag%3A%2010%E2%82%AC%2025%E2%82%AC%2050%E2%82%AC%20100%E2%82%AC%20200%E2%82%AC%20%20%28bitte%20nicht%20zutreffendes%20l%C3%B6schen%29%0ASchenkender%20ist%3A%0AEmpf%C3%A4nger%20ist%3A%0A%0AIch%20spende%20den%20Betrag%20an%20folgendes%20Bankkonto%3A%0AWeWater%20gUG%0ABank%20f%C3%BCr%20Sozialwirtschaft%0AIBAN%3A%20DE90%203702%200500%200001%206026%2001%0ABIC-%2FSWIFT%3A%20BFSWDE33XXX%0A%0AHerzlichen%20Dank%20und%20viele%20Gr%C3%BC%C3%9Fe%21"
-              rel="noopener noreferrer"
-            >
+
+            <a href="https://shop.wewater.org/" rel="noopener noreferrer">
               <Button size="large" primary inverted className="rounded">
                 <Icon
                   icon={tintIcon}
