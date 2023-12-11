@@ -4,7 +4,7 @@ import { createRequire } from "module";
 const require = createRequire(import.meta.url);
 
 const path = require("path");
-const adapter = require("gatsby-adapter-netlify");
+const adapter = require("gatsby-adapter-netlify").default;
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 
