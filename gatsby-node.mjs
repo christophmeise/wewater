@@ -19,7 +19,13 @@ export async function createSchemaCustomization({ actions }) {
 }
 
 export async function createPages({ graphql, actions }) {
-  const { createPage } = actions;
+  const { createPage, createRedirect } = actions;
+
+  createRedirect({
+    fromPath: "/shop",
+    toPath: "https://shop.wewater.org/",
+    isPermanent: true,
+  });
   /*   console.log("Creating pages"); */
   const blogPosts = await graphql(`
     {
