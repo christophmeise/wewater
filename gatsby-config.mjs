@@ -42,7 +42,7 @@ const config = {
           requestConcurrency: 50, // currently set to undefined
           previewRequestConcurrency: 50, // currently set to undefined
           perPage: 100,
-          timeout: 60000,
+          timeout: 120000,
         },
         type: {
           MediaItem: {
