@@ -80,7 +80,7 @@ const config = {
       resolve: `gatsby-plugin-gdpr-cookies`,
       options: {
         googleAnalytics: {
-          trackingId: "376959100", // leave empty if you want to disable the tracker
+          trackingId: "G-H8Z3B7N6GM", // leave empty if you want to disable the tracker
           cookieName: "gatsby-gdpr-google-analytics", // default
           anonymize: true, // default
           allowAdFeatures: false, // default
