@@ -86,7 +86,7 @@ const config = {
           allowAdFeatures: false, // default
         },
         googleTagManager: {
-          trackingId: "GTM-5BBDTWL", // leave empty if you want to disable the tracker
+          trackingId: "AW-470390753", // leave empty if you want to disable the tracker
           cookieName: "gatsby-gdpr-google-tagmanager", // default
           dataLayerName: "dataLayer", // default
         },

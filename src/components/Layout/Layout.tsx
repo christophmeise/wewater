@@ -11,6 +11,7 @@ import Navbar from "../Navbar/Navbar";
 import { useTranslationHOC } from "../useTranslationHOC/useTranslationHOC";
 import "./layout.less";
 import MobileMenu from "./MobileMenu";
+import { initializeAndTrack } from "gatsby-plugin-gdpr-cookies";
 
 interface Props {
   navigate: any;
@@ -286,6 +287,7 @@ class Layout extends Component<Props, any> {
               expires={150}
               onAccept={() => {
                 console.log("accepted");
+                initializeAndTrack(window.location);
               }}
             >
               <div>
