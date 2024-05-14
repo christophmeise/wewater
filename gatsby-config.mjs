@@ -83,7 +83,7 @@ const config = {
           trackingId: "G-H8Z3B7N6GM", // leave empty if you want to disable the tracker
           cookieName: "gatsby-gdpr-google-analytics", // default
           anonymize: true, // default
-          allowAdFeatures: false, // default
+          allowAdFeatures: true, // default
         },
         googleTagManager: {
           trackingId: "AW-470390753", // leave empty if you want to disable the tracker
