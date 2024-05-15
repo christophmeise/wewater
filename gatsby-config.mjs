@@ -39,9 +39,9 @@ const config = {
         schema: {
           //Prefixes all WP Types with "Wp" so "Post and allPost" become "WpPost and allWpPost".
           typePrefix: `Wp`,
-          requestConcurrency: 50, // currently set to undefined
-          previewRequestConcurrency: 50, // currently set to undefined
-          perPage: 100,
+          requestConcurrency: 3, // currently set to undefined
+          previewRequestConcurrency: 3, // currently set to undefined
+          perPage: 20,
           timeout: 120000,
         },
         type: {
