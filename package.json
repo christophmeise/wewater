@@ -21,7 +21,8 @@
   "license": "0BSD",
   "dependencies": {
     "@apollo/client": "^3.8.3",
-    "dompurify": "^3.0.5",
+    "cheerio": "1.0.0-rc.12",
+    "dompurify": "3.0.5",
     "gatsby": "5.12.4",
     "gatsby-adapter-netlify": "1.0.3",
     "gatsby-i18n": "1.1.8",
