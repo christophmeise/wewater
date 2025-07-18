@@ -3,7 +3,6 @@ import { Icon as IconifyIcon } from "@iconify/react";
 import { Link } from "gatsby-plugin-react-i18next";
 import React, { Component } from "react";
 import { Button, Menu } from "semantic-ui-react";
-import CartIcon from "../Cart/CartIcon/CartIcon";
 import LanguageSwitcher from "../language-switcher/language-switcher";
 import Logo from "../Logo/Logo";
 import { useTranslationHOC } from "../useTranslationHOC/useTranslationHOC";
@@ -158,11 +157,6 @@ class Navbar extends Component<NavbarProps, NavbarState> {
 
         {!mobile && (
           <Menu.Menu position="right">
-            {/*             <Menu.Item
-              active={false}
-            >
-              <CartIcon t={t}></CartIcon>
-            </Menu.Item> */}
             <Menu.Item>
               <Link to={"/spenden"} language={language}>
                 <Button
@@ -183,16 +177,6 @@ class Navbar extends Component<NavbarProps, NavbarState> {
         )}
         {mobile && (
           <React.Fragment>
-            {/*             <Menu.Item
-              name="/warenkorb"
-              link
-              active={location.pathname === '/warenkorb'}
-              onClick={navigate.bind(this, '/warenkorb')}>
-              <div style={{ display: 'flex', alignItems: 'center' }}>
-                {t('Warenkorb')}
-                <CartIcon t={t} mobile={true}></CartIcon>
-              </div>
-            </Menu.Item> */}
             <LanguageSwitcher
               mobile={mobile}
               t={t}

@@ -26,6 +26,13 @@ export async function createPages({ graphql, actions }) {
     toPath: "https://shop.wewater.org/",
     isPermanent: true,
   });
+
+  createRedirect({
+    fromPath: "/spende",
+    toPath: "https://wewater.org/spenden",
+    isPermanent: true,
+  });
+
   /*   console.log("Creating pages"); */
   const blogPosts = await graphql(`
     {
@@ -87,40 +94,4 @@ export async function createPages({ graphql, actions }) {
       },
     });
   });
-
-  /* const shopItems = await graphql(`
-    {
-      allWpVariableProduct(sort: { date: DESC }) {
-        edges {
-          node {
-            id
-            name
-            description
-            shortDescription
-            date(formatString: "MMMM DD, YYYY", locale: "de")
-            slug
-            onSale
-            status
-            averageRating
-            databaseId
-          }
-        }
-      }
-    }
-  `);
-
-  if (shopItems.errors) {
-    reporter.panicOnBuild(`Error while running GraphQL query.`);
-    return;
-  }
-
-  shopItems.data.allWpVariableProduct.edges.forEach(({ node }) => {
-    createPage({
-      path: "shop/" + node.slug,
-      component: path.resolve(`./src/templates/shop-article.tsx`),
-      context: {
-        slug: node.slug,
-      },
-    });
-  }); */
 }

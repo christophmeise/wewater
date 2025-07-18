@@ -164,7 +164,8 @@ const Footer = () => {
               <Logo />
             </Link>
             <p className="footer-trademark-link footer-link">
-              © 2021, WeWater gUG. All rights reserved.
+              © {new Date().getFullYear()}, WeWater gUG.{" "}
+              <Trans>All rights reserved.</Trans>
             </p>
             <p className="footer-link footer-link-right">
               <Link to={"/impressum"} language={language}>

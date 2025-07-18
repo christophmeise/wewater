@@ -2,12 +2,8 @@ import { graphql } from "gatsby";
 import { Trans } from "gatsby-plugin-react-i18next";
 import React from "react";
 import { Container, Table } from "semantic-ui-react";
-import SwiperCore from "swiper";
-import { Autoplay, Navigation, Pagination } from "swiper/modules";
-
-import { Swiper, SwiperSlide } from "swiper/react";
-import "swiper/less";
-import "swiper/less/pagination";
+import ImageGallery from "react-image-gallery";
+import "react-image-gallery/styles/css/image-gallery.css";
 
 import BlogPostCard from "../components/BlogPostCard/blog-post-card";
 import HeaderOverlayBlog from "../components/HeaderOverlay/header-overlay-blog";
@@ -31,7 +27,6 @@ function ProjektPostTemplate({ data, t }) {
   if (projekt?.blocksJSON != null) {
     jsonBlocks = JSON.parse(projekt.blocksJSON);
   }
-  SwiperCore.use([Autoplay, Navigation, Pagination]);
 
   const isSSR = typeof window === "undefined";
   let slidesPerView = 3;
@@ -57,7 +52,7 @@ function ProjektPostTemplate({ data, t }) {
       <Container>
         <div className="blog-content-sections projekt-post">
           <section>
-            {jsonBlocks.map((block, index) => {
+            {jsonBlocks.map((block: any, index: number) => {
               if (block?.name === "core/table") {
                 return (
                   <Table key={block.name + index}>
@@ -110,29 +105,13 @@ function ProjektPostTemplate({ data, t }) {
                 );
               } else if (block?.name === "core/gallery") {
                 return (
-                  <div
-                    className="gatsby-resp-image-wrapper"
-                    key={block.name + index}
-                  >
-                    <Swiper
-                      spaceBetween={25}
-                      slidesPerView={slidesPerView}
-                      autoplay={{ delay: 4000 }}
-                      pagination={{ clickable: true, dynamicBullets: true }}
-                      className="swiper-container-blog"
-                    >
-                      {block?.attributes?.images?.map((image) => {
-                        return (
-                          <SwiperSlide key={image?.id}>
-                            <img
-                              className="shadow rounded"
-                              src={image?.url}
-                              alt={image?.alt}
-                            />
-                          </SwiperSlide>
-                        );
-                      })}
-                    </Swiper>
+                  <div key={block.name + index}>
+                    <ImageGallery
+                      items={block?.attributes?.images?.map((image) => ({
+                        original: image?.url,
+                        thumbnail: image?.url,
+                      }))}
+                    />
                   </div>
                 );
               } else if (

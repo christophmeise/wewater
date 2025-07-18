@@ -32,6 +32,8 @@ class ProjektePage extends React.Component<Props, any> {
 
     let posts = data.blogposts.edges;
 
+    console.log(posts);
+
     return (
       <Layout>
         <SEO
@@ -105,12 +107,22 @@ class ProjektePage extends React.Component<Props, any> {
                   this.state.filter === 0 ||
                   (this.state.filter === 1 &&
                     post.node.categories?.nodes.find(
-                      (categoryNode) => categoryNode.name === "In Arbeit"
+                      (categoryNode) =>
+                        categoryNode.name.toLowerCase().includes("in arbeit") ||
+                        categoryNode.name
+                          .toLowerCase()
+                          .includes("en réalisation") ||
+                        categoryNode.name.toLowerCase().includes("in progress")
                     ) != null) ||
                   (this.state.filter === 2 &&
                     post.node.categories?.nodes.find(
-                      (categoryNode) => categoryNode.name === "In Arbeit"
-                    ) == null)
+                      (categoryNode) =>
+                        categoryNode.name
+                          .toLowerCase()
+                          .includes("abgeschlossen") ||
+                        categoryNode.name.toLowerCase().includes("completed") ||
+                        categoryNode.name.toLowerCase().includes("achevé")
+                    ) != null)
               )
               .map(({ node: post }) => {
                 return (

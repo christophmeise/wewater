@@ -1,88 +1,90 @@
-@import '../styles/lib.less';
+@import "../styles/lib.less";
 
 .projekt-card-grid {
-    display              : grid;
-    grid-template-columns: 1fr 1fr;
-    column-gap           : 1rem;
-    row-gap              : 1rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 1rem;
+  row-gap: 1rem;
 }
 
 @media @mobile {
-    .projekt-card-grid {
-        grid-template-columns: 1fr;
-        column-gap           : 0;
-    }
+  .projekt-card-grid {
+    grid-template-columns: 1fr;
+    column-gap: 0;
+  }
 }
 
 .projekt-filter-wrapper {
-    text-align   : center;
-    margin-bottom: 2rem;
+  text-align: center;
+  margin-bottom: 2rem;
 }
 
 .projekt-tag-wrapper {
-    display        : flex;
-    flex-direction : row;
-    align-items    : center;
-    justify-content: center;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+
+  @media @mobile {
+    flex-wrap: wrap;
+  }
 }
 
 .projekt-tag-label {
-    display       : flex;
-    cursor        : pointer;
-    flex-direction: row;
-    align-items   : center;
-    margin-bottom : 0;
-    margin-left   : 0;
-    margin-right  : 0;
-    user-select   : none;
-    z-index       : 10;
-    border-radius : 30px;
-    padding-left  : 10px;
-    padding-top   : 6px;
-    padding-bottom: 6px;
-    padding-right : 15px;
-    border        : 1px solid rgba(224, 222, 222, 1);
+  display: flex;
+  cursor: pointer;
+  flex-direction: row;
+  align-items: center;
+  margin-bottom: 0;
+  margin-left: 0;
+  margin-right: 0;
+  user-select: none;
+  z-index: 10;
+  border-radius: 999px;
+  padding: 0.5rem 1rem;
+  border: 1px solid rgba(200, 200, 200, 1);
 
-    .color-primary {
-        background-color: @primaryColor;
-    }
+  .color-primary {
+    background-color: @primaryColor;
+  }
 
-    .color-secondary {
-        background-color: @extraColor1;
-    }
+  .color-secondary {
+    background-color: @extraColor1;
+  }
 
-    .color-tertiary {
-        background-color: @extraColor2;
-    }
+  .color-tertiary {
+    background-color: @extraColor2;
+  }
 
-    .label-text {
-        font-size  : 14px;
-        font-style : normal;
-        font-weight: normal;
-        line-height: 16px;
-        color      : @primaryFontColorDark;
-    }
+  .label-text {
+    font-size: 16px;
+    font-style: normal;
+    font-weight: normal;
+    line-height: 16px;
+    color: @primaryFontColorDark;
+  }
 }
 
 .projekt-tag-label-selected {
-    background-color: @primaryColor;
+  background-color: @primaryColor;
 }
 
 .blog-post-tag-label-group {
-    display        : flex;
-    flex-direction : row;
-    justify-content: flex-start;
-    flex-wrap      : wrap;
-    z-index        : 10;
-    margin-top     : 15px;
-    margin-bottom  : 15px;
-    margin-right   : 0.5rem;
-    row-gap        : 0.5rem;
-    column-gap     : 0.5rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  z-index: 10;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  margin-right: 0.5rem;
+  row-gap: 0.5rem;
+  column-gap: 0.5rem;
 }
 
 @media @mobile {
-    .blog-post-tag-label {
-        margin-bottom: 0.5rem;
-    }
+  .blog-post-tag-label {
+    margin-bottom: 0.5rem;
+  }
 }

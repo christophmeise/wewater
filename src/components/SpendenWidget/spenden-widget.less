@@ -1,76 +1,76 @@
-@import '../../styles/lib.less';
+@import "../../styles/lib.less";
 
 #betterplace_donation_iframe {
-    max-width  : 600px;
-    margin     : auto;
-    padding    : 2rem;
-    padding-top: 0;
+  max-width: 600px;
+  margin: auto;
+  padding: 2rem;
+  padding-top: 0;
 
-    iframe {
-        max-width       : 1000px;
-        max-height      : none;
-        width           : 100%;
-        background-color: transparent;
-        overflow        : hidden;
-        height          : 874px;
-    }
+  iframe {
+    max-width: 1000px;
+    max-height: none;
+    width: 100%;
+    background-color: transparent;
+    overflow: hidden;
+    height: 874px;
+  }
 }
 
 @media @mobile {
-    #betterplace_donation_iframe {
-        padding: 0rem;
+  #betterplace_donation_iframe {
+    padding: 0rem;
 
-        iframe {
-            height    : 1101px;
-            overflow-y: hidden;
-        }
+    iframe {
+      height: 640px;
+      overflow-y: hidden;
     }
+  }
 }
 
 .spenden-list {
-    list-style  : none;
-    padding-left: 0;
-    margin      : 28px 0;
+  list-style: none;
+  padding-left: 0;
+  margin: 28px 0;
 
-    li {
-        display       : flex;
-        flex-direction: row;
-        align-items   : center;
-        margin-bottom : 14px;
+  li {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-bottom: 14px;
+  }
+
+  div {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    svg {
+      color: @primaryColor;
+      height: 32px;
+      width: 32px;
+      margin-right: 14px;
     }
-
-    div {
-        height         : 100%;
-        display        : flex;
-        align-items    : center;
-        justify-content: center;
-
-        svg {
-            color       : @primaryColor;
-            height      : 32px;
-            width       : 32px;
-            margin-right: 14px;
-        }
-    }
+  }
 }
 
 .spenden-widget-container {
-    h5 {
-        font-size    : 18px;
-        margin-bottom: 14px;
-        margin-top   : 25px;
-    }
+  h5 {
+    font-size: 18px;
+    margin-bottom: 14px;
+    margin-top: 25px;
+  }
 
-    .spenden-info-box {
-        display       : flex;
-        flex-direction: column;
-    }
+  .spenden-info-box {
+    display: flex;
+    flex-direction: column;
+  }
 }
 
 .spenden-button-center {
-    width          : 100%;
-    display        : flex;
-    justify-content: center;
-    flex-direction : row;
-    align-items    : center;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  align-items: center;
 }

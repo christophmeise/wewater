@@ -156,20 +156,6 @@ const OverlayContent = ({ post, inverted }) => {
                 </a>
                 <a
                   href={
-                    "https://twitter.com/intent/tweet/?url=" + location?.href
-                  }
-                  target="_blank"
-                  rel="noopener"
-                >
-                  <Button
-                    className="blog-button-social"
-                    color="twitter"
-                    icon="twitter"
-                    size="medium"
-                  />
-                </a>
-                <a
-                  href={
                     "https://www.linkedin.com/shareArticle?mini=true&amp;url=" +
                     location?.href
                   }
@@ -180,21 +166,6 @@ const OverlayContent = ({ post, inverted }) => {
                     className="blog-button-social"
                     color="linkedin"
                     icon="linkedin"
-                    size="medium"
-                  />
-                </a>
-                <a
-                  href={
-                    "https://pinterest.com/pin/create/button/?url=" +
-                    location?.href
-                  }
-                  target="_blank"
-                  rel="noopener"
-                >
-                  <Button
-                    className="blog-button-social"
-                    color="pinterest"
-                    icon="pinterest"
                     size="medium"
                   />
                 </a>

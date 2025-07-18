@@ -1,7 +1,13 @@
 @import "../styles/lib.less";
 
 .blog-content-sections {
-  padding: 4rem 0rem;
+  padding: 2rem 0rem;
+}
+
+@media @mobile {
+  .blog-content-sections {
+    padding: 1rem 0rem;
+  }
 }
 
 .inline-gatsby-image-wrapper {
@@ -23,14 +29,33 @@
     margin-bottom: 1rem;
   }
 
+  ul,
+  ol {
+    margin-top: 0.5rem;
+  }
+
   ol > li {
     color: #000d3e;
-    font-size: 15px;
+    font-size: 16px;
+    line-height: 28px;
     font-style: normal;
     font-weight: 400;
-    line-height: 20px;
     -webkit-font-smoothing: antialiased;
     text-rendering: optimizelegibility;
+  }
+
+  ul {
+    white-space: normal !important;
+
+    li {
+      color: #000d3e;
+      font-size: 16px;
+      line-height: 28px;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizelegibility;
+      white-space: normal !important;
+      margin-bottom: 0.5rem;
+    }
   }
 
   .blog-post-grid {
@@ -56,8 +81,7 @@
   }
 
   img {
-    border-radius: 25px;
-    box-shadow: 0 5px 12px 0 rgb(0 13 62 / 15%), 0 10px 30px 0 rgb(0 13 62 / 9%) !important;
+    border-radius: 16px;
     width: 100%;
     object-fit: cover;
   }
@@ -73,6 +97,20 @@
   h1 {
     font-size: 36px;
     color: @primaryFontColorDark;
+  }
+
+  h1,
+  h2 {
+    margin-top: 3rem;
+    margin-bottom: 1.5rem;
+  }
+
+  h3,
+  h4,
+  h5,
+  h6 {
+    margin-top: 2rem;
+    margin-bottom: 0.75rem;
   }
 
   .gatsby-resp-image-wrapper-full {
@@ -98,22 +136,6 @@
       }
     }
   }
-
-  ul {
-    margin-top: -1rem;
-    white-space: normal !important;
-
-    li {
-      color: #0f131a;
-      font-weight: 400;
-      -webkit-font-smoothing: antialiased;
-      text-rendering: optimizelegibility;
-      font-size: 16px;
-      white-space: normal !important;
-      margin-bottom: 1rem;
-    }
-  }
-
   blockquote {
     color: #0f131a;
     font-weight: 400;
@@ -152,8 +174,7 @@
   }
 
   .gatsby-image-wrapper {
-    border-radius: 25px !important;
-    box-shadow: 0 5px 12px 0 rgb(0 13 62 / 15%), 0 10px 30px 0 rgb(0 13 62 / 9%) !important;
+    border-radius: 16px !important;
   }
 }
 

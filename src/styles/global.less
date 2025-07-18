@@ -135,6 +135,10 @@ body {
   -webkit-overflow-scrolling: touch;
 }
 
+body > div {
+  max-height: 100vh;
+}
+
 .text-primary {
   color: @primaryColor;
 }
@@ -311,13 +315,12 @@ h2&.global-headline {
 }
 
 .main-section {
-  margin-bottom: 80px;
   padding: 3rem 0rem;
 }
 
 @media @mobile {
   .main-section {
-    margin-bottom: 40px;
+    padding: 2rem 0rem;
   }
 }
 
