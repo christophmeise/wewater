@@ -104,7 +104,7 @@ function ProjektPostTemplate({ data, t }) {
                   </Table>
                 );
               } else if (block?.name === "core/gallery") {
-                return (
+                return isSSR ? null : (
                   <div key={block.name + index}>
                     <ImageGallery
                       items={block?.attributes?.images?.map((image) => ({
