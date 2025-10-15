@@ -90,7 +90,7 @@ class DataProtection extends React.Component<Props, any> {
                         <p>Verantwortlicher im Sinne der Datenschutz-Grundverordnung, sonstiger in den Mitgliedstaaten der Europäischen Union geltenden Datenschutzgesetze und anderer Bestimmungen mit datenschutzrechtlichem Charakter ist die:</p>
                         <p>WeWater gUG</p>
                         <p>Dorfstraße 11a</p>
-                        <p>13597 Berlin</p>
+                        <p>13347 Berlin</p>
                         <p>Deutschland</p>
                         <p>Tel.: 0175 1501302</p>
                         <p>E-Mail: hi@wewater.org</p>
