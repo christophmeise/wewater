@@ -33,7 +33,7 @@ class Impressum extends React.Component<Props, any> {
                 <h3>Angaben gemäß § 5 TMG</h3>
 
                 <p>WeWater gemeinnützige UG (haftungsbeschränkt)</p>
-                <p>Dorfstraße 11a</p>
+                <p>Reinickendorfer Str. 17</p>
                 <p>13347 Berlin</p>
                 <p>Deutschland</p>
                 <h3>Kontakt</h3>
