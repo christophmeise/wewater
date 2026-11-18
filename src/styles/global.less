@@ -351,3 +351,37 @@ h6 {
   width: -webkit-calc(100% - 2px);
   width: calc(100% - 2px);
 }
+
+/*
+ * Betterplace donation form (React pages and WordPress project pages).
+ * The betterplace iframe does not report its height to the parent page, so it
+ * gets a fixed height that fits the whole form (~1550px desktop, ~1650px mobile,
+ * measured 2026-11). Without this the form scrolls inside the iframe, which on
+ * mobile swallows touch scrolling of the page.
+ */
+#betterplace_donation_iframe {
+  max-width: 600px;
+  margin: auto;
+  padding: 2rem;
+  padding-top: 0;
+
+  iframe {
+    display: block;
+    width: 100%;
+    max-width: 1000px;
+    max-height: none;
+    height: 1600px;
+    background-color: transparent;
+    border: 0;
+  }
+}
+
+@media @mobile {
+  #betterplace_donation_iframe {
+    padding: 0;
+
+    iframe {
+      height: 1720px;
+    }
+  }
+}

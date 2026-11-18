@@ -1,32 +1,5 @@
 @import "../../styles/lib.less";
 
-#betterplace_donation_iframe {
-  max-width: 600px;
-  margin: auto;
-  padding: 2rem;
-  padding-top: 0;
-
-  iframe {
-    max-width: 1000px;
-    max-height: none;
-    width: 100%;
-    background-color: transparent;
-    overflow: hidden;
-    height: 874px;
-  }
-}
-
-@media @mobile {
-  #betterplace_donation_iframe {
-    padding: 0rem;
-
-    iframe {
-      height: 640px;
-      overflow-y: hidden;
-    }
-  }
-}
-
 .spenden-list {
   list-style: none;
   padding-left: 0;
@@ -64,6 +37,15 @@
   .spenden-info-box {
     display: flex;
     flex-direction: column;
+  }
+
+  .spenden-impact-list {
+    margin: 0 0 1em;
+    padding-left: 1.2em;
+
+    li {
+      margin-bottom: 0.5em;
+    }
   }
 }
 

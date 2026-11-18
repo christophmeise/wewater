@@ -3,6 +3,7 @@ import { graphql } from "gatsby";
 import { Trans } from "gatsby-plugin-react-i18next";
 import React from "react";
 import { Container } from "semantic-ui-react";
+import BetterplaceDonationIframe from "../../components/BetterplaceDonationIframe/betterplace-donation-iframe";
 import Layout from "../../components/Layout/Layout";
 import PlainHeader from "../../components/PlainOverlay/plain-header";
 import SEO from "../../components/seo";
@@ -83,21 +84,7 @@ class SpendenPage extends React.Component<Props, any> {
                 </Trans>
               </strong>
             </h4>
-            {typeof window !== "undefined" && (
-              <React.Fragment>
-                <div id="betterplace_donation_iframe">
-                  <iframe
-                    loading="lazy"
-                    title="Spendenformular WeWater Betterplace Donation"
-                    frameBorder="0"
-                    marginHeight={0}
-                    marginWidth={0}
-                    src="https://www.betterplace.org/de/donate/iframe/projects/68773?background_color=ffffff&color=5ABEE6&donation_amount=20&bottom_logo=true&default_payment_method=&default_interval=single&utm_campaign=external_donation_forms"
-                    width="100%"
-                  ></iframe>
-                </div>
-              </React.Fragment>
-            )}
+            <BetterplaceDonationIframe />
             <h4>
               <strong>
                 <Trans>3. Du spendest über eine Banküberweisung an</Trans>
